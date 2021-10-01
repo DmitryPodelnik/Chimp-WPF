@@ -130,9 +130,11 @@
             <Button x:Name="loginButton" Content="Login" Width="75px" Command="{Binding LoginCommand}"></Button>
         </StackPanel>
 
-        <StackPanel x:Name="accountPanel" >
+        <StackPanel x:Name="accountPanel" Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2"
+                    Visibility="Hidden">
 
-            <Button x:Name="loginButton" Content="Login" Width="75px" Command="{Binding SaveProfileCommand}"></Button>
+            <Button x:Name="saveProfileButton" Content="Save Profile" Width="75px" 
+                    Command="{Binding SaveProfileCommand}"></Button>
         </StackPanel>
 
     </Grid>

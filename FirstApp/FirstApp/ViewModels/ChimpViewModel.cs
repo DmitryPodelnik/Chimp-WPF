@@ -127,6 +127,14 @@ namespace First_App.ViewModels
                 return;
             }
 
+            if ((_chimpWindow.loginTextBox.Text == null || _chimpWindow.loginTextBox.Text.Length == 0) 
+                || _chimpWindow.passwordBox.Password == null || _chimpWindow.passwordBox.Password.Length == 0)
+            {
+                MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK);
+
+                return;
+            }
+
             bool result = _database.IsAuthorized(
                 _chimpWindow.loginTextBox.Text,
                 _chimpWindow.passwordBox.Password
