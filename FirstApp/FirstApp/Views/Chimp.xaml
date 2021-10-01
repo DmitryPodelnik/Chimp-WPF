@@ -6,7 +6,15 @@
         xmlns:local="clr-namespace:First_App"
         mc:Ignorable="d"
         Title="Chimp" Height="450" Width="800" Icon="/Views/chimpLogo.png"
+       
         >
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF145B99" Offset="0"/>
+            <GradientStop Color="#FF2578BC" Offset="0.163"/>
+            <GradientStop Color="#FF1969AB" Offset="0.078"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition/>
