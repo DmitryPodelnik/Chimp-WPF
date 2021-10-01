@@ -101,6 +101,19 @@ namespace First_App.ViewModels
             }
         }
 
+        private RelayCommand _saveProfileCommand;
+        public RelayCommand SaveProfileCommand
+        {
+            get
+            {
+                return _saveProfileCommand =
+                (_saveProfileCommand = new RelayCommand(obj =>
+                {
+                    SaveProfile();
+                }));
+            }
+        }
+
         private void CheckAuthorization()
         {
             bool result = _database.IsAuthorized(
@@ -140,6 +153,11 @@ namespace First_App.ViewModels
         }
 
         private void ExitGame()
+        {
+
+        }
+
+        private void SaveProfile()
         {
 
         }
