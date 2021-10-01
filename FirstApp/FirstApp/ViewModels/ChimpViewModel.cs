@@ -88,6 +88,19 @@ namespace First_App.ViewModels
             }
         }
 
+        private RelayCommand _loginCommand;
+        public RelayCommand LoginCommand
+        {
+            get
+            {
+                return _loginCommand =
+                (_loginCommand = new RelayCommand(obj =>
+                {
+                    CheckAuthorization();
+                }));
+            }
+        }
+
         private void CheckAuthorization()
         {
             bool result = _database.IsAuthorized(

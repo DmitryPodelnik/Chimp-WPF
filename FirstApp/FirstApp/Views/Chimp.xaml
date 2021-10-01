@@ -127,7 +127,7 @@
             <TextBlock x:Name="passwordTextBlock" Text="Enter a password: " FontSize="15" Margin="0 0 0 5"></TextBlock>
             <PasswordBox x:Name="passwordBox" Height="30" VerticalContentAlignment="Center" Margin="0 0 0 15"></PasswordBox>
 
-            <Button x:Name="loginButton" Content="Login" Width="75px" Command="{Binding CheckAuthorization}"></Button>
+            <Button x:Name="loginButton" Content="Login" Width="75px" Command="{Binding LoginCommand}"></Button>
         </StackPanel>
 
     </Grid>
