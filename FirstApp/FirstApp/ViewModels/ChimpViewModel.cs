@@ -88,6 +88,24 @@ namespace First_App.ViewModels
             }
         }
 
+        private void CheckAuthorization()
+        {
+            bool result = _database.IsAuthorized(
+                _chimpWindow.loginTextBox.Text,
+                _chimpWindow.passwordBox.Password
+                );
+
+            if (result)
+            {
+                MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
+                _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK);
+            }
+        }
+
         private void ShowLoginTab()
         {
 
