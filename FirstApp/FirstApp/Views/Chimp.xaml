@@ -130,5 +130,10 @@
             <Button x:Name="loginButton" Content="Login" Width="75px" Command="{Binding LoginCommand}"></Button>
         </StackPanel>
 
+        <StackPanel x:Name="accountPanel" >
+
+            <Button x:Name="loginButton" Content="Login" Width="75px" Command="{Binding SaveProfileCommand}"></Button>
+        </StackPanel>
+
     </Grid>
 </Window>

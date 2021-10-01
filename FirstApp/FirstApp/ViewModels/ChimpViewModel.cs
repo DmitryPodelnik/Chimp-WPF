@@ -1,5 +1,6 @@
 ﻿using First_App.Models.Commands;
 using First_App.Models.DataBase;
+using First_App.Models.RegistryData;
 using FirstApp.Models.DataBase;
 using System;
 using System.Collections.Generic;
@@ -123,6 +124,12 @@ namespace First_App.ViewModels
 
             if (result)
             {
+                SavingRegistryData registry = new();
+                registry.SaveUserData(
+                    _chimpWindow.loginTextBox.Text,
+                    _chimpWindow.passwordBox.Password
+                    );
+
                 MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
                 _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
             }
