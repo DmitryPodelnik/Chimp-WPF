@@ -47,7 +47,7 @@
             </Button>
             
             <Button Grid.Row="1" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
-                    HorizontalContentAlignment="Left">
+                    HorizontalContentAlignment="Left" Command="{Binding PlayCommand}">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
@@ -58,7 +58,7 @@
             </Button>
             
             <Button Grid.Row="2" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
-                    HorizontalContentAlignment="Left">
+                    HorizontalContentAlignment="Left" Command="{Binding ShowProfileCommand}">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
@@ -69,7 +69,7 @@
             </Button>
             
             <Button Grid.Row="3" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
-                    HorizontalContentAlignment="Left">
+                    HorizontalContentAlignment="Left" Command="{Binding ShowRecordsCommand}">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
@@ -102,7 +102,7 @@
             </Button>-->
             
             <Button Grid.Row="6" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
-                    HorizontalContentAlignment="Left">
+                    HorizontalContentAlignment="Left" Command="{Binding ExitCommand}">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
