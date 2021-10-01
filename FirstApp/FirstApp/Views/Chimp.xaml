@@ -116,11 +116,12 @@
         </Grid>
 
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Width="200px">
-            <TextBlock Text="Enter a login: " ></TextBlock>
-            <TextBox Height="30" VerticalAlignment="Bottom" Margin="0 0 0 10"></TextBox>
+            <TextBlock Text="Enter a login: " FontSize="15" Margin="0 0 0 5"></TextBlock>
+            <TextBox Height="30" VerticalAlignment="Bottom" Margin="0 0 0 10" 
+                     VerticalContentAlignment="Center"></TextBox>
 
-            <TextBlock Text="Enter a password: " ></TextBlock>
-            <PasswordBox Height="30"></PasswordBox>
+            <TextBlock Text="Enter a password: " FontSize="15" Margin="0 0 0 5"></TextBlock>
+            <PasswordBox Height="30" VerticalContentAlignment="Center"></PasswordBox>
         </StackPanel>
 
     </Grid>
