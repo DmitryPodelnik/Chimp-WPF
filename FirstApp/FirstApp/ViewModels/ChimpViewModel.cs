@@ -117,6 +117,14 @@ namespace First_App.ViewModels
 
         private void CheckAuthorization()
         {
+            SavingRegistryData registry = new();
+
+            if (registry.IsExistsKey("ChimpAuthData"))
+            {
+                LoginSuccessActions();
+                _chimpWindow.accountPanel.Visibility = Visibility.Visible;
+            }
+
             bool result = _database.IsAuthorized(
                 _chimpWindow.loginTextBox.Text,
                 _chimpWindow.passwordBox.Password
@@ -124,19 +132,23 @@ namespace First_App.ViewModels
 
             if (result)
             {
-                SavingRegistryData registry = new();
                 registry.SaveUserData(
                     _chimpWindow.loginTextBox.Text,
                     _chimpWindow.passwordBox.Password
                     );
 
-                MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
-                _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
+                LoginSuccessActions();
             }
             else
             {
                 MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK);
             }
+        }
+
+        private void LoginSuccessActions()
+        {
+            MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
+            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
         }
 
         private void ShowLoginTab()
