@@ -53,7 +53,7 @@ namespace First_App {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/First App;V1.0.0.0;component/views/chimp.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/First App;component/views/chimp.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\Chimp.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
