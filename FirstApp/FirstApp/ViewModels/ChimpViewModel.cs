@@ -1,4 +1,5 @@
-﻿using First_App.Models.DataBase;
+﻿using First_App.Models.Commands;
+using First_App.Models.DataBase;
 using FirstApp.Models.DataBase;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,25 @@ namespace First_App.ViewModels
 
         }
 
+
+        private RelayCommand _returnToMainTabCommand;
+        public RelayCommand ReturnToMainTabCommand
+        {
+            get
+            {
+                return _returnToMainTabCommand =
+                (_returnToMainTabCommand = new RelayCommand(obj =>
+                {
+                    // AddItem();
+                    ShowLoginTab();
+                }));
+            }
+        }
+
+        private void ShowLoginTab()
+        {
+
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

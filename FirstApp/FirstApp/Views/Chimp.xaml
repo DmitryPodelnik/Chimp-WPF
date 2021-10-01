@@ -37,7 +37,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Cursor="Hand" Background="{StaticResource leftAsideButton}" HorizontalContentAlignment="Left"
-                    >
+                    Command="{Binding ReturnToMainTabCommand}">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" 
                             Margin="10 0 0 0">
                     <Image Source="/Views/chimpLogo.png" MaxWidth="55" MaxHeight="55" Margin="0,0,5,0" Cursor="Hand"/>
@@ -51,7 +51,7 @@
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
                     <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                    <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                    <TextBlock Text="Profile" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
                                VerticalAlignment="Center" Foreground="#FFEBEBEB" />
                 </StackPanel>
             </Button>
