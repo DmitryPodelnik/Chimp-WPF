@@ -1,4 +1,5 @@
-﻿using System;
+﻿using First_App.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -33,5 +34,7 @@ namespace FirstApp.Models
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Passwords are not equal")]
         public string PasswordConfirmation { get; set; }
+
+        public UserProfile Profile { get; set; }
     }
 }

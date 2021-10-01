@@ -13,10 +13,13 @@ namespace First_App.Models.DataBase.Configurations
     {
         public void Configure(EntityTypeBuilder<Statistics> builder)
         {
+            builder.Property(s => s.Score).HasDefaultValue(0);
+
             builder.HasData(
               new Statistics[]
               {
-
+                  new Statistics { Id = 1, Score = 0 },
+                  new Statistics { Id = 2, Score = 0 },
               });
         }
     }
