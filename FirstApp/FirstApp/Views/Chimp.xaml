@@ -37,9 +37,9 @@
             </Grid.ColumnDefinitions>
 
             <!--<TabControl>-->
-                <Button Cursor="Hand" Background="{StaticResource leftAsideButton}" HorizontalContentAlignment="Left"
+            <Button Cursor="Hand" Background="{StaticResource leftAsideButton}" HorizontalContentAlignment="Left"
                     Command="{Binding ReturnToMainTabCommand}">
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" 
                             Margin="10 0 0 0">
                         <Image Source="/Views/chimpLogo.png" MaxWidth="55" MaxHeight="55" Margin="0,0,5,0" Cursor="Hand"/>
                         <TextBlock Text="Chimp" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
@@ -115,13 +115,17 @@
             <!--</TabControl>-->
         </Grid>
 
-        <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Width="200px">
-            <TextBlock Text="Enter a login: " FontSize="15" Margin="0 0 0 5"></TextBlock>
-            <TextBox Height="30" VerticalAlignment="Bottom" Margin="0 0 0 10" 
+        <TextBlock Text="MAIN WINDOW" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1"
+                   VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="72"
+                   />
+
+        <StackPanel x:Name="authorizationPanel" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Width="200px" Visibility="Hidden">
+            <TextBlock x:Name="loginTextBlock" Text="Enter a login: " FontSize="15" Margin="0 0 0 5"></TextBlock>
+            <TextBox x:Name="loginTextBox" Height="30" VerticalAlignment="Bottom" Margin="0 0 0 10" 
                      VerticalContentAlignment="Center"></TextBox>
 
-            <TextBlock Text="Enter a password: " FontSize="15" Margin="0 0 0 5"></TextBlock>
-            <PasswordBox Height="30" VerticalContentAlignment="Center"></PasswordBox>
+            <TextBlock x:Name="passwordTextBlock" Text="Enter a password: " FontSize="15" Margin="0 0 0 5"></TextBlock>
+            <PasswordBox x:Name="passwordBox" Height="30" VerticalContentAlignment="Center"></PasswordBox>
         </StackPanel>
 
     </Grid>
