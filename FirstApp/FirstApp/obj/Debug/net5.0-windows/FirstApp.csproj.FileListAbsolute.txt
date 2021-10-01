@@ -6,11 +6,9 @@ D:\WORK WPF\First App\FirstApp\FirstApp\bin\Debug\net5.0-windows\FirstApp.dll
 D:\WORK WPF\First App\FirstApp\FirstApp\bin\Debug\net5.0-windows\ref\FirstApp.dll
 D:\WORK WPF\First App\FirstApp\FirstApp\bin\Debug\net5.0-windows\FirstApp.pdb
 D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\FirstApp.csproj.AssemblyReference.cache
-D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\Views\Chimp.g.cs
 D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\App.g.cs
 D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\FirstApp_MarkupCompile.cache
 D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\FirstApp_MarkupCompile.lref
-D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\Views\Chimp.baml
 D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\FirstApp.g.resources
 D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\FirstApp.GeneratedMSBuildEditorConfig.editorconfig
 D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\FirstApp.AssemblyInfoInputs.cache
@@ -20,3 +18,5 @@ D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\FirstApp.dll
 D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\ref\FirstApp.dll
 D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\FirstApp.pdb
 D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\FirstApp.genruntimeconfig.cache
+D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\Views\Chimp.g.cs
+D:\WORK WPF\First App\FirstApp\FirstApp\obj\Debug\net5.0-windows\Views\Chimp.baml
