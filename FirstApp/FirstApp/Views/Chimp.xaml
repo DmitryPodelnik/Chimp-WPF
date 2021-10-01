@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FirstApp"
         mc:Ignorable="d"
-        Title="Chimp" Height="450" Width="800">
+        Title="Chimp" MinHeight="450" MinWidth="800"
+        ShowInTaskbar="True">
     <Grid>
 
     </Grid>
