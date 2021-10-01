@@ -22,7 +22,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid x:Name="leftAsideGrid" Grid.RowSpan="4">
+        <Grid x:Name="leftAsideGrid" Grid.RowSpan="4" Background="{StaticResource leftAsideBackground}">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -35,20 +35,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="leftAside"/>
             </Grid.ColumnDefinitions>
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.6">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="#CC093757" Offset="0"/>
-                    <GradientStop Color="#FF003F6C" Offset="0.058"/>
-                </LinearGradientBrush>
-            </Grid.Background>
 
             <Button Cursor="Hand" Background="{StaticResource leftAsideButton}">
 
