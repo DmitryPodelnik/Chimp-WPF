@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:FirstApp"
              StartupUri="Views/Chimp.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Dictionaries/ButtonsDictionary.xaml" />
+                <ResourceDictionary Source="/Dictionaries/WindowsDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

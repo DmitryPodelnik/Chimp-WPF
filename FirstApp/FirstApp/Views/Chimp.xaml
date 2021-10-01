@@ -5,17 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:First_App"
         mc:Ignorable="d"
-        Title="Chimp" Height="450" Width="800" Icon="/Views/chimpLogo.png"
-       
-        >
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="#FF145B99" Offset="0"/>
-            <GradientStop Color="#FF2578BC" Offset="0.163"/>
-            <GradientStop Color="#FF1969AB" Offset="0.078"/>
-        </LinearGradientBrush>
-    </Window.Background>
-    <Grid>
+        Title="Chimp" MinHeight="450" MinWidth="800" Icon="/Views/chimpLogo.png"      
+        Background="{StaticResource mainBackground}">
+    <Grid x:Name="mainGrid">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -30,8 +22,20 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.RowSpan="4" Orientation="Vertical">
-            <StackPanel.Background>
+        <Grid x:Name="leftAsideGrid" Grid.RowSpan="4">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="leftAside"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.6">
                     <LinearGradientBrush.RelativeTransform>
                         <TransformGroup>
@@ -44,14 +48,47 @@
                     <GradientStop Color="#CC093757" Offset="0"/>
                     <GradientStop Color="#FF003F6C" Offset="0.058"/>
                 </LinearGradientBrush>
-            </StackPanel.Background>
-            
-            <StackPanel Orientation="Horizontal">
-                
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            </Grid.Background>
 
+            <Button Cursor="Hand" Background="{StaticResource leftAsideButton}">
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <Image Source="/Views/playIcon.png" MaxWidth="50" MaxHeight="50" Margin="0,0,5,0" Cursor="Hand"/>
+                    <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
+                </StackPanel>
+            </Button>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <Button>
+                    
+                </Button>
             </StackPanel>
-        </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2">
+                <Button>
+                    
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="3">
+                <Button>
+
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="4">
+                <Button>
+
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="5">
+                <Button>
+
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="6">
+                <Button>
+
+                </Button>
+            </StackPanel>
+            
+        </Grid>
     </Grid>
 </Window>

@@ -8,11 +8,11 @@
 
   <ItemGroup>
     <None Remove="Views\chimpLogo.png" />
+    <None Remove="Views\playIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="images\" />
-    <Folder Include="Dictionaries\" />
     <Folder Include="Models\Registry\" />
   </ItemGroup>
 
@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <Resource Include="Views\chimpLogo.png" />
+    <Resource Include="Views\playIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
