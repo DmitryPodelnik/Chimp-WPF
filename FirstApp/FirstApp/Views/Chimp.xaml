@@ -45,37 +45,52 @@
                                VerticalAlignment="Center" Foreground="#FFEBEBEB" />
                 </StackPanel>
             </Button>
+            
             <Button Grid.Row="1" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
                     <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                    <TextBlock Text="Profile" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                    <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
                                VerticalAlignment="Center" Foreground="#FFEBEBEB" />
                 </StackPanel>
             </Button>
+            
             <Button Grid.Row="2" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
-                    <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                    <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                    <Image Source="/Views/profileIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                    <TextBlock Text="Profile" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
                                VerticalAlignment="Center" Foreground="#FFEBEBEB" />
                 </StackPanel>
             </Button>
+            
             <Button Grid.Row="3" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
                     <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                    <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                    <TextBlock Text="Records" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
                                VerticalAlignment="Center" Foreground="#FFEBEBEB" />
                 </StackPanel>
             </Button>
-            <Button Grid.Row="4" Cursor="Hand" Background="{StaticResource leftAsideButton}"
+
+            <!--<Button Grid.Row="4" Cursor="Hand" Background="{StaticResource leftAsideButton}"
+                    HorizontalContentAlignment="Left">
+                
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
+                            Margin="10 0 0 0">
+                    <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                    <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
+                </StackPanel>
+            </Button>-->
+            
+            <!--<Button Grid.Row="5" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -84,25 +99,16 @@
                     <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
                                VerticalAlignment="Center" Foreground="#FFEBEBEB" />
                 </StackPanel>
-            </Button>
-            <Button Grid.Row="5" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
-                    HorizontalContentAlignment="Left">
-
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
-                            Margin="10 0 0 0">
-                    <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                    <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
-                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
-                </StackPanel>
-            </Button>
+            </Button>-->
+            
             <Button Grid.Row="6" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
-                    <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                    <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
-                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
+                    <Image Source="/Views/exitIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                    <TextBlock Text="Exit" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                               VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
             </Button>
             

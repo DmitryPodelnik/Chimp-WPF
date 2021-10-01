@@ -8,7 +8,9 @@
 
   <ItemGroup>
     <None Remove="Views\chimpLogo.png" />
+    <None Remove="Views\exitIcon.png" />
     <None Remove="Views\playIcon.png" />
+    <None Remove="Views\profileIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,7 +29,9 @@
 
   <ItemGroup>
     <Resource Include="Views\chimpLogo.png" />
+    <Resource Include="Views\exitIcon.png" />
     <Resource Include="Views\playIcon.png" />
+    <Resource Include="Views\profileIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
