@@ -123,6 +123,8 @@ namespace First_App.ViewModels
             {
                 LoginSuccessActions();
                 _chimpWindow.accountPanel.Visibility = Visibility.Visible;
+
+                return;
             }
 
             bool result = _database.IsAuthorized(
