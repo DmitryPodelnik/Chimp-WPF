@@ -11,6 +11,7 @@
     <None Remove="Views\exitIcon.png" />
     <None Remove="Views\playIcon.png" />
     <None Remove="Views\profileIcon.png" />
+    <None Remove="Views\ratingIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +26,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +36,7 @@
     <Resource Include="Views\exitIcon.png" />
     <Resource Include="Views\playIcon.png" />
     <Resource Include="Views\profileIcon.png" />
+    <Resource Include="Views\ratingIcon.png" />
   </ItemGroup>
 
   <ItemGroup>

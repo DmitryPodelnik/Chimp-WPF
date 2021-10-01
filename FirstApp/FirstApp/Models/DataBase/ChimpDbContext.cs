@@ -11,6 +11,7 @@ namespace FirstApp.Models.DataBase
     public class ChimpDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<User> UserProfiles { get; set; }
 
         public ChimpDbContext(DbContextOptions<ChimpDbContext> options) : base(options)
         {
