@@ -9,13 +9,26 @@ namespace First_App.Models.RegistryData
 {
     public class SavingRegistryData
     {
-        private void SaveUserData(string login, string password)
+        public void SaveUserData (string login, string password)
         {
             RegistryKey currentUserKey = Registry.CurrentUser;
-            RegistryKey helloKey = currentUserKey.CreateSubKey("ChimpAuthData");
-            helloKey.SetValue("login", login);
-            helloKey.SetValue("password", password);
-            helloKey.Close();
+            RegistryKey authKey = currentUserKey.CreateSubKey("ChimpAuthData");
+            authKey.SetValue("login", login);
+            authKey.SetValue("password", password);
+            authKey.Close();
+        }
+
+        public bool IsExistsKey(string key)
+        {
+            RegistryKey currentUserKey = Registry.CurrentUser;
+            RegistryKey authKey = currentUserKey.OpenSubKey(key);
+            authKey.Close();
+
+            if (authKey != null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
