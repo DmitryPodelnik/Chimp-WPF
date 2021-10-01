@@ -117,16 +117,6 @@ namespace First_App.ViewModels
 
         private void CheckAuthorization()
         {
-            SavingRegistryData registry = new();
-
-            if (registry.IsExistsKey("ChimpAuthData"))
-            {
-                LoginSuccessActions();
-                _chimpWindow.accountPanel.Visibility = Visibility.Visible;
-
-                return;
-            }
-
             if ((_chimpWindow.loginTextBox.Text == null || _chimpWindow.loginTextBox.Text.Length == 0) 
                 || _chimpWindow.passwordBox.Password == null || _chimpWindow.passwordBox.Password.Length == 0)
             {
@@ -142,6 +132,7 @@ namespace First_App.ViewModels
 
             if (result)
             {
+                SavingRegistryData registry = new();
                 registry.SaveUserData(
                     _chimpWindow.loginTextBox.Text,
                     _chimpWindow.passwordBox.Password

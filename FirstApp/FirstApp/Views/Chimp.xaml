@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Chimp" MinHeight="450" MinWidth="800" Icon="/Views/chimpLogo.png"      
         Background="{StaticResource mainBackground}">
-    <Grid x:Name="mainGrid">
+    <Grid x:Name="mainGrid" Loaded="mainGrid_Loaded">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
