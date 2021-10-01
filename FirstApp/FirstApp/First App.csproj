@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <Folder Include="images\" />
-    <Folder Include="ViewModels\" />
+    <Folder Include="Dictionaries\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +26,12 @@
 
   <ItemGroup>
     <Resource Include="Views\chimpLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

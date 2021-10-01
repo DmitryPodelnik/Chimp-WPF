@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace FirstApp.Models.DataBase
 {
-    public class ChimpContext : DbContext
+    public class ChimpDbContext : DbContext
     {
-        public DbSet<User> Records { get; set; }
+        public DbSet<User> Users { get; set; }
 
-        public ChimpContext(DbContextOptions<ChimpContext> options) : base(options)
+        public ChimpDbContext(DbContextOptions<ChimpDbContext> options) : base(options)
         {
             // Если такая БД уже есть, то удаляем ее
             ConnectToDatabase();
