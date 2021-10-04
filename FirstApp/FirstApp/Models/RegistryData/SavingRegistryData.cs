@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace First_App.Models.RegistryData
 {
@@ -17,16 +19,72 @@ namespace First_App.Models.RegistryData
             authKey.SetValue("password", password);
         }
 
-        public bool IsExistsKey(string key)
+        public void RemoveUserData ()
         {
-            using RegistryKey currentUserKey = Registry.CurrentUser;
-            using RegistryKey authKey = currentUserKey.OpenSubKey(key);
-
-            if (authKey != null)
+            try
             {
-                return true;
+                using RegistryKey currentUserKey = Registry.CurrentUser;
+                using RegistryKey authKey = currentUserKey.OpenSubKey("ChimpAuthData", true);
+                // value deleting from the key
+                authKey.DeleteValue("login");
+                authKey.DeleteValue("password");
+                // key deleting
+                currentUserKey.DeleteSubKey("HelloKey");
             }
-            return false;
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (ObjectDisposedException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (SecurityException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public bool IsExistsKey (string key)
+        {
+            try
+            {
+                using RegistryKey currentUserKey = Registry.CurrentUser;
+                using RegistryKey authKey = currentUserKey.OpenSubKey(key);
+
+                if (authKey != null)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            catch (ObjectDisposedException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            catch (SecurityException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
     }
 }

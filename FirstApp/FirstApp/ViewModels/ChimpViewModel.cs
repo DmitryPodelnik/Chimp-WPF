@@ -175,6 +175,9 @@ namespace First_App.ViewModels
         private void ExitGame()
         {
             _chimpWindow.authorizationPanel.Visibility = Visibility.Visible;
+
+            SavingRegistryData registry = new();
+            registry.RemoveUserData();
         }
 
         private void SaveProfile()
