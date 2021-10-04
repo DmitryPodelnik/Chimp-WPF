@@ -142,25 +142,28 @@
                     Background="#FF003F6C" Foreground="White"></Button>
         </StackPanel>
 
-        <StackPanel x:Name="accountPanel" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4"
-                    Visibility="Hidden"  HorizontalAlignment="Left" Panel.ZIndex="1">
-            <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left" Margin="25 20 0 0"></TextBlock>
-            
-            <TextBlock x:Name="accountLoginTextBlock" Text="New login: " FontSize="15" Margin="25 20 0 5"></TextBlock>
-            <TextBox x:Name="accountLoginTextBox" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0" 
+        <Grid x:Name="accountPanel" Visibility="Hidden" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
+            <StackPanel x:Name="accountLeftPanel" Grid.RowSpan="4" Grid.ColumnSpan="2"
+                    HorizontalAlignment="Left" Panel.ZIndex="1">
+                <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left" Margin="25 20 0 0"></TextBlock>
+
+                <TextBlock x:Name="accountLoginTextBlock" Text="New login: " FontSize="15" Margin="25 20 0 5"></TextBlock>
+                <TextBox x:Name="accountLoginTextBox" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0" 
                      VerticalContentAlignment="Center"></TextBox>
 
-            <TextBlock x:Name="accountPasswordTextBlock" Text="New password: " FontSize="15" Margin="25 25 0 0"></TextBlock>
-            <PasswordBox x:Name="accountPasswordBox" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0" 
+                <TextBlock x:Name="accountPasswordTextBlock" Text="New password: " FontSize="15" Margin="25 25 0 0"></TextBlock>
+                <PasswordBox x:Name="accountPasswordBox" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0" 
                      VerticalContentAlignment="Center"></PasswordBox>
 
-            <TextBlock x:Name="accountPasswordTextBlockConfirm" Text="Confirm new password: " FontSize="15" Margin="25 25 0 0" Foreground="Black"></TextBlock>
-            <PasswordBox x:Name="accountPasswordBoxConfirm" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0" 
+                <TextBlock x:Name="accountPasswordTextBlockConfirm" Text="Confirm new password: " FontSize="15" Margin="25 25 0 0" Foreground="Black"></TextBlock>
+                <PasswordBox x:Name="accountPasswordBoxConfirm" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0" 
                      VerticalContentAlignment="Center"></PasswordBox>
 
-            <Button x:Name="saveProfileButton" Content="Save Profile" Width="75px" Margin="0 25 0 0" Padding="5"
+                <Button x:Name="saveProfileButton" Content="Save Profile" Width="75px" Margin="0 25 0 0" Padding="5"
                     Command="{Binding SaveProfileCommand}" Background="#FF003F6C" Foreground="White"></Button>
-        </StackPanel>
 
+                <TextBlock Text="Your best score is " HorizontalAlignment="Right"></TextBlock>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

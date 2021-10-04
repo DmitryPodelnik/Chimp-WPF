@@ -165,7 +165,7 @@ namespace First_App.ViewModels
         private void LoginSuccessActions()
         {
             MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
-            _chimpWindow.accountNameTextBlock.Text = $"Hello, {_chimpWindow.loginTextBox.Text}";
+            _chimpWindow.accountNameTextBlock.Text = $"Hello, {_chimpWindow.loginTextBox.Text}!";
             _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
         }
 
