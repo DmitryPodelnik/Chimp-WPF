@@ -147,7 +147,15 @@ namespace First_App.Models.DataBase
                 _context.SaveChanges();
 
                 SavingRegistryData registry = new();
-                registry.SaveUserData(newLogin, password);
+
+                if (newLogin is not null)
+                {
+                    registry.SaveUserData(newLogin, password);
+                }
+                else
+                {
+                    registry.SaveUserData(previousLogin, password);
+                }
 
                 return true;
             }
