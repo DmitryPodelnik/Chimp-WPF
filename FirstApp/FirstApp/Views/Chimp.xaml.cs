@@ -40,6 +40,13 @@ namespace First_App
 
                 return;
             }
+            else
+            {
+                recordsButton.IsEnabled = false;
+                profileButton.IsEnabled = false;
+                playButton.IsEnabled = false;
+                mainTabButton.IsEnabled = false;
+            }
         }
     }
 }

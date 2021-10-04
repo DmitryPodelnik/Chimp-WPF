@@ -37,17 +37,19 @@
             </Grid.ColumnDefinitions>
 
             <!--<TabControl>-->
-            <Button Cursor="Hand" Background="{StaticResource leftAsideButton}" HorizontalContentAlignment="Left"
+            <Button x:Name="mainTabButton" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+                    HorizontalContentAlignment="Left"
                     Command="{Binding ReturnToMainTabCommand}">
+                
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" 
                             Margin="10 0 0 0">
                         <Image Source="/Views/chimpLogo.png" MaxWidth="55" MaxHeight="55" Margin="0,0,5,0" Cursor="Hand"/>
                         <TextBlock Text="Chimp" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
                                VerticalAlignment="Center" Foreground="#FFEBEBEB" />
-                    </StackPanel>
-                </Button>
+                </StackPanel>
+            </Button>
 
-                <Button Grid.Row="1" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+                <Button x:Name="playButton" Grid.Row="1" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left" Command="{Binding PlayCommand}">
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -58,7 +60,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button Grid.Row="2" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+                <Button x:Name="profileButton" Grid.Row="2" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left" Command="{Binding ShowProfileCommand}">
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -69,7 +71,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button Grid.Row="3" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+                <Button x:Name="recordsButton" Grid.Row="3" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left" Command="{Binding ShowRecordsCommand}">
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -119,11 +121,11 @@
                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="72"
                    Visibility="Hidden" />
 
-        <Grid x:Name="playGrid">
+        <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
             
         </Grid>
 
-        <Grid x:Name="recordsGrid">
+        <Grid x:Name="recordsGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
             
         </Grid>
 
@@ -136,7 +138,8 @@
             <TextBlock x:Name="passwordTextBlock" Text="Enter a password: " FontSize="15" Margin="0 0 0 5"></TextBlock>
             <PasswordBox x:Name="passwordBox" Height="30" VerticalContentAlignment="Center" Margin="0 0 0 15"></PasswordBox>
 
-            <Button x:Name="loginButton" Content="Login" Width="75px" Command="{Binding LoginCommand}"></Button>
+            <Button x:Name="loginButton" Content="Login" Width="75px" Command="{Binding LoginCommand}"
+                    Background="#FF003F6C" Foreground="White"></Button>
         </StackPanel>
 
         <StackPanel x:Name="accountPanel" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4"

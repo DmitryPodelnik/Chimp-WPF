@@ -147,6 +147,7 @@ namespace First_App.ViewModels
 
                 LoginSuccessActions();
                 _chimpWindow.passwordBox.Password = "";
+                EnableLeftButtonBeforeAuth();
             }
             else
             {
@@ -164,25 +165,45 @@ namespace First_App.ViewModels
 
         private void ShowMainTab()
         {
-
+            _chimpWindow.accountNameTextBlock.Text = "";
+            _chimpWindow.mainText.Visibility = Visibility.Visible;
+            _chimpWindow.playGrid.Visibility = Visibility.Hidden;
+            _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
+            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
+            _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
         }
 
-        private void StartPlay()
+        private void StartPlay ()
         {
-
+            _chimpWindow.accountNameTextBlock.Text = "";
+            _chimpWindow.playGrid.Visibility = Visibility.Visible;
+            _chimpWindow.mainText.Visibility = Visibility.Hidden;
+            _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
+            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
+            _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
         }
 
-        private void ShowProfile()
+        private void ShowProfile ()
         {
-
+            _chimpWindow.accountNameTextBlock.Text = $"Hello, {_chimpWindow.loginTextBox.Text}";
+            _chimpWindow.accountPanel.Visibility = Visibility.Visible;
+            _chimpWindow.playGrid.Visibility = Visibility.Hidden;
+            _chimpWindow.mainText.Visibility = Visibility.Hidden;
+            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
+            _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
         }
 
-        private void ShowRecords()
+        private void ShowRecords ()
         {
-
+            _chimpWindow.accountNameTextBlock.Text = "";
+            _chimpWindow.recordsGrid.Visibility = Visibility.Visible;
+            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
+            _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
+            _chimpWindow.playGrid.Visibility = Visibility.Hidden;
+            _chimpWindow.mainText.Visibility = Visibility.Hidden;
         }
 
-        private void ExitGame()
+        private void ExitGame ()
         {
             var res = MessageBox.Show("Are you sure to exit from the account?", "Exit", MessageBoxButton.YesNo);
 
@@ -191,50 +212,32 @@ namespace First_App.ViewModels
                 SavingRegistryData registry = new();
                 registry.RemoveUserData();
                 _chimpWindow.loginTextBox.Text = "";
+                _chimpWindow.accountNameTextBlock.Text = "";
                 _chimpWindow.authorizationPanel.Visibility = Visibility.Visible;
-
-                switch (SelectedAction.CurrentSelectedAction)
-                {
-                    case Actions.MainTab:
-                        {
-                            Panel.SetZIndex(_chimpWindow.mainText, 10);
-
-                            break;
-                        }
-
-                    case Actions.Play:
-                        {
-                            Panel.SetZIndex(_chimpWindow.playGrid, 10);
-
-                            break;
-                        }
-
-                    case Actions.ShowProfile:
-                        {
-                            Panel.SetZIndex(_chimpWindow.accountPanel, 10);
-
-                            break;
-                        }
-
-                    case Actions.ShowAuthorization:
-                        {
-                            Panel.SetZIndex(_chimpWindow.authorizationPanel, 10);
-
-                            break;
-                        }
-
-                    case Actions.ShowRecords:
-                        {
-                            Panel.SetZIndex(_chimpWindow.recordsGrid, 10);
-
-                            break;
-                        }
-
-                }
+                _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
+                _chimpWindow.playGrid.Visibility = Visibility.Hidden;
+                _chimpWindow.mainText.Visibility = Visibility.Hidden;
+                _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
+                DisableLeftButtonBeforeAuth();
             }
         }
 
-        private void SaveProfile()
+        private void DisableLeftButtonBeforeAuth ()
+        {
+            _chimpWindow.recordsButton.IsEnabled = false;
+            _chimpWindow.profileButton.IsEnabled = false;
+            _chimpWindow.playButton.IsEnabled = false;
+            _chimpWindow.mainTabButton.IsEnabled = false;
+        }
+        private void EnableLeftButtonBeforeAuth()
+        {
+            _chimpWindow.recordsButton.IsEnabled = true;
+            _chimpWindow.profileButton.IsEnabled = true;
+            _chimpWindow.playButton.IsEnabled = true;
+            _chimpWindow.mainTabButton.IsEnabled = true;
+        }
+
+        private void SaveProfile ()
         {
            bool res = _database.SaveNewData(
                     SavingRegistryData.GetCurrentUser(),
