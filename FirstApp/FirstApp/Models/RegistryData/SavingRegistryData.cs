@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security;
 using System.Text;
@@ -13,10 +14,33 @@ namespace First_App.Models.RegistryData
     {
         public void SaveUserData (string login, string password)
         {
-            using RegistryKey currentUserKey = Registry.CurrentUser;
-            using RegistryKey authKey = currentUserKey.CreateSubKey("ChimpAuthData");
-            authKey.SetValue("login", login);
-            authKey.SetValue("password", password);
+            try
+            {
+                using RegistryKey currentUserKey = Registry.CurrentUser;
+                using RegistryKey authKey = currentUserKey.CreateSubKey("ChimpAuthData");
+                authKey.SetValue("login", login);
+                authKey.SetValue("password", password);
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (ObjectDisposedException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (SecurityException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void RemoveUserData ()
@@ -29,7 +53,7 @@ namespace First_App.Models.RegistryData
                 authKey.DeleteValue("login");
                 authKey.DeleteValue("password");
                 // key deleting
-                currentUserKey.DeleteSubKey("HelloKey");
+                currentUserKey.DeleteSubKey("ChimpAuthData");
             }
             catch (ArgumentNullException ex)
             {

@@ -139,10 +139,13 @@ namespace First_App.ViewModels
                     );
 
                 LoginSuccessActions();
+                _chimpWindow.loginTextBox.Text = "";
+                _chimpWindow.passwordBox.Password = "";
             }
             else
             {
                 MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK);
+                _chimpWindow.passwordBox.Password = "";
             }
         }
 
