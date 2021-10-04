@@ -91,18 +91,13 @@ namespace First_App.ViewModels
                 (_exitCommand = new RelayCommand(obj =>
                 {
                     SelectedAction.CurrentSelectedAction = Actions.ShowAuthorization;
-                    MessageBoxResult res = MessageBox.Show(
-                        "Are you sure to exit from the account?",
-                        "Exit",
-                        MessageBoxButton.YesNo
-                        );
 
                     if (SavingRegistryData.GetCurrentUser() is not null)
                     {
-                        ExitGame(res);
+                        ExitFromAccount();
                         return;
                     }
-                    
+                    ExitGame();
                 }));
             }
         }
@@ -214,8 +209,10 @@ namespace First_App.ViewModels
             _chimpWindow.mainText.Visibility = Visibility.Hidden;
         }
 
-        private void ExitGame (MessageBoxResult res)
+        private void ExitFromAccount ()
         {
+            var res = MessageBox.Show("Are you sure to exit from the account?", "Exit", MessageBoxButton.YesNo);
+
             if (res == MessageBoxResult.Yes)
             {
                 SavingRegistryData registry = new();
@@ -231,6 +228,16 @@ namespace First_App.ViewModels
             }
         }
 
+        private void ExitGame ()
+        {
+            var res = MessageBox.Show("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo);
+
+            if (res == MessageBoxResult.Yes)
+            {
+                _chimpWindow.Close();
+            }
+        }
+
         private void DisableLeftButtonBeforeAuth ()
         {
             _chimpWindow.recordsButton.IsEnabled = false;
@@ -238,7 +245,7 @@ namespace First_App.ViewModels
             _chimpWindow.playButton.IsEnabled = false;
             _chimpWindow.mainTabButton.IsEnabled = false;
         }
-        private void EnableLeftButtonBeforeAuth()
+        private void EnableLeftButtonBeforeAuth ()
         {
             _chimpWindow.recordsButton.IsEnabled = true;
             _chimpWindow.profileButton.IsEnabled = true;
@@ -269,7 +276,7 @@ namespace First_App.ViewModels
 
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        public void OnPropertyChanged ([CallerMemberName] string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
