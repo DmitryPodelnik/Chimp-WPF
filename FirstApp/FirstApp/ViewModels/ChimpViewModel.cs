@@ -1,4 +1,5 @@
-﻿using First_App.Models.Commands;
+﻿using First_App.Models;
+using First_App.Models.Commands;
 using First_App.Models.DataBase;
 using First_App.Models.RegistryData;
 using FirstApp.Models.DataBase;
@@ -32,7 +33,8 @@ namespace First_App.ViewModels
                 return _returnToMainTabCommand =
                 (_returnToMainTabCommand = new RelayCommand(obj =>
                 {
-                    ShowLoginTab();
+                    SelectedAction.CurrentSelectedAction = "MainTab";
+                    ShowMainTab();
                 }));
             }
         }
@@ -45,6 +47,7 @@ namespace First_App.ViewModels
                 return _playCommand =
                 (_playCommand = new RelayCommand(obj =>
                 {
+                    SelectedAction.CurrentSelectedAction = "Play";
                     StartPlay();
                 }));
             }
@@ -58,6 +61,7 @@ namespace First_App.ViewModels
                 return _showProfileCommand =
                 (_showProfileCommand = new RelayCommand(obj =>
                 {
+                    SelectedAction.CurrentSelectedAction = "ShowProfile";
                     ShowProfile();
                 }));
             }
@@ -71,6 +75,7 @@ namespace First_App.ViewModels
                 return _showRecordsCommand =
                 (_showRecordsCommand = new RelayCommand(obj =>
                 {
+                    SelectedAction.CurrentSelectedAction = "ShowRecords";
                     ShowRecords();
                 }));
             }
@@ -84,6 +89,7 @@ namespace First_App.ViewModels
                 return _exitCommand =
                 (_exitCommand = new RelayCommand(obj =>
                 {
+                    SelectedAction.CurrentSelectedAction = "ShowAuthorization";
                     ExitGame();
                 }));
             }
@@ -155,7 +161,7 @@ namespace First_App.ViewModels
             _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
         }
 
-        private void ShowLoginTab()
+        private void ShowMainTab()
         {
 
         }
@@ -185,6 +191,16 @@ namespace First_App.ViewModels
                 registry.RemoveUserData();
                 _chimpWindow.loginTextBox.Text = "";
                 _chimpWindow.authorizationPanel.Visibility = Visibility.Visible;
+
+                SelectedAction.CurrentSelectedAction switch
+                {
+                    Actions.ShowAuthorization => ,
+                    Actions.ShowRecords => ,
+                    Actions.ShowProfile => ,
+                    Actions.Play => ,
+                    Actions.MainTab => ,
+                    _ => throw new ArgumentException(message: "Invalid enum value"),
+                };
             }
         }
 
