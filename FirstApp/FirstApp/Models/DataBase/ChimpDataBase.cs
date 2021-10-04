@@ -102,6 +102,11 @@ namespace First_App.Models.DataBase
 
         public async Task<bool> SaveNewDataAsync (string previousLogin, string newLogin, string password, string confirmPassword)
         {
+            if (previousLogin == null && (password == null || confirmPassword == null))
+            {
+                MessageBox.Show("Inccorect values!", "Error", MessageBoxButton.OK);
+                return false;
+            }
             if (password != confirmPassword)
             {
                 MessageBox.Show("Passwords are not equal!", "Error", MessageBoxButton.OK);
@@ -110,6 +115,7 @@ namespace First_App.Models.DataBase
 
             try
             {
+
                 var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == previousLogin);
                 if (user == null)
                 {
@@ -117,12 +123,19 @@ namespace First_App.Models.DataBase
                     return false;
                 }
 
-                user.Username = login;
+                if (newLogin != null)
+                {
+                    var existedUser = await _context.Users.FirstOrDefaultAsync(u => u.Username == newLogin);
+                    if (existedUser == null)
+                    {
+                        user.Username = newLogin;
+                    }
+                }
                 user.Password = password;
                 await _context.SaveChangesAsync();
 
                 SavingRegistryData registry = new();
-                registry.SaveUserData(login, password);
+                registry.SaveUserData(newLogin, password);
 
                 return true;
             }

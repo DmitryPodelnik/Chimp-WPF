@@ -151,6 +151,7 @@ namespace First_App.ViewModels
         private void LoginSuccessActions()
         {
             MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
+            _chimpWindow.accountNameTextBlock.Text = $"Hello, {_chimpWindow.loginTextBox.Text}";
             _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
         }
 
@@ -201,7 +202,6 @@ namespace First_App.ViewModels
                 MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
                 return;
             }
-            MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
         }
 
 
