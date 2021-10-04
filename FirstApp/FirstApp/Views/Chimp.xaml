@@ -142,9 +142,23 @@
                     Background="#FF003F6C" Foreground="White"></Button>
         </StackPanel>
 
-        <Grid x:Name="accountPanel" Visibility="Hidden" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
+        <Grid x:Name="accountPanel" Visibility="Hidden" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            
             <StackPanel x:Name="accountLeftPanel" Grid.RowSpan="4" Grid.ColumnSpan="2"
-                    HorizontalAlignment="Left" Panel.ZIndex="1">
+                    HorizontalAlignment="Left">
                 <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left" Margin="25 20 0 0"></TextBlock>
 
                 <TextBlock x:Name="accountLoginTextBlock" Text="New login: " FontSize="15" Margin="25 20 0 5"></TextBlock>
@@ -161,8 +175,12 @@
 
                 <Button x:Name="saveProfileButton" Content="Save Profile" Width="75px" Margin="0 25 0 0" Padding="5"
                     Command="{Binding SaveProfileCommand}" Background="#FF003F6C" Foreground="White"></Button>
+            </StackPanel>
 
-                <TextBlock Text="Your best score is " HorizontalAlignment="Right"></TextBlock>
+            <StackPanel>
+                <TextBlock x:Name="scoreText" FontFamily="Autumn" FontSize="22px" 
+                           Grid.RowSpan="4"  Grid.Column="3" Grid.ColumnSpan="2" />
+                
             </StackPanel>
         </Grid>
     </Grid>

@@ -189,9 +189,9 @@ namespace First_App.ViewModels
             _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
         }
 
-        private void ShowProfile ()
+        private void ShowProfile ()      
         {
-            _chimpWindow.accountNameTextBlock.Text = $"Hello, {_chimpWindow.loginTextBox.Text}";
+            _chimpWindow.accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
             _chimpWindow.accountPanel.Visibility = Visibility.Visible;
             _chimpWindow.playGrid.Visibility = Visibility.Hidden;
             _chimpWindow.mainText.Visibility = Visibility.Hidden;
