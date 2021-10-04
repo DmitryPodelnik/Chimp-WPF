@@ -132,7 +132,7 @@
 
         <StackPanel x:Name="accountPanel" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4"
                     Visibility="Hidden"  HorizontalAlignment="Left">
-            <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left"></TextBlock>
+            <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left" Margin="25 20 0 0"></TextBlock>
             
             <TextBlock x:Name="accountLoginTextBlock" Text="New login: " FontSize="15" Margin="25 20 0 5"></TextBlock>
             <TextBox x:Name="accountLoginTextBox" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0" 
