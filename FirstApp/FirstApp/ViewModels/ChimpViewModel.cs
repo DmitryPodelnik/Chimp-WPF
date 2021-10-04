@@ -11,6 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace First_App.ViewModels
 {
@@ -33,7 +34,7 @@ namespace First_App.ViewModels
                 return _returnToMainTabCommand =
                 (_returnToMainTabCommand = new RelayCommand(obj =>
                 {
-                    SelectedAction.CurrentSelectedAction = "MainTab";
+                    SelectedAction.CurrentSelectedAction = Actions.MainTab;
                     ShowMainTab();
                 }));
             }
@@ -47,7 +48,7 @@ namespace First_App.ViewModels
                 return _playCommand =
                 (_playCommand = new RelayCommand(obj =>
                 {
-                    SelectedAction.CurrentSelectedAction = "Play";
+                    SelectedAction.CurrentSelectedAction = Actions.Play;
                     StartPlay();
                 }));
             }
@@ -61,7 +62,7 @@ namespace First_App.ViewModels
                 return _showProfileCommand =
                 (_showProfileCommand = new RelayCommand(obj =>
                 {
-                    SelectedAction.CurrentSelectedAction = "ShowProfile";
+                    SelectedAction.CurrentSelectedAction = Actions.ShowProfile;
                     ShowProfile();
                 }));
             }
@@ -75,7 +76,7 @@ namespace First_App.ViewModels
                 return _showRecordsCommand =
                 (_showRecordsCommand = new RelayCommand(obj =>
                 {
-                    SelectedAction.CurrentSelectedAction = "ShowRecords";
+                    SelectedAction.CurrentSelectedAction = Actions.ShowRecords;
                     ShowRecords();
                 }));
             }
@@ -89,7 +90,7 @@ namespace First_App.ViewModels
                 return _exitCommand =
                 (_exitCommand = new RelayCommand(obj =>
                 {
-                    SelectedAction.CurrentSelectedAction = "ShowAuthorization";
+                    SelectedAction.CurrentSelectedAction = Actions.ShowAuthorization;
                     ExitGame();
                 }));
             }
@@ -192,15 +193,44 @@ namespace First_App.ViewModels
                 _chimpWindow.loginTextBox.Text = "";
                 _chimpWindow.authorizationPanel.Visibility = Visibility.Visible;
 
-                SelectedAction.CurrentSelectedAction switch
+                switch (SelectedAction.CurrentSelectedAction)
                 {
-                    Actions.ShowAuthorization => ,
-                    Actions.ShowRecords => ,
-                    Actions.ShowProfile => ,
-                    Actions.Play => ,
-                    Actions.MainTab => ,
-                    _ => throw new ArgumentException(message: "Invalid enum value"),
-                };
+                    case Actions.MainTab:
+                        {
+                            Panel.SetZIndex(_chimpWindow.mainText, 10);
+
+                            break;
+                        }
+
+                    case Actions.Play:
+                        {
+                            Panel.SetZIndex(_chimpWindow.playGrid, 10);
+
+                            break;
+                        }
+
+                    case Actions.ShowProfile:
+                        {
+                            Panel.SetZIndex(_chimpWindow.accountPanel, 10);
+
+                            break;
+                        }
+
+                    case Actions.ShowAuthorization:
+                        {
+                            Panel.SetZIndex(_chimpWindow.authorizationPanel, 10);
+
+                            break;
+                        }
+
+                    case Actions.ShowRecords:
+                        {
+                            Panel.SetZIndex(_chimpWindow.recordsGrid, 10);
+
+                            break;
+                        }
+
+                }
             }
         }
 

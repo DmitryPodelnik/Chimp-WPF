@@ -115,9 +115,17 @@
             <!--</TabControl>-->
         </Grid>
 
-        <TextBlock Text="MAIN WINDOW" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1"
+        <TextBlock x:Name="mainText" Text="MAIN WINDOW" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1"
                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="72"
                    Visibility="Hidden" />
+
+        <Grid x:Name="playGrid">
+            
+        </Grid>
+
+        <Grid x:Name="recordsGrid">
+            
+        </Grid>
 
         <StackPanel x:Name="authorizationPanel" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" Width="200px"
                     VerticalAlignment="Center">
@@ -132,7 +140,7 @@
         </StackPanel>
 
         <StackPanel x:Name="accountPanel" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4"
-                    Visibility="Hidden"  HorizontalAlignment="Left">
+                    Visibility="Hidden"  HorizontalAlignment="Left" Panel.ZIndex="1">
             <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left" Margin="25 20 0 0"></TextBlock>
             
             <TextBlock x:Name="accountLoginTextBlock" Text="New login: " FontSize="15" Margin="25 20 0 5"></TextBlock>
