@@ -20,8 +20,8 @@ namespace FirstApp.Models.DataBase
 
         private void ConnectToDatabase()
         {
-             // if (Database.CanConnect())
-             //   Database.EnsureDeleted();
+               if (Database.CanConnect())
+                Database.EnsureDeleted();
 
             // Создаем БД
             Database.EnsureCreated();

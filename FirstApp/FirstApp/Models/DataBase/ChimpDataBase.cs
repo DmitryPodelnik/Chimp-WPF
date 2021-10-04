@@ -113,7 +113,12 @@ namespace First_App.Models.DataBase
 
         public bool SaveNewData (string previousLogin, string newLogin, string password, string confirmPassword)
         {
-            if (String.IsNullOrEmpty(previousLogin) &&
+            if (String.IsNullOrEmpty(previousLogin))
+            {
+                MessageBox.Show("Inccorect values!", "Error", MessageBoxButton.OK);
+                return false;
+            }
+            if (String.IsNullOrEmpty(newLogin) &&
                 (String.IsNullOrEmpty(password) || String.IsNullOrEmpty(confirmPassword)))
             {
                 MessageBox.Show("Inccorect values!", "Error", MessageBoxButton.OK);
@@ -142,13 +147,15 @@ namespace First_App.Models.DataBase
                         user.Username = newLogin;
                     }
                 }
-                user.Password = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
+                if (!(String.IsNullOrEmpty(password) || String.IsNullOrEmpty(confirmPassword))) {
+                    user.Password = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
+                }
                 _context.Users.Update(user);
                 _context.SaveChanges();
 
                 SavingRegistryData registry = new();
 
-                if (newLogin is not null)
+                if (!String.IsNullOrEmpty(newLogin))
                 {
                     registry.SaveUserData(newLogin, password);
                 }
