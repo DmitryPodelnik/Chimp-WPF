@@ -91,7 +91,18 @@ namespace First_App.ViewModels
                 (_exitCommand = new RelayCommand(obj =>
                 {
                     SelectedAction.CurrentSelectedAction = Actions.ShowAuthorization;
-                    ExitGame();
+                    MessageBoxResult res = MessageBox.Show(
+                        "Are you sure to exit from the account?",
+                        "Exit",
+                        MessageBoxButton.YesNo
+                        );
+
+                    if (SavingRegistryData.GetCurrentUser() is not null)
+                    {
+                        ExitGame(res);
+                        return;
+                    }
+                    
                 }));
             }
         }
@@ -203,10 +214,8 @@ namespace First_App.ViewModels
             _chimpWindow.mainText.Visibility = Visibility.Hidden;
         }
 
-        private void ExitGame ()
+        private void ExitGame (MessageBoxResult res)
         {
-            var res = MessageBox.Show("Are you sure to exit from the account?", "Exit", MessageBoxButton.YesNo);
-
             if (res == MessageBoxResult.Yes)
             {
                 SavingRegistryData registry = new();

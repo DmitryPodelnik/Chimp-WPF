@@ -115,7 +115,7 @@ namespace First_App.Models.RegistryData
         {
             using RegistryKey currentUserKey = Registry.CurrentUser;
             using RegistryKey authKey = currentUserKey.OpenSubKey("ChimpAuthData");
-            return authKey.GetValue("login").ToString();
+            return authKey.GetValue("login", null).ToString();
         }
     }
 }
