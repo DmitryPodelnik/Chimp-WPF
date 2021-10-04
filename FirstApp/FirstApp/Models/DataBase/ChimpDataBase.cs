@@ -100,18 +100,20 @@ namespace First_App.Models.DataBase
             }
         }
 
-        public async Task<bool> SaveNewData (string login, string password, string confirmPassword)
+        public async Task<bool> SaveNewDataAsync (string previousLogin, string newLogin, string password, string confirmPassword)
         {
             if (password != confirmPassword)
             {
+                MessageBox.Show("Passwords are not equal!", "Error", MessageBoxButton.OK);
                 return false;
             }
 
             try
             {
-                var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == login);
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == previousLogin);
                 if (user == null)
                 {
+                    MessageBox.Show("User is not found!", "Error", MessageBoxButton.OK);
                     return false;
                 }
 

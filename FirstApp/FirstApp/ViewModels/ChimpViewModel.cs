@@ -139,7 +139,6 @@ namespace First_App.ViewModels
                     );
 
                 LoginSuccessActions();
-                _chimpWindow.loginTextBox.Text = "";
                 _chimpWindow.passwordBox.Password = "";
             }
             else
@@ -183,13 +182,26 @@ namespace First_App.ViewModels
             {
                 SavingRegistryData registry = new();
                 registry.RemoveUserData();
+                _chimpWindow.loginTextBox.Text = "";
                 _chimpWindow.authorizationPanel.Visibility = Visibility.Visible;
             }
         }
 
         private void SaveProfile()
         {
-
+           var res = _database.SaveNewDataAsync(
+                    _chimpWindow.loginTextBox.Text,
+                    _chimpWindow.accountLoginTextBox.Text,
+                    _chimpWindow.accountPasswordBox.Password,
+                    _chimpWindow.accountPasswordBoxConfirm.Password
+                );
+            
+            if (res.Result == true)
+            {
+                MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
+                return;
+            }
+            MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
         }
 
 
