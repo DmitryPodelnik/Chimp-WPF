@@ -29,7 +29,6 @@ namespace First_App.Models.DataBase
         public string ConnectionString { get; set; }
         public DbContextOptions<ChimpDbContext> Options { get; set; }
 
-
         public ChimpDataBase()
         {
             try
@@ -100,7 +99,7 @@ namespace First_App.Models.DataBase
             }
         }
 
-        public async Task<bool> SaveNewDataAsync (string previousLogin, string newLogin, string password, string confirmPassword)
+        public bool SaveNewData (string previousLogin, string newLogin, string password, string confirmPassword)
         {
             if (String.IsNullOrEmpty(previousLogin) &&
                 (String.IsNullOrEmpty(password) || String.IsNullOrEmpty(confirmPassword)))
@@ -117,7 +116,7 @@ namespace First_App.Models.DataBase
             try
             {
 
-                var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == previousLogin);
+                var user = _context.Users.FirstOrDefault(u => u.Username == previousLogin);
                 if (user == null)
                 {
                     MessageBox.Show("User is not found!", "Error", MessageBoxButton.OK);
@@ -125,14 +124,14 @@ namespace First_App.Models.DataBase
                 }
                 if (String.IsNullOrEmpty(newLogin))
                 {
-                    var existedUser = await _context.Users.FirstOrDefaultAsync(u => u.Username == newLogin);
+                    var existedUser = _context.Users.FirstOrDefault(u => u.Username == newLogin);
                     if (existedUser == null)
                     {
                         user.Username = newLogin;
                     }
                 }
                 user.Password = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
 
                 SavingRegistryData registry = new();
                 registry.SaveUserData(newLogin, password);

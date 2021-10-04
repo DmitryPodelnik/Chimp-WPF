@@ -190,17 +190,22 @@ namespace First_App.ViewModels
 
         private void SaveProfile()
         {
-           var res = _database.SaveNewDataAsync(
+           bool res = _database.SaveNewData(
                     SavingRegistryData.GetCurrentUser(),
                     _chimpWindow.accountLoginTextBox.Text,
                     _chimpWindow.accountPasswordBox.Password,
                     _chimpWindow.accountPasswordBoxConfirm.Password
                 );
             
-            if (res.Result == true)
+            if (res == true)
             {
                 MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
                 return;
+            }
+            else
+            {
+                _chimpWindow.accountPasswordBox.Password = "";
+                _chimpWindow.accountPasswordBoxConfirm.Password = "";
             }
         }
 

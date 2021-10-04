@@ -111,10 +111,10 @@ namespace First_App.Models.RegistryData
             }
         }
 
-        public string GetCurrentUser ()
+        public static string GetCurrentUser ()
         {
             using RegistryKey currentUserKey = Registry.CurrentUser;
-            using RegistryKey authKey = currentUserKey.OpenSubKey(key);
+            using RegistryKey authKey = currentUserKey.OpenSubKey("ChimpAuthData");
             return authKey.GetValue("login").ToString();
         }
     }
