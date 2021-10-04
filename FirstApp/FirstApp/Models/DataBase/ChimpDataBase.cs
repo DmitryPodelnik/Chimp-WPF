@@ -122,7 +122,7 @@ namespace First_App.Models.DataBase
                     MessageBox.Show("User is not found!", "Error", MessageBoxButton.OK);
                     return false;
                 }
-                if (String.IsNullOrEmpty(newLogin))
+                if (!String.IsNullOrEmpty(newLogin))
                 {
                     var existedUser = _context.Users.FirstOrDefault(u => u.Username == newLogin);
                     if (existedUser == null)
@@ -131,6 +131,7 @@ namespace First_App.Models.DataBase
                     }
                 }
                 user.Password = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
+                _context.Users.Update(user);
                 _context.SaveChanges();
 
                 SavingRegistryData registry = new();
