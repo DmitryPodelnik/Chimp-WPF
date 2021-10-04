@@ -204,7 +204,7 @@ namespace First_App.ViewModels
                 MessageBox.Show("User is not found", "Error");
             }
 
-            _chimpWindow.scoreText.Text = $"Your best score is {user.Score}";
+            _chimpWindow.scoreText.Text = $"Your best score is {user?.Score}";
         }
 
         private void ShowRecords ()
@@ -273,13 +273,13 @@ namespace First_App.ViewModels
             if (res == true)
             {
                 MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
-                return;
+                _chimpWindow.accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
             }
-            else
-            {
-                _chimpWindow.accountPasswordBox.Password = "";
-                _chimpWindow.accountPasswordBoxConfirm.Password = "";
-            }
+            _chimpWindow.accountLoginTextBox.Text = "";
+            _chimpWindow.accountPasswordBox.Password = "";
+            _chimpWindow.accountPasswordBoxConfirm.Password = "";
+
+            return;
         }
 
 

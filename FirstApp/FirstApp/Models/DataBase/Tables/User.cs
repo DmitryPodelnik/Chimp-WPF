@@ -1,4 +1,5 @@
 ﻿using First_App.Models;
+using First_App.Models.DataBase.Tables;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -37,5 +38,7 @@ namespace FirstApp.Models
 
         [Required]
         public short Score { get; set; }
+
+        public List<Record> Records { get; set; } = new();
     }
 }

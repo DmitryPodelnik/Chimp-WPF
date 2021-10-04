@@ -36,7 +36,6 @@ namespace First_App
                // MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
                 authorizationPanel.Visibility = Visibility.Hidden;
                 accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
-
                 accountPanel.Visibility = Visibility.Visible;
 
                 return;
