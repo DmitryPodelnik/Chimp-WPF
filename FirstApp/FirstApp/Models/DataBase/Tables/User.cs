@@ -35,6 +35,7 @@ namespace FirstApp.Models
         [Compare("Password", ErrorMessage = "Passwords are not equal")]
         public string PasswordConfirmation { get; set; }
 
-        public UserProfile Profile { get; set; }
+        [Required]
+        public short Score { get; set; }
     }
 }

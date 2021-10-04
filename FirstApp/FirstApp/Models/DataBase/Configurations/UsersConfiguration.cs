@@ -16,6 +16,8 @@ namespace FirstApp.Configurations
         {
             SHA256Managed sha256 = new SHA256Managed();
 
+            builder.Property(u => u.Score).HasDefaultValue(0);
+
             builder.HasData(
               new User[]
               {

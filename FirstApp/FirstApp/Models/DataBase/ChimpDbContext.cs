@@ -11,7 +11,6 @@ namespace FirstApp.Models.DataBase
     public class ChimpDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<User> UserProfiles { get; set; }
 
         public ChimpDbContext(DbContextOptions<ChimpDbContext> options) : base(options)
         {
@@ -21,8 +20,8 @@ namespace FirstApp.Models.DataBase
 
         private void ConnectToDatabase()
         {
-           // if (Database.CanConnect())
-           //     Database.EnsureDeleted();
+            // if (Database.CanConnect())
+            //    Database.EnsureDeleted();
 
             // Создаем БД
             Database.EnsureCreated();

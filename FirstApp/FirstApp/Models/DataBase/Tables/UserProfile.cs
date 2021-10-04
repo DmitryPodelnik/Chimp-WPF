@@ -16,10 +16,6 @@ namespace First_App.Models
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [StringLength(50)]
-        public string Name { get; set; }
-        public int? Age { get; set; }
-
         public int? UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual User User { get; set; }

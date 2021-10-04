@@ -197,6 +197,14 @@ namespace First_App.ViewModels
             _chimpWindow.mainText.Visibility = Visibility.Hidden;
             _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
             _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
+
+            var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
+            if (user is null)
+            {
+                MessageBox.Show("User is not found", "Error");
+            }
+
+            _chimpWindow.scoreText.Text = $"Your best score is {user.Score}";
         }
 
         private void ShowRecords ()

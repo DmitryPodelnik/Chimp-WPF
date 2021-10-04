@@ -142,7 +142,7 @@
                     Background="#FF003F6C" Foreground="White"></Button>
         </StackPanel>
 
-        <Grid x:Name="accountPanel" Visibility="Hidden" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="True">
+        <Grid x:Name="accountPanel" Visibility="Hidden" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -177,9 +177,8 @@
                     Command="{Binding SaveProfileCommand}" Background="#FF003F6C" Foreground="White"></Button>
             </StackPanel>
 
-            <StackPanel>
-                <TextBlock x:Name="scoreText" FontFamily="Autumn" FontSize="22px" 
-                           Grid.RowSpan="4"  Grid.Column="3" Grid.ColumnSpan="2" />
+            <StackPanel Grid.RowSpan="4"  Grid.Column="2" Grid.ColumnSpan="3">
+                <TextBlock x:Name="scoreText" FontSize="22px" Margin="0 20 0 0" />
                 
             </StackPanel>
         </Grid>

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography;
 using System.Windows;
 using First_App.Models.RegistryData;
+using FirstApp.Models;
 
 namespace First_App.Models.DataBase
 {
@@ -97,6 +98,17 @@ namespace First_App.Models.DataBase
                 MessageBox.Show(ex.Message);
                 return false;
             }
+        }
+
+        public User GetUser (string login)
+        {
+            if (String.IsNullOrEmpty(login))
+            {
+                return null;
+            }
+            var user = _context.Users.FirstOrDefault(u => u.Username == login);
+
+            return user;
         }
 
         public bool SaveNewData (string previousLogin, string newLogin, string password, string confirmPassword)
