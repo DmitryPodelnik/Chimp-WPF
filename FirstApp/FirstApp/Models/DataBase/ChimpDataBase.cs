@@ -102,7 +102,8 @@ namespace First_App.Models.DataBase
 
         public async Task<bool> SaveNewDataAsync (string previousLogin, string newLogin, string password, string confirmPassword)
         {
-            if (previousLogin == null && (password == null || confirmPassword == null))
+            if (String.IsNullOrEmpty(previousLogin) &&
+                (String.IsNullOrEmpty(password) || String.IsNullOrEmpty(confirmPassword)))
             {
                 MessageBox.Show("Inccorect values!", "Error", MessageBoxButton.OK);
                 return false;
@@ -122,8 +123,7 @@ namespace First_App.Models.DataBase
                     MessageBox.Show("User is not found!", "Error", MessageBoxButton.OK);
                     return false;
                 }
-
-                if (newLogin != null)
+                if (String.IsNullOrEmpty(newLogin))
                 {
                     var existedUser = await _context.Users.FirstOrDefaultAsync(u => u.Username == newLogin);
                     if (existedUser == null)
@@ -131,7 +131,7 @@ namespace First_App.Models.DataBase
                         user.Username = newLogin;
                     }
                 }
-                user.Password = password;
+                user.Password = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
                 await _context.SaveChangesAsync();
 
                 SavingRegistryData registry = new();

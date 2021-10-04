@@ -191,7 +191,7 @@ namespace First_App.ViewModels
         private void SaveProfile()
         {
            var res = _database.SaveNewDataAsync(
-                    _chimpWindow.loginTextBox.Text,
+                    SavingRegistryData.GetCurrentUser(),
                     _chimpWindow.accountLoginTextBox.Text,
                     _chimpWindow.accountPasswordBox.Password,
                     _chimpWindow.accountPasswordBoxConfirm.Password

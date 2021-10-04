@@ -132,17 +132,17 @@
 
         <StackPanel x:Name="accountPanel" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4"
                     Visibility="Hidden"  HorizontalAlignment="Left">
-            <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left"></TextBlock>
             
             <TextBlock x:Name="accountLoginTextBlock" Text="New login: " FontSize="15" Margin="25 20 0 5"></TextBlock>
             <TextBox x:Name="accountLoginTextBox" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0" 
                      VerticalContentAlignment="Center"></TextBox>
 
-            <TextBlock x:Name="accountPasswordTextBlock" Text="Password: " FontSize="15" Margin="25 25 0 0"></TextBlock>
+            <TextBlock x:Name="accountPasswordTextBlock" Text="New password: " FontSize="15" Margin="25 25 0 0"></TextBlock>
             <PasswordBox x:Name="accountPasswordBox" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0" 
                      VerticalContentAlignment="Center"></PasswordBox>
 
-            <TextBlock x:Name="accountPasswordTextBlockConfirm" Text="Confirm password: " FontSize="15" Margin="25 25 0 0" Foreground="Black"></TextBlock>
+            <TextBlock x:Name="accountPasswordTextBlockConfirm" Text="Confirm new password: " FontSize="15" Margin="25 25 0 0" Foreground="Black"></TextBlock>
             <PasswordBox x:Name="accountPasswordBoxConfirm" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0" 
                      VerticalContentAlignment="Center"></PasswordBox>
 

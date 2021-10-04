@@ -110,5 +110,12 @@ namespace First_App.Models.RegistryData
                 return false;
             }
         }
+
+        public string GetCurrentUser ()
+        {
+            using RegistryKey currentUserKey = Registry.CurrentUser;
+            using RegistryKey authKey = currentUserKey.OpenSubKey(key);
+            return authKey.GetValue("login").ToString();
+        }
     }
 }
