@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography;
 using System.Windows;
+using First_App.Models.RegistryData;
 
 namespace First_App.Models.DataBase
 {
@@ -93,6 +94,47 @@ namespace First_App.Models.DataBase
                 return false;
             }
             catch (EncoderFallbackException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public async Task<bool> SaveNewData (string login, string password, string confirmPassword)
+        {
+            if (password != confirmPassword)
+            {
+                return false;
+            }
+
+            try
+            {
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == login);
+                if (user == null)
+                {
+                    return false;
+                }
+
+                user.Username = login;
+                user.Password = password;
+                await _context.SaveChangesAsync();
+
+                SavingRegistryData registry = new();
+                registry.SaveUserData(login, password);
+
+                return true;
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            catch (DbUpdateException ex)
             {
                 MessageBox.Show(ex.Message);
                 return false;
