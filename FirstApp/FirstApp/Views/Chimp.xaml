@@ -133,7 +133,7 @@
         <StackPanel x:Name="accountPanel" Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="2"
                     Visibility="Hidden">
 
-            <Button x:Name="saveProfileButton" Content="Save Profile" Width="75px" 
+            <Button x:Name="saveProfileButton" Content="Save Profile" Width="75px"
                     Command="{Binding SaveProfileCommand}"></Button>
         </StackPanel>
 

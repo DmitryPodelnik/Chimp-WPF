@@ -33,7 +33,7 @@ namespace First_App
             SavingRegistryData registry = new();
             if (registry.IsExistsKey("ChimpAuthData"))
             {
-                MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
+               // MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
                 authorizationPanel.Visibility = Visibility.Hidden;
                 accountPanel.Visibility = Visibility.Visible;
 
