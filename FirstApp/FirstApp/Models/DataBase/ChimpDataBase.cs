@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography;
+using System.Windows;
 
 namespace First_App.Models.DataBase
 {
@@ -30,38 +31,72 @@ namespace First_App.Models.DataBase
 
         public ChimpDataBase()
         {
-            var configuration =
-                 new ConfigurationBuilder()
-                     .SetBasePath(Directory.GetCurrentDirectory())
-                     .AddJsonFile("appsettings.json")
-                     .Build();
+            try
+            {
+                var configuration =
+                     new ConfigurationBuilder()
+                         .SetBasePath(Directory.GetCurrentDirectory())
+                         .AddJsonFile("appsettings.json")
+                         .Build();
 
 
-            // Получаем строку подключения из файла appsettings.json
-            ConnectionString = configuration.GetConnectionString("DefaultConnection");
+                // Получаем строку подключения из файла appsettings.json
+                ConnectionString = configuration.GetConnectionString("DefaultConnection");
 
-            // Создаем объект контекста EF, указываем ему строку соединения и
-            // получаем объект настроек для конструктора объекта контекста EF
-            var options =
-                new DbContextOptionsBuilder<ChimpDbContext>()
-                    .UseSqlServer(ConnectionString)
-                    .Options;
-            Options = options;
+                // Создаем объект контекста EF, указываем ему строку соединения и
+                // получаем объект настроек для конструктора объекта контекста EF
+                var options =
+                    new DbContextOptionsBuilder<ChimpDbContext>()
+                        .UseSqlServer(ConnectionString)
+                        .Options;
+                Options = options;
 
-            _context = new ChimpDbContext(options);
+                _context = new ChimpDbContext(options);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (NotSupportedException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public bool IsAuthorized (string login, string password)
         {
-           var result = _context.Users.FirstOrDefault(
-                u => u.Username == login &&
-                u.Password == Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password))));
-
-            if (result != null)
+            try
             {
-                return true;
+                var result = _context.Users.FirstOrDefault(
+                     u => u.Username == login &&
+                     u.Password == Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password))));
+
+                if (result != null)
+                {
+                    return true;
+                }
+                return false;
             }
-            return false;
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            catch (ObjectDisposedException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            catch (EncoderFallbackException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
     }
 }

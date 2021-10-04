@@ -177,10 +177,14 @@ namespace First_App.ViewModels
 
         private void ExitGame()
         {
-            _chimpWindow.authorizationPanel.Visibility = Visibility.Visible;
+            var res = MessageBox.Show("Are you sure to exit from the account?", "Exit", MessageBoxButton.YesNo);
 
-            SavingRegistryData registry = new();
-            registry.RemoveUserData();
+            if (res == MessageBoxResult.Yes)
+            {
+                SavingRegistryData registry = new();
+                registry.RemoveUserData();
+                _chimpWindow.authorizationPanel.Visibility = Visibility.Visible;
+            }
         }
 
         private void SaveProfile()
