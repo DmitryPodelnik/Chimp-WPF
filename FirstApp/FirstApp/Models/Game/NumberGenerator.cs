@@ -22,7 +22,7 @@ namespace First_App.Models.Game
                         throw new ArgumentException("Score must have value between 1 and number score");
                     }
                     _generatedNumber = value;
-                    this._gameMediator.Notify(this, $"Generator generated value: {value}");
+                   // this._gameMediator.Notify(this, $"Generator generated value: {value}");
                 }
                 catch (ArgumentException ex)
                 {

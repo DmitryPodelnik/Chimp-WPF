@@ -22,7 +22,7 @@ namespace First_App.Models.Game
                         throw new ArgumentException($"Value must have value between 1 and {Counter.Score}");
                     }
                     _value = value;
-                    this._gameMediator.Notify(this, $"Value was changed to {value}");
+                   // this._gameMediator.Notify(this, $"Value was changed to {value}");
                 }
                 catch (ArgumentException ex)
                 {
@@ -45,7 +45,7 @@ namespace First_App.Models.Game
                     }
                     _coords.X = value.X;
                     _coords.Y = value.Y;
-                    this._gameMediator.Notify(this, $"Point values were changed: X: {value.X}, Y: {value.Y}");
+                   // this._gameMediator.Notify(this, $"Point values were changed: X: {value.X}, Y: {value.Y}");
                 }
                 catch (ArgumentException ex)
                 {
