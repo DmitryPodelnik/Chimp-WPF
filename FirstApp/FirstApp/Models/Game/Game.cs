@@ -10,8 +10,15 @@ namespace First_App.Models.Game
 {
     public class Game : IGameMediator
     {
+        private const short _ROWS = 8;
+        private const short _COLUMNS = 10;
+
+        public short ROWS { get => _ROWS; }
+        public short COLUMNS { get => _COLUMNS; }
+
         private List<Cube> _cubes = new();
         private NumberGenerator _numberGenerator = new();
+        private CoordsGenerator _coordsGenerator = new();
 
         public Game ()
         {

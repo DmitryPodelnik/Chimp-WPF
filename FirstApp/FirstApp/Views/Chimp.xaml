@@ -124,7 +124,7 @@
         <!-- Grid for playing -->
         <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="True"
               Visibility="Hidden">
-            <Grid.RowDefinitions>
+            <Grid.RowDefinitions> <!-- 8 rows -->
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -134,7 +134,7 @@
                 <RowDefinition/> 
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions> <!-- 10 colums -->
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
