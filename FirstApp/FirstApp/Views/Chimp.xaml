@@ -121,8 +121,29 @@
                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="72"
                    Visibility="Hidden" />
 
-        <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
-            
+        <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/> 
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
         </Grid>
 
         <Grid x:Name="recordsGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
