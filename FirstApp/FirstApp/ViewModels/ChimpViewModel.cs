@@ -1,6 +1,7 @@
 ﻿using First_App.Models;
 using First_App.Models.Commands;
 using First_App.Models.DataBase;
+using First_App.Models.Game;
 using First_App.Models.RegistryData;
 using FirstApp.Models.DataBase;
 using System;
@@ -26,6 +27,8 @@ namespace First_App.ViewModels
         private ChimpDataBase _database = new();
         // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
+        // field of game play
+        private Game _game;
 
         public ChimpViewModel()
         {
@@ -236,6 +239,22 @@ namespace First_App.ViewModels
          * 
          */
         private void StartPlay ()
+        {
+            // Hide panels excepting play tab
+            PrepareInterfaceToPlay();
+            InitializeGameField();
+        }
+
+        private void InitializeGameField()
+        {
+            _game = new();
+        }
+
+        /**
+         * Hide panels excepting play tab
+         * 
+         */
+        private void PrepareInterfaceToPlay()
         {
             _chimpWindow.accountNameTextBlock.Text = "";
             _chimpWindow.playGrid.Visibility = Visibility.Visible;

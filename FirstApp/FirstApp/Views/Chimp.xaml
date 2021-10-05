@@ -121,7 +121,7 @@
                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="72"
                    Visibility="Hidden" />
 
-        <!-- Grid for play -->
+        <!-- Grid for playing -->
         <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="True"
               Visibility="Hidden">
             <Grid.RowDefinitions>
@@ -146,6 +146,15 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+
+            <StackPanel x:Name="startGamePanel" HorizontalAlignment="Center">
+
+                <Button x:Name="startGame" Content="Start game" FontSize="18" FontWeight="Bold"
+                        Padding="30px 15px 30px 15px" FontFamily="Arial" 
+                        Template="{StaticResource yellowButton}">
+                    
+                </Button>
+            </StackPanel>
         </Grid>
 
         <!-- Grid for records -->
