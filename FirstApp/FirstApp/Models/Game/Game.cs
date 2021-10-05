@@ -48,6 +48,7 @@ namespace First_App.Models.Game
             {
                 Button newButton = new();
                 newButton.Content = _cubes[i].Value;
+                newButton.FontSize = 40.0;
                 newButton.Name = $"playButton{i}";
                 newButton.Click += DeleteButton_Executed;
 

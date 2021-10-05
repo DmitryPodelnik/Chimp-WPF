@@ -22,6 +22,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+        <!-- Grid for left aside action buttons -->
         <Grid x:Name="leftAsideGrid" Grid.RowSpan="4" Background="{StaticResource leftAsideBackground}">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -36,53 +37,56 @@
                 <ColumnDefinition x:Name="leftAside"/>
             </Grid.ColumnDefinitions>
 
-            <!--<TabControl>-->
+            <!-- Main tab button (Chimp) -->
             <Button x:Name="mainTabButton" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left"
                     Command="{Binding ReturnToMainTabCommand}">
-                
+
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" 
                             Margin="10 0 0 0">
-                        <Image Source="/Views/chimpLogo.png" MaxWidth="55" MaxHeight="55" Margin="0,0,5,0" Cursor="Hand"/>
-                        <TextBlock Text="Chimp" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                    <Image Source="/Views/chimpLogo.png" MaxWidth="55" MaxHeight="55" Margin="0,0,5,0" Cursor="Hand"/>
+                    <TextBlock Text="Chimp" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
                                VerticalAlignment="Center" Foreground="#FFEBEBEB" />
                 </StackPanel>
             </Button>
 
-                <Button x:Name="playButton" Grid.Row="1" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+            <!-- Play tab button -->
+            <Button x:Name="playButton" Grid.Row="1" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left" Command="{Binding PlayCommand}">
 
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
-                        <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                        <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                    <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                    <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
                                VerticalAlignment="Center" Foreground="#FFEBEBEB" />
-                    </StackPanel>
-                </Button>
+                </StackPanel>
+            </Button>
 
-                <Button x:Name="profileButton" Grid.Row="2" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+            <!-- Show profile tab button -->
+            <Button x:Name="profileButton" Grid.Row="2" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left" Command="{Binding ShowProfileCommand}">
 
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
-                        <Image Source="/Views/profileIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                        <TextBlock Text="Profile" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                    <Image Source="/Views/profileIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                    <TextBlock Text="Profile" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
                                VerticalAlignment="Center" Foreground="#FFEBEBEB" />
-                    </StackPanel>
-                </Button>
+                </StackPanel>
+            </Button>
 
-                <Button x:Name="recordsButton" Grid.Row="3" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+            <!-- Show records tab button -->
+            <Button x:Name="recordsButton" Grid.Row="3" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left" Command="{Binding ShowRecordsCommand}">
 
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
-                        <Image Source="/Views/ratingIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                        <TextBlock Text="Records" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                    <Image Source="/Views/ratingIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                    <TextBlock Text="Records" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
                                VerticalAlignment="Center" Foreground="#FFEBEBEB" />
-                    </StackPanel>
-                </Button>
+                </StackPanel>
+            </Button>
 
-                <!--<Button Grid.Row="4" Cursor="Hand" Background="{StaticResource leftAsideButton}"
+            <!--<Button Grid.Row="4" Cursor="Hand" Background="{StaticResource leftAsideButton}"
                     HorizontalContentAlignment="Left">
                 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -93,7 +97,7 @@
                 </StackPanel>
             </Button>-->
 
-                <!--<Button Grid.Row="5" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+            <!--<Button Grid.Row="5" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -104,19 +108,21 @@
                 </StackPanel>
             </Button>-->
 
-                <Button Grid.Row="6" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+            <!-- Exit tab button -->
+            <Button x:Name="exitButton" Grid.Row="6" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left" Command="{Binding ExitCommand}">
 
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
-                        <Image Source="/Views/exitIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                        <TextBlock Text="Exit" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                    <Image Source="/Views/exitIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                    <TextBlock Text="Exit" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
                                VerticalAlignment="Center" Foreground="Black" />
-                    </StackPanel>
-                </Button>
+                </StackPanel>
+            </Button>
             <!--</TabControl>-->
         </Grid>
 
+        <!-- Main tab -->
         <TextBlock x:Name="mainText" Text="MAIN WINDOW" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1"
                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="72"
                    Visibility="Hidden" />
@@ -124,17 +130,19 @@
         <!-- Grid for playing -->
         <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="True"
               Visibility="Hidden">
-            <Grid.RowDefinitions> <!-- 8 rows -->
+            <Grid.RowDefinitions>
+                <!-- 8 rows -->
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition/> 
+                <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions> <!-- 10 columns -->
+            <Grid.ColumnDefinitions>
+                <!-- 10 columns -->
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -147,6 +155,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            <!-- Stack panel for info before starting game -->
             <StackPanel x:Name="startGamePanel" HorizontalAlignment="Center"
                         Grid.Row="1" Grid.RowSpan="8" Grid.ColumnSpan="10"
                         >
@@ -169,7 +178,7 @@
                         Padding="25px 10px 25px 10px" Width="180px" FontFamily="Arial" 
                         Template="{StaticResource yellowButton}" Cursor="Hand"
                         Command="{Binding StartGameCommand}">
-                    
+
                 </Button>
             </StackPanel>
         </Grid>
@@ -248,7 +257,7 @@
             <!-- Shows you best score and last games -->
             <StackPanel x:Name="rightAccountPanel" Grid.RowSpan="4"  Grid.Column="2" Grid.ColumnSpan="3">
                 <TextBlock x:Name="scoreText" FontSize="22px" Margin="0 20 0 0" />
-                
+
             </StackPanel>
         </Grid>
     </Grid>
