@@ -41,11 +41,11 @@ namespace First_App.Models.DataBase
                          .Build();
 
 
-                // Получаем строку подключения из файла appsettings.json
+                // Get connection string from the appsettings.json
                 ConnectionString = configuration.GetConnectionString("DefaultConnection");
 
-                // Создаем объект контекста EF, указываем ему строку соединения и
-                // получаем объект настроек для конструктора объекта контекста EF
+                // Create EF context object and point out connect string and
+                // get option object for EF context object constructor 
                 var options =
                     new DbContextOptionsBuilder<ChimpDbContext>()
                         .UseSqlServer(ConnectionString)
@@ -64,6 +64,13 @@ namespace First_App.Models.DataBase
             }
         }
 
+        /**
+         * Verify whether login and password are correct and exist and match in database
+         * 
+         * @param login - user login
+         * @param password - user password 
+         * @return - true if login and password are correct or false
+         */
         public bool IsAuthorized (string login, string password)
         {
             try
@@ -72,10 +79,12 @@ namespace First_App.Models.DataBase
                      u => u.Username == login &&
                      u.Password == Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password))));
 
+                // if correct 
                 if (result != null)
                 {
                     return true;
                 }
+                // if incorrect
                 return false;
             }
             catch (ArgumentNullException ex)
@@ -100,6 +109,12 @@ namespace First_App.Models.DataBase
             }
         }
 
+        /**
+         * Get user by login from database
+         * 
+         * @param login - user login
+         * @return - User if exists or null
+         */
         public User GetUser (string login)
         {
             try
@@ -118,6 +133,15 @@ namespace First_App.Models.DataBase
             }
         }
 
+        /**
+         * Save new user data to database
+         * 
+         * @param previousLogin - previous login
+         * @param newLogin - new login
+         * @param password - new password
+         * @param confirmPassword - confirm new password
+         * @return - true if saved or false
+         */
         public bool SaveNewData (string previousLogin, string newLogin, string password, string confirmPassword)
         {
             if (String.IsNullOrEmpty(previousLogin))
@@ -154,6 +178,7 @@ namespace First_App.Models.DataBase
                         user.Username = newLogin;
                     }
                 }
+                // if password and confirm password are not null or empty - set new password 
                 if (!(String.IsNullOrEmpty(password) || String.IsNullOrEmpty(confirmPassword))) {
                     user.Password = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
                 }
@@ -162,11 +187,12 @@ namespace First_App.Models.DataBase
 
                 SavingRegistryData registry = new();
 
+                // if new login is not null or empty
                 if (!String.IsNullOrEmpty(newLogin))
                 {
                     registry.SaveUserData(newLogin, password);
                 }
-                else
+                else // or
                 {
                     registry.SaveUserData(previousLogin, password);
                 }

@@ -30,23 +30,27 @@ namespace First_App
             DataContext = new ChimpViewModel();
         }
 
+        /**
+         * Actions after loading main window
+         * Verify whether registry has ChimpAuthData key
+         * If has then open profile tab or disable left buttons
+         * 
+         * @param sender - sender
+         * @param e - event arguments
+         */
         private void mainGrid_Loaded(object sender, RoutedEventArgs e)
         {
             SavingRegistryData registry = new();
             if (registry.IsExistsKey("ChimpAuthData"))
             {
-               // MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
-                // authorizationPanel.Visibility = Visibility.Hidden;
-                // accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
-                // accountPanel.Visibility = Visibility.Visible;
-
+                // click to profile buttom and forward to profile tab
                 ButtonAutomationPeer peer = new ButtonAutomationPeer(profileButton);
                 IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
                 invokeProv.Invoke();
 
                 return;
             }
-            else
+            else // disable left buttons
             {
                 recordsButton.IsEnabled = false;
                 profileButton.IsEnabled = false;

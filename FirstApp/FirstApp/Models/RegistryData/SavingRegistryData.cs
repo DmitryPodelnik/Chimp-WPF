@@ -12,6 +12,12 @@ namespace First_App.Models.RegistryData
 {
     public class SavingRegistryData
     {
+        /**
+         * Save user data in the registry
+         * 
+         * @param login - user login
+         * @param password - user password
+         */
         public void SaveUserData (string login, string password)
         {
             try
@@ -43,6 +49,10 @@ namespace First_App.Models.RegistryData
             }
         }
 
+        /**
+         * Remove user data from the registry
+         * 
+         */
         public void RemoveUserData ()
         {
             try
@@ -81,6 +91,12 @@ namespace First_App.Models.RegistryData
             }
         }
 
+        /**
+         * Verify whether key exists in the registry
+         * 
+         * @param key - registry key
+         * @return - true if exists or false
+         */
         public bool IsExistsKey (string key)
         {
             try
@@ -111,6 +127,11 @@ namespace First_App.Models.RegistryData
             }
         }
 
+        /**
+         * Get current user login from the registry
+         * 
+         * @return - login if exists or null
+         */
         public static string GetCurrentUser ()
         {
             try

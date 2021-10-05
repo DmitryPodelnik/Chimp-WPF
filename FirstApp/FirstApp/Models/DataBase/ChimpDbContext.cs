@@ -14,7 +14,7 @@ namespace FirstApp.Models.DataBase
 
         public ChimpDbContext(DbContextOptions<ChimpDbContext> options) : base(options)
         {
-            // Если такая БД уже есть, то удаляем ее
+            // If database already exists then delete it
             ConnectToDatabase();
         }
 
@@ -23,14 +23,14 @@ namespace FirstApp.Models.DataBase
                // if (Database.CanConnect())
                // Database.EnsureDeleted();
 
-            // Создаем БД
+            // Create database
             Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Выводим в режиме отладки запросы, отправляемые EF, в окно Output (меню Visual Studio: View -> Output).
-            // Метод DbContextOptionsBuilder.LogTo был добавлен только начиная с EF Core 5.0.
+            // Method DbContextOptionsBuilder.LogTo was added only from EF Core 5.0.
             optionsBuilder.LogTo(s => System.Diagnostics.Debug.WriteLine(s));
         }
 
