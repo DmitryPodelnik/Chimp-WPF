@@ -13,6 +13,13 @@ namespace First_App.Models.Game
         private const short _ROWS = 8;
         private const short _COLUMNS = 10;
 
+        private static bool _isGameStarted = false;
+        public static bool IsGameStarted
+        {
+            get => _isGameStarted;
+            set => _isGameStarted = value;
+        }
+
         public static short ROWS { get => _ROWS; }
         public static short COLUMNS { get => _COLUMNS; }
 

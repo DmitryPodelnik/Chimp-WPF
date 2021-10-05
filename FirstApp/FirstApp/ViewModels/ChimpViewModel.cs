@@ -181,6 +181,8 @@ namespace First_App.ViewModels
                 {
                     // 
                     _chimpWindow.startGamePanel.Visibility = Visibility.Hidden;
+                    InitializeGameField();
+                    
                     _game.StartGame();
                 }));
             }
@@ -261,7 +263,6 @@ namespace First_App.ViewModels
         {
             // Hide panels excepting play tab
             PrepareInterfaceToPlay();
-            InitializeGameField();
         }
 
         private void InitializeGameField()
