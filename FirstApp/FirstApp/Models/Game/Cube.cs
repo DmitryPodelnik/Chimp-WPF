@@ -17,9 +17,9 @@ namespace First_App.Models.Game
             {
                 try
                 {
-                    if (value < 1)
+                    if (value < 1 && value > Counter.Score)
                     {
-                        throw new ArgumentException("Value cannot be less than 1");
+                        throw new ArgumentException($"Value must have value between 1 and {Counter.Score}");
                     }
                     _value = value;
                     this._gameMediator.Notify(this, $"Value was changed to {value}");
