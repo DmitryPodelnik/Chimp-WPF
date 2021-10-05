@@ -122,7 +122,8 @@
                    Visibility="Hidden" />
 
         <!-- Grid for play -->
-        <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="True">
+        <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="True"
+              Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -148,7 +149,8 @@
         </Grid>
 
         <!-- Grid for records -->
-        <Grid x:Name="recordsGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
+        <Grid x:Name="recordsGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4"
+              Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>

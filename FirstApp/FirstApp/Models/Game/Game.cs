@@ -11,7 +11,7 @@ namespace First_App.Models.Game
     public class Game : IGameMediator
     {
         private List<Cube> _cubes = new();
-        private NumberGenerator _numberGenerator;
+        private NumberGenerator _numberGenerator = new();
 
         public Game ()
         {
@@ -27,12 +27,12 @@ namespace First_App.Models.Game
         {
             if (ev == "A")
             {
-                Console.WriteLine("Mediator reacts on A and triggers folowing operations:");
+                // Console.WriteLine("Mediator reacts on A and triggers folowing operations:");
                 // this._component2.DoC();
             }
             if (ev == "D")
             {
-                Console.WriteLine("Mediator reacts on D and triggers following operations:");
+                // Console.WriteLine("Mediator reacts on D and triggers following operations:");
                 // this._component1.DoB();
                 // this._component2.DoC();
             }

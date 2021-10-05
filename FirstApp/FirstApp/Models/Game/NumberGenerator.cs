@@ -31,7 +31,7 @@ namespace First_App.Models.Game
             }
         }
 
-        private static short _minGenerableNumber = 1;
+        private short _minGenerableNumber = 1;
 
         public NumberGenerator ()
         {
@@ -40,9 +40,9 @@ namespace First_App.Models.Game
 
         public void GenerateNumbersForCubes (IList<Cube> cubes)
         {
-            for (short i = 1; i <= Counter.Score; i++)
+            for (; _minGenerableNumber <= Counter.Score; _minGenerableNumber++)
             {
-                cubes.Add(new Cube(i));
+                cubes.Add(new Cube(_minGenerableNumber));
             }
         }
     }
