@@ -121,6 +121,7 @@
                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="72"
                    Visibility="Hidden" />
 
+        <!-- Grid for play -->
         <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="True">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -146,10 +147,25 @@
             </Grid.ColumnDefinitions>
         </Grid>
 
+        <!-- Grid for records -->
         <Grid x:Name="recordsGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
-            
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
         </Grid>
 
+        <!-- Stack panel for authorization panel -->
         <StackPanel x:Name="authorizationPanel" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" Width="200px"
                     VerticalAlignment="Center">
             <TextBlock x:Name="loginTextBlock" Text="Enter a login: " FontSize="15" Margin="0 0 0 5"></TextBlock>
@@ -163,6 +179,7 @@
                     Background="#FF003F6C" Foreground="White"></Button>
         </StackPanel>
 
+        <!-- Grid for account panel -->
         <Grid x:Name="accountPanel" Visibility="Hidden" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -176,8 +193,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
-            
+
+            <!-- Stack panel for left account panel -->
+            <!-- You can change login, passoward and save new data -->
             <StackPanel x:Name="accountLeftPanel" Grid.RowSpan="4" Grid.ColumnSpan="2"
                     HorizontalAlignment="Left">
                 <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left" Margin="25 20 0 0"></TextBlock>
@@ -198,7 +216,9 @@
                     Command="{Binding SaveProfileCommand}" Background="#FF003F6C" Foreground="White"></Button>
             </StackPanel>
 
-            <StackPanel Grid.RowSpan="4"  Grid.Column="2" Grid.ColumnSpan="3">
+            <!-- Stack panel for right account panel -->
+            <!-- Shows you best score and last games -->
+            <StackPanel x:Name="rightAccountPanel" Grid.RowSpan="4"  Grid.Column="2" Grid.ColumnSpan="3">
                 <TextBlock x:Name="scoreText" FontSize="22px" Margin="0 20 0 0" />
                 
             </StackPanel>
