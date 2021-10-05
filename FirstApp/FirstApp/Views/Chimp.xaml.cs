@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation.Peers;
+using System.Windows.Automation.Provider;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -34,9 +36,13 @@ namespace First_App
             if (registry.IsExistsKey("ChimpAuthData"))
             {
                // MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
-                authorizationPanel.Visibility = Visibility.Hidden;
-                accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
-                accountPanel.Visibility = Visibility.Visible;
+                // authorizationPanel.Visibility = Visibility.Hidden;
+                // accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
+                // accountPanel.Visibility = Visibility.Visible;
+
+                ButtonAutomationPeer peer = new ButtonAutomationPeer(profileButton);
+                IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                invokeProv.Invoke();
 
                 return;
             }

@@ -113,9 +113,42 @@ namespace First_App.Models.RegistryData
 
         public static string GetCurrentUser ()
         {
-            using RegistryKey currentUserKey = Registry.CurrentUser;
-            using RegistryKey authKey = currentUserKey.OpenSubKey("ChimpAuthData");
-            return authKey?.GetValue("login", null).ToString();
+            try
+            {
+                using RegistryKey currentUserKey = Registry.CurrentUser;
+                using RegistryKey authKey = currentUserKey.OpenSubKey("ChimpAuthData");
+                return authKey?.GetValue("login", null).ToString();
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            catch (ObjectDisposedException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            catch (SecurityException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
     }
 }

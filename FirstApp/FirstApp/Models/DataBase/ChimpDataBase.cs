@@ -102,13 +102,20 @@ namespace First_App.Models.DataBase
 
         public User GetUser (string login)
         {
-            if (String.IsNullOrEmpty(login))
+            try
             {
+                if (String.IsNullOrEmpty(login))
+                {
+                    return null;
+                }
+                var user = _context.Users.FirstOrDefault(u => u.Username == login);
+                return user;
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
                 return null;
             }
-            var user = _context.Users.FirstOrDefault(u => u.Username == login);
-
-            return user;
         }
 
         public bool SaveNewData (string previousLogin, string newLogin, string password, string confirmPassword)

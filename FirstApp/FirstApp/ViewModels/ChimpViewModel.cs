@@ -232,7 +232,7 @@ namespace First_App.ViewModels
                 _chimpWindow.playGrid.Visibility = Visibility.Hidden;
                 _chimpWindow.mainText.Visibility = Visibility.Hidden;
                 _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
-                DisableLeftButtonBeforeAuth();
+                DisableLeftButtonsBeforeAuth();
             }
         }
 
@@ -246,7 +246,7 @@ namespace First_App.ViewModels
             }
         }
 
-        private void DisableLeftButtonBeforeAuth ()
+        private void DisableLeftButtonsBeforeAuth ()
         {
             _chimpWindow.recordsButton.IsEnabled = false;
             _chimpWindow.profileButton.IsEnabled = false;
