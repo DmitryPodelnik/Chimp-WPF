@@ -7,10 +7,10 @@ using System.Windows;
 
 namespace First_App.Models.Game
 {
-    public class Counter : GameComponent
+    public static class Counter
     {
-        private short _score = 4;
-        public short Score
+        private static short _score = 4;
+        public static short Score
         {
             get => _score;
             set
@@ -22,7 +22,6 @@ namespace First_App.Models.Game
                         throw new ArgumentException("Score cannot be less than 4");
                     }
                     _score = value;
-                    this._gameMediator.Notify(this, $"Score was changed to {value}");
                 }
                 catch (ArgumentException ex)
                 {

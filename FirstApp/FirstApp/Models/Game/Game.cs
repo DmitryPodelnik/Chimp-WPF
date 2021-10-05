@@ -11,18 +11,16 @@ namespace First_App.Models.Game
     public class Game : IGameMediator
     {
         private List<Cube> _cubes = new();
-        private Counter _counter = new();
         private NumberGenerator _numberGenerator;
 
-        public Game (Counter counter)
+        public Game ()
         {
-            //this._counter = counter;
-            this._numberGenerator = new(_counter);
+            InitializeGameCubes();
         }
         
         private void InitializeGameCubes ()
         {
-            _numberGenerator.GenerateNumbers();
+            _numberGenerator.GenerateNumbersForCubes(_cubes);
         }
 
         public void Notify (object sender, string ev)

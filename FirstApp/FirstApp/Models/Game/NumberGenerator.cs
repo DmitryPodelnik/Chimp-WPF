@@ -9,8 +9,6 @@ namespace First_App.Models.Game
 {
     public class NumberGenerator : GameComponent
     {
-        private Counter _counter;
-
         private short _generatedNumber;
         public short GeneratedNumber 
         {
@@ -19,7 +17,7 @@ namespace First_App.Models.Game
             {
                 try
                 {
-                    if (value < 1 && value > _counter.Score)
+                    if (value < 1 && value > Counter.Score)
                     {
                         throw new ArgumentException("Score must have value between 1 and number score");
                     }
@@ -35,14 +33,14 @@ namespace First_App.Models.Game
 
         private static short _minGenerableNumber = 1;
 
-        public NumberGenerator (Counter counter)
+        public NumberGenerator ()
         {
-            this._counter = counter;
+
         }
 
         public void GenerateNumbersForCubes (IList<Cube> cubes)
         {
-            for (int i = 1; i <= _counter.Score; i++)
+            for (short i = 1; i <= Counter.Score; i++)
             {
                 cubes.Add(new Cube(i));
             }
