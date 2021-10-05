@@ -13,8 +13,8 @@ namespace First_App.Models.Game
         private const short _ROWS = 8;
         private const short _COLUMNS = 10;
 
-        public short ROWS { get => _ROWS; }
-        public short COLUMNS { get => _COLUMNS; }
+        public static short ROWS { get => _ROWS; }
+        public static short COLUMNS { get => _COLUMNS; }
 
         private List<Cube> _cubes = new();
         private NumberGenerator _numberGenerator = new();
@@ -28,6 +28,7 @@ namespace First_App.Models.Game
         private void InitializeGameCubes()
         {
             _numberGenerator.GenerateNumbersForCubes(_cubes);
+            _coordsGenerator.GenerateCoordsForCubes(_cubes);
         }
 
         public void StartGame()
