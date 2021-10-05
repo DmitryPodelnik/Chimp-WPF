@@ -18,12 +18,17 @@ namespace First_App.Models.Game
             InitializeGameCubes();
         }
         
-        private void InitializeGameCubes ()
+        private void InitializeGameCubes()
         {
             _numberGenerator.GenerateNumbersForCubes(_cubes);
         }
 
-        public void Notify (object sender, string ev)
+        public void StartGame()
+        {
+
+        }
+
+        public void Notify(object sender, string ev)
         {
             if (ev == "A")
             {

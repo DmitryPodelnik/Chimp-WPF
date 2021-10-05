@@ -168,6 +168,25 @@ namespace First_App.ViewModels
         }
 
         /**
+         * Command after clicking start game button
+         *  
+        */
+        private RelayCommand _startGameCommand;
+        public RelayCommand StartGameCommand
+        {
+            get
+            {
+                return _startGameCommand =
+                (_startGameCommand = new RelayCommand(obj =>
+                {
+                    // 
+                    _chimpWindow.startGamePanel.Visibility = Visibility.Hidden;
+                    _game.StartGame();
+                }));
+            }
+        }
+
+        /**
          * Verify whether the data of user are correct
          * 
          */
