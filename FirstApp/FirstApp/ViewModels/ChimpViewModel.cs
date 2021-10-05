@@ -33,7 +33,7 @@ namespace First_App.ViewModels
         }
 
         /**
-         * Command after clicking main tab (Chimp) button
+         * Command after clicking main tab(Chimp) button
          * 
          */
         private RelayCommand _returnToMainTabCommand;
