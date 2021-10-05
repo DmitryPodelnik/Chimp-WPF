@@ -10,8 +10,10 @@
     <None Remove="Views\chimpLogo.png" />
     <None Remove="Views\exitIcon.png" />
     <None Remove="Views\playIcon.png" />
+    <None Remove="Views\playLogo.png" />
     <None Remove="Views\profileIcon.png" />
     <None Remove="Views\ratingIcon.png" />
+    <None Remove="Views\Безымянный.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,8 +36,10 @@
     <Resource Include="Views\chimpLogo.png" />
     <Resource Include="Views\exitIcon.png" />
     <Resource Include="Views\playIcon.png" />
+    <Resource Include="Views\playLogo.png" />
     <Resource Include="Views\profileIcon.png" />
     <Resource Include="Views\ratingIcon.png" />
+    <Resource Include="Views\Безымянный.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -122,7 +122,7 @@
                    Visibility="Hidden" />
 
         <!-- Grid for playing -->
-        <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="True"
+        <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="False"
               Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -147,10 +147,26 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel x:Name="startGamePanel" HorizontalAlignment="Center">
+            <StackPanel x:Name="startGamePanel" HorizontalAlignment="Center"
+                        Grid.Row="1" Grid.RowSpan="8" Grid.ColumnSpan="10"
+                        >
 
-                <Button x:Name="startGame" Content="Start game" FontSize="18" FontWeight="Bold"
-                        Padding="30px 15px 30px 15px" FontFamily="Arial" 
+                <Image x:Name="playLogo" Source="/Views/playLogo.png" Width="140" Height="140" Panel.ZIndex="99" 
+                       Margin="0 0 0 40"/>
+
+                <TextBlock x:Name="playStartText1" Text="Are You Smarter Than A Chimpanzee?"
+                       Margin="0 0 0 20" Foreground="White" FontSize="36" 
+                       HorizontalAlignment="Center" />
+                <TextBlock x:Name="playStartText2" Text="Click the squares in order according to their numbers." 
+                       Foreground="White" 
+                       Margin="0 0 0 5" FontSize="20"
+                       HorizontalAlignment="Center" />
+                <TextBlock x:Name="playStartText3" Text="The test will get progressively harder." Foreground="White" 
+                       Margin="0 0 0 40" FontSize="20"
+                       HorizontalAlignment="Center" />
+
+                <Button x:Name="startGame" Content="Start game" FontSize="18px" FontWeight="Bold"
+                        Padding="25px 10px 25px 10px" Width="180px" FontFamily="Arial" 
                         Template="{StaticResource yellowButton}">
                     
                 </Button>
