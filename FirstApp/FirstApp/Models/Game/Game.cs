@@ -36,19 +36,6 @@ namespace First_App.Models.Game
             InitializeGameCubes();
         }
 
-        private RelayCommand _deleteButtonCommand;
-        public RelayCommand DeleteButtonCommand
-        {
-            get
-            {
-                return _deleteButtonCommand =
-                (_deleteButtonCommand = new RelayCommand(obj =>
-                {
-                    MessageBox.Show("Hello");
-                }));
-            }
-        }
-
         private void InitializeGameCubes()
         {
             _numberGenerator.GenerateNumbersForCubes(_cubes);
@@ -62,20 +49,11 @@ namespace First_App.Models.Game
                 Button newButton = new();
                 newButton.Content = _cubes[i].Value;
                 newButton.Name = $"playButton{i}";
-
-                //// создаем привязку команды
-                //CommandBinding commandBinding = new();
-                //// устанавливаем команду
-                //commandBinding.Command = DeleteButtonCommand;
-                //// устанавливаем метод, который будет выполняться при вызове команды
-                //commandBinding.Executed += DeleteButton_Executed;
-                //// добавляем привязку к коллекции привязок элемента Button
-                //newButton.CommandBindings.Add(commandBinding);
-
                 newButton.Click += DeleteButton_Executed;
 
                 Grid.SetRow(newButton, Convert.ToInt32(_cubes[i].Coords.Y));
                 Grid.SetColumn(newButton, Convert.ToInt32(_cubes[i].Coords.X));
+
                 _chimpWindow.playGrid.Children.Add(newButton);
             }
         }
