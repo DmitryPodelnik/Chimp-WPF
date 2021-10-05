@@ -31,7 +31,7 @@ namespace First_App.Models.Game
             }
         }
 
-        private Point _coords = new();
+        private Point _coords = new ();
         public Point Coords
         {
             get => _coords;
@@ -41,7 +41,7 @@ namespace First_App.Models.Game
                 {
                     if (value.X < 0 || value.Y <0)
                     {
-                        throw new ArgumentException("Point cannot have values less than 0");
+                        throw new ArgumentException ("Point cannot have values less than 0");
                     }
                     _coords.X = value.X;
                     _coords.Y = value.Y;
@@ -52,6 +52,16 @@ namespace First_App.Models.Game
                     MessageBox.Show(ex.Message, "Error");
                 }
             }
+        }
+
+        public Cube ()
+        {
+
+        }
+
+        public Cube (short value)
+        {
+            this._value = value;
         }
     }
 }

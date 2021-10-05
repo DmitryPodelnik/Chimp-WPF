@@ -33,17 +33,19 @@ namespace First_App.Models.Game
             }
         }
 
-        private short _minGenerableNumber = 1;
+        private static short _minGenerableNumber = 1;
 
         public NumberGenerator (Counter counter)
         {
             this._counter = counter;
         }
 
-        public void GenerateNumber ()
+        public void GenerateNumbersForCubes (IList<Cube> cubes)
         {
-            Random rand = new();
-            rand.Next(_minGenerableNumber, _counter.Score);
+            for (int i = 1; i <= _counter.Score; i++)
+            {
+                cubes.Add(new Cube(i));
+            }
         }
     }
 }

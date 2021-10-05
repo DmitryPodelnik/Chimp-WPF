@@ -20,15 +20,12 @@ namespace First_App.Models.Game
             this._numberGenerator = new(_counter);
         }
         
-        private void InitializeGameCubes()
+        private void InitializeGameCubes ()
         {
-            for (int i = 0; i < _counter.Score; i++)
-            {
-                _cubes.Add(new Cube());
-            }
+            _numberGenerator.GenerateNumbers();
         }
 
-        public void Notify(object sender, string ev)
+        public void Notify (object sender, string ev)
         {
             if (ev == "A")
             {
