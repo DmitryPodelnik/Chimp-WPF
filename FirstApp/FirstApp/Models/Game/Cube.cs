@@ -7,8 +7,13 @@ using System.Windows;
 
 namespace First_App.Models.Game
 {
+    /**
+     * Class of cube buttons
+     * 
+     */
     public class Cube : GameComponent
     {
+        // field of cube button number
         private short _value;
         public short Value
         {
@@ -31,6 +36,7 @@ namespace First_App.Models.Game
             }
         }
 
+        // field of cube button coords
         private Point _coords = new ();
         public Point Coords
         {
@@ -59,6 +65,11 @@ namespace First_App.Models.Game
 
         }
 
+        /**
+         * Cube constructor(value)
+         * 
+         * @param value - number of button
+         */
         public Cube (short value)
         {
             this._value = value;

@@ -10,6 +10,10 @@ using System.Windows;
 
 namespace First_App.Models.RegistryData
 {
+    /**
+     * Class of saving user data in the registry
+     * 
+     */
     public class SavingRegistryData
     {
         /**
