@@ -13,7 +13,6 @@
     <None Remove="Views\playLogo.png" />
     <None Remove="Views\profileIcon.png" />
     <None Remove="Views\ratingIcon.png" />
-    <None Remove="Views\Безымянный.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,7 +38,6 @@
     <Resource Include="Views\playLogo.png" />
     <Resource Include="Views\profileIcon.png" />
     <Resource Include="Views\ratingIcon.png" />
-    <Resource Include="Views\Безымянный.png" />
   </ItemGroup>
 
   <ItemGroup>

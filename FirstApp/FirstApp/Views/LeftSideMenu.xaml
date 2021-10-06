@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="First_App.Views.LeftSideMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:First_App.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <!-- Grid for left aside action buttons -->
+    <Grid x:Name="leftAsideGrid" Grid.RowSpan="4" Background="{StaticResource leftAsideBackground}"
+          Width="155px">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="leftAside"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Main tab button (Chimp) -->
+        <Button x:Name="mainTabButton" Cursor="Hand" Style="{StaticResource leftAsideButton}" 
+                    HorizontalContentAlignment="Left"
+                    Command="{Binding ReturnToMainTabCommand}">
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                            Margin="10 0 0 0">
+                <Image Source="/Views/chimpLogo.png" MaxWidth="55" MaxHeight="55" Margin="0,0,5,0" Cursor="Hand"/>
+                <TextBlock Text="Chimp" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
+            </StackPanel>
+        </Button>
+
+        <!-- Play tab button -->
+        <Button x:Name="playButton" Grid.Row="1" Cursor="Hand" Style="{StaticResource leftAsideButton}" 
+                    HorizontalContentAlignment="Left" Command="{Binding PlayCommand}">
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
+                            Margin="10 0 0 0">
+                <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
+            </StackPanel>
+        </Button>
+
+        <!-- Show profile tab button -->
+        <Button x:Name="profileButton" Grid.Row="2" Cursor="Hand" Style="{StaticResource leftAsideButton}" 
+                    HorizontalContentAlignment="Left" Command="{Binding ShowProfileCommand}">
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
+                            Margin="10 0 0 0">
+                <Image Source="/Views/profileIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                <TextBlock Text="Profile" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
+            </StackPanel>
+        </Button>
+
+        <!-- Show records tab button -->
+        <Button x:Name="recordsButton" Grid.Row="3" Cursor="Hand" Style="{StaticResource leftAsideButton}" 
+                    HorizontalContentAlignment="Left" Command="{Binding ShowRecordsCommand}">
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
+                            Margin="10 0 0 0">
+                <Image Source="/Views/ratingIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                <TextBlock Text="Records" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
+            </StackPanel>
+        </Button>
+
+        <!--<Button Grid.Row="4" Cursor="Hand" Background="{StaticResource leftAsideButton}"
+                    HorizontalContentAlignment="Left">
+                
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
+                            Margin="10 0 0 0">
+                    <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                    <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
+                </StackPanel>
+            </Button>-->
+
+        <!--<Button Grid.Row="5" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+                    HorizontalContentAlignment="Left">
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
+                            Margin="10 0 0 0">
+                    <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                    <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
+                </StackPanel>
+            </Button>-->
+
+        <!-- Exit tab button -->
+        <Button x:Name="exitButton" Grid.Row="6" Cursor="Hand" Style="{StaticResource leftAsideButton}" 
+                    HorizontalContentAlignment="Left" Command="{Binding ExitCommand}">
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
+                            Margin="10 0 0 0">
+                <Image Source="/Views/exitIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                <TextBlock Text="Exit" FontSize="22px" Cursor="Hand" FontFamily="Autumn" 
+                               VerticalAlignment="Center" Foreground="Black" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>

@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:First_App"
+        xmlns:local="clr-namespace:First_App" 
+        xmlns:navigation="clr-namespace:First_App.Navigation" d:DataContext="{d:DesignInstance Type=navigation:Navigator}"
         mc:Ignorable="d"
         Title="Chimp" MinHeight="450" MinWidth="800" Icon="/Views/chimpLogo.png"      
         Background="{StaticResource mainBackground}">
@@ -119,7 +120,6 @@
                                VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
             </Button>
-            <!--</TabControl>-->
         </Grid>
 
         <!-- Main tab -->
@@ -232,7 +232,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- Stack panel for left account panel -->
-            <!-- You can change login, passoward and save new data -->
+            <!-- You can change login, password and save new data -->
             <StackPanel x:Name="accountLeftPanel" Grid.RowSpan="4" Grid.ColumnSpan="2"
                     HorizontalAlignment="Left">
                 <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left" Margin="25 20 0 0"></TextBlock>
@@ -260,5 +260,9 @@
 
             </StackPanel>
         </Grid>
+        <ContentControl 
+            Grid.Column="1"
+            Content="{Binding Navigator.CurrentViewModel}"
+            />
     </Grid>
 </Window>
