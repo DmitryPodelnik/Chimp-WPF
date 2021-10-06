@@ -7,10 +7,9 @@ using System.Windows;
 
 namespace First_App.Models.Game
 {
-    /**
-     * Class that indicates current value of buttons numbers(score) 
-     * 
-     */
+    /// <summary>
+    ///     Class that indicates current value of buttons numbers(score).
+    /// </summary>
     public static class Counter
     {
         // field that stores the value of numbers

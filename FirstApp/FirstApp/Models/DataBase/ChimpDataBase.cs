@@ -14,6 +14,9 @@ using FirstApp.Models;
 
 namespace First_App.Models.DataBase
 {
+    /// <summary>
+    ///     Class of database interaction.
+    /// </summary>
     public class ChimpDataBase
     {
         private SHA256Managed sha256 = new SHA256Managed();
@@ -30,6 +33,12 @@ namespace First_App.Models.DataBase
         public string ConnectionString { get; set; }
         public DbContextOptions<ChimpDbContext> Options { get; set; }
 
+        /// <summary>
+        ///     ChimpDataBase constructor()
+        ///     Get connection string from the appsettings.json.
+        ///     Create EF context object and point out connect string and
+        ///     get option object for EF context object constructor.
+        /// </summary>
         public ChimpDataBase()
         {
             try
@@ -64,13 +73,12 @@ namespace First_App.Models.DataBase
             }
         }
 
-        /**
-         * Verify whether login and password are correct and exist and match in database
-         * 
-         * @param login - user login
-         * @param password - user password 
-         * @return - true if login and password are correct or false
-         */
+        /// <summary>
+        ///     Verify whether login and password are correct and exist and match in database.
+        /// </summary>
+        /// <param name="login">User login.</param>
+        /// <param name="password">User password.</param>
+        /// <returns>True if login and password are correct or false.</returns>
         public bool IsAuthorized (string login, string password)
         {
             try
@@ -109,12 +117,11 @@ namespace First_App.Models.DataBase
             }
         }
 
-        /**
-         * Get user by login from database
-         * 
-         * @param login - user login
-         * @return - User if exists or null
-         */
+        /// <summary>
+        ///     Get user by login from database.
+        /// </summary>
+        /// <param name="login">User login.</param>
+        /// <returns>User if exists or null.</returns>
         public User GetUser (string login)
         {
             try
@@ -133,15 +140,14 @@ namespace First_App.Models.DataBase
             }
         }
 
-        /**
-         * Save new user data to database
-         * 
-         * @param previousLogin - previous login
-         * @param newLogin - new login
-         * @param password - new password
-         * @param confirmPassword - confirm new password
-         * @return - true if saved or false
-         */
+        /// <summary>
+        ///     Save new user data to database.
+        /// </summary>
+        /// <param name="previousLogin">Previous login.</param>
+        /// <param name="newLogin">New login.</param>
+        /// <param name="password">New password.</param>
+        /// <param name="confirmPassword">Confirm new password.</param>
+        /// <returns>True if saved or false.</returns>
         public bool SaveNewData (string previousLogin, string newLogin, string password, string confirmPassword)
         {
             if (String.IsNullOrEmpty(previousLogin))

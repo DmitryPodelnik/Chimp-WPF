@@ -19,7 +19,7 @@ using System.Windows.Shapes;
 namespace First_App
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    ///     Interaction logic for Chimp.xaml.
     /// </summary>
     public partial class Chimp : Window
     {
@@ -30,14 +30,13 @@ namespace First_App
             DataContext = new ChimpViewModel();
         }
 
-        /**
-         * Actions after loading main window
-         * Verify whether registry has ChimpAuthData key
-         * If has then open profile tab or disable left buttons
-         * 
-         * @param sender - sender
-         * @param e - event arguments
-         */
+        /// <summary>
+        ///     Actions after loading main window.
+        ///     Verify whether registry has ChimpAuthData key.
+        ///     If has then open profile tab or disable left buttons.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">Event arguments.</param>
         private void mainGrid_Loaded(object sender, RoutedEventArgs e)
         {
             SavingRegistryData registry = new();

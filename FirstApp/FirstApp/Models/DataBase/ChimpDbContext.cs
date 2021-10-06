@@ -18,6 +18,9 @@ namespace FirstApp.Models.DataBase
             ConnectToDatabase();
         }
 
+        /// <summary>
+        ///     Try to connect to database. If fail then create new database.
+        /// </summary>
         private void ConnectToDatabase()
         {
                // if (Database.CanConnect())
@@ -27,13 +30,20 @@ namespace FirstApp.Models.DataBase
             Database.EnsureCreated();
         }
 
+        /// <summary>
+        ///     Output in debug queries which are sent by EF in Output window (Menu Visual Studio: View -> Output).
+        /// </summary>
+        /// <param name="optionsBuilder">Builder options.</param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // Выводим в режиме отладки запросы, отправляемые EF, в окно Output (меню Visual Studio: View -> Output).
             // Method DbContextOptionsBuilder.LogTo was added only from EF Core 5.0.
             optionsBuilder.LogTo(s => System.Diagnostics.Debug.WriteLine(s));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UsersConfiguration());

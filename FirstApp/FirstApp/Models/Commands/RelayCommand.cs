@@ -7,6 +7,9 @@ using System.Windows.Input;
 
 namespace First_App.Models.Commands
 {
+    /// <summary>
+    ///     Class of RelayCommand, that implements ICommand.
+    /// </summary>
     public class RelayCommand : ICommand
     {
         private Action<object> _execute;

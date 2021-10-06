@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace First_App.Models.DataBase.Tables
 {
+    /// <summary>
+    ///     Class of Record model.
+    /// </summary>
     [Table("Records")]
     public class Record
     {

@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace FirstApp.Models
 {
+    /// <summary>
+    ///     Class of User model.
+    /// </summary>
     [Table("Users")]
     public class User
     {

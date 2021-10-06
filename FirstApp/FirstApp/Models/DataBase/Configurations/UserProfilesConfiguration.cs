@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace First_App.Models.DataBase.Configurations
 {
+    /// <summary>
+    ///     Class of user profile configuration.
+    /// </summary>
     public class UserProfilesConfiguration : IEntityTypeConfiguration<UserProfile>
     {
         public void Configure(EntityTypeBuilder<UserProfile> builder)

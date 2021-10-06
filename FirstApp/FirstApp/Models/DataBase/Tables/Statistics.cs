@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace First_App.Models.Tables
 {
+    /// <summary>
+    ///     Class of Statistics model.
+    /// </summary>
     [Table("Statistics")]
     public class Statistics
     {

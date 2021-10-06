@@ -14,6 +14,9 @@ using System.Windows.Media;
 
 namespace First_App.Models.Game
 {
+    /// <summary>
+    ///     Concrete class, that implements IGameMediator
+    /// </summary>
     public class Game : IGameMediator
     {
         // rows on the play grid
@@ -40,10 +43,11 @@ namespace First_App.Models.Game
         private CoordsGenerator _coordsGenerator = new();
         // chimp window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
-        /**
-         * Game constructor()
-         * Initializing cube buttons of number and coords
-         */
+
+        /// <summary>
+        ///     Game constructor().
+        ///     Initializing cube buttons of number and coords.
+        /// </summary>
         public Game ()
         {
             InitializeGameCubes();
@@ -57,10 +61,10 @@ namespace First_App.Models.Game
             _coordsGenerator.GenerateCoordsForCubes(_cubes);
         }
 
-        /**
-         * Start game after creating play field
-         * Play field initialization with cube buttons
-         */
+        /// <summary>
+        ///     Start game after creating play field.
+        ///     Play field initialization with cube buttons.
+        /// </summary>
         public void StartGame()
         {
             for (int i = 0; i < Counter.Score; i++)
@@ -91,26 +95,24 @@ namespace First_App.Models.Game
             }
         }
 
-        /**
-         * Event handler of clicking cube button to remove it from the play grid
-         * 
-         * @param sender - sender
-         * @param e - event arguments
-         */
+        /// <summary>
+        ///     Event handler of clicking cube button to remove it from the play grid
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event arguments</param>
         private void DeleteButton_Executed(object sender, RoutedEventArgs e)
         {
             // explicit cast from RoutedEventArgs to Button
             Button button = (Button)e.Source;
             // remove cube button from the play grid after clicking on it
             _chimpWindow.playGrid.Children.Remove(button);
-            // MessageBox.Show(_chimpWindow.playGrid.Children.Count.ToString());
         }
 
-        /**
-         * 
-         * @param sender - sender
-         * @param ev - event info
-         */
+        /// <summary>
+        ///         
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="ev">event info</param>
         public void Notify(object sender, string ev)
         {
             if (ev == "A")

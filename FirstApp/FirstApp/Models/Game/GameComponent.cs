@@ -7,30 +7,27 @@ using System.Threading.Tasks;
 
 namespace First_App.Models.Game
 {
-    /**
-     * Base Component class for game components
-     * 
-     */
+    /// <summary>
+    ///     Base Component class for game components.
+    /// </summary>
     public class GameComponent
     {
         // field for concrete mediator object
         protected IGameMediator _gameMediator;
 
-        /**
-         * GameComponent constructor()
-         * 
-         * @param gameMediator - concrete mediator object
-         */
+        /// <summary>
+        ///     GameComponent constructor().
+        /// </summary>
+        /// <param name="gameMediator">Concrete mediator object.</param>
         public GameComponent(IGameMediator gameMediator = null)
         {
             this._gameMediator = gameMediator;
         }
 
-        /**
-         * Setter for concrete mediator object
-         * 
-         * @param gameMediator - concrete mediator object
-         */
+        /// <summary>
+        ///     Setter for concrete mediator object
+        /// </summary>
+        /// <param name="gameMediator">Concrete mediator object.</param>
         public void SetGameMediator(IGameMediator gameMediator)
         {
             this._gameMediator = gameMediator;

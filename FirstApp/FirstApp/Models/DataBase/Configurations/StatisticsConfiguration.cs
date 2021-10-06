@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace First_App.Models.DataBase.Configurations
 {
+    /// <summary>
+    ///     Class of statistics configuration.
+    /// </summary>
     public class StatisticsConfiguration : IEntityTypeConfiguration<Statistics>
     {
         public void Configure(EntityTypeBuilder<Statistics> builder)

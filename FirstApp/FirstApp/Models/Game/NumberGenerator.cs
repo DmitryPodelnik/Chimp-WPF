@@ -7,10 +7,9 @@ using System.Windows;
 
 namespace First_App.Models.Game
 {
-    /**
-     * Class of generating number for cube buttons
-     * 
-     */
+    /// <summary>
+    ///     Class of generating number for cube buttons.
+    /// </summary>
     public class NumberGenerator : GameComponent
     {
         private short _generatedNumber;
@@ -37,17 +36,19 @@ namespace First_App.Models.Game
         // min number in cube buttons
         private short _minGenerableNumber = 1;
 
+        /// <summary>
+        ///     NumberGenerator constructor().
+        /// </summary>
         public NumberGenerator ()
         {
 
         }
 
-        /**
-          *  Generate number for cube buttons
-          *  starting from minGenerableNumber to Counter.Score
-          *  
-          *  @param cubes - collection of cube buttons
-          */
+        /// <summary>
+        ///     Generate number for cube buttons
+        ///     starting from minGenerableNumber to Counter.Score.
+        /// </summary>
+        /// <param name="cubes">Collection of cube buttons.</param>
         public void GenerateNumbersForCubes (IList<Cube> cubes)
         {
             for (; _minGenerableNumber <= Counter.Score; _minGenerableNumber++)

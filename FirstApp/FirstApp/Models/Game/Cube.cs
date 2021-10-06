@@ -7,10 +7,9 @@ using System.Windows;
 
 namespace First_App.Models.Game
 {
-    /**
-     * Class of cube buttons
-     * 
-     */
+    /// <summary>
+    ///     Class of cube buttons.
+    /// </summary>
     public class Cube : GameComponent
     {
         // field of cube button number
@@ -65,11 +64,10 @@ namespace First_App.Models.Game
 
         }
 
-        /**
-         * Cube constructor(value)
-         * 
-         * @param value - number of button
-         */
+        /// <summary>
+        ///     Cube constructor(value).
+        /// </summary>
+        /// <param name="value">Number of button.</param>
         public Cube (short value)
         {
             this._value = value;

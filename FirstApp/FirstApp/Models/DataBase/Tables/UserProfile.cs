@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace First_App.Models
 {
+    /// <summary>
+    ///     Class of UserProfile model.
+    /// </summary>
     [Table("UserProfiles")]
     public class UserProfile
     {

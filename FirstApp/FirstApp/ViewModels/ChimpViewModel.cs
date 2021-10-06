@@ -16,11 +16,9 @@ using System.Windows.Controls;
 
 namespace First_App.ViewModels
 {
-    /**
-     * Class of chimp view model
-     * 
-     * 
-     */
+    /// <summary>
+    ///     Class of chimp view model.
+    /// </summary>
     public class ChimpViewModel : INotifyPropertyChanged
     {
         // field to work with database
@@ -35,10 +33,9 @@ namespace First_App.ViewModels
 
         }
 
-        /**
-         * Command after clicking main tab(Chimp) button
-         * 
-         */
+        /// <summary>
+        ///     Command after clicking main tab(Chimp) button.
+        /// </summary>
         private RelayCommand _returnToMainTabCommand;
         public RelayCommand ReturnToMainTabCommand
         {
@@ -53,10 +50,9 @@ namespace First_App.ViewModels
             }
         }
 
-        /**
-         * Command after clicking play button
-         * 
-         */
+        /// <summary>
+        ///     Command after clicking play button.
+        /// </summary>
         private RelayCommand _playCommand;
         public RelayCommand PlayCommand
         {
@@ -71,10 +67,9 @@ namespace First_App.ViewModels
             }
         }
 
-        /**
-         * Command after clicking profile button
-         * 
-         */
+        /// <summary>
+        ///     Command after clicking profile button.
+        /// </summary>
         private RelayCommand _showProfileCommand;
         public RelayCommand ShowProfileCommand
         {
@@ -89,10 +84,9 @@ namespace First_App.ViewModels
             }
         }
 
-        /**
-         * Command after clicking records button
-         * 
-         */
+        /// <summary>
+        ///     Command after clicking records button.
+        /// </summary>
         private RelayCommand _showRecordsCommand;
         public RelayCommand ShowRecordsCommand
         {
@@ -107,10 +101,9 @@ namespace First_App.ViewModels
             }
         }
 
-        /**
-         * Command after clicking exit button
-         * 
-         */
+        /// <summary>
+        ///     Command after clicking exit button.
+        /// </summary>
         private RelayCommand _exitCommand;
         public RelayCommand ExitCommand
         {
@@ -131,10 +124,9 @@ namespace First_App.ViewModels
             }
         }
 
-        /**
-         * Command after clicking login button
-         * 
-         */
+        /// <summary>
+        ///     Command after clicking login button.
+        /// </summary>
         private RelayCommand _loginCommand;
         public RelayCommand LoginCommand
         {
@@ -149,10 +141,9 @@ namespace First_App.ViewModels
             }
         }
 
-        /**
-         * Command after clicking save profile button
-         * 
-         */
+        /// <summary>
+        ///     Command after clicking save profile button.
+        /// </summary>
         private RelayCommand _saveProfileCommand;
         public RelayCommand SaveProfileCommand
         {
@@ -167,10 +158,9 @@ namespace First_App.ViewModels
             }
         }
 
-        /**
-         * Command after clicking start game button
-         *  
-        */
+        /// <summary>
+        ///     Command after clicking start game button.
+        /// </summary>
         private RelayCommand _startGameCommand;
         public RelayCommand StartGameCommand
         {
@@ -179,8 +169,8 @@ namespace First_App.ViewModels
                 return _startGameCommand =
                 (_startGameCommand = new RelayCommand(obj =>
                 {
-                    // 
                     _chimpWindow.startGamePanel.Visibility = Visibility.Hidden;
+                    //  call Game constructor() and initialize game cubes
                     InitializeGameField();
                     
                     _game.StartGame();
@@ -188,10 +178,9 @@ namespace First_App.ViewModels
             }
         }
 
-        /**
-         * Verify whether the data of user are correct
-         * 
-         */
+        /// <summary>
+        ///     Verify whether the data of user are correct.
+        /// </summary>
         private void CheckAuthorization()
         {
             // if login or password box is null or empty then error message
@@ -230,10 +219,9 @@ namespace First_App.ViewModels
             _chimpWindow.passwordBox.Password = "";
         }
 
-        /**
-         * Show success message box and welcome message and hide authorization panel
-         * 
-         */
+        /// <summary>
+        ///     Show success message box and welcome message and hide authorization panel.
+        /// </summary>
         private void LoginSuccessActions()
         {
             MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
@@ -241,10 +229,9 @@ namespace First_App.ViewModels
             _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
         }
 
-        /**
-         * Hide panels excepting main tab
-         * 
-         */
+        /// <summary>
+        ///     Hide panels excepting main tab.
+        /// </summary>
         private void ShowMainTab()
         {
             _chimpWindow.accountNameTextBlock.Text = "";
@@ -255,10 +242,9 @@ namespace First_App.ViewModels
             _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
         }
 
-        /**
-         * Hide panels excepting play tab
-         * 
-         */
+        /// <summary>
+        ///     Hide panels excepting play tab.
+        /// </summary>
         private void StartPlay ()
         {
             // Hide panels excepting play tab
@@ -270,10 +256,9 @@ namespace First_App.ViewModels
             _game = new();
         }
 
-        /**
-         * Hide panels excepting play tab
-         * 
-         */
+        /// <summary>
+        ///     Hide panels excepting play tab.
+        /// </summary>
         private void PrepareInterfaceToPlay()
         {
             _chimpWindow.accountNameTextBlock.Text = "";
@@ -284,10 +269,9 @@ namespace First_App.ViewModels
             _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
         }
 
-        /**
-         * Hide panels excepting profile tab
-         * 
-         */
+        /// <summary>
+        ///     Hide panels excepting profile tab.
+        /// </summary>
         private void ShowProfile ()      
         {
             // show welcome message to user
@@ -309,10 +293,9 @@ namespace First_App.ViewModels
             _chimpWindow.scoreText.Text = $"Your best score is {user?.Score}";
         }
 
-        /**
-         * Hide panels excepting records tab
-         * 
-         */
+        /// <summary>
+        ///     Hide panels excepting records tab.
+        /// </summary>
         private void ShowRecords ()
         {
             _chimpWindow.accountNameTextBlock.Text = "";
@@ -323,10 +306,10 @@ namespace First_App.ViewModels
             _chimpWindow.mainText.Visibility = Visibility.Hidden;
         }
 
-        /**
-         * Hide panels excepting authorization tab
-         * Exit from account and forward to authorization tab
-         */
+        /// <summary>
+        ///     Hide panels excepting authorization tab.
+        ///     Exit from account and forward to authorization tab.
+        /// </summary>
         private void ExitFromAccount ()
         {
             var res = MessageBox.Show("Are you sure to exit from the account?", "Exit", MessageBoxButton.YesNo);
@@ -348,10 +331,9 @@ namespace First_App.ViewModels
             }
         }
 
-        /**
-         * Close game if you sure
-         * 
-         */
+        /// <summary>
+        ///     Close game if you sure.
+        /// </summary>
         private void ExitGame ()
         {
             var res = MessageBox.Show("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo);
@@ -362,10 +344,9 @@ namespace First_App.ViewModels
             }
         }
 
-        /**
-         * Disable left buttons 
-         * 
-         */
+        /// <summary>
+        ///     Disable left buttons.
+        /// </summary>
         private void DisableLeftButtonsBeforeAuth ()
         {
             _chimpWindow.recordsButton.IsEnabled = false;
@@ -374,10 +355,9 @@ namespace First_App.ViewModels
             _chimpWindow.mainTabButton.IsEnabled = false;
         }
 
-        /**
-         * Enable left buttons 
-         * 
-         */
+        /// <summary>
+        ///     Enable left buttons.
+        /// </summary>
         private void EnableLeftButtonBeforeAuth ()
         {
             _chimpWindow.recordsButton.IsEnabled = true;
@@ -386,10 +366,9 @@ namespace First_App.ViewModels
             _chimpWindow.mainTabButton.IsEnabled = true;
         }
 
-        /**
-         * Save new user data into registry and database
-         * 
-         */
+        /// <summary>
+        ///     Save new user data into registry and database.
+        /// </summary>
         private void SaveProfile ()
         {
            // save new data into database

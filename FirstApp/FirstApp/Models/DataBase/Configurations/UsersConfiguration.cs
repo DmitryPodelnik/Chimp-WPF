@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace FirstApp.Configurations
 {
+    /// <summary>
+    ///     Class of user configuration.
+    /// </summary>
     public class UsersConfiguration : IEntityTypeConfiguration<User>
     {
         public void Configure(EntityTypeBuilder<User> builder)

@@ -10,18 +10,16 @@ using System.Windows;
 
 namespace First_App.Models.RegistryData
 {
-    /**
-     * Class of saving user data in the registry
-     * 
-     */
+    /// <summary>
+    ///     Class of saving user data in the registry.
+    /// </summary>
     public class SavingRegistryData
     {
-        /**
-         * Save user data in the registry
-         * 
-         * @param login - user login
-         * @param password - user password
-         */
+        /// <summary>
+        ///     Save user data in the registry.
+        /// </summary>
+        /// <param name="login">User login.</param>
+        /// <param name="password">User password.</param>
         public void SaveUserData (string login, string password)
         {
             try
@@ -53,10 +51,9 @@ namespace First_App.Models.RegistryData
             }
         }
 
-        /**
-         * Remove user data from the registry
-         * 
-         */
+        /// <summary>
+        ///     Remove user data from the registry.
+        /// </summary>
         public void RemoveUserData ()
         {
             try
@@ -95,12 +92,11 @@ namespace First_App.Models.RegistryData
             }
         }
 
-        /**
-         * Verify whether key exists in the registry
-         * 
-         * @param key - registry key
-         * @return - true if exists or false
-         */
+        /// <summary>
+        ///     Verify whether key exists in the registry.
+        /// </summary>
+        /// <param name="key">Registry key.</param>
+        /// <returns>True if exists or false.</returns>
         public bool IsExistsKey (string key)
         {
             try
@@ -131,11 +127,10 @@ namespace First_App.Models.RegistryData
             }
         }
 
-        /**
-         * Get current user login from the registry
-         * 
-         * @return - login if exists or null
-         */
+        /// <summary>
+        ///     Get current user login from the registry.
+        /// </summary>
+        /// <returns>Login if exists or null.</returns>
         public static string GetCurrentUser ()
         {
             try

@@ -7,10 +7,9 @@ using System.Windows;
 
 namespace First_App.Models.Game
 {
-    /**
-     * Class of generating coords for cube buttons on the play grid
-     * 
-     */
+    /// <summary>
+    ///     Class of generating coords for cube buttons on the play grid.
+    /// </summary>
     public class CoordsGenerator : GameComponent
     {
         // object for generate random coords for cube buttons on the play grid
@@ -18,11 +17,10 @@ namespace First_App.Models.Game
         // already existing buttons with concrete coords
         private List<Point> _existedCoords = new();
 
-        /**
-         * Generate unique coords for every cube button on the play grid
-         * 
-         * @param cubes - collection of cube buttons on the play grid
-         */
+        /// <summary>
+        ///     Generate unique coords for every cube button on the play grid.
+        /// </summary>
+        /// <param name="cubes">Collection of cube buttons on the play grid.</param>
         public void GenerateCoordsForCubes(IList<Cube> cubes)
         {
             // field for checking if button with the same coords already exists
