@@ -128,7 +128,7 @@
                    Visibility="Hidden" />
 
         <!-- Grid for playing -->
-        <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="True"
+        <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="False"
               Visibility="Hidden">
             <Grid.RowDefinitions>
                 <!-- 8 rows -->

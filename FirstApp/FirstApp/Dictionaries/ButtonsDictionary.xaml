@@ -34,4 +34,22 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
+
+    <ControlTemplate TargetType="Button" x:Key="cubeButton">
+        <Border x:Name="buttonBorder" CornerRadius="3" BorderBrush="#CC3C90CA" BorderThickness="4"
+                    Background="Transparent" 
+                    Padding="{TemplateBinding Padding}" 
+                    >
+            <ContentControl Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Content="{TemplateBinding Content}"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontWeight="{TemplateBinding FontWeight}">
+            </ContentControl>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="buttonBorder" Property="BorderBrush" Value="#CC8ACFFF" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
 </ResourceDictionary>

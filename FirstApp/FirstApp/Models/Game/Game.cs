@@ -1,13 +1,16 @@
 ﻿using First_App.Interfaces;
 using First_App.Models.Commands;
+using FirstApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace First_App.Models.Game
 {
@@ -37,7 +40,6 @@ namespace First_App.Models.Game
         private CoordsGenerator _coordsGenerator = new();
         // chimp window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
-
         /**
          * Game constructor()
          * Initializing cube buttons of number and coords
@@ -71,6 +73,11 @@ namespace First_App.Models.Game
                 newButton.FontSize = 40.0;
                 // set new button x:Name
                 newButton.Name = $"playButton{i}";
+
+                ResourceDictionary resourceDictionary = Application.Current.Resources.MergedDictionaries[0];
+                newButton.Template = (ControlTemplate)resourceDictionary["cubeButton"];
+
+
                 // set event handler after clicking to cube button
                 newButton.Click += DeleteButton_Executed;
 
@@ -96,6 +103,7 @@ namespace First_App.Models.Game
             Button button = (Button)e.Source;
             // remove cube button from the play grid after clicking on it
             _chimpWindow.playGrid.Children.Remove(button);
+            // MessageBox.Show(_chimpWindow.playGrid.Children.Count.ToString());
         }
 
         /**
