@@ -38,7 +38,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- Main tab button (Chimp) -->
-            <Button x:Name="mainTabButton" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+            <Button x:Name="mainTabButton" Cursor="Hand" Style="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left"
                     Command="{Binding ReturnToMainTabCommand}">
 
@@ -51,7 +51,7 @@
             </Button>
 
             <!-- Play tab button -->
-            <Button x:Name="playButton" Grid.Row="1" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+            <Button x:Name="playButton" Grid.Row="1" Cursor="Hand" Style="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left" Command="{Binding PlayCommand}">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -63,7 +63,7 @@
             </Button>
 
             <!-- Show profile tab button -->
-            <Button x:Name="profileButton" Grid.Row="2" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+            <Button x:Name="profileButton" Grid.Row="2" Cursor="Hand" Style="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left" Command="{Binding ShowProfileCommand}">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -75,7 +75,7 @@
             </Button>
 
             <!-- Show records tab button -->
-            <Button x:Name="recordsButton" Grid.Row="3" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+            <Button x:Name="recordsButton" Grid.Row="3" Cursor="Hand" Style="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left" Command="{Binding ShowRecordsCommand}">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -109,7 +109,7 @@
             </Button>-->
 
             <!-- Exit tab button -->
-            <Button x:Name="exitButton" Grid.Row="6" Cursor="Hand" Background="{StaticResource leftAsideButton}" 
+            <Button x:Name="exitButton" Grid.Row="6" Cursor="Hand" Style="{StaticResource leftAsideButton}" 
                     HorizontalContentAlignment="Left" Command="{Binding ExitCommand}">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
