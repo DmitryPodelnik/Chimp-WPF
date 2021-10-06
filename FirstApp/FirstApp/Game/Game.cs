@@ -78,9 +78,10 @@ namespace First_App.Models.Game
                 // set new button x:Name
                 newButton.Name = $"playButton{i}";
 
+                // get resource dictionary with cubeButton styles
                 ResourceDictionary resourceDictionary = Application.Current.Resources.MergedDictionaries[0];
+                // set cubeButton style to the button
                 newButton.Style = (Style)resourceDictionary["cubeButton"];
-
 
                 // set event handler after clicking to cube button
                 newButton.Click += DeleteButton_Executed;
