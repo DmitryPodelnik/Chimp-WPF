@@ -20,7 +20,7 @@ namespace First_App.Models.RegistryData
         /// </summary>
         /// <param name="login">User login.</param>
         /// <param name="password">User password.</param>
-        public void SaveUserData (string login, string password)
+        public void SaveUserData(string login, string password)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace First_App.Models.RegistryData
         /// <summary>
         ///     Remove user data from the registry.
         /// </summary>
-        public void RemoveUserData ()
+        public void RemoveUserData()
         {
             try
             {
@@ -97,7 +97,7 @@ namespace First_App.Models.RegistryData
         /// </summary>
         /// <param name="key">Registry key.</param>
         /// <returns>True if exists or false.</returns>
-        public bool IsExistsKey (string key)
+        public bool IsExistsKey(string key)
         {
             try
             {
@@ -131,7 +131,7 @@ namespace First_App.Models.RegistryData
         ///     Get current user login from the registry.
         /// </summary>
         /// <returns>Login if exists or null.</returns>
-        public static string GetCurrentUser ()
+        public static string GetCurrentUser()
         {
             try
             {
