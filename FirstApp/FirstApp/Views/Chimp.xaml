@@ -176,7 +176,7 @@
 
                 <Button x:Name="startGame" Content="Start game" FontSize="18px" FontWeight="Bold"
                         Padding="25px 10px 25px 10px" Width="180px" FontFamily="Arial" 
-                        Template="{StaticResource yellowButton}" Cursor="Hand"
+                        Style="{StaticResource yellowButton}" Cursor="Hand"
                         Command="{Binding StartGameCommand}">
 
                 </Button>

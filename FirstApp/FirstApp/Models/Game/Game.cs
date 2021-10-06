@@ -75,7 +75,7 @@ namespace First_App.Models.Game
                 newButton.Name = $"playButton{i}";
 
                 ResourceDictionary resourceDictionary = Application.Current.Resources.MergedDictionaries[0];
-                newButton.Template = (ControlTemplate)resourceDictionary["cubeButton"];
+                newButton.Style = (Style)resourceDictionary["cubeButton"];
 
 
                 // set event handler after clicking to cube button

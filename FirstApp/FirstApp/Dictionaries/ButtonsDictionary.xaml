@@ -20,43 +20,54 @@
         </Setter>
     </Style>
 
-
-    <ControlTemplate TargetType="Button" x:Key="yellowButton">
-        <Border x:Name="buttonBorder" CornerRadius="3" BorderBrush="Orange" BorderThickness="0.7"
+    <Style x:Key="yellowButton" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="buttonBorder" CornerRadius="3" BorderBrush="Orange" BorderThickness="0.7"
                     Background="#FFD1D300" 
                     Padding="{TemplateBinding Padding}" 
                     >
-            <ContentControl Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        <ContentControl Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" 
                             Content="{TemplateBinding Content}"
                             FontSize="{TemplateBinding FontSize}"
                             FontWeight="{TemplateBinding FontWeight}">
-            </ContentControl>
-        </Border>
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsMouseOver" Value="true">
-                <Setter TargetName="buttonBorder" Property="Background" Value="White" />
-            </Trigger>
-            <Trigger Property="IsPressed" Value="true">
-                <Setter TargetName="buttonBorder" Property="Background" Value="White" />
-            </Trigger>
-        </ControlTemplate.Triggers>
-    </ControlTemplate>
+                        </ContentControl>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="buttonBorder" Property="Background" Value="White" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="buttonBorder" Property="Background" Value="White" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
-    <ControlTemplate TargetType="Button" x:Key="cubeButton">
-        <Border x:Name="buttonBorder" CornerRadius="3" BorderBrush="#CC3C90CA" BorderThickness="4"
+    <Style x:Key="cubeButton" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="buttonBorder" CornerRadius="3" BorderBrush="#CC3C90CA" BorderThickness="4"
                     Background="Transparent" 
                     Padding="{TemplateBinding Padding}" 
                     >
-            <ContentControl Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"
+                        <ContentControl Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"
                             Content="{TemplateBinding Content}"
                             FontSize="{TemplateBinding FontSize}"
                             FontWeight="{TemplateBinding FontWeight}">
-            </ContentControl>
-        </Border>
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsMouseOver" Value="true">
-                <Setter TargetName="buttonBorder" Property="BorderBrush" Value="#CC8ACFFF" />
-            </Trigger>
-        </ControlTemplate.Triggers>
-    </ControlTemplate>
+                        </ContentControl>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="buttonBorder" Property="BorderBrush" Value="#CC8ACFFF" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
