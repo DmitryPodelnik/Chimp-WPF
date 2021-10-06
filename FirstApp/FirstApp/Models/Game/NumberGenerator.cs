@@ -30,7 +30,7 @@ namespace First_App.Models.Game
                 }
             }
         }
-
+        // min number in cube buttons
         private short _minGenerableNumber = 1;
 
         public NumberGenerator ()
@@ -38,6 +38,10 @@ namespace First_App.Models.Game
 
         }
 
+        /**
+          *  Generate number for cube buttons
+          *  starting from minGenerableNumber to Counter.Score
+          */
         public void GenerateNumbersForCubes (IList<Cube> cubes)
         {
             for (; _minGenerableNumber <= Counter.Score; _minGenerableNumber++)

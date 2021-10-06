@@ -13,9 +13,12 @@ namespace First_App.Models.Game
 {
     public class Game : IGameMediator
     {
+        // rows on the play grid
         private const short _ROWS = 8;
+        // columns on the play grid
         private const short _COLUMNS = 10;
 
+        // indicate if game is started
         private static bool _isGameStarted = false;
         public static bool IsGameStarted
         {
