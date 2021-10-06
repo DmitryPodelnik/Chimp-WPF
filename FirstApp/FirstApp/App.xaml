@@ -9,6 +9,13 @@
                 <ResourceDictionary Source="/Dictionaries/ButtonsDictionary.xaml" />
                 <ResourceDictionary Source="/Dictionaries/GridsDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+
+
+
+
+
+            <BooleanToVisibilityConverter x:Key="BoolToVis" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
