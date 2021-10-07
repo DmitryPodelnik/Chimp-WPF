@@ -36,7 +36,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Views\chimpLogo.png" />
+    <Resource Include="Views\chimpLogo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Views\exitIcon.png" />
     <Resource Include="Views\playIcon.png" />
     <Resource Include="Views\playLogo.png" />

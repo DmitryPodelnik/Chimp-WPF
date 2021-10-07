@@ -53,12 +53,12 @@ namespace ChimpControlLibrary
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(LeftAsideRadioButton), new FrameworkPropertyMetadata(typeof(LeftAsideRadioButton)));
             // registration dependency properties
-            SourceProperty = DependencyProperty.Register("Source", typeof(string), typeof(LeftAsideRadioButton));
+            SourceProperty = DependencyProperty.Register("Source", typeof(BitmapImage), typeof(LeftAsideRadioButton));
             TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(LeftAsideRadioButton));
         }
-        public string Source
+        public BitmapImage Source
         {
-            get { return (string)GetValue(SourceProperty); }
+            get { return (BitmapImage)GetValue(SourceProperty); }
             set { SetValue(SourceProperty, value); }
         }
         public string Text

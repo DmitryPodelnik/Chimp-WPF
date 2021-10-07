@@ -26,32 +26,41 @@
         <chimpcontrollibrary:LeftAsideRadioButton x:Name="mainTabRadioButton" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding ReturnToMainTabCommand}"
                      Text="Chimp"
-                     Source="/Views/chimpLogo.png"
+                     Click="mainTabRadioButton_Click"
                      >
+            <chimpcontrollibrary:LeftAsideRadioButton.Source>
+                <BitmapImage UriSource="/Views/chimpLogo.png"/>
+            </chimpcontrollibrary:LeftAsideRadioButton.Source>
         </chimpcontrollibrary:LeftAsideRadioButton>
 
         <!-- Play tab button -->
         <chimpcontrollibrary:LeftAsideRadioButton x:Name="playRadioButton" Grid.Row="1" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding PlayCommand}"
                      Text="Play"
-                     Source="/Views/playIcon.png"
                          >
+            <chimpcontrollibrary:LeftAsideRadioButton.Source>
+                <BitmapImage UriSource="/Views/playIcon.png"/>
+            </chimpcontrollibrary:LeftAsideRadioButton.Source>
         </chimpcontrollibrary:LeftAsideRadioButton>
 
         <!-- Show profile tab button -->
         <chimpcontrollibrary:LeftAsideRadioButton x:Name="profileRadioButton" Grid.Row="2" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding ShowProfileCommand}"
                      Text="Profile"
-                     Source="/Views/profileIcon.png"
                          >
+            <chimpcontrollibrary:LeftAsideRadioButton.Source>
+                <BitmapImage UriSource="/Views/profileIcon.png"/>
+            </chimpcontrollibrary:LeftAsideRadioButton.Source>
         </chimpcontrollibrary:LeftAsideRadioButton>
 
         <!-- Show records tab button -->
         <chimpcontrollibrary:LeftAsideRadioButton x:Name="recordsButton" Grid.Row="3" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding ShowRecordsCommand}"
                      Text="Records"
-                     Source="/Views/ratingIcon.png"
                          >
+            <chimpcontrollibrary:LeftAsideRadioButton.Source>
+                <BitmapImage UriSource="/Views/ratingIcon.png"/>
+            </chimpcontrollibrary:LeftAsideRadioButton.Source>
         </chimpcontrollibrary:LeftAsideRadioButton>
 
         <!-- Exit tab button -->
