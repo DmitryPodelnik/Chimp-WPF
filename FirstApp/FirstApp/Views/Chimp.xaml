@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:First_App"
         xmlns:navigation="clr-namespace:First_App.Navigation" d:DataContext="{d:DesignInstance Type=navigation:Navigator}"
+        xmlns:chimpcontrollibrary="clr-namespace:ChimpControlLibrary;assembly=ChimpControlLibrary"
+        xmlns:vsc="clr-namespace:First_App.Views"
         mc:Ignorable="d"
         Title="Chimp" MinHeight="450" MinWidth="800" Icon="/Views/chimpLogo.png"
         Background="{StaticResource mainBackground}">
@@ -23,7 +25,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <!-- Grid for left aside action buttons -->
+        <!-- Grid for left aside action buttons --><!--
         <Grid x:Name="leftAsideGrid" Grid.RowSpan="4" Background="{StaticResource leftAsideBackground}">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -38,7 +40,7 @@
                 <ColumnDefinition x:Name="leftAside"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Main tab button (Chimp) -->
+            --><!-- Main tab button (Chimp) --><!--
             <Button x:Name="mainTabButton" Cursor="Hand" Style="{StaticResource leftAsideButton}"
                     HorizontalContentAlignment="Left"
                     Command="{Binding ReturnToMainTabCommand}">
@@ -51,7 +53,7 @@
                 </StackPanel>
             </Button>
 
-            <!-- Play tab button -->
+            --><!-- Play tab button --><!--
             <Button x:Name="playButton" Grid.Row="1" Cursor="Hand" Style="{StaticResource leftAsideButton}"
                     HorizontalContentAlignment="Left" Command="{Binding PlayCommand}">
 
@@ -63,7 +65,7 @@
                 </StackPanel>
             </Button>
 
-            <!-- Show profile tab button -->
+            --><!-- Show profile tab button --><!--
             <Button x:Name="profileButton" Grid.Row="2" Cursor="Hand" Style="{StaticResource leftAsideButton}"
                     HorizontalContentAlignment="Left" Command="{Binding ShowProfileCommand}">
 
@@ -75,7 +77,7 @@
                 </StackPanel>
             </Button>
 
-            <!-- Show records tab button -->
+            --><!-- Show records tab button --><!--
             <Button x:Name="recordsButton" Grid.Row="3" Cursor="Hand" Style="{StaticResource leftAsideButton}"
                     HorizontalContentAlignment="Left" Command="{Binding ShowRecordsCommand}">
 
@@ -87,7 +89,7 @@
                 </StackPanel>
             </Button>
 
-            <!--<Button Grid.Row="4" Cursor="Hand" Background="{StaticResource leftAsideButton}"
+            --><!--<Button Grid.Row="4" Cursor="Hand" Background="{StaticResource leftAsideButton}"
                     HorizontalContentAlignment="Left">
 
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -109,7 +111,7 @@
                 </StackPanel>
             </Button>-->
 
-            <!-- Exit tab button -->
+            <!-- Exit tab button --><!--
             <Button x:Name="exitButton" Grid.Row="6" Cursor="Hand" Style="{StaticResource leftAsideButton}"
                     HorizontalContentAlignment="Left" Command="{Binding ExitCommand}">
 
@@ -120,9 +122,12 @@
                                VerticalAlignment="Center" Foreground="Black" />
                 </StackPanel>
             </Button>
-        </Grid>
+        </Grid>-->
 
-        <!-- Main tab -->
+        <vsc:LeftSideMenu Grid.RowSpan="4"  Visibility="{Binding Authenticator.IsLoggedIn,
+                          Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}" />
+
+            <!-- Main tab -->
         <TextBlock x:Name="mainText" Text="MAIN WINDOW" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1"
                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="72"
                    Visibility="Hidden" />

@@ -43,18 +43,18 @@ namespace First_App
             if (registry.IsExistsKey("ChimpAuthData"))
             {
                 // click to profile buttom and forward to profile tab
-                ButtonAutomationPeer peer = new ButtonAutomationPeer(profileButton);
-                IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-                invokeProv.Invoke();
+                //ButtonAutomationPeer peer = new ButtonAutomationPeer(profileButton);
+                //IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                //invokeProv.Invoke();
 
                 return;
             }
             else // disable left buttons
             {
-                recordsButton.IsEnabled = false;
-                profileButton.IsEnabled = false;
-                playButton.IsEnabled = false;
-                mainTabButton.IsEnabled = false;
+                //recordsButton.IsEnabled = false;
+                //profileButton.IsEnabled = false;
+                //playButton.IsEnabled = false;
+                //mainTabButton.IsEnabled = false;
             }
         }
     }

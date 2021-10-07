@@ -234,10 +234,10 @@ namespace First_App.ViewModels
         /// </summary>
         private void DisableLeftButtonsBeforeAuth()
         {
-            _chimpWindow.recordsButton.IsEnabled = false;
-            _chimpWindow.profileButton.IsEnabled = false;
-            _chimpWindow.playButton.IsEnabled = false;
-            _chimpWindow.mainTabButton.IsEnabled = false;
+            //_chimpWindow.recordsButton.IsEnabled = false;
+            //_chimpWindow.profileButton.IsEnabled = false;
+            //_chimpWindow.playButton.IsEnabled = false;
+            //_chimpWindow.mainTabButton.IsEnabled = false;
         }
     }
 }
