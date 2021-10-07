@@ -45,6 +45,20 @@ namespace First_App.ViewModels
                 }));
             }
         }
+
+        /// <summary>
+        ///     Hide panels excepting main tab.
+        /// </summary>
+        private void ShowMainTab()
+        {
+            _chimpWindow.accountNameTextBlock.Text = "";
+            _chimpWindow.mainText.Visibility = Visibility.Visible;
+            _chimpWindow.playGrid.Visibility = Visibility.Hidden;
+            _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
+            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
+            _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
+        }
+
         /// <summary>
         ///     Command after clicking play button.
         /// </summary>
@@ -94,6 +108,19 @@ namespace First_App.ViewModels
                     ShowRecords();
                 }));
             }
+        }
+
+        /// <summary>
+        ///     Hide panels excepting records tab.
+        /// </summary>
+        private void ShowRecords()
+        {
+            _chimpWindow.accountNameTextBlock.Text = "";
+            _chimpWindow.recordsGrid.Visibility = Visibility.Visible;
+            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
+            _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
+            _chimpWindow.playGrid.Visibility = Visibility.Hidden;
+            _chimpWindow.mainText.Visibility = Visibility.Hidden;
         }
 
         /// <summary>

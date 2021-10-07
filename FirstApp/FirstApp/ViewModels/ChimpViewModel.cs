@@ -23,32 +23,10 @@ namespace First_App.ViewModels
     {
         // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
-        // field of game play
-        private Game _game;
 
         public ChimpViewModel()
         {
 
-        }
-
-        /// <summary>
-        ///     Command after clicking start game button.
-        /// </summary>
-        private RelayCommand _startGameCommand;
-        public RelayCommand StartGameCommand
-        {
-            get
-            {
-                return _startGameCommand =
-                (_startGameCommand = new RelayCommand(obj =>
-                {
-                    _chimpWindow.startGamePanel.Visibility = Visibility.Hidden;
-                    //  call Game constructor() and initialize game cubes
-                    InitializeGameField();
-
-                    _game.StartGame();
-                }));
-            }
         }
 
         /// <summary>
@@ -72,11 +50,6 @@ namespace First_App.ViewModels
             // Hide panels excepting play tab
             PrepareInterfaceToPlay();
 
-        }
-
-        private void InitializeGameField()
-        {
-            _game = new();
         }
 
         /// <summary>
