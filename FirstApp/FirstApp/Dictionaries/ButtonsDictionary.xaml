@@ -25,10 +25,10 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border x:Name="buttonBorder" CornerRadius="3" BorderBrush="Orange" BorderThickness="0.7"
-                    Background="#FFD1D300" 
-                    Padding="{TemplateBinding Padding}" 
+                    Background="#FFD1D300"
+                    Padding="{TemplateBinding Padding}"
                     >
-                        <ContentControl Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        <ContentControl Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"
                             Content="{TemplateBinding Content}"
                             FontSize="{TemplateBinding FontSize}"
                             FontWeight="{TemplateBinding FontWeight}">
@@ -52,8 +52,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border x:Name="buttonBorder" CornerRadius="3" BorderBrush="#CC3C90CA" BorderThickness="4"
-                    Background="Transparent" 
-                    Padding="{TemplateBinding Padding}" 
+                    Background="Transparent"
+                    Padding="{TemplateBinding Padding}"
                     >
                         <ContentControl Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"
                             Content="{TemplateBinding Content}"

@@ -25,7 +25,7 @@
         <!-- Main tab button (Chimp) -->
         <chimpcontrollibrary:LeftAsideRadioButton x:Name="mainTabRadioButton" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding ReturnToMainTabCommand}"
-                     Content="Chimp"
+                     Text="Chimp"
                      Source="/Views/chimpLogo.png"
                      >
         </chimpcontrollibrary:LeftAsideRadioButton>
@@ -33,7 +33,7 @@
         <!-- Play tab button -->
         <chimpcontrollibrary:LeftAsideRadioButton x:Name="playRadioButton" Grid.Row="1" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding PlayCommand}"
-                     Content="Play"
+                     Text="Play"
                      Source="/Views/playIcon.png"
                          >
         </chimpcontrollibrary:LeftAsideRadioButton>
@@ -41,7 +41,7 @@
         <!-- Show profile tab button -->
         <chimpcontrollibrary:LeftAsideRadioButton x:Name="profileRadioButton" Grid.Row="2" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding ShowProfileCommand}"
-                     Content="Profile"
+                     Text="Profile"
                      Source="/Views/profileIcon.png"
                          >
         </chimpcontrollibrary:LeftAsideRadioButton>
@@ -49,7 +49,7 @@
         <!-- Show records tab button -->
         <chimpcontrollibrary:LeftAsideRadioButton x:Name="recordsButton" Grid.Row="3" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding ShowRecordsCommand}"
-                     Content="Records"
+                     Text="Records"
                      Source="/Views/ratingIcon.png"
                          >
         </chimpcontrollibrary:LeftAsideRadioButton>

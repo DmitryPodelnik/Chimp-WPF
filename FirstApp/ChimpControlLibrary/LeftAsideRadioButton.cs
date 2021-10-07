@@ -47,17 +47,24 @@ namespace ChimpControlLibrary
     public class LeftAsideRadioButton : RadioButton
     {
         public static DependencyProperty SourceProperty;
+        public static DependencyProperty TextProperty;
 
         static LeftAsideRadioButton()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(LeftAsideRadioButton), new FrameworkPropertyMetadata(typeof(LeftAsideRadioButton)));
-            // Регистрация свойств зависимости
+            // registration dependency properties
             SourceProperty = DependencyProperty.Register("Source", typeof(string), typeof(LeftAsideRadioButton));
+            TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(LeftAsideRadioButton));
         }
         public string Source
         {
             get { return (string)GetValue(SourceProperty); }
             set { SetValue(SourceProperty, value); }
+        }
+        public string Text
+        {
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
         }
     }
 }
