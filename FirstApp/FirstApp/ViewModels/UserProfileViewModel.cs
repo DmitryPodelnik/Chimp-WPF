@@ -1,6 +1,7 @@
 ﻿using First_App.Models.Commands;
 using First_App.Models.DataBase;
 using First_App.Models.RegistryData;
+using First_App.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,8 @@ namespace First_App.ViewModels
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
         // field to work with database
         private ChimpDataBase _database = new();
+
+        private UserProfile _userProfileUserControl = new();
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
@@ -51,7 +54,7 @@ namespace First_App.ViewModels
         private void ShowProfile()
         {
             // show welcome message to user
-            accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
+            _userProfileUserControl.accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
 
             // Get current user login from registry and get all user data from the database
             var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
@@ -60,7 +63,7 @@ namespace First_App.ViewModels
                 MessageBox.Show("User is not found", "Error");
             }
             // show score message in the profile
-            scoreText.Text = $"Your best score is {user?.Score}";
+            _userProfileUserControl.scoreText.Text = $"Your best score is {user?.Score}";
         }
 
         /// <summary>
@@ -71,21 +74,21 @@ namespace First_App.ViewModels
             // save new data into database
             bool res = _database.SaveNewData(
                      SavingRegistryData.GetCurrentUser(),
-                     accountLoginTextBox.Text,
-                     accountPasswordBox.Password,
-                     accountPasswordBoxConfirm.Password
+                     _userProfileUserControl.accountLoginTextBox.Text,
+                     _userProfileUserControl.accountPasswordBox.Password,
+                     _userProfileUserControl.accountPasswordBoxConfirm.Password
                  );
 
             // if ok then show success message and welcome message
             if (res == true)
             {
                 MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
-                accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
+                _userProfileUserControl.accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
             }
             // clear fields of new user data
-            accountLoginTextBox.Text = "";
-            accountPasswordBox.Password = "";
-            accountPasswordBoxConfirm.Password = "";
+            _userProfileUserControl.accountLoginTextBox.Text = "";
+            _userProfileUserControl.accountPasswordBox.Password = "";
+            _userProfileUserControl.accountPasswordBoxConfirm.Password = "";
 
             return;
         }

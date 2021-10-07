@@ -71,6 +71,7 @@ namespace First_App.ViewModels
         {
             // Hide panels excepting play tab
             PrepareInterfaceToPlay();
+
         }
 
         private void InitializeGameField()
