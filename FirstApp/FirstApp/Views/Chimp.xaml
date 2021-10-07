@@ -127,7 +127,10 @@
         <vsc:LeftSideMenu Grid.RowSpan="4" HorizontalAlignment="Left" Visibility="{Binding Authenticator.IsLoggedIn,
                           Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}" />
 
-            <!-- Main tab -->
+        <ContentControl Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4"
+                        Content="{Binding Navigator.CurrentViewModel}" />
+
+        <!-- Main tab -->
         <TextBlock x:Name="mainText" Text="MAIN WINDOW" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1"
                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="72"
                    Visibility="Hidden" />
