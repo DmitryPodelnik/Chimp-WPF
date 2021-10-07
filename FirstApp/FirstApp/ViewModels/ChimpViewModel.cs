@@ -172,7 +172,7 @@ namespace First_App.ViewModels
                     _chimpWindow.startGamePanel.Visibility = Visibility.Hidden;
                     //  call Game constructor() and initialize game cubes
                     InitializeGameField();
-                    
+
                     _game.StartGame();
                 }));
             }
@@ -272,7 +272,7 @@ namespace First_App.ViewModels
         /// <summary>
         ///     Hide panels excepting profile tab.
         /// </summary>
-        private void ShowProfile ()      
+        private void ShowProfile ()
         {
             // show welcome message to user
             _chimpWindow.accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
@@ -378,7 +378,7 @@ namespace First_App.ViewModels
                     _chimpWindow.accountPasswordBox.Password,
                     _chimpWindow.accountPasswordBoxConfirm.Password
                 );
-            
+
             // if ok then show success message and welcome message
             if (res == true)
             {
