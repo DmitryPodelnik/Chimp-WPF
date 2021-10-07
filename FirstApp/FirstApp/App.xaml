@@ -2,6 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:FirstApp"
+             xmlns:views="clr-namespace:First_App.Views"
+             xmlns:viewmodels="clr-namespace:First_App.ViewModels"
              StartupUri="Views/Chimp.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -11,10 +13,24 @@
                 <ResourceDictionary Source="/Dictionaries/RadioButtonsDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            
-
-
-
+            <DataTemplate DataType="{x:Type viewmodels:LeftSideMenuViewModel}">
+                <views:LeftSideMenu />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:MainTabViewModel}">
+                <views:MainTab />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:UserProfileViewModel}">
+                <views:UserProfile />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:UserRecordsViewModel}">
+                <views:UserRecords />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:GameFieldViewModel}">
+                <views:GameField />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:AuthorizationViewModel}">
+                <views:Authorization />
+            </DataTemplate>
 
             <BooleanToVisibilityConverter x:Key="BoolToVis" />
         </ResourceDictionary>
