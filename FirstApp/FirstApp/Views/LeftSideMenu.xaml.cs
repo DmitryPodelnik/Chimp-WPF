@@ -27,10 +27,5 @@ namespace First_App.Views
 
             DataContext = new LeftSideMenuViewModel();
         }
-
-        private void mainTabRadioButton_Click(object sender, RoutedEventArgs e)
-        {
-           // MessageBox.Show(mainTabRadioButton.Source);
-        }
     }
 }

@@ -26,7 +26,6 @@
         <chimpcontrollibrary:LeftAsideRadioButton x:Name="mainTabRadioButton" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding ReturnToMainTabCommand}"
                      Text="Chimp"
-                     Click="mainTabRadioButton_Click"
                      >
             <chimpcontrollibrary:LeftAsideRadioButton.Source>
                 <BitmapImage UriSource="/Views/chimpLogo.png"/>
