@@ -124,7 +124,7 @@
             </Button>
         </Grid>-->
 
-        <vsc:LeftSideMenu Grid.RowSpan="4"  Visibility="{Binding Authenticator.IsLoggedIn,
+        <vsc:LeftSideMenu Grid.RowSpan="4" HorizontalAlignment="Left" Visibility="{Binding Authenticator.IsLoggedIn,
                           Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}" />
 
             <!-- Main tab -->
