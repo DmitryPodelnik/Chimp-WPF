@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:First_App.Views"
+             xmlns:local="clr-namespace:First_App.Views" xmlns:chimpcontrollibrary="clr-namespace:ChimpControlLibrary;assembly=ChimpControlLibrary"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <!-- Grid for left aside action buttons -->
@@ -23,62 +23,36 @@
         </Grid.ColumnDefinitions>
 
         <!-- Main tab button (Chimp) -->
-        <RadioButton x:Name="mainTabRadioButton" Style="{StaticResource leftSideRadioButton}"
+        <chimpcontrollibrary:LeftAsideRadioButton x:Name="mainTabRadioButton" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding ReturnToMainTabCommand}"
-                     Content="Chimp">
-        </RadioButton>
+                     Content="Chimp"
+                     Source="/Views/chimpLogo.png"
+                     >
+        </chimpcontrollibrary:LeftAsideRadioButton>
 
         <!-- Play tab button -->
-        <RadioButton x:Name="playRadioButton" Grid.Row="1" Style="{StaticResource leftSideRadioButton}"
+        <chimpcontrollibrary:LeftAsideRadioButton x:Name="playRadioButton" Grid.Row="1" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding PlayCommand}"
-                     Content="Play">
-        </RadioButton>
+                     Content="Play"
+                     Source="/Views/playIcon.png"
+                         >
+        </chimpcontrollibrary:LeftAsideRadioButton>
 
         <!-- Show profile tab button -->
-        <Button x:Name="profileButton" Grid.Row="2" Cursor="Hand" Style="{StaticResource leftAsideButton}"
-                    HorizontalContentAlignment="Left" Command="{Binding ShowProfileCommand}">
-
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
-                            Margin="10 0 0 0">
-                <Image Source="/Views/profileIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                <TextBlock Text="Profile" FontSize="22px" Cursor="Hand" FontFamily="Autumn"
-                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
-            </StackPanel>
-        </Button>
+        <chimpcontrollibrary:LeftAsideRadioButton x:Name="profileRadioButton" Grid.Row="2" Style="{StaticResource leftSideRadioButton}"
+                     Command="{Binding ShowProfileCommand}"
+                     Content="Profile"
+                     Source="/Views/profileIcon.png"
+                         >
+        </chimpcontrollibrary:LeftAsideRadioButton>
 
         <!-- Show records tab button -->
-        <Button x:Name="recordsButton" Grid.Row="3" Cursor="Hand" Style="{StaticResource leftAsideButton}"
-                    HorizontalContentAlignment="Left" Command="{Binding ShowRecordsCommand}">
-
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
-                            Margin="10 0 0 0">
-                <Image Source="/Views/ratingIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                <TextBlock Text="Records" FontSize="22px" Cursor="Hand" FontFamily="Autumn"
-                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
-            </StackPanel>
-        </Button>
-
-        <!--<Button Grid.Row="4" Cursor="Hand" Background="{StaticResource leftAsideButton}"
-                    HorizontalContentAlignment="Left">
-
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
-                            Margin="10 0 0 0">
-                    <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                    <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn"
-                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
-                </StackPanel>
-            </Button>-->
-
-        <!--<Button Grid.Row="5" Cursor="Hand" Background="{StaticResource leftAsideButton}"
-                    HorizontalContentAlignment="Left">
-
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
-                            Margin="10 0 0 0">
-                    <Image Source="/Views/playIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                    <TextBlock Text="Play" FontSize="22px" Cursor="Hand" FontFamily="Autumn"
-                               VerticalAlignment="Center" Foreground="#FFEBEBEB" />
-                </StackPanel>
-            </Button>-->
+        <chimpcontrollibrary:LeftAsideRadioButton x:Name="recordsButton" Grid.Row="3" Style="{StaticResource leftSideRadioButton}"
+                     Command="{Binding ShowRecordsCommand}"
+                     Content="Records"
+                     Source="/Views/ratingIcon.png"
+                         >
+        </chimpcontrollibrary:LeftAsideRadioButton>
 
         <!-- Exit tab button -->
         <Button x:Name="exitButton" Grid.Row="6" Cursor="Hand" Style="{StaticResource leftAsideButton}"

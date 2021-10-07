@@ -1598,6 +1598,19 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "ChimpControlLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/ChimpControlLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ChimpControlLibrary.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     }
   },
@@ -5951,10 +5964,16 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "ChimpControlLibrary/1.0.0": {
+      "type": "project",
+      "path": "../ChimpControlLibrary/ChimpControlLibrary.csproj",
+      "msbuildProject": "../ChimpControlLibrary/ChimpControlLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
+      "ChimpControlLibrary >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.10",
@@ -5993,7 +6012,11 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\WORK WPF\\First App\\FirstApp\\ChimpControlLibrary\\ChimpControlLibrary.csproj": {
+              "projectPath": "D:\\WORK WPF\\First App\\FirstApp\\ChimpControlLibrary\\ChimpControlLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
