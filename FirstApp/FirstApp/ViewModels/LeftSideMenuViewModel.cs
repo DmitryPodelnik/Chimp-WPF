@@ -29,6 +29,8 @@ namespace First_App.ViewModels
         // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
+        private UserProfile _userProfileUserControl = new();
+
         /// <summary>
         ///     Command after clicking main tab(Chimp) button.
         /// </summary>
@@ -41,7 +43,7 @@ namespace First_App.ViewModels
                 (_returnToMainTabCommand = new RelayCommand(obj =>
                 {
                     SelectedAction.CurrentSelectedAction = Actions.MainTab;
-                    ShowMainTab();
+                    //ShowMainTab();
                 }));
             }
         }
@@ -49,15 +51,15 @@ namespace First_App.ViewModels
         /// <summary>
         ///     Hide panels excepting main tab.
         /// </summary>
-        private void ShowMainTab()
-        {
-            _chimpWindow.accountNameTextBlock.Text = "";
-            _chimpWindow.mainText.Visibility = Visibility.Visible;
-            _chimpWindow.playGrid.Visibility = Visibility.Hidden;
-            _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
-            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
-            _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
-        }
+        //private void ShowMainTab()
+        //{
+        //    _userProfileUserControl.accountNameTextBlock.Text = "";
+        //    _userProfileUserControl.mainText.Visibility = Visibility.Visible;
+        //    _userProfileUserControl.playGrid.Visibility = Visibility.Hidden;
+        //    _userProfileUserControl.accountPanel.Visibility = Visibility.Hidden;
+        //    _userProfileUserControl.authorizationPanel.Visibility = Visibility.Hidden;
+        //    _userProfileUserControl.recordsGrid.Visibility = Visibility.Hidden;
+        //}
 
         /// <summary>
         ///     Command after clicking play button.
@@ -105,7 +107,7 @@ namespace First_App.ViewModels
                 (_showRecordsCommand = new RelayCommand(obj =>
                 {
                     SelectedAction.CurrentSelectedAction = Actions.ShowRecords;
-                    ShowRecords();
+                    // ShowRecords();
                 }));
             }
         }
@@ -113,15 +115,15 @@ namespace First_App.ViewModels
         /// <summary>
         ///     Hide panels excepting records tab.
         /// </summary>
-        private void ShowRecords()
-        {
-            _chimpWindow.accountNameTextBlock.Text = "";
-            _chimpWindow.recordsGrid.Visibility = Visibility.Visible;
-            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
-            _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
-            _chimpWindow.playGrid.Visibility = Visibility.Hidden;
-            _chimpWindow.mainText.Visibility = Visibility.Hidden;
-        }
+        //private void ShowRecords()
+        //{
+        //    _chimpWindow.accountNameTextBlock.Text = "";
+        //    _chimpWindow.recordsGrid.Visibility = Visibility.Visible;
+        //    _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
+        //    _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
+        //    _chimpWindow.playGrid.Visibility = Visibility.Hidden;
+        //    _chimpWindow.mainText.Visibility = Visibility.Hidden;
+        //}
 
         /// <summary>
         ///     Command after clicking exit button.

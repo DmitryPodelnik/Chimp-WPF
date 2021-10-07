@@ -1,5 +1,6 @@
 ﻿using First_App.Interfaces;
 using First_App.Models.Commands;
+using First_App.Views;
 using FirstApp;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace First_App.Models.Game
         private const short _ROWS = 8;
         // columns on the play grid
         private const short _COLUMNS = 10;
+
+        private GameField _gameFielUserControl = new();
 
         // indicate if game is started
         private static bool _isGameStarted = false;
@@ -92,7 +95,7 @@ namespace First_App.Models.Game
                 Grid.SetColumn(newButton, Convert.ToInt32(_cubes[i].Coords.X));
 
                 // add button to play grid
-                _chimpWindow.playGrid.Children.Add(newButton);
+                _gameFielUserControl.playGrid.Children.Add(newButton);
             }
         }
 
@@ -106,11 +109,11 @@ namespace First_App.Models.Game
             // explicit cast from RoutedEventArgs to Button
             Button button = (Button)e.Source;
             // remove cube button from the play grid after clicking on it
-            _chimpWindow.playGrid.Children.Remove(button);
+            _gameFielUserControl.playGrid.Children.Remove(button);
         }
 
         /// <summary>
-        ///         
+        ///
         /// </summary>
         /// <param name="sender">sender</param>
         /// <param name="ev">event info</param>

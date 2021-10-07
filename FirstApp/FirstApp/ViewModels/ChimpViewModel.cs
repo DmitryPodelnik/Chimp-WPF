@@ -48,7 +48,7 @@ namespace First_App.ViewModels
         private void StartPlay ()
         {
             // Hide panels excepting play tab
-            PrepareInterfaceToPlay();
+            // PrepareInterfaceToPlay();
 
         }
 
