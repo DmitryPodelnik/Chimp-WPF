@@ -23,12 +23,10 @@ namespace First_App.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        // field to work with database
-        private ChimpDataBase _database = new();
         // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
-        private Authenticator _authenticator = new();
+        private Authenticator _authenticator = Authenticator.Create();
 
         /// <summary>
         ///     Command after clicking login button.
@@ -45,27 +43,6 @@ namespace First_App.ViewModels
                     _authenticator.CheckAuthorization();
                 }));
             }
-        }
-
-        /// <summary>
-        ///     Show success message box and welcome message and hide authorization panel.
-        /// </summary>
-        private void LoginSuccessActions()
-        {
-            MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
-            _chimpWindow.accountNameTextBlock.Text = $"Hello, {_chimpWindow.loginTextBox.Text}!";
-            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
-        }
-
-        /// <summary>
-        ///     Enable left buttons.
-        /// </summary>
-        private void EnableLeftButtonBeforeAuth()
-        {
-            //_chimpWindow.recordsButton.IsEnabled = true;
-            //_chimpWindow.profileButton.IsEnabled = true;
-            //_chimpWindow.playButton.IsEnabled = true;
-            //_chimpWindow.mainTabButton.IsEnabled = true;
         }
     }
 }

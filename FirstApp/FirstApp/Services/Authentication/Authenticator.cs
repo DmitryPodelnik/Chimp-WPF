@@ -1,4 +1,6 @@
-﻿using First_App.Models.RegistryData;
+﻿using First_App.Models.DataBase;
+using First_App.Models.RegistryData;
+using First_App.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,16 @@ namespace First_App.Services.Authentication
     /// <summary>
     ///     Class of authentication to user.
     /// </summary>
-    public class Authenticator
+    class Authenticator
     {
+        // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
+        private Authorization _authUserControl = new();
+        private UserProfile _userProfileUserControl = new();
+
+        // field to work with database
+        private ChimpDataBase _database = new();
         private static Authenticator _instance = null;
         public static Authenticator Create()
         {
@@ -50,8 +58,8 @@ namespace First_App.Services.Authentication
         public void CheckAuthorization()
         {
             // if login or password box is null or empty then error message
-            if (String.IsNullOrEmpty(_chimpWindow.loginTextBox.Text) ||
-                String.IsNullOrEmpty(_chimpWindow.passwordBox.Password))
+            if (String.IsNullOrEmpty(_authUserControl.loginTextBox.Text) ||
+                String.IsNullOrEmpty(_authUserControl.passwordBox.Password))
             {
                 MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK);
 
@@ -60,8 +68,8 @@ namespace First_App.Services.Authentication
 
             // verify whether login and password are correct and exists and compares in the database
             bool result = _database.IsAuthorized(
-                _chimpWindow.loginTextBox.Text,
-                _chimpWindow.passwordBox.Password
+                _authUserControl.loginTextBox.Text,
+                _authUserControl.passwordBox.Password
                 );
 
             // if correct then save user data in the registry
@@ -69,8 +77,8 @@ namespace First_App.Services.Authentication
             {
                 SavingRegistryData registry = new();
                 registry.SaveUserData(
-                    _chimpWindow.loginTextBox.Text,
-                    _chimpWindow.passwordBox.Password
+                    _authUserControl.loginTextBox.Text,
+                    _authUserControl.passwordBox.Password
                     );
 
                 // show success message box and welcome message and hide authorization panel
@@ -82,7 +90,28 @@ namespace First_App.Services.Authentication
                 MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK);
             }
             // clear password box field
-            _chimpWindow.passwordBox.Password = "";
+            _authUserControl.passwordBox.Password = "";
+        }
+
+        /// <summary>
+        ///     Show success message box and welcome message and hide authorization panel.
+        /// </summary>
+        private void LoginSuccessActions()
+        {
+            MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
+            _userProfileUserControl.accountNameTextBlock.Text = $"Hello, {_authUserControl.loginTextBox.Text}!";
+            _authUserControl.authorizationPanel.Visibility = Visibility.Hidden;
+        }
+
+        /// <summary>
+        ///     Enable left buttons.
+        /// </summary>
+        private void EnableLeftButtonBeforeAuth()
+        {
+            //_chimpWindow.recordsButton.IsEnabled = true;
+            //_chimpWindow.profileButton.IsEnabled = true;
+            //_chimpWindow.playButton.IsEnabled = true;
+            //_chimpWindow.mainTabButton.IsEnabled = true;
         }
     }
 }

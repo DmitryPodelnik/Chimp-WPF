@@ -122,15 +122,15 @@ namespace First_App.ViewModels
         /// <summary>
         ///     Hide panels excepting main tab.
         /// </summary>
-        private void ShowMainTab()
-        {
-            _chimpWindow.accountNameTextBlock.Text = "";
-            _chimpWindow.mainText.Visibility = Visibility.Visible;
-            _chimpWindow.playGrid.Visibility = Visibility.Hidden;
-            _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
-            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
-            _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
-        }
+        //private void ShowMainTab()
+        //{
+        //    _chimpWindow.accountNameTextBlock.Text = "";
+        //    _chimpWindow.mainText.Visibility = Visibility.Visible;
+        //    _chimpWindow.playGrid.Visibility = Visibility.Hidden;
+        //    _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
+        //    _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
+        //    _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
+        //}
 
         /// <summary>
         ///     Hide panels excepting play tab.
@@ -138,7 +138,7 @@ namespace First_App.ViewModels
         private void StartPlay()
         {
             // Hide panels excepting play tab
-            PrepareInterfaceToPlay();
+            // PrepareInterfaceToPlay();
         }
 
         /// <summary>
@@ -147,13 +147,13 @@ namespace First_App.ViewModels
         private void ShowProfile()
         {
             // show welcome message to user
-            _chimpWindow.accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
+            //_chimpWindow.accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
 
-            _chimpWindow.accountPanel.Visibility = Visibility.Visible;
-            _chimpWindow.playGrid.Visibility = Visibility.Hidden;
-            _chimpWindow.mainText.Visibility = Visibility.Hidden;
-            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
-            _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
+            //_chimpWindow.accountPanel.Visibility = Visibility.Visible;
+            //_chimpWindow.playGrid.Visibility = Visibility.Hidden;
+            //_chimpWindow.mainText.Visibility = Visibility.Hidden;
+            //_chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
+            //_chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
 
             // Get current user login from registry and get all user data from the database
             var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
@@ -162,21 +162,21 @@ namespace First_App.ViewModels
                 MessageBox.Show("User is not found", "Error");
             }
             // show score message in the profile
-            _chimpWindow.scoreText.Text = $"Your best score is {user?.Score}";
+             // _chimpWindow.scoreText.Text = $"Your best score is {user?.Score}";
         }
 
         /// <summary>
         ///     Hide panels excepting records tab.
         /// </summary>
-        private void ShowRecords()
-        {
-            _chimpWindow.accountNameTextBlock.Text = "";
-            _chimpWindow.recordsGrid.Visibility = Visibility.Visible;
-            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
-            _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
-            _chimpWindow.playGrid.Visibility = Visibility.Hidden;
-            _chimpWindow.mainText.Visibility = Visibility.Hidden;
-        }
+        //private void ShowRecords()
+        //{
+        //    _chimpWindow.accountNameTextBlock.Text = "";
+        //    _chimpWindow.recordsGrid.Visibility = Visibility.Visible;
+        //    _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
+        //    _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
+        //    _chimpWindow.playGrid.Visibility = Visibility.Hidden;
+        //    _chimpWindow.mainText.Visibility = Visibility.Hidden;
+        //}
 
         /// <summary>
         ///     Close game if you sure.
@@ -204,13 +204,13 @@ namespace First_App.ViewModels
                 SavingRegistryData registry = new();
                 registry.RemoveUserData();
 
-                _chimpWindow.loginTextBox.Text = "";
-                _chimpWindow.accountNameTextBlock.Text = "";
-                _chimpWindow.authorizationPanel.Visibility = Visibility.Visible;
-                _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
-                _chimpWindow.playGrid.Visibility = Visibility.Hidden;
-                _chimpWindow.mainText.Visibility = Visibility.Hidden;
-                _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
+                //_chimpWindow.loginTextBox.Text = "";
+                //_chimpWindow.accountNameTextBlock.Text = "";
+                //_chimpWindow.authorizationPanel.Visibility = Visibility.Visible;
+                //_chimpWindow.accountPanel.Visibility = Visibility.Hidden;
+                //_chimpWindow.playGrid.Visibility = Visibility.Hidden;
+                //_chimpWindow.mainText.Visibility = Visibility.Hidden;
+                //_chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
 
                 DisableLeftButtonsBeforeAuth();
             }
@@ -219,15 +219,15 @@ namespace First_App.ViewModels
         /// <summary>
         ///     Hide panels excepting play tab.
         /// </summary>
-        private void PrepareInterfaceToPlay()
-        {
-            _chimpWindow.accountNameTextBlock.Text = "";
-            _chimpWindow.playGrid.Visibility = Visibility.Visible;
-            _chimpWindow.mainText.Visibility = Visibility.Hidden;
-            _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
-            _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
-            _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
-        }
+        //private void PrepareInterfaceToPlay()
+        //{
+        //    _chimpWindow.accountNameTextBlock.Text = "";
+        //    _chimpWindow.playGrid.Visibility = Visibility.Visible;
+        //    _chimpWindow.mainText.Visibility = Visibility.Hidden;
+        //    _chimpWindow.accountPanel.Visibility = Visibility.Hidden;
+        //    _chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
+        //    _chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
+        //}
 
         /// <summary>
         ///     Disable left buttons.
