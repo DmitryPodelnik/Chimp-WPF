@@ -36,14 +36,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Views\chimpLogo.png">
+    <Resource Include="Views\images\chimpLogo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Views\exitIcon.png" />
-    <Resource Include="Views\playIcon.png" />
-    <Resource Include="Views\playLogo.png" />
-    <Resource Include="Views\profileIcon.png" />
-    <Resource Include="Views\ratingIcon.png" />
+    <Resource Include="Views\images\exitIcon.png" />
+    <Resource Include="Views\images\playIcon.png" />
+    <Resource Include="Views\images\playLogo.png" />
+    <Resource Include="Views\images\profileIcon.png" />
+    <Resource Include="Views\images\ratingIcon.png" />
   </ItemGroup>
 
   <ItemGroup>

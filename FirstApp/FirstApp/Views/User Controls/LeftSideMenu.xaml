@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:First_App.Views" 
+             xmlns:local="clr-namespace:First_App.Views"
              xmlns:chimpcontrollibrary="clr-namespace:ChimpControlLibrary;assembly=ChimpControlLibrary"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -29,7 +29,7 @@
                      Text="Chimp"
                      >
             <chimpcontrollibrary:LeftAsideRadioButton.Source>
-                <BitmapImage UriSource="/Views/chimpLogo.png"/>
+                <BitmapImage UriSource="/Views/images/chimpLogo.png"/>
             </chimpcontrollibrary:LeftAsideRadioButton.Source>
         </chimpcontrollibrary:LeftAsideRadioButton>
 
@@ -39,7 +39,7 @@
                      Text="Play"
                          >
             <chimpcontrollibrary:LeftAsideRadioButton.Source>
-                <BitmapImage UriSource="/Views/playIcon.png"/>
+                <BitmapImage UriSource="/Views/images/playIcon.png"/>
             </chimpcontrollibrary:LeftAsideRadioButton.Source>
         </chimpcontrollibrary:LeftAsideRadioButton>
 
@@ -49,7 +49,7 @@
                      Text="Profile"
                          >
             <chimpcontrollibrary:LeftAsideRadioButton.Source>
-                <BitmapImage UriSource="/Views/profileIcon.png"/>
+                <BitmapImage UriSource="/Views/images/profileIcon.png"/>
             </chimpcontrollibrary:LeftAsideRadioButton.Source>
         </chimpcontrollibrary:LeftAsideRadioButton>
 
@@ -59,7 +59,7 @@
                      Text="Records"
                          >
             <chimpcontrollibrary:LeftAsideRadioButton.Source>
-                <BitmapImage UriSource="/Views/ratingIcon.png"/>
+                <BitmapImage UriSource="/Views/images/ratingIcon.png"/>
             </chimpcontrollibrary:LeftAsideRadioButton.Source>
         </chimpcontrollibrary:LeftAsideRadioButton>
 
@@ -69,7 +69,7 @@
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
-                <Image Source="/Views/exitIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
+                <Image Source="/Views/images/exitIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
                 <TextBlock Text="Exit" FontSize="22px" Cursor="Hand" FontFamily="Autumn"
                                VerticalAlignment="Center" Foreground="Black" />
             </StackPanel>

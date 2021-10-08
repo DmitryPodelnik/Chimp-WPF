@@ -8,7 +8,7 @@
         xmlns:chimpcontrollibrary="clr-namespace:ChimpControlLibrary;assembly=ChimpControlLibrary"
         xmlns:vsc="clr-namespace:First_App.Views"
         mc:Ignorable="d"
-        Title="Chimp" MinHeight="450" MinWidth="800" Icon="/Views/chimpLogo.png"
+        Title="Chimp" MinHeight="450" MinWidth="800" Icon="/Views/images/chimpLogo.png"
         Background="{StaticResource mainBackground}">
     <Grid x:Name="mainGrid" Loaded="mainGrid_Loaded">
         <Grid.RowDefinitions>

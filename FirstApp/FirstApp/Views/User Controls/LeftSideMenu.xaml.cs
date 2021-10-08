@@ -14,20 +14,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace First_App
+namespace First_App.Views
 {
     /// <summary>
-    ///     Interaction logic for Chimp.xaml.
+    /// Interaction logic for LeftSideMenu.xaml
     /// </summary>
-    public partial class Chimp : Window
+    public partial class LeftSideMenu : UserControl
     {
-        public Chimp()
+        public LeftSideMenu()
         {
             InitializeComponent();
 
-            DataContext = new ChimpViewModel();
+            DataContext = new LeftSideMenuViewModel();
         }
 
         /// <summary>
@@ -37,15 +38,15 @@ namespace First_App
         /// </summary>
         /// <param name="sender">Sender.</param>
         /// <param name="e">Event arguments.</param>
-        private void mainGrid_Loaded(object sender, RoutedEventArgs e)
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             SavingRegistryData registry = new();
             if (registry.IsExistsKey("ChimpAuthData"))
             {
                 // click to profile buttom and forward to profile tab
-                //ButtonAutomationPeer peer = new ButtonAutomationPeer(profileRadioButton);
-                //IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-                //invokeProv.Invoke();
+                RadioButtonAutomationPeer peer = new(profileRadioButton);
+                IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                invokeProv.Invoke();
 
                 return;
             }
