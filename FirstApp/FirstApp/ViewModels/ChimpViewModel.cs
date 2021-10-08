@@ -5,6 +5,7 @@ using First_App.Models.Game;
 using First_App.Models.RegistryData;
 using First_App.Navigation;
 using First_App.Services.Authentication;
+using First_App.Views;
 using FirstApp.Models.DataBase;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation.Peers;
+using System.Windows.Automation.Provider;
 using System.Windows.Controls;
 
 namespace First_App.ViewModels
@@ -26,6 +29,8 @@ namespace First_App.ViewModels
         // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
+        private LeftSideMenu _menu = new();
+
         public Navigator Navigator { get; }
         public Authenticator Authenticator { get; }
 
@@ -34,8 +39,23 @@ namespace First_App.ViewModels
             Navigator = Navigator.Create();
             Authenticator = Authenticator.Create();
 
-            AuthorizationViewModel _auth = new();
-            Navigator.CurrentViewModel = _auth;
+            SavingRegistryData registry = new();
+            if (registry.IsExistsKey("ChimpAuthData"))
+            {
+                Navigator.CurrentViewModel = new LeftSideMenuViewModel();
+
+                // click to profile buttom and forward to profile tab
+                RadioButtonAutomationPeer peer = new(_menu.profileRadioButton);
+                IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                invokeProv?.Invoke();
+
+                return;
+            }
+            else
+            {
+                Navigator.CurrentViewModel = new AuthorizationViewModel();
+            }
+
         }
 
         /// <summary>

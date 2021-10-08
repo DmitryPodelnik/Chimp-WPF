@@ -38,23 +38,8 @@ namespace First_App.Views
         /// <param name="e">Event arguments.</param>
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            SavingRegistryData registry = new();
-            if (registry.IsExistsKey("ChimpAuthData"))
-            {
-                // click to profile buttom and forward to profile tab
-                RadioButtonAutomationPeer peer = new(profileRadioButton);
-                IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-                invokeProv?.Invoke();
 
-                return;
-            }
-            else // disable left buttons
-            {
-                //recordsButton.IsEnabled = false;
-                //profileButton.IsEnabled = false;
-                //playButton.IsEnabled = false;
-                //mainTabButton.IsEnabled = false;
-            }
+
         }
     }
 }

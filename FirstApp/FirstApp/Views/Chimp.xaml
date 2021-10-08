@@ -32,7 +32,7 @@
         <vsc:LeftSideMenu x:Name="leftSideMenu" Grid.RowSpan="4" HorizontalAlignment="Left" Visibility="{Binding Authenticator.IsLoggedIn,
                           Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}" />
 
-        <ContentControl x:Name="contentControl" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4"
+        <ContentControl x:Name="contentControl" Grid.RowSpan="4" Grid.Column="0" Grid.ColumnSpan="4"
                         Content="{Binding Navigator.CurrentViewModel}" />
     </Grid>
 </Window>

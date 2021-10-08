@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace First_App.ViewModels
 {
@@ -28,6 +30,9 @@ namespace First_App.ViewModels
 
         private Authenticator _authenticator = Authenticator.Create();
 
+        public string Login { get; set; }
+        public string Password { get; set; }
+
         /// <summary>
         ///     Command after clicking login button.
         /// </summary>
@@ -40,7 +45,7 @@ namespace First_App.ViewModels
                 (_loginCommand = new RelayCommand(obj =>
                 {
                     // verify whether the data of user are correct
-                    _authenticator.CheckAuthorization();
+                    _authenticator.CheckAuthorization(Login, Password);
                 }));
             }
         }

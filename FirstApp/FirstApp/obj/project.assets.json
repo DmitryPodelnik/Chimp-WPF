@@ -5983,24 +5983,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pache\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\inko1\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programming\\Projects\\Work\\Chimp-WPF\\FirstApp\\FirstApp\\First App.csproj",
+      "projectUniqueName": "D:\\WORK WPF\\First App\\FirstApp\\FirstApp\\First App.csproj",
       "projectName": "First App",
-      "projectPath": "D:\\Programming\\Projects\\Work\\Chimp-WPF\\FirstApp\\FirstApp\\First App.csproj",
-      "packagesPath": "C:\\Users\\pache\\.nuget\\packages\\",
-      "outputPath": "D:\\Programming\\Projects\\Work\\Chimp-WPF\\FirstApp\\FirstApp\\obj\\",
+      "projectPath": "D:\\WORK WPF\\First App\\FirstApp\\FirstApp\\First App.csproj",
+      "packagesPath": "C:\\Users\\inko1\\.nuget\\packages\\",
+      "outputPath": "D:\\WORK WPF\\First App\\FirstApp\\FirstApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\pache\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\inko1\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6014,8 +6013,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "D:\\Programming\\Projects\\Work\\Chimp-WPF\\FirstApp\\ChimpControlLibrary\\ChimpControlLibrary.csproj": {
-              "projectPath": "D:\\Programming\\Projects\\Work\\Chimp-WPF\\FirstApp\\ChimpControlLibrary\\ChimpControlLibrary.csproj"
+            "D:\\WORK WPF\\First App\\FirstApp\\ChimpControlLibrary\\ChimpControlLibrary.csproj": {
+              "projectPath": "D:\\WORK WPF\\First App\\FirstApp\\ChimpControlLibrary\\ChimpControlLibrary.csproj"
             }
           }
         }
