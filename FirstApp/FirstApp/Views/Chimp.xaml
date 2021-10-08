@@ -29,10 +29,10 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <vsc:LeftSideMenu x:Name="leftSideMenu" Grid.RowSpan="4" HorizontalAlignment="Left" Visibility="{Binding Authenticator.IsLoggedIn,
-                          Converter={StaticResource BoolToVis}, FallbackValue=Visible}"
-
-                          />
+        <Border x:Name="leftSideMenu" Grid.RowSpan="4" HorizontalAlignment="Left" Visibility="{Binding Authenticator.IsLoggedIn,
+                          Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}">
+            <vsc:LeftSideMenu />
+        </Border>
 
         <ContentControl x:Name="contentControl" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4"
                         Content="{Binding Navigator.CurrentViewModel}" />
