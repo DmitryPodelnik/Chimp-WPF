@@ -30,14 +30,5 @@ namespace First_App
         {
             InitializeComponent();
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            //Navigator nav = Navigator.Create();
-            //AuthorizationViewModel _auth = new();
-            // nav.CurrentViewModel = _auth;
-            //Authenticator auth = Authenticator.Create();
-            //auth.CurrentUser = "user1";
-        }
     }
 }

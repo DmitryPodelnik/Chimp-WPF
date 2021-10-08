@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace First_App.Navigation
 {
-    class Navigator : INotifyPropertyChanged
+    public class Navigator : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

@@ -3,6 +3,8 @@ using First_App.Models.Commands;
 using First_App.Models.DataBase;
 using First_App.Models.Game;
 using First_App.Models.RegistryData;
+using First_App.Navigation;
+using First_App.Services.Authentication;
 using FirstApp.Models.DataBase;
 using System;
 using System.Collections.Generic;
@@ -24,9 +26,15 @@ namespace First_App.ViewModels
         // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
+        public Navigator Navigator { get; set; }
+
         public ChimpViewModel()
         {
-
+            Navigator = Navigator.Create();
+            AuthorizationViewModel _auth = new();
+            Navigator.CurrentViewModel = _auth;
+            Authenticator auth = Authenticator.Create();
+            auth.CurrentUser = "user1";
         }
 
         /// <summary>

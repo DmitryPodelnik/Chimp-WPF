@@ -31,9 +31,6 @@
             <DataTemplate DataType="{x:Type viewmodels:AuthorizationViewModel}">
                 <views:Authorization />
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:ChimpViewModel}">
-                <local:Chimp />
-            </DataTemplate>
 
             <BooleanToVisibilityConverter x:Key="BoolToVis" />
         </ResourceDictionary>
