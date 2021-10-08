@@ -35,6 +35,36 @@ namespace First_App.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
+        private string _currentUserMessage { get; set; }
+        public string CurrentUserMessage
+        {
+            get => _currentUserMessage;
+            set
+            {
+                _currentUserMessage = value;
+            }
+        }
+
+        /// <summary>
+        ///     UserProfileViewModel constructor().
+        ///     Get current user from the registry.
+        /// </summary>
+        public UserProfileViewModel()
+        {
+            _currentUserMessage = "Hello, " + SavingRegistryData.GetCurrentUser() + "!";
+            ShowProfile();
+        }
+
+        private string _currentUserScoreMessage { get; set; }
+        public string CurrentUserScoreMessage
+        {
+            get => _currentUserScoreMessage;
+            set
+            {
+                _currentUserScoreMessage = value;
+            }
+        }
+
         /// <summary>
         ///     Command after clicking save profile button.
         /// </summary>
@@ -57,8 +87,6 @@ namespace First_App.ViewModels
         /// </summary>
         private void ShowProfile()
         {
-            // show welcome message to user
-            _userProfileUserControl.accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
 
             // Get current user login from registry and get all user data from the database
             var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
@@ -67,7 +95,7 @@ namespace First_App.ViewModels
                 MessageBox.Show("User is not found", "Error");
             }
             // show score message in the profile
-            _userProfileUserControl.scoreText.Text = $"Your best score is {user?.Score}";
+            _currentUserScoreMessage = $"Your best score is {user?.Score}";
         }
 
         /// <summary>

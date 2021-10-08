@@ -25,7 +25,8 @@
         <!-- You can change login, password and save new data -->
         <StackPanel x:Name="accountLeftPanel" Grid.RowSpan="4" Grid.ColumnSpan="2"
                     HorizontalAlignment="Left">
-            <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left" Margin="25 20 0 0"></TextBlock>
+            <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left" Margin="25 20 0 0"
+                       Text="{Binding CurrentUserMessage}"></TextBlock>
 
             <TextBlock x:Name="accountLoginTextBlock" Text="New login: " FontSize="15" Margin="25 20 0 5"></TextBlock>
             <TextBox x:Name="accountLoginTextBox" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0"
@@ -49,7 +50,8 @@
         <!-- Stack panel for right account panel -->
         <!-- Shows you best score and last games -->
         <StackPanel x:Name="rightAccountPanel" Grid.RowSpan="4"  Grid.Column="2" Grid.ColumnSpan="3">
-            <TextBlock x:Name="scoreText" FontSize="22px" Margin="0 20 0 0" />
+            <TextBlock x:Name="scoreText" FontSize="22px" Margin="0 20 0 0"
+                       Text="{Binding CurrentUserScoreMessage}"/>
 
         </StackPanel>
     </Grid>
