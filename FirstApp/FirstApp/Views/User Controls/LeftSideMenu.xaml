@@ -4,9 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:First_App.Views"
+             xmlns:vm="clr-namespace:First_App.ViewModels"
              xmlns:chimpcontrollibrary="clr-namespace:ChimpControlLibrary;assembly=ChimpControlLibrary"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <UserControl.DataContext>
+        <vm:LeftSideMenuViewModel/>
+    </UserControl.DataContext>
     <!-- Grid for left aside action buttons -->
     <Grid x:Name="leftAsideGrid" Grid.RowSpan="4" Background="{StaticResource leftAsideBackground}"
           Width="200px">
