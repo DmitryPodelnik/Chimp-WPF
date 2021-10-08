@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
     <!-- Grid for left aside action buttons -->
     <Grid x:Name="leftAsideGrid" Grid.RowSpan="4" Background="{StaticResource leftAsideBackground}"
-          Width="155px">
+          Width="200px">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
