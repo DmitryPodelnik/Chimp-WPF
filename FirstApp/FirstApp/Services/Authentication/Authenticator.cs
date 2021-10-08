@@ -1,6 +1,7 @@
 ﻿using First_App.Models.DataBase;
 using First_App.Models.RegistryData;
 using First_App.Navigation;
+using First_App.ViewModels;
 using First_App.Views;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace First_App.Services.Authentication
         // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
+        private Navigator _nav = Navigator.Create();
         // field to work with database
         private ChimpDataBase _database = new();
         private static Authenticator _instance = null;
@@ -30,6 +32,7 @@ namespace First_App.Services.Authentication
             }
             return _instance;
         }
+
         private string _currentUser { get; set; }
         public string CurrentUser
         {
@@ -78,10 +81,11 @@ namespace First_App.Services.Authentication
                     login,
                     password
                     );
+                CurrentUser = SavingRegistryData.GetCurrentUser();
 
                 // show success message box and welcome message and hide authorization panel
                 LoginSuccessActions(login);
-                EnableLeftButtonBeforeAuth();
+                _nav.CurrentViewModel = new UserProfileViewModel();
             }
             else // or show error message
             {
@@ -99,17 +103,6 @@ namespace First_App.Services.Authentication
             MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
             // _userProfileUserControl.accountNameTextBlock.Text = $"Hello, {login}!";
             // _authUserControl.authorizationPanel.Visibility = Visibility.Hidden;
-        }
-
-        /// <summary>
-        ///     Enable left buttons.
-        /// </summary>
-        private void EnableLeftButtonBeforeAuth()
-        {
-            //_chimpWindow.recordsButton.IsEnabled = true;
-            //_chimpWindow.profileButton.IsEnabled = true;
-            //_chimpWindow.playButton.IsEnabled = true;
-            //_chimpWindow.mainTabButton.IsEnabled = true;
         }
     }
 }

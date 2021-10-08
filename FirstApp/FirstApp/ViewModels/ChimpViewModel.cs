@@ -43,9 +43,10 @@ namespace First_App.ViewModels
             if (registry.IsExistsKey("ChimpAuthData"))
             {
                 // click to profile buttom and forward to profile tab
-                RadioButtonAutomationPeer peer = new(_menu.profileRadioButton);
-                IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-                invokeProv?.Invoke();
+                //RadioButtonAutomationPeer peer = new(_menu.profileRadioButton);
+                //IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                //invokeProv?.Invoke();
+                Navigator.CurrentViewModel = new UserProfileViewModel();
 
                 return;
             }
