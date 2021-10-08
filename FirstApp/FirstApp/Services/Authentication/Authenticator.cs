@@ -13,7 +13,7 @@ namespace First_App.Services.Authentication
     /// <summary>
     ///     Class of authentication to user.
     /// </summary>
-    class Authenticator
+    public class Authenticator
     {
         // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;

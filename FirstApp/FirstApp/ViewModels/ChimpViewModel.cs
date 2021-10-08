@@ -26,15 +26,16 @@ namespace First_App.ViewModels
         // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
-        public Navigator Navigator { get; set; }
+        public Navigator Navigator { get; }
+        public Authenticator Authenticator { get; }
 
         public ChimpViewModel()
         {
             Navigator = Navigator.Create();
+            Authenticator = Authenticator.Create();
+
             AuthorizationViewModel _auth = new();
             Navigator.CurrentViewModel = _auth;
-            Authenticator auth = Authenticator.Create();
-            auth.CurrentUser = "user1";
         }
 
         /// <summary>
