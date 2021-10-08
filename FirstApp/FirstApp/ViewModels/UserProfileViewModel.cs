@@ -25,6 +25,10 @@ namespace First_App.ViewModels
 
         private UserProfile _userProfileUserControl = new();
 
+        public string NewLogin { get; set; }
+        public string NewPassword { get; set; }
+        public string ConfirmNewPassword { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {

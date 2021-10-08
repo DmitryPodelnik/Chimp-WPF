@@ -42,8 +42,6 @@ namespace First_App.ViewModels
             SavingRegistryData registry = new();
             if (registry.IsExistsKey("ChimpAuthData"))
             {
-                Navigator.CurrentViewModel = new LeftSideMenuViewModel();
-
                 // click to profile buttom and forward to profile tab
                 RadioButtonAutomationPeer peer = new(_menu.profileRadioButton);
                 IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;

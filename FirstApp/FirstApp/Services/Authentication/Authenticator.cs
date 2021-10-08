@@ -19,9 +19,6 @@ namespace First_App.Services.Authentication
         // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
-        private Authorization _authUserControl = new();
-        private UserProfile _userProfileUserControl = new();
-
         // field to work with database
         private ChimpDataBase _database = new();
         private static Authenticator _instance = null;
@@ -100,8 +97,8 @@ namespace First_App.Services.Authentication
         private void LoginSuccessActions(string login)
         {
             MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
-            _userProfileUserControl.accountNameTextBlock.Text = $"Hello, {login}!";
-            _authUserControl.authorizationPanel.Visibility = Visibility.Hidden;
+            // _userProfileUserControl.accountNameTextBlock.Text = $"Hello, {login}!";
+            // _authUserControl.authorizationPanel.Visibility = Visibility.Hidden;
         }
 
         /// <summary>
