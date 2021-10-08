@@ -101,8 +101,6 @@ namespace First_App.Services.Authentication
         private void LoginSuccessActions(string login)
         {
             MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
-            // _userProfileUserControl.accountNameTextBlock.Text = $"Hello, {login}!";
-            // _authUserControl.authorizationPanel.Visibility = Visibility.Hidden;
         }
     }
 }
