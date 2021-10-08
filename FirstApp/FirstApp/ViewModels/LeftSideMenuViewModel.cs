@@ -2,6 +2,7 @@
 using First_App.Models.Commands;
 using First_App.Models.DataBase;
 using First_App.Models.RegistryData;
+using First_App.Navigation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,12 +25,11 @@ namespace First_App.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
+        private Navigator _nav = Navigator.Create();
         // field to work with database
         private ChimpDataBase _database = new();
         // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
-
-        private UserProfile _userProfileUserControl = new();
 
         /// <summary>
         ///     Command after clicking main tab(Chimp) button.
@@ -43,7 +43,7 @@ namespace First_App.ViewModels
                 (_returnToMainTabCommand = new RelayCommand(obj =>
                 {
                     SelectedAction.CurrentSelectedAction = Actions.MainTab;
-                    //ShowMainTab();
+                    ShowMainTab();
                 }));
             }
         }
@@ -51,15 +51,10 @@ namespace First_App.ViewModels
         /// <summary>
         ///     Hide panels excepting main tab.
         /// </summary>
-        //private void ShowMainTab()
-        //{
-        //    _userProfileUserControl.accountNameTextBlock.Text = "";
-        //    _userProfileUserControl.mainText.Visibility = Visibility.Visible;
-        //    _userProfileUserControl.playGrid.Visibility = Visibility.Hidden;
-        //    _userProfileUserControl.accountPanel.Visibility = Visibility.Hidden;
-        //    _userProfileUserControl.authorizationPanel.Visibility = Visibility.Hidden;
-        //    _userProfileUserControl.recordsGrid.Visibility = Visibility.Hidden;
-        //}
+        private void ShowMainTab()
+        {
+            _nav.CurrentViewModel = new MainTabViewModel();
+        }
 
         /// <summary>
         ///     Command after clicking play button.
@@ -175,14 +170,6 @@ namespace First_App.ViewModels
         /// </summary>
         private void ShowProfile()
         {
-            // show welcome message to user
-            //_chimpWindow.accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
-
-            //_chimpWindow.accountPanel.Visibility = Visibility.Visible;
-            //_chimpWindow.playGrid.Visibility = Visibility.Hidden;
-            //_chimpWindow.mainText.Visibility = Visibility.Hidden;
-            //_chimpWindow.authorizationPanel.Visibility = Visibility.Hidden;
-            //_chimpWindow.recordsGrid.Visibility = Visibility.Hidden;
 
             // Get current user login from registry and get all user data from the database
             var user = _database.GetUser(SavingRegistryData.GetCurrentUser());

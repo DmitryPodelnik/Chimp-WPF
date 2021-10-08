@@ -22,9 +22,6 @@ namespace First_App.ViewModels
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
         // field to work with database
         private ChimpDataBase _database = new();
-
-        private UserProfile _userProfileUserControl = new();
-
         public string NewLogin { get; set; }
         public string NewPassword { get; set; }
         public string ConfirmNewPassword { get; set; }
@@ -77,7 +74,7 @@ namespace First_App.ViewModels
                 (_saveProfileCommand = new RelayCommand(obj =>
                 {
                     // save new profile data in database and registry
-                    SaveProfile();
+                    //SaveProfile();
                 }));
             }
         }
@@ -101,28 +98,28 @@ namespace First_App.ViewModels
         /// <summary>
         ///     Save new user data into registry and database.
         /// </summary>
-        private void SaveProfile()
-        {
-            // save new data into database
-            bool res = _database.SaveNewData(
-                     SavingRegistryData.GetCurrentUser(),
-                     _userProfileUserControl.accountLoginTextBox.Text,
-                     _userProfileUserControl.accountPasswordBox.Password,
-                     _userProfileUserControl.accountPasswordBoxConfirm.Password
-                 );
+        //private void SaveProfile()
+        //{
+        //    // save new data into database
+        //    bool res = _database.SaveNewData(
+        //             SavingRegistryData.GetCurrentUser(),
+        //             _userProfileUserControl.accountLoginTextBox.Text,
+        //             _userProfileUserControl.accountPasswordBox.Password,
+        //             _userProfileUserControl.accountPasswordBoxConfirm.Password
+        //         );
 
-            // if ok then show success message and welcome message
-            if (res == true)
-            {
-                MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
-                _userProfileUserControl.accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
-            }
-            // clear fields of new user data
-            _userProfileUserControl.accountLoginTextBox.Text = "";
-            _userProfileUserControl.accountPasswordBox.Password = "";
-            _userProfileUserControl.accountPasswordBoxConfirm.Password = "";
+        //    // if ok then show success message and welcome message
+        //    if (res == true)
+        //    {
+        //        MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
+        //        _userProfileUserControl.accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
+        //    }
+        //    // clear fields of new user data
+        //    _userProfileUserControl.accountLoginTextBox.Text = "";
+        //    _userProfileUserControl.accountPasswordBox.Password = "";
+        //    _userProfileUserControl.accountPasswordBoxConfirm.Password = "";
 
-            return;
-        }
+        //    return;
+        //}
     }
 }

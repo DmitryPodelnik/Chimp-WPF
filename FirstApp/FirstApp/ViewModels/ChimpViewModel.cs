@@ -43,9 +43,6 @@ namespace First_App.ViewModels
             if (registry.IsExistsKey("ChimpAuthData"))
             {
                 // click to profile buttom and forward to profile tab
-                //RadioButtonAutomationPeer peer = new(_menu.profileRadioButton);
-                //IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-                //invokeProv?.Invoke();
                 Navigator.CurrentViewModel = new UserProfileViewModel();
 
                 return;
@@ -55,6 +52,31 @@ namespace First_App.ViewModels
                 Navigator.CurrentViewModel = new AuthorizationViewModel();
             }
 
+        }
+
+        /// <summary>
+        ///     Command after clicking main tab(Chimp) button.
+        /// </summary>
+        private RelayCommand _returnToMainTabCommand;
+        public RelayCommand ReturnToMainTabCommand
+        {
+            get
+            {
+                return _returnToMainTabCommand =
+                (_returnToMainTabCommand = new RelayCommand(obj =>
+                {
+                    SelectedAction.CurrentSelectedAction = Actions.MainTab;
+                    ShowMainTab();
+                }));
+            }
+        }
+
+        /// <summary>
+        ///     Hide panels excepting main tab.
+        /// </summary>
+        private void ShowMainTab()
+        {
+            Navigator.CurrentViewModel = new MainTabViewModel();
         }
 
         /// <summary>
