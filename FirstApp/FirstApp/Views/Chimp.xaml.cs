@@ -1,5 +1,8 @@
 ﻿using First_App.Models.RegistryData;
+using First_App.Navigation;
+using First_App.Services.Authentication;
 using First_App.ViewModels;
+using First_App.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,36 +29,15 @@ namespace First_App
         public Chimp()
         {
             InitializeComponent();
-
-            DataContext = new ChimpViewModel();
         }
 
-        /// <summary>
-        ///     Actions after loading main window.
-        ///     Verify whether registry has ChimpAuthData key.
-        ///     If has then open profile tab or disable left buttons.
-        /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">Event arguments.</param>
-        private void mainGrid_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            SavingRegistryData registry = new();
-            if (registry.IsExistsKey("ChimpAuthData"))
-            {
-                // click to profile buttom and forward to profile tab
-                //ButtonAutomationPeer peer = new ButtonAutomationPeer(profileRadioButton);
-                //IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-                //invokeProv.Invoke();
-
-                return;
-            }
-            else // disable left buttons
-            {
-                //recordsButton.IsEnabled = false;
-                //profileButton.IsEnabled = false;
-                //playButton.IsEnabled = false;
-                //mainTabButton.IsEnabled = false;
-            }
+            //Navigator nav = Navigator.Create();
+            //AuthorizationViewModel _auth = new();
+            // nav.CurrentViewModel = _auth;
+            //Authenticator auth = Authenticator.Create();
+            //auth.CurrentUser = "user1";
         }
     }
 }

@@ -27,8 +27,6 @@ namespace First_App.Views
         public LeftSideMenu()
         {
             InitializeComponent();
-
-            DataContext = new LeftSideMenuViewModel();
         }
 
         /// <summary>
@@ -46,7 +44,7 @@ namespace First_App.Views
                 // click to profile buttom and forward to profile tab
                 RadioButtonAutomationPeer peer = new(profileRadioButton);
                 IInvokeProvider invokeProv = peer.GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-                invokeProv.Invoke();
+                invokeProv?.Invoke();
 
                 return;
             }

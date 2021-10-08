@@ -24,8 +24,6 @@ namespace First_App.Views
         public MainTab()
         {
             InitializeComponent();
-
-            DataContext = new MainTabViewModel();
         }
     }
 }

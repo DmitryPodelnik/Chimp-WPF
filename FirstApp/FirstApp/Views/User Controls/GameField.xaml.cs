@@ -24,8 +24,6 @@ namespace First_App.Views
         public GameField()
         {
             InitializeComponent();
-
-            DataContext = new GameFieldViewModel();
         }
     }
 }

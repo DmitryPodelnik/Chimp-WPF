@@ -24,8 +24,6 @@ namespace First_App.Views
         public UserRecords()
         {
             InitializeComponent();
-
-            DataContext = new UserRecordsViewModel();
         }
     }
 }

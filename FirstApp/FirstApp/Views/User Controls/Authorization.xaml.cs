@@ -24,8 +24,6 @@ namespace First_App.Views
         public Authorization()
         {
             InitializeComponent();
-
-            DataContext = new AuthorizationViewModel();
         }
     }
 }
