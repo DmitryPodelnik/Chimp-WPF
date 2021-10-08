@@ -56,7 +56,7 @@ namespace First_App.Services.Authentication
         /// <summary>
         ///     Verify whether the data of user are correct.
         /// </summary>
-        public void CheckAuthorization(string login, string password)
+        public bool CheckAuthorization(string login, string password)
         {
             // if login or password box is null or empty then error message
             if (String.IsNullOrEmpty(login) ||
@@ -64,7 +64,7 @@ namespace First_App.Services.Authentication
             {
                 MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK);
 
-                return;
+                return false;
             }
 
             // verify whether login and password are correct and exists and compares in the database
@@ -90,9 +90,11 @@ namespace First_App.Services.Authentication
             else // or show error message
             {
                 MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK);
+                return false;
             }
             // clear password box field
             password = "";
+            return true;
         }
 
         /// <summary>

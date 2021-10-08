@@ -45,7 +45,11 @@ namespace First_App.ViewModels
                 (_loginCommand = new RelayCommand(obj =>
                 {
                     // verify whether the data of user are correct
-                    _authenticator.CheckAuthorization(Login, Password);
+                    bool result = _authenticator.CheckAuthorization(Login, Password);
+                    if (result == true)
+                    {
+                        OnPropertyChanged(_authenticator.CurrentUser);
+                    }
                 }));
             }
         }

@@ -13,9 +13,6 @@
                 <ResourceDictionary Source="/Dictionaries/RadioButtonsDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <DataTemplate DataType="{x:Type viewmodels:LeftSideMenuViewModel}">
-                <views:LeftSideMenu />
-            </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:MainTabViewModel}">
                 <views:MainTab />
             </DataTemplate>
