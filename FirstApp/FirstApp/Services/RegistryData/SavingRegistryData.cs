@@ -26,8 +26,15 @@ namespace First_App.Models.RegistryData
             {
                 using RegistryKey currentUserKey = Registry.CurrentUser;
                 using RegistryKey authKey = currentUserKey.CreateSubKey("ChimpAuthData");
-                authKey.SetValue("login", login);
-                authKey.SetValue("password", password);
+
+                if (login is not null)
+                {
+                    authKey.SetValue("login", login);
+                }
+                if (password is not null)
+                {
+                    authKey.SetValue("password", password);
+                }
             }
             catch (ArgumentNullException ex)
             {
@@ -141,31 +148,37 @@ namespace First_App.Models.RegistryData
             }
             catch (ArgumentNullException ex)
             {
+                MessageBox.Show("Here");
                 MessageBox.Show(ex.Message);
                 return null;
             }
             catch (ArgumentException ex)
             {
+                MessageBox.Show("Here");
                 MessageBox.Show(ex.Message);
                 return null;
             }
             catch (ObjectDisposedException ex)
             {
+                MessageBox.Show("Here");
                 MessageBox.Show(ex.Message);
                 return null;
             }
             catch (SecurityException ex)
             {
+                MessageBox.Show("Here");
                 MessageBox.Show(ex.Message);
                 return null;
             }
             catch (UnauthorizedAccessException ex)
             {
+                MessageBox.Show("Here");
                 MessageBox.Show(ex.Message);
                 return null;
             }
             catch (IOException ex)
             {
+                MessageBox.Show("Here");
                 MessageBox.Show(ex.Message);
                 return null;
             }

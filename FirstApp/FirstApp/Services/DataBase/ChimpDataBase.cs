@@ -54,7 +54,7 @@ namespace First_App.Models.DataBase
                 ConnectionString = configuration.GetConnectionString("DefaultConnection");
 
                 // Create EF context object and point out connect string and
-                // get option object for EF context object constructor 
+                // get option object for EF context object constructor
                 var options =
                     new DbContextOptionsBuilder<ChimpDbContext>()
                         .UseSqlServer(ConnectionString)
@@ -87,7 +87,7 @@ namespace First_App.Models.DataBase
                      u => u.Username == login &&
                      u.Password == Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password))));
 
-                // if correct 
+                // if correct
                 if (result != null)
                 {
                     return true;
@@ -184,7 +184,7 @@ namespace First_App.Models.DataBase
                         user.Username = newLogin;
                     }
                 }
-                // if password and confirm password are not null or empty - set new password 
+                // if password and confirm password are not null or empty - set new password
                 if (!(String.IsNullOrEmpty(password) || String.IsNullOrEmpty(confirmPassword))) {
                     user.Password = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
                 }

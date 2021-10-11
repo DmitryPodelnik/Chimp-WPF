@@ -82,6 +82,7 @@ namespace First_App.ViewModels
                 (_saveProfileCommand = new RelayCommand(obj =>
                 {
                     // save new profile data in database and registry
+                    SaveProfile();
                 }));
             }
         }
