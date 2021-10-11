@@ -28,18 +28,5 @@ namespace First_App.Views
         {
             InitializeComponent();
         }
-
-        /// <summary>
-        ///     Actions after loading main window.
-        ///     Verify whether registry has ChimpAuthData key.
-        ///     If has then open profile tab or disable left buttons.
-        /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">Event arguments.</param>
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-
-
-        }
     }
 }

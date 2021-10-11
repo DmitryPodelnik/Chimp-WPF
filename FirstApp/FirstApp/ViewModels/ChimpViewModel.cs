@@ -44,8 +44,6 @@ namespace First_App.ViewModels
             {
                 // click to profile buttom and forward to profile tab
                 Navigator.CurrentViewModel = new UserProfileViewModel();
-
-                return;
             }
             else
             {
