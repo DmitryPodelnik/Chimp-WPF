@@ -48,8 +48,16 @@ namespace First_App.ViewModels
         /// </summary>
         public UserProfileViewModel()
         {
+            // Get current user login from registry and get all user data from the database
+            var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
+            if (user is null)
+            {
+                MessageBox.Show("User is not found", "Error");
+                return;
+            }
             _currentUserMessage = "Hello, " + SavingRegistryData.GetCurrentUser() + "!";
-            ShowProfile();
+            // show score message in the profile
+            _currentUserScoreMessage = $"Your best score is {user?.Score}";
         }
 
         private string _currentUserScoreMessage { get; set; }
@@ -74,52 +82,35 @@ namespace First_App.ViewModels
                 (_saveProfileCommand = new RelayCommand(obj =>
                 {
                     // save new profile data in database and registry
-                    //SaveProfile();
                 }));
             }
         }
 
         /// <summary>
-        ///     Hide panels excepting profile tab.
-        /// </summary>
-        private void ShowProfile()
-        {
-
-            // Get current user login from registry and get all user data from the database
-            var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
-            if (user is null)
-            {
-                MessageBox.Show("User is not found", "Error");
-            }
-            // show score message in the profile
-            _currentUserScoreMessage = $"Your best score is {user?.Score}";
-        }
-
-        /// <summary>
         ///     Save new user data into registry and database.
         /// </summary>
-        //private void SaveProfile()
-        //{
-        //    // save new data into database
-        //    bool res = _database.SaveNewData(
-        //             SavingRegistryData.GetCurrentUser(),
-        //             _userProfileUserControl.accountLoginTextBox.Text,
-        //             _userProfileUserControl.accountPasswordBox.Password,
-        //             _userProfileUserControl.accountPasswordBoxConfirm.Password
-        //         );
+        private void SaveProfile()
+        {
+            // save new data into database
+            bool res = _database.SaveNewData(
+                     SavingRegistryData.GetCurrentUser(),
+                     NewLogin,
+                     NewPassword,
+                     ConfirmNewPassword
+                 );
 
-        //    // if ok then show success message and welcome message
-        //    if (res == true)
-        //    {
-        //        MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
-        //        _userProfileUserControl.accountNameTextBlock.Text = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
-        //    }
-        //    // clear fields of new user data
-        //    _userProfileUserControl.accountLoginTextBox.Text = "";
-        //    _userProfileUserControl.accountPasswordBox.Password = "";
-        //    _userProfileUserControl.accountPasswordBoxConfirm.Password = "";
+            // if ok then show success message and welcome message
+            if (res == true)
+            {
+                MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
+                _currentUserMessage = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
+            }
+            // clear fields of new user data
+            NewLogin = "";
+            NewPassword = "";
+            ConfirmNewPassword = "";
 
-        //    return;
-        //}
+            return;
+        }
     }
 }

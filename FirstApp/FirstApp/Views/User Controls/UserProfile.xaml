@@ -31,7 +31,7 @@
             <TextBlock x:Name="accountLoginTextBlock" Text="New login: " FontSize="15" Margin="25 20 0 5"></TextBlock>
             <TextBox x:Name="accountLoginTextBox" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0"
                      VerticalContentAlignment="Center"
-                     Text="{Binding NewLogin}"></TextBox>
+                     Text="{Binding NewLogin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 
             <TextBlock x:Name="accountPasswordTextBlock" Text="New password: " FontSize="15" Margin="25 25 0 0"></TextBlock>
             <PasswordBox x:Name="accountPasswordBox" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0"

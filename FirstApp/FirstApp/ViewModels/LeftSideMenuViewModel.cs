@@ -99,6 +99,22 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
+        ///     Hide panels excepting profile tab.
+        /// </summary>
+        private void ShowProfile()
+        {
+
+            //// Get current user login from registry and get all user data from the database
+            //var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
+            //if (user is null)
+            //{
+            //    MessageBox.Show("User is not found", "Error");
+            //    return;
+            //}
+            _nav.CurrentViewModel = new UserProfileViewModel();
+        }
+
+        /// <summary>
         ///     Command after clicking records button.
         /// </summary>
         private RelayCommand _showRecordsCommand;
@@ -110,9 +126,17 @@ namespace First_App.ViewModels
                 (_showRecordsCommand = new RelayCommand(obj =>
                 {
                     SelectedAction.CurrentSelectedAction = Actions.ShowRecords;
-                    // ShowRecords();
+                    ShowRecords();
                 }));
             }
+        }
+
+        /// <summary>
+        ///     Hide panels excepting play tab.
+        /// </summary>
+        private void ShowRecords()
+        {
+            _nav.CurrentViewModel = new UserRecordsViewModel();
         }
 
         /// <summary>
@@ -136,22 +160,6 @@ namespace First_App.ViewModels
                     ExitGame();
                 }));
             }
-        }
-
-        /// <summary>
-        ///     Hide panels excepting profile tab.
-        /// </summary>
-        private void ShowProfile()
-        {
-
-            // Get current user login from registry and get all user data from the database
-            var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
-            if (user is null)
-            {
-                MessageBox.Show("User is not found", "Error");
-            }
-            // show score message in the profile
-             // _chimpWindow.scoreText.Text = $"Your best score is {user?.Score}";
         }
 
         /// <summary>
@@ -180,6 +188,8 @@ namespace First_App.ViewModels
                 SavingRegistryData registry = new();
                 registry.RemoveUserData();
             }
+
+            _nav.CurrentViewModel = new AuthorizationViewModel();
         }
     }
 }
