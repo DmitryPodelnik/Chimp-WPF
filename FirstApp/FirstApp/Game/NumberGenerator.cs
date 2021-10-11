@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace First_App.Models.Game
     public class NumberGenerator : GameComponent
     {
         private short _generatedNumber;
-        public short GeneratedNumber 
+        public short GeneratedNumber
         {
             get => _generatedNumber;
             set
@@ -49,13 +50,14 @@ namespace First_App.Models.Game
         ///     starting from minGenerableNumber to Counter.Score.
         /// </summary>
         /// <param name="cubes">Collection of cube buttons.</param>
-        public void GenerateNumbersForCubes (IList<Cube> cubes)
+        public void GenerateNumbersForCubes (ObservableCollection<Cube> cubes)
         {
             for (; _minGenerableNumber <= Counter.Score; _minGenerableNumber++)
             {
                 // add new cube to collection with minGenerableNumber number
                 cubes.Add(new Cube(_minGenerableNumber));
             }
+            _minGenerableNumber = 1;
         }
     }
 }

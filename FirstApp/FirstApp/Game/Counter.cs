@@ -12,6 +12,8 @@ namespace First_App.Models.Game
     /// </summary>
     public static class Counter
     {
+        private static Game _game = Game.Create();
+
         // field that stores the max value of numbers
         private static short _score = 4;
         public static short Score
@@ -34,11 +36,11 @@ namespace First_App.Models.Game
             }
         }
 
-        // field that stores the value of numbers
-        private static short _pressedNumbersCounter = 0;
-        public static short PressedNumbersCounter
+        // field that stores count of pressed cube buttons
+        private static short _pressedButtonsCounter = 0;
+        public static short PressedButtonsCounter
         {
-            get => _pressedNumbersCounter;
+            get => _pressedButtonsCounter;
             set
             {
                 try
@@ -47,7 +49,7 @@ namespace First_App.Models.Game
                     {
                         throw new ArgumentException($"Score must have value between {0} and {_score}");
                     }
-                    _pressedNumbersCounter = value;
+                    _pressedButtonsCounter = value;
                 }
                 catch (ArgumentException ex)
                 {
@@ -55,9 +57,11 @@ namespace First_App.Models.Game
                 }
                 finally
                 {
-                    if (_pressedNumbersCounter == _score)
+                    if (_pressedButtonsCounter == _score)
                     {
-                        _pressedNumbersCounter = 0;
+                        _score++;
+                        _pressedButtonsCounter = 0;
+                        _game.CreateAndAddCubeButtonToPlayField();
                     }
                 }
             }

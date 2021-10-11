@@ -40,7 +40,7 @@ namespace First_App.ViewModels
         }
         private void InitializeGameField()
         {
-            _game = new(_playGrid);
+            _game = Game.Create(_playGrid);
         }
     }
 }

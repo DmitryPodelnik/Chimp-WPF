@@ -40,7 +40,7 @@ namespace First_App.Models.Game
         public static short COLUMNS { get => _COLUMNS; }
 
         // cube buttons with number, which must be pressed
-        private List<Cube> _cubes = new();
+        private ObservableCollection<Cube> _cubes = new();
         // generator of numbers at cube buttons
         private NumberGenerator _numberGenerator = new();
         // generator of coords for cube buttons on the play field
@@ -58,14 +58,34 @@ namespace First_App.Models.Game
             }
         }
 
+        private static Game _instance = null;
+        public static Game Create()
+        {
+            if (_instance == null)
+            {
+                _instance = new Game();
+            }
+            return _instance;
+        }
+        public static Game Create(ObservableCollection<Button> playGrid)
+        {
+            if (_instance == null)
+            {
+                _instance = new Game(playGrid);
+            }
+            return _instance;
+        }
+
+        protected Game() { }
+
         /// <summary>
         ///     Game constructor().
         ///     Initializing cube buttons of number and coords.
         /// </summary>
-        public Game (ObservableCollection<Button> playGrid)
+        protected Game(ObservableCollection<Button> playGrid)
         {
             _playGrid = playGrid;
-            InitializeGameCubes();
+            //InitializeGameCubes();
         }
 
         /// <summary>
@@ -85,14 +105,23 @@ namespace First_App.Models.Game
         /// </summary>
         public void StartGame()
         {
-            CreateAndAddCubeButtonToPlayField();
+            do
+            {
+                CreateAndAddCubeButtonToPlayField();
+            } while (false);
         }
 
         /// <summary>
         ///     Create a cube buttons, initialize and add them to the play grid.
         /// </summary>
-        private void CreateAndAddCubeButtonToPlayField()
+        public void CreateAndAddCubeButtonToPlayField()
         {
+            if (_cubes.Count != 0)
+            {
+                _cubes.Clear();
+            }
+            InitializeGameCubes();
+
             for (int i = 0; i < Counter.Score; i++)
             {
                 // create new cube Button
@@ -133,6 +162,7 @@ namespace First_App.Models.Game
             Button button = (Button)e.Source;
             // remove cube button from the play grid after clicking on it
             _playGrid.Remove(button);
+            Counter.PressedButtonsCounter++;
         }
 
         /// <summary>

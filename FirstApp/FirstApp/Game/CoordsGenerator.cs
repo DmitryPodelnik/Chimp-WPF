@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace First_App.Models.Game
         ///     Generate unique coords for every cube button on the play grid.
         /// </summary>
         /// <param name="cubes">Collection of cube buttons on the play grid.</param>
-        public void GenerateCoordsForCubes(IList<Cube> cubes)
+        public void GenerateCoordsForCubes(ObservableCollection<Cube> cubes)
         {
             // field for checking if button with the same coords already exists
             bool check;
