@@ -40,7 +40,7 @@ namespace First_App.ViewModels
                 {
                     _nav.CurrentViewModel = new PlayFieldViewModel();
                     Game.IsGameStarted = true;
-                    OnPropertyChanged("IsGameStarted");
+                    OnPropertyChanged("Game.IsGameStarted");
                 }));
             }
         }

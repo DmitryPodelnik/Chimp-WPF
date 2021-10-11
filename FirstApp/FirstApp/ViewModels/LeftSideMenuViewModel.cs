@@ -1,6 +1,7 @@
 ﻿using First_App.Models;
 using First_App.Models.Commands;
 using First_App.Models.DataBase;
+using First_App.Models.Game;
 using First_App.Models.RegistryData;
 using First_App.Navigation;
 using System;
@@ -42,7 +43,16 @@ namespace First_App.ViewModels
                 return _returnToMainTabCommand =
                 (_returnToMainTabCommand = new RelayCommand(obj =>
                 {
-                    SelectedAction.CurrentSelectedAction = Actions.MainTab;
+                    if (Game.IsGameStarted)
+                    {
+                        if (IsSureToFinishGame())
+                        {
+                            ShowMainTab();
+                            Game.IsGameStarted = false;
+                            OnPropertyChanged("Game.IsGameStarted");
+                        }
+                        return;
+                    }
                     ShowMainTab();
                 }));
             }
@@ -67,7 +77,16 @@ namespace First_App.ViewModels
                 return _playCommand =
                 (_playCommand = new RelayCommand(obj =>
                 {
-                    SelectedAction.CurrentSelectedAction = Actions.Play;
+                    if (Game.IsGameStarted)
+                    {
+                        if (IsSureToFinishGame())
+                        {
+                            StartPlay();
+                            Game.IsGameStarted = false;
+                            OnPropertyChanged("Game.IsGameStarted");
+                        }
+                        return;
+                    }
                     StartPlay();
                 }));
             }
@@ -92,7 +111,16 @@ namespace First_App.ViewModels
                 return _showProfileCommand =
                 (_showProfileCommand = new RelayCommand(obj =>
                 {
-                    SelectedAction.CurrentSelectedAction = Actions.ShowProfile;
+                    if (Game.IsGameStarted)
+                    {
+                        if (IsSureToFinishGame())
+                        {
+                            ShowProfile();
+                            Game.IsGameStarted = false;
+                            OnPropertyChanged("Game.IsGameStarted");
+                        }
+                        return;
+                    }
                     ShowProfile();
                 }));
             }
@@ -117,7 +145,16 @@ namespace First_App.ViewModels
                 return _showRecordsCommand =
                 (_showRecordsCommand = new RelayCommand(obj =>
                 {
-                    SelectedAction.CurrentSelectedAction = Actions.ShowRecords;
+                    if (Game.IsGameStarted)
+                    {
+                        if (IsSureToFinishGame())
+                        {
+                            ShowRecords();
+                            Game.IsGameStarted = false;
+                            OnPropertyChanged("Game.IsGameStarted");
+                        }
+                        return;
+                    }
                     ShowRecords();
                 }));
             }
@@ -142,11 +179,26 @@ namespace First_App.ViewModels
                 return _exitCommand =
                 (_exitCommand = new RelayCommand(obj =>
                 {
-                    SelectedAction.CurrentSelectedAction = Actions.ShowAuthorization;
-
+                    if (Game.IsGameStarted)
+                    {
+                        if (IsSureToFinishGame())
+                        {
+                            if (SavingRegistryData.GetCurrentUser() is not null)
+                            {
+                                ExitFromAccount();
+                                Game.IsGameStarted = false;
+                                OnPropertyChanged("Game.IsGameStarted");
+                                return;
+                            }
+                            ExitGame();
+                        }
+                        return;
+                    }
                     if (SavingRegistryData.GetCurrentUser() is not null)
                     {
                         ExitFromAccount();
+                        Game.IsGameStarted = false;
+                        OnPropertyChanged("Game.IsGameStarted");
                         return;
                     }
                     ExitGame();
@@ -182,6 +234,20 @@ namespace First_App.ViewModels
 
                 _nav.CurrentViewModel = new AuthorizationViewModel();
             }
+        }
+
+        private bool IsSureToFinishGame()
+        {
+            MessageBoxResult res = MessageBox.Show(
+                    "Are you sure to finish the game and save current result?",
+                    "Warning",
+                    MessageBoxButton.YesNo
+                );
+            if (res == MessageBoxResult.Yes)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
