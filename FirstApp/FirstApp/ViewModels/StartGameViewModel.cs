@@ -1,5 +1,6 @@
 ﻿using First_App.Models.Commands;
 using First_App.Models.Game;
+using First_App.Navigation;
 using First_App.Views;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace First_App.ViewModels
     /// <summary>
     ///     Class of game field view model.
     /// </summary>
-    class GameFieldViewModel : INotifyPropertyChanged
+    class StartGameViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
@@ -23,10 +24,8 @@ namespace First_App.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        private GameField _gameFieldUserControl = new();
-
-        // field of game play
-        private Game _game;
+        private Navigator _nav = Navigator.Create();
+        private StartGame _gameFieldUserControl = new();
 
         /// <summary>
         ///     Command after clicking start game button.
@@ -39,17 +38,9 @@ namespace First_App.ViewModels
                 return _startGameCommand =
                 (_startGameCommand = new RelayCommand(obj =>
                 {
-                    _gameFieldUserControl.startGamePanel.Visibility = Visibility.Hidden;
-                    //  call Game constructor() and initialize game cubes
-                    InitializeGameField();
-
-                    _game.StartGame();
+                    _nav.CurrentViewModel = new PlayFieldViewModel();
                 }));
             }
-        }
-        private void InitializeGameField()
-        {
-            _game = new();
         }
     }
 }

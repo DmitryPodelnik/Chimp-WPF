@@ -1,5 +1,4 @@
-﻿using First_App.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace First_App.Views
+namespace First_App.Views.User_Controls
 {
     /// <summary>
-    /// Interaction logic for GameField.xaml
+    /// Interaction logic for PlayField.xaml
     /// </summary>
-    public partial class GameField : UserControl
+    public partial class PlayField : UserControl
     {
-        public GameField()
+        public PlayField()
         {
             InitializeComponent();
         }

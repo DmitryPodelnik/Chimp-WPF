@@ -78,7 +78,7 @@ namespace First_App.ViewModels
         /// </summary>
         private void StartPlay()
         {
-            _nav.CurrentViewModel = new GameFieldViewModel();
+            _nav.CurrentViewModel = new StartGameViewModel();
         }
 
         /// <summary>

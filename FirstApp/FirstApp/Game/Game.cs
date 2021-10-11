@@ -25,7 +25,7 @@ namespace First_App.Models.Game
         // columns on the play grid
         private const short _COLUMNS = 10;
 
-        private GameField _gameFielUserControl = new();
+        private StartGame _gameFielUserControl = new();
 
         // indicate if game is started
         private static bool _isGameStarted = false;
@@ -68,7 +68,7 @@ namespace First_App.Models.Game
         ///     Start game after creating play field.
         ///     Play field initialization with cube buttons.
         /// </summary>
-        public void StartGame()
+        public void StartGame(Grid playGrid)
         {
             for (int i = 0; i < Counter.Score; i++)
             {
@@ -95,7 +95,7 @@ namespace First_App.Models.Game
                 Grid.SetColumn(newButton, Convert.ToInt32(_cubes[i].Coords.X));
 
                 // add button to play grid
-                _gameFielUserControl.playGrid.Children.Add(newButton);
+                playGrid.Children.Add(newButton);
             }
         }
 
