@@ -28,14 +28,28 @@ namespace First_App.Views
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (this.DataContext != null)
-            { ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password; }
+            try
+            {
+                if (this.DataContext != null)
+                { ((dynamic)this.DataContext).NewPassword = ((PasswordBox)sender).Password; }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void PasswordBoxConfirm_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (this.DataContext != null)
-            { ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password; }
+            try
+            {
+                if (this.DataContext != null)
+                { ((dynamic)this.DataContext).NewPassword = ((PasswordBox)sender).Password; }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

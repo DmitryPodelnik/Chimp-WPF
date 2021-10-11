@@ -105,6 +105,7 @@ namespace First_App.ViewModels
             {
                 MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
                 _currentUserMessage = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
+                OnPropertyChanged("CurrentUserMessage");
             }
             // clear fields of new user data
             NewLogin = "";
