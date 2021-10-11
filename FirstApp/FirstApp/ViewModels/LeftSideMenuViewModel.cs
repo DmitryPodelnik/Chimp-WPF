@@ -74,6 +74,14 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
+        ///     Hide panels excepting play tab.
+        /// </summary>
+        private void StartPlay()
+        {
+            _nav.CurrentViewModel = new GameFieldViewModel();
+        }
+
+        /// <summary>
         ///     Command after clicking profile button.
         /// </summary>
         private RelayCommand _showProfileCommand;
@@ -128,15 +136,6 @@ namespace First_App.ViewModels
                     ExitGame();
                 }));
             }
-        }
-
-        /// <summary>
-        ///     Hide panels excepting play tab.
-        /// </summary>
-        private void StartPlay()
-        {
-            // Hide panels excepting play tab
-            // PrepareInterfaceToPlay();
         }
 
         /// <summary>
