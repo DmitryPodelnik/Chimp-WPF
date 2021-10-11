@@ -4,6 +4,7 @@ using First_App.Views;
 using FirstApp;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -68,7 +69,7 @@ namespace First_App.Models.Game
         ///     Start game after creating play field.
         ///     Play field initialization with cube buttons.
         /// </summary>
-        public void StartGame(Grid playGrid)
+        public void StartGame(ObservableCollection<Button> playGrid)
         {
             for (int i = 0; i < Counter.Score; i++)
             {
@@ -95,7 +96,7 @@ namespace First_App.Models.Game
                 Grid.SetColumn(newButton, Convert.ToInt32(_cubes[i].Coords.X));
 
                 // add button to play grid
-                playGrid.Children.Add(newButton);
+                playGrid.Add(newButton);
             }
         }
 

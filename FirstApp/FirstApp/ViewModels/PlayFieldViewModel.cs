@@ -1,6 +1,7 @@
 ﻿using First_App.Models.Game;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -20,8 +21,8 @@ namespace First_App.ViewModels
 
         // field of game play
         private Game _game;
-        private Grid _playGrid { get; set; } = new();
-        public Grid PlayGrid
+        private ObservableCollection<Button> _playGrid { get; set; } = new();
+        public ObservableCollection<Button> PlayGrid
         {
             get => _playGrid;
             set
@@ -35,6 +36,7 @@ namespace First_App.ViewModels
             InitializeGameField();
 
             _game.StartGame(PlayGrid);
+            OnPropertyChanged("PlayGrid");
         }
         private void InitializeGameField()
         {

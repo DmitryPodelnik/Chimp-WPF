@@ -9,7 +9,7 @@
     <ItemsControl ItemsSource="{Binding PlayGrid}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="False">
+                <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="False" Margin="5px">
                     <Grid.RowDefinitions>
                         <!-- 8 rows -->
                         <RowDefinition/>
