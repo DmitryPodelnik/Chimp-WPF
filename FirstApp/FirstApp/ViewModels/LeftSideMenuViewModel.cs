@@ -4,6 +4,7 @@ using First_App.Models.DataBase;
 using First_App.Models.Game;
 using First_App.Models.RegistryData;
 using First_App.Navigation;
+using First_App.Services.Authentication;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -231,6 +232,7 @@ namespace First_App.ViewModels
             {
                 SavingRegistryData registry = new();
                 registry.RemoveUserData();
+                Authenticator.Create().CurrentUser = null;
 
                 _nav.CurrentViewModel = new AuthorizationViewModel();
             }

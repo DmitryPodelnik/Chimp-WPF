@@ -5,7 +5,9 @@ using First_App.ViewModels;
 using First_App.Views;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,8 +17,14 @@ namespace First_App.Services.Authentication
     /// <summary>
     ///     Class of authentication to user.
     /// </summary>
-    public class Authenticator
+    public class Authenticator : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
+
         // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
@@ -40,6 +48,8 @@ namespace First_App.Services.Authentication
             set
             {
                 _currentUser = value;
+                OnPropertyChanged("CurrentUser");
+                OnPropertyChanged("IsLoggedIn");
             }
         }
 
@@ -81,11 +91,8 @@ namespace First_App.Services.Authentication
                     login,
                     password
                     );
-                CurrentUser = SavingRegistryData.GetCurrentUser();
-
                 // show success message box and welcome message and hide authorization panel
                 LoginSuccessActions(login);
-                _nav.CurrentViewModel = new UserProfileViewModel();
             }
             else // or show error message
             {
@@ -103,6 +110,8 @@ namespace First_App.Services.Authentication
         private void LoginSuccessActions(string login)
         {
             MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
+            CurrentUser = SavingRegistryData.GetCurrentUser();
+            _nav.CurrentViewModel = new UserProfileViewModel();
         }
     }
 }

@@ -49,6 +49,8 @@ namespace First_App.ViewModels
                     if (result == true)
                     {
                         OnPropertyChanged(_authenticator.CurrentUser);
+                        OnPropertyChanged("Authenticator.IsLoggedIn");
+                        OnPropertyChanged(nameof(Authenticator));
                     }
                 }));
             }
