@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <!-- Grid for playing -->
-    <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="False">
+    <Grid x:Name="playGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="False" VerticalAlignment="Center">
         <Grid.RowDefinitions>
             <!-- 8 rows -->
             <RowDefinition/>
