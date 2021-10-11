@@ -83,6 +83,14 @@ namespace First_App.Models.Game
         /// </summary>
         public void StartGame()
         {
+            CreateAndAddCubeButtonToPlayField();
+        }
+
+        /// <summary>
+        ///     Create a cube buttons, initialize and add them to the play grid.
+        /// </summary>
+        private void CreateAndAddCubeButtonToPlayField()
+        {
             for (int i = 0; i < Counter.Score; i++)
             {
                 // create new cube Button
