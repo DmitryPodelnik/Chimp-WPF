@@ -48,9 +48,7 @@ namespace First_App.ViewModels
                     bool result = _authenticator.CheckAuthorization(Login, Password);
                     if (result == true)
                     {
-                        OnPropertyChanged(_authenticator.CurrentUser);
-                        OnPropertyChanged("Authenticator.IsLoggedIn");
-                        OnPropertyChanged(nameof(Authenticator));
+
                     }
                 }));
             }

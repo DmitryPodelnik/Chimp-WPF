@@ -148,37 +148,31 @@ namespace First_App.Models.RegistryData
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show("Here");
                 MessageBox.Show(ex.Message);
                 return null;
             }
             catch (ArgumentException ex)
             {
-                MessageBox.Show("Here");
                 MessageBox.Show(ex.Message);
                 return null;
             }
             catch (ObjectDisposedException ex)
             {
-                MessageBox.Show("Here");
                 MessageBox.Show(ex.Message);
                 return null;
             }
             catch (SecurityException ex)
             {
-                MessageBox.Show("Here");
                 MessageBox.Show(ex.Message);
                 return null;
             }
             catch (UnauthorizedAccessException ex)
             {
-                MessageBox.Show("Here");
                 MessageBox.Show(ex.Message);
                 return null;
             }
             catch (IOException ex)
             {
-                MessageBox.Show("Here");
                 MessageBox.Show(ex.Message);
                 return null;
             }

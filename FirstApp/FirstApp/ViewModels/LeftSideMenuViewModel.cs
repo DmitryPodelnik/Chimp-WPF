@@ -188,7 +188,7 @@ namespace First_App.ViewModels
                             {
                                 ExitFromAccount();
                                 Game.IsGameStarted = false;
-                                OnPropertyChanged("Game.IsGameStarted");
+                                OnPropertyChanged(Game.IsGameStarted.ToString());
                                 return;
                             }
                             ExitGame();
@@ -199,7 +199,7 @@ namespace First_App.ViewModels
                     {
                         ExitFromAccount();
                         Game.IsGameStarted = false;
-                        OnPropertyChanged("Game.IsGameStarted");
+                        OnPropertyChanged(Game.IsGameStarted.ToString());
                         return;
                     }
                     ExitGame();
