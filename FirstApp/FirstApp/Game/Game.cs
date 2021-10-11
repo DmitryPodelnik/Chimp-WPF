@@ -62,13 +62,15 @@ namespace First_App.Models.Game
         ///     Game constructor().
         ///     Initializing cube buttons of number and coords.
         /// </summary>
-
         public Game (ObservableCollection<Button> playGrid)
         {
             _playGrid = playGrid;
             InitializeGameCubes();
         }
 
+        /// <summary>
+        ///     Generate numbers and coords for cube buttons and initialize them.
+        /// </summary>
         private void InitializeGameCubes()
         {
             // initializing cube collection of numbers
