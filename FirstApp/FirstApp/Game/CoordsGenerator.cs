@@ -50,6 +50,7 @@ namespace First_App.Models.Game
                 // add button to already existing cube buttons with concrete coords collection
                 _existedCoords.Add(cubes[i].Coords);
             }
+            _existedCoords.Clear();
         }
     }
 }
