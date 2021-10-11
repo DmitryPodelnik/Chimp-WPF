@@ -39,6 +39,8 @@ namespace First_App.ViewModels
                 (_startGameCommand = new RelayCommand(obj =>
                 {
                     _nav.CurrentViewModel = new PlayFieldViewModel();
+                    Game.IsGameStarted = true;
+                    OnPropertyChanged("IsGameStarted");
                 }));
             }
         }

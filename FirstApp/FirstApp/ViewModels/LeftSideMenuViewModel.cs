@@ -103,14 +103,6 @@ namespace First_App.ViewModels
         /// </summary>
         private void ShowProfile()
         {
-
-            //// Get current user login from registry and get all user data from the database
-            //var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
-            //if (user is null)
-            //{
-            //    MessageBox.Show("User is not found", "Error");
-            //    return;
-            //}
             _nav.CurrentViewModel = new UserProfileViewModel();
         }
 
@@ -187,9 +179,9 @@ namespace First_App.ViewModels
             {
                 SavingRegistryData registry = new();
                 registry.RemoveUserData();
-            }
 
-            _nav.CurrentViewModel = new AuthorizationViewModel();
+                _nav.CurrentViewModel = new AuthorizationViewModel();
+            }
         }
     }
 }
