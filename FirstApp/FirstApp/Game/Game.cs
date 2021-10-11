@@ -48,12 +48,24 @@ namespace First_App.Models.Game
         // chimp window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
+        private ObservableCollection<Button> _playGrid { get; set; } = new();
+        public ObservableCollection<Button> PlayGrid
+        {
+            get => _playGrid;
+            set
+            {
+                _playGrid = value;
+            }
+        }
+
         /// <summary>
         ///     Game constructor().
         ///     Initializing cube buttons of number and coords.
         /// </summary>
-        public Game ()
+
+        public Game (ObservableCollection<Button> playGrid)
         {
+            _playGrid = playGrid;
             InitializeGameCubes();
         }
 
@@ -69,7 +81,7 @@ namespace First_App.Models.Game
         ///     Start game after creating play field.
         ///     Play field initialization with cube buttons.
         /// </summary>
-        public void StartGame(ObservableCollection<Button> playGrid)
+        public void StartGame()
         {
             for (int i = 0; i < Counter.Score; i++)
             {
@@ -96,7 +108,7 @@ namespace First_App.Models.Game
                 Grid.SetColumn(newButton, Convert.ToInt32(_cubes[i].Coords.X));
 
                 // add button to play grid
-                playGrid.Add(newButton);
+                _playGrid.Add(newButton);
             }
         }
 
@@ -110,7 +122,7 @@ namespace First_App.Models.Game
             // explicit cast from RoutedEventArgs to Button
             Button button = (Button)e.Source;
             // remove cube button from the play grid after clicking on it
-            _gameFielUserControl.playGrid.Children.Remove(button);
+            _playGrid.Remove(button);
         }
 
         /// <summary>

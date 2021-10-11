@@ -24,9 +24,10 @@ namespace First_App.Models.Game
         public void GenerateCoordsForCubes(IList<Cube> cubes)
         {
             // field for checking if button with the same coords already exists
-            bool check = false;
+            bool check;
             for (int i = 0; i < Counter.Score; i++)
             {
+                check = false;
                 // generate new coords while it is generating not unique coords
                 do
                 {
@@ -43,8 +44,6 @@ namespace First_App.Models.Game
                             break;
                         }
                     }
-                    // if coords are unique - break loop
-                    check = false;
                 } while (check);
 
                 // add button to already existing cube buttons with concrete coords collection

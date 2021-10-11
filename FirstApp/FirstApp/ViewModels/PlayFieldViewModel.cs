@@ -35,12 +35,12 @@ namespace First_App.ViewModels
             //  call Game constructor() and initialize game cubes
             InitializeGameField();
 
-            _game.StartGame(PlayGrid);
+            _game.StartGame();
             OnPropertyChanged("PlayGrid");
         }
         private void InitializeGameField()
         {
-            _game = new();
+            _game = new(_playGrid);
         }
     }
 }
