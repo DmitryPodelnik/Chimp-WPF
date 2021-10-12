@@ -109,10 +109,21 @@ namespace First_App.Models.Game
         /// </summary>
         public void StartGame()
         {
-            do
+            try
             {
-                CreateAndAddCubeButtonToPlayField();
-            } while (false);
+                do
+                {
+                    CreateAndAddCubeButtonToPlayField();
+                } while (false);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (OverflowException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -150,7 +161,7 @@ namespace First_App.Models.Game
                 // set column on the play grid for button
                 Grid.SetColumn(newButton, Convert.ToInt32(_cubes[i].Coords.X));
 
-                // add button to play grid
+                // add button to play grid button collection
                 _playGridCubeButtons.Add(newButton);
             }
         }

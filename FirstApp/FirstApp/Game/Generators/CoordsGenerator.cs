@@ -30,10 +30,10 @@ namespace First_App.Models.Game
                 bool check;
                 for (int i = 0; i < Counter.Score; i++)
                 {
-                    check = false;
                     // generate new coords while it is generating not unique coords
                     do
                     {
+                        check = false;
                         // create new coords for cube button
                         cubes[i].Coords = new Point(_random.Next(0, Game.COLUMNS), _random.Next(0, Game.ROWS));
 

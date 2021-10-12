@@ -12,8 +12,6 @@ namespace First_App.Models.Game
     /// </summary>
     public static class Counter
     {
-        private static Game _game = Game.Create();
-
         // field that stores the max value of numbers
         private static short _score = 4;
         public static short Score
@@ -66,7 +64,7 @@ namespace First_App.Models.Game
                         // reset pressed buttons counter
                         _pressedButtonsCounter = 0;
                         // re-generate cube buttons
-                        _game.CreateAndAddCubeButtonToPlayField();
+                        Game.Create().CreateAndAddCubeButtonToPlayField();
                     }
                 }
             }
