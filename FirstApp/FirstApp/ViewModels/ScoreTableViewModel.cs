@@ -58,7 +58,7 @@ namespace First_App.ViewModels
                 {
                     Counter.Strikes++;
                     // change to play field interface
-                    Navigator.Create().CurrentViewModel = PlayFieldViewModel.Create();
+                    Navigator.Create().CurrentViewModel = new PlayFieldViewModel();
                 }));
             }
         }

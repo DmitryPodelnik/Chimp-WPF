@@ -51,8 +51,8 @@ namespace First_App.Models.Game
         private static short _previousNumber = 0;
 
         // collection of play grid cube buttons
-        private ObservableCollection<Button> _playGridCubeButtons { get; set; } = new();
-        public ObservableCollection<Button> PlayGridCubeButtons
+        private static ObservableCollection<Button> _playGridCubeButtons { get; set; } = new();
+        public static ObservableCollection<Button> PlayGridCubeButtons
         {
             get => _playGridCubeButtons;
             set
@@ -82,6 +82,7 @@ namespace First_App.Models.Game
             {
                 _instance = new Game(playGrid);
             }
+            _playGridCubeButtons = playGrid;
             return _instance;
         }
 
