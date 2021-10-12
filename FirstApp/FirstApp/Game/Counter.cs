@@ -69,5 +69,29 @@ namespace First_App.Models.Game
                 }
             }
         }
+
+        public const short MAX_STRIKES = 3;
+
+        // field that stores the max value of numbers
+        private static short _strikes = 1;
+        public static short Strikes
+        {
+            get => _strikes;
+            set
+            {
+                try
+                {
+                    if (value < 0 && value > 3)
+                    {
+                        throw new ArgumentException("Strikes must have value between 1 and 3");
+                    }
+                    _strikes = value;
+                }
+                catch (ArgumentException ex)
+                {
+                    MessageBox.Show(ex.Message, "Error");
+                }
+            }
+        }
     }
 }

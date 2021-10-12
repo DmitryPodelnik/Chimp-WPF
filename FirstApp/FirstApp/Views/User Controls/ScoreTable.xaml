@@ -11,16 +11,18 @@
                    Margin="0 0 0 -10" Foreground="White" FontSize="28"
                    HorizontalAlignment="Center" />
 
-        <TextBlock x:Name="numbersCount" FontSize="85" Foreground="White"  Text="5"
-                   Margin="0 0 0 20" HorizontalAlignment="Center" />
+        <TextBlock x:Name="numbersCount" FontSize="85" Foreground="White"
+                   Margin="0 0 0 20" HorizontalAlignment="Center"
+                   Text="{Binding NumbersMessage}" />
 
         <TextBlock x:Name="strikesText" Text="STRIKES"
                    Margin="0 0 0 0" Foreground="White" FontSize="28"
                    HorizontalAlignment="Center" />
 
-        <TextBlock x:Name="strikesCount" Text="2 of 3"
+        <TextBlock x:Name="strikesCount"
                    Margin="0 0 0 30" Foreground="White" FontSize="40"
-                   HorizontalAlignment="Center" />
+                   HorizontalAlignment="Center"
+                   Text="{Binding StrikesMessage}" />
 
         <Button x:Name="startGame" Content="Continue" FontSize="18px" FontWeight="Bold"
                         Padding="25px 10px 25px 10px" Width="155px" FontFamily="Arial"
