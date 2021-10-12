@@ -193,6 +193,11 @@ namespace First_App.Models.Game
             }
             _previousNumber = 0;
             Counter.PressedButtonsCounter = 0;
+            if (Counter.Strikes == 3)
+            {
+                Navigator.Create().CurrentViewModel = new FinishGameTableViewModel();
+                return;
+            }
             Navigator.Create().CurrentViewModel = new ScoreTableViewModel();
         }
 
