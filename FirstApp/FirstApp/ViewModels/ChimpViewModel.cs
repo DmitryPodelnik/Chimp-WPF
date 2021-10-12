@@ -42,11 +42,12 @@ namespace First_App.ViewModels
             SavingRegistryData registry = new();
             if (registry.IsExistsKey("ChimpAuthData"))
             {
-                // click to profile buttom and forward to profile tab
+                // change to user profile tab
                 Navigator.CurrentViewModel = new UserProfileViewModel();
             }
             else
             {
+                // change to authorization tab
                 Navigator.CurrentViewModel = new AuthorizationViewModel();
             }
 

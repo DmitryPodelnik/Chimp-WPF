@@ -35,7 +35,6 @@ namespace First_App.Models.Game
             get => _isGameStarted;
             set => _isGameStarted = value;
         }
-
         public static short ROWS { get => _ROWS; }
         public static short COLUMNS { get => _COLUMNS; }
 
@@ -47,8 +46,8 @@ namespace First_App.Models.Game
         private CoordsGenerator _coordsGenerator = new();
         // chimp window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
-
-        private static short _previousNumber = 0;
+        // field that stores a previous number of pressed cube button
+        private static short _previousButtonNumber = 0;
 
         // collection of play grid cube buttons
         private static ObservableCollection<Button> _playGridCubeButtons { get; set; } = new();
@@ -61,6 +60,7 @@ namespace First_App.Models.Game
             }
         }
 
+        // realizing singleton instance
         private static Game _instance = null;
         public static Game Create()
         {
@@ -110,16 +110,14 @@ namespace First_App.Models.Game
 
         /// <summary>
         ///     Start game after creating play field.
-        ///     Play field initialization with cube buttons.
+        ///     Play field initialization of cube buttons.
         /// </summary>
         public void StartGame()
         {
             try
             {
-                do
-                {
-                    CreateAndAddCubeButtonToPlayField();
-                } while (false);
+                // create a cube buttons, initialize and add them to the play grid
+                CreateAndAddCubeButtonToPlayField();
             }
             catch (FormatException ex)
             {
@@ -136,14 +134,19 @@ namespace First_App.Models.Game
         /// </summary>
         public void CreateAndAddCubeButtonToPlayField()
         {
+            // if current buttons are not 0, then
             if (_cubes.Count != 0)
             {
+                // clear cube button collection
                 _cubes.Clear();
-                _previousNumber = 0;
+                // reset previous button number
+                _previousButtonNumber = 0;
+                // reset pressed buttons counter
                 Counter.PressedButtonsCounter = 0;
             }
+            // generate numbers and coords for cube buttons and initialize them.
             InitializeGameCubes();
-
+            // create cube buttons at play field.
             CreateCubeButtonsAtPlayField();
         }
 
@@ -163,7 +166,7 @@ namespace First_App.Models.Game
                 // set new button x:Name
                 newButton.Name = $"playButton{i}";
 
-                // get resource dictionary with cubeButton styles
+                // get resource dictionary with styles
                 ResourceDictionary resourceDictionary = Application.Current.Resources.MergedDictionaries[0];
 
                 // set cubeButton style to the button
@@ -183,12 +186,12 @@ namespace First_App.Models.Game
         }
 
         /// <summary>
-        ///
+        ///     Set white style to cube buttons.
         /// </summary>
         /// <param name="btn"></param>
         private void SetWhiteStyleToCubeButtons(ContentControl btn)
         {
-            // get resource dictionary with cubeButton styles
+            // get resource dictionary with styles
             ResourceDictionary resourceDictionary = Application.Current.Resources.MergedDictionaries[0];
             // set white text at the button
             btn.Foreground = new SolidColorBrush(Colors.White);
@@ -207,30 +210,40 @@ namespace First_App.Models.Game
             Button button = (Button)e.Source;
 
             // if pressed cube button number is bigger by 1 from the previous number
-            if (short.Parse(button.Content.ToString()) == ++_previousNumber)
+            if (short.Parse(button.Content.ToString()) == ++_previousButtonNumber)
             {
                 // remove cube button from the play grid after clicking on it
                 _playGridCubeButtons.Remove(button);
+                // increase pressed buttons counter
                 Counter.PressedButtonsCounter++;
 
                 if (Counter.Score > 4 && Counter.PressedButtonsCounter > 0)
                 {
+                    // set style for each button in play grid cube button collection
                     foreach (var btn in _playGridCubeButtons)
                     {
+                        // set white style to cube buttons
                         SetWhiteStyleToCubeButtons(btn);
                     }
                 }
                 return;
             }
-            _previousNumber = 0;
+            // reset previous button number
+            _previousButtonNumber = 0;
+            // reset pressed button counter
             Counter.PressedButtonsCounter = 0;
+            // if current strike == MAX_STRIKES (3)
             if (Counter.Strikes == Counter.MAX_STRIKES)
             {
+                // reset strikes
                 Counter.Strikes = 1;
+                // change to finish game tab
                 Navigator.Create().CurrentViewModel = new FinishGameTableViewModel();
+                // reset score
                 Counter.Score = 4;
                 return;
             }
+            // else change to score table tab
             Navigator.Create().CurrentViewModel = new ScoreTableViewModel();
         }
 

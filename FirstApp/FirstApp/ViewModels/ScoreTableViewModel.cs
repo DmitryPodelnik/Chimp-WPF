@@ -56,6 +56,7 @@ namespace First_App.ViewModels
                 return _continueGameCommand =
                 (_continueGameCommand = new RelayCommand(obj =>
                 {
+                    // increase current strike
                     Counter.Strikes++;
                     // change to play field interface
                     Navigator.Create().CurrentViewModel = new PlayFieldViewModel();

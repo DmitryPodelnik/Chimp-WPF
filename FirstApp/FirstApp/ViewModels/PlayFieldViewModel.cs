@@ -33,8 +33,10 @@ namespace First_App.ViewModels
         }
         public PlayFieldViewModel()
         {
-            //  call Game constructor() and initialize game cubes
+            // call Game constructor() and initialize game cubes
             InitializeGameField();
+            // Start game after creating play field.
+            // Play field initialization of cube buttons.
             _game.StartGame();
         }
 
@@ -45,6 +47,7 @@ namespace First_App.ViewModels
         /// </summary>
         private void InitializeGameField()
         {
+            // pass play grid link to Game
             _game = Game.Create(_playGrid);
         }
     }

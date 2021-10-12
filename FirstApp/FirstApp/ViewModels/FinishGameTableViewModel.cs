@@ -45,6 +45,7 @@ namespace First_App.ViewModels
                 return _saveScoreCommand =
                 (_saveScoreCommand = new RelayCommand(obj =>
                 {
+                    // change to user records tab
                     Navigator.Create().CurrentViewModel = new UserRecordsViewModel();
                 }));
             }
@@ -61,6 +62,7 @@ namespace First_App.ViewModels
                 return _tryAgainCommand =
                 (_tryAgainCommand = new RelayCommand(obj =>
                 {
+                    // change to start game tab
                     Navigator.Create().CurrentViewModel = new StartGameViewModel();
                 }));
             }

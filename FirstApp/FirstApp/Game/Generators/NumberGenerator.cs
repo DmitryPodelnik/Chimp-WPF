@@ -57,6 +57,7 @@ namespace First_App.Models.Game
                 // add new cube to collection with minGenerableNumber number
                 cubes.Add(new Cube(_minGenerableNumber));
             }
+            // reset min generable number to 1
             _minGenerableNumber = 1;
         }
     }

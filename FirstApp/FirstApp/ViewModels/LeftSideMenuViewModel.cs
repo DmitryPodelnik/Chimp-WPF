@@ -70,6 +70,7 @@ namespace First_App.ViewModels
         /// </summary>
         private void ShowMainTab()
         {
+            // change to main tab
             _nav.CurrentViewModel = new MainTabViewModel();
         }
 
@@ -110,6 +111,7 @@ namespace First_App.ViewModels
         /// </summary>
         private void StartPlay()
         {
+            // change to start game tab
             _nav.CurrentViewModel = new StartGameViewModel();
         }
 
