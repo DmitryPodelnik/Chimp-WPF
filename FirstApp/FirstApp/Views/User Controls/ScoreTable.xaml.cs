@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace First_App.Views.User_Controls
 {
     /// <summary>
-    /// Interaction logic for ScoreTable.xaml
+    ///     Interaction logic for ScoreTable.xaml
     /// </summary>
     public partial class ScoreTable : UserControl
     {

@@ -22,7 +22,7 @@ using System.Windows.Shapes;
 namespace First_App
 {
     /// <summary>
-    ///     Interaction logic for Chimp.xaml.
+    ///     Interaction logic for Chimp.xaml
     /// </summary>
     public partial class Chimp : Window
     {

@@ -28,9 +28,11 @@ namespace First_App.Services.Authentication
         // field of main window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
+        // singleton instance of Navigator
         private Navigator _nav = Navigator.Create();
         // field to work with database
         private ChimpDataBase _database = new();
+        // singleton instance of Authenticator
         private static Authenticator _instance = null;
         public static Authenticator Create()
         {
@@ -66,6 +68,9 @@ namespace First_App.Services.Authentication
         /// <summary>
         ///     Verify whether the data of user are correct.
         /// </summary>
+        /// <param name="login">User login.</param>
+        /// <param name="password">User password.</param>
+        /// <returns>True if correct or false.</returns>
         public bool CheckAuthorization(string login, string password)
         {
             // if login or password box is null or empty then error message
@@ -91,7 +96,7 @@ namespace First_App.Services.Authentication
                     login,
                     password
                     );
-                // show success message box and welcome message and hide authorization panel
+                // show success message box and welcome message and show game user interface
                 LoginSuccessActions(login);
             }
             else // or show error message
@@ -105,12 +110,14 @@ namespace First_App.Services.Authentication
         }
 
         /// <summary>
-        ///     Show success message box and welcome message and hide authorization panel.
+        ///     Show success message box and welcome message and show game user interface.
         /// </summary>
         private void LoginSuccessActions(string login)
         {
             MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
+            // get current user from registry
             CurrentUser = SavingRegistryData.GetCurrentUser();
+            // show game user interface
             _nav.CurrentViewModel = new UserProfileViewModel();
         }
     }

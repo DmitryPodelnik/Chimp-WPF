@@ -44,16 +44,22 @@ namespace First_App.ViewModels
                 return _returnToMainTabCommand =
                 (_returnToMainTabCommand = new RelayCommand(obj =>
                 {
+                    // if game is started then
                     if (Game.IsGameStarted)
                     {
+                        // are you sure to finish current game?
                         if (IsSureToFinishGame())
                         {
+                            // show start main tab
                             ShowMainTab();
+                            // assign to Game.IsGameStarted - false
                             Game.IsGameStarted = false;
+                            // update property Game.IsGameStarted
                             OnPropertyChanged("Game.IsGameStarted");
                         }
                         return;
                     }
+                    // show start main tab
                     ShowMainTab();
                 }));
             }
@@ -78,16 +84,22 @@ namespace First_App.ViewModels
                 return _playCommand =
                 (_playCommand = new RelayCommand(obj =>
                 {
+                    // if game is started then
                     if (Game.IsGameStarted)
                     {
+                        // are you sure to finish current game?
                         if (IsSureToFinishGame())
                         {
+                            // show start game tab
                             StartPlay();
+                            // assign to Game.IsGameStarted - false
                             Game.IsGameStarted = false;
+                            // update property Game.IsGameStarted
                             OnPropertyChanged("Game.IsGameStarted");
                         }
                         return;
                     }
+                    // show start game tab
                     StartPlay();
                 }));
             }
@@ -112,16 +124,22 @@ namespace First_App.ViewModels
                 return _showProfileCommand =
                 (_showProfileCommand = new RelayCommand(obj =>
                 {
+                    // if game is started then
                     if (Game.IsGameStarted)
                     {
+                        // are you sure to finish current game?
                         if (IsSureToFinishGame())
                         {
+                            // show user profile tab
                             ShowProfile();
+                            // assign to Game.IsGameStarted - false
                             Game.IsGameStarted = false;
+                            // update property Game.IsGameStarted
                             OnPropertyChanged("Game.IsGameStarted");
                         }
                         return;
                     }
+                    // show user profile tab
                     ShowProfile();
                 }));
             }
@@ -146,16 +164,22 @@ namespace First_App.ViewModels
                 return _showRecordsCommand =
                 (_showRecordsCommand = new RelayCommand(obj =>
                 {
+                    // if game is started then
                     if (Game.IsGameStarted)
                     {
+                        // are you sure to finish current game?
                         if (IsSureToFinishGame())
                         {
+                            // show user records tab
                             ShowRecords();
+                            // assign to Game.IsGameStarted - false
                             Game.IsGameStarted = false;
+                            // update property Game.IsGameStarted
                             OnPropertyChanged("Game.IsGameStarted");
                         }
                         return;
                     }
+                    // show user records tab
                     ShowRecords();
                 }));
             }
@@ -170,7 +194,8 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     Command after clicking exit button.
+        ///     Command after clicking exit button or
+        ///     any left aside button while game is being.
         /// </summary>
         private RelayCommand _exitCommand;
         public RelayCommand ExitCommand
@@ -180,14 +205,19 @@ namespace First_App.ViewModels
                 return _exitCommand =
                 (_exitCommand = new RelayCommand(obj =>
                 {
+                    // if game is started then
                     if (Game.IsGameStarted)
                     {
+                        // are you sure to finish current game?
                         if (IsSureToFinishGame())
                         {
+                            // if yes then is not current user null
                             if (SavingRegistryData.GetCurrentUser() is not null)
                             {
                                 ExitFromAccount();
+                                // assign to Game.IsGameStarted - false
                                 Game.IsGameStarted = false;
+                                // update property Game.IsGameStarted
                                 OnPropertyChanged(Game.IsGameStarted.ToString());
                                 return;
                             }
@@ -198,7 +228,9 @@ namespace First_App.ViewModels
                     if (SavingRegistryData.GetCurrentUser() is not null)
                     {
                         ExitFromAccount();
+                        // assign to Game.IsGameStarted - false
                         Game.IsGameStarted = false;
+                        // update property Game.IsGameStarted
                         OnPropertyChanged(Game.IsGameStarted.ToString());
                         return;
                     }
@@ -216,6 +248,7 @@ namespace First_App.ViewModels
 
             if (res == MessageBoxResult.Yes)
             {
+                // close chimp window
                 _chimpWindow.Close();
             }
         }
@@ -231,13 +264,19 @@ namespace First_App.ViewModels
             if (res == MessageBoxResult.Yes)
             {
                 SavingRegistryData registry = new();
+                // remove user data from registry
                 registry.RemoveUserData();
+                // reset current user in authenticator
                 Authenticator.Create().CurrentUser = null;
-
+                // show authorization panel
                 _nav.CurrentViewModel = new AuthorizationViewModel();
             }
         }
 
+        /// <summary>
+        ///     If user want to finish current game.
+        /// </summary>
+        /// <returns>True if yes or false.</returns>
         private bool IsSureToFinishGame()
         {
             MessageBoxResult res = MessageBox.Show(

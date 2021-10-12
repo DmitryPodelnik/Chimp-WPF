@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace First_App.Views
 {
     /// <summary>
-    /// Interaction logic for UserRecords.xaml
+    ///     Interaction logic for UserRecords.xaml
     /// </summary>
     public partial class UserRecords : UserControl
     {

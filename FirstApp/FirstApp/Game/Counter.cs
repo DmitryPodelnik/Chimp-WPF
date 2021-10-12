@@ -57,10 +57,15 @@ namespace First_App.Models.Game
                 }
                 finally
                 {
+                    // if pressed button counter == Counter.Score then increase score,
+                    // reset pressed buttons counter and the re-generate cube buttons
                     if (_pressedButtonsCounter == _score)
                     {
+                        // increase score
                         _score++;
+                        // reset pressed buttons counter
                         _pressedButtonsCounter = 0;
+                        // re-generate cube buttons
                         _game.CreateAndAddCubeButtonToPlayField();
                     }
                 }

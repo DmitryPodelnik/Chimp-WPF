@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace First_App.Views
 {
     /// <summary>
-    /// Interaction logic for UserProfile.xaml
+    ///     Interaction logic for UserProfile.xaml
     /// </summary>
     public partial class UserProfile : UserControl
     {
@@ -26,6 +26,11 @@ namespace First_App.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        ///     Bind password property of control to NewPassword property in the viewmodel.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">Routed event arguments.</param>
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             try
@@ -39,6 +44,11 @@ namespace First_App.Views
             }
         }
 
+        /// <summary>
+        ///     Bind password property of control to NewPassword property in the viewmodel.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">Routed event arguments.</param>
         private void PasswordBoxConfirm_PasswordChanged(object sender, RoutedEventArgs e)
         {
             try

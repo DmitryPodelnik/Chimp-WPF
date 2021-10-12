@@ -26,8 +26,6 @@ namespace First_App.Models.Game
         // columns on the play grid
         private const short _COLUMNS = 10;
 
-        private StartGame _gameFielUserControl = new();
-
         // indicate if game is started
         private static bool _isGameStarted = false;
         public static bool IsGameStarted
@@ -48,13 +46,14 @@ namespace First_App.Models.Game
         // chimp window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
-        private ObservableCollection<Button> _playGrid { get; set; } = new();
-        public ObservableCollection<Button> PlayGrid
+        // collection of play grid cube buttons
+        private ObservableCollection<Button> _playGridCubeButtons { get; set; } = new();
+        public ObservableCollection<Button> PlayGridCubeButtons
         {
-            get => _playGrid;
+            get => _playGridCubeButtons;
             set
             {
-                _playGrid = value;
+                _playGridCubeButtons = value;
             }
         }
 
@@ -67,6 +66,12 @@ namespace First_App.Models.Game
             }
             return _instance;
         }
+
+        /// <summary>
+        ///     Create or singlton instance of game class.
+        /// </summary>
+        /// <param name="playGrid">Cube buttons collection.</param>
+        /// <returns>Existing or not instance of game class.</returns>
         public static Game Create(ObservableCollection<Button> playGrid)
         {
             if (_instance == null)
@@ -84,8 +89,7 @@ namespace First_App.Models.Game
         /// </summary>
         protected Game(ObservableCollection<Button> playGrid)
         {
-            _playGrid = playGrid;
-            //InitializeGameCubes();
+            _playGridCubeButtons = playGrid;
         }
 
         /// <summary>
@@ -147,12 +151,12 @@ namespace First_App.Models.Game
                 Grid.SetColumn(newButton, Convert.ToInt32(_cubes[i].Coords.X));
 
                 // add button to play grid
-                _playGrid.Add(newButton);
+                _playGridCubeButtons.Add(newButton);
             }
         }
 
         /// <summary>
-        ///     Event handler of clicking cube button to remove it from the play grid
+        ///     Event handler of clicking cube button to remove it from the play grid.
         /// </summary>
         /// <param name="sender">sender</param>
         /// <param name="e">event arguments</param>
@@ -161,7 +165,7 @@ namespace First_App.Models.Game
             // explicit cast from RoutedEventArgs to Button
             Button button = (Button)e.Source;
             // remove cube button from the play grid after clicking on it
-            _playGrid.Remove(button);
+            _playGridCubeButtons.Remove(button);
             Counter.PressedButtonsCounter++;
         }
 

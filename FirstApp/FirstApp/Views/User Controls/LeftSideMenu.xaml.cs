@@ -20,7 +20,7 @@ using System.Windows.Shapes;
 namespace First_App.Views
 {
     /// <summary>
-    /// Interaction logic for LeftSideMenu.xaml
+    ///     Interaction logic for LeftSideMenu.xaml
     /// </summary>
     public partial class LeftSideMenu : UserControl
     {

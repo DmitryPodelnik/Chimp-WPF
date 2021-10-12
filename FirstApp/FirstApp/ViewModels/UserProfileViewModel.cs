@@ -55,8 +55,9 @@ namespace First_App.ViewModels
                 MessageBox.Show("User is not found", "Error");
                 return;
             }
+            // welcome message in the profile
             _currentUserMessage = "Hello, " + SavingRegistryData.GetCurrentUser() + "!";
-            // show score message in the profile
+            // score message in the profile
             _currentUserScoreMessage = $"Your best score is {user?.Score}";
         }
 
@@ -104,7 +105,9 @@ namespace First_App.ViewModels
             if (res == true)
             {
                 MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
+                // welcome message in the profile
                 _currentUserMessage = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
+                // update CurrentUserMessage property
                 OnPropertyChanged("CurrentUserMessage");
             }
             // clear fields of new user data

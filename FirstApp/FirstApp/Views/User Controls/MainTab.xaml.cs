@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace First_App.Views
 {
     /// <summary>
-    /// Interaction logic for MainTab.xaml
+    ///     Interaction logic for MainTab.xaml
     /// </summary>
     public partial class MainTab : UserControl
     {

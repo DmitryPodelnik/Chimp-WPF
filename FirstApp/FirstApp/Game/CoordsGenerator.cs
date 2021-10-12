@@ -16,7 +16,7 @@ namespace First_App.Models.Game
         // object for generate random coords for cube buttons on the play grid
         private Random _random = new();
         // already existing buttons with concrete coords
-        private List<Point> _existedCoords = new();
+        private List<Point> _existingCoords = new();
 
         /// <summary>
         ///     Generate unique coords for every cube button on the play grid.
@@ -24,33 +24,45 @@ namespace First_App.Models.Game
         /// <param name="cubes">Collection of cube buttons on the play grid.</param>
         public void GenerateCoordsForCubes(ObservableCollection<Cube> cubes)
         {
-            // field for checking if button with the same coords already exists
-            bool check;
-            for (int i = 0; i < Counter.Score; i++)
+            try
             {
-                check = false;
-                // generate new coords while it is generating not unique coords
-                do
+                // field for checking if button with the same coords already exists
+                bool check;
+                for (int i = 0; i < Counter.Score; i++)
                 {
-                    // create new coords for cube button
-                    cubes[i].Coords = new Point(_random.Next(0, Game.COLUMNS), _random.Next(0, Game.ROWS));
-
-                    // check for unique coords
-                    foreach (var item in _existedCoords)
+                    check = false;
+                    // generate new coords while it is generating not unique coords
+                    do
                     {
-                        // if not unique then generate again
-                        if (cubes[i].Coords.X == item.X && cubes[i].Coords.Y == item.Y)
-                        {
-                            check = true;
-                            break;
-                        }
-                    }
-                } while (check);
+                        // create new coords for cube button
+                        cubes[i].Coords = new Point(_random.Next(0, Game.COLUMNS), _random.Next(0, Game.ROWS));
 
-                // add button to already existing cube buttons with concrete coords collection
-                _existedCoords.Add(cubes[i].Coords);
+                        // check for unique coords
+                        foreach (var item in _existingCoords)
+                        {
+                            // if not unique then generate again
+                            if (cubes[i].Coords.X == item.X && cubes[i].Coords.Y == item.Y)
+                            {
+                                check = true;
+                                break;
+                            }
+                        }
+                    } while (check);
+
+                    // add button to already existing cube buttons with concrete coords collection
+                    _existingCoords.Add(cubes[i].Coords);
+                }
+                // clear existing coords collection
+                _existingCoords.Clear();
             }
-            _existedCoords.Clear();
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

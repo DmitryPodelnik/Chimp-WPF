@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 namespace First_App.Views
 {
     /// <summary>
-    /// Interaction logic for Authorization.xaml
+    ///     Interaction logic for Authorization.xaml
     /// </summary>
     public partial class Authorization : UserControl
     {
@@ -27,6 +27,11 @@ namespace First_App.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        ///     Bind password property of control to password property in the viewmodel.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">Router event arguments.</param>
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (this.DataContext != null)

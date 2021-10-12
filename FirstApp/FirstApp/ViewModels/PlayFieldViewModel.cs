@@ -36,8 +36,15 @@ namespace First_App.ViewModels
             InitializeGameField();
 
             _game.StartGame();
+            // update PlayGrid property
             OnPropertyChanged("PlayGrid");
         }
+
+        /// <summary>
+        ///     Create or get singleton instance of Game class.
+        ///     Call Game constructor() pass the playGrid to constructor
+        ///     and initialize game cubes.
+        /// </summary>
         private void InitializeGameField()
         {
             _game = Game.Create(_playGrid);
