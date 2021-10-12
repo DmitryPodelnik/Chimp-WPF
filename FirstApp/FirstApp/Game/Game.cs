@@ -190,8 +190,8 @@ namespace First_App.Models.Game
 
                 return;
             }
-            // _previousNumber = 0;
-            // Counter.PressedButtonsCounter = 0;
+            _previousNumber = 0;
+            Counter.PressedButtonsCounter = 0;
             Navigator.Create().CurrentViewModel = new ScoreTableViewModel();
         }
 

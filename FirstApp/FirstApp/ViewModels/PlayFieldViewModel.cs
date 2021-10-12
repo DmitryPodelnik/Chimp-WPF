@@ -21,6 +21,17 @@ namespace First_App.ViewModels
 
         // field of game play
         private Game _game;
+
+        // singleton instance of Authenticator
+        private static PlayFieldViewModel _instance = null;
+        public static PlayFieldViewModel Create()
+        {
+            if (_instance == null)
+            {
+                _instance = new PlayFieldViewModel();
+            }
+            return _instance;
+        }
         private ObservableCollection<Button> _playGrid { get; set; } = new();
         public ObservableCollection<Button> PlayGrid
         {
@@ -30,14 +41,11 @@ namespace First_App.ViewModels
                 _playGrid = value;
             }
         }
-        public PlayFieldViewModel()
+        protected PlayFieldViewModel()
         {
             //  call Game constructor() and initialize game cubes
             InitializeGameField();
-
             _game.StartGame();
-            // update PlayGrid property
-            OnPropertyChanged("PlayGrid");
         }
 
         /// <summary>

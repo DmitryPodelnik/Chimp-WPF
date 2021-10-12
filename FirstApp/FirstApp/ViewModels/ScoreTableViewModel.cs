@@ -1,4 +1,6 @@
-﻿using First_App.Models.Game;
+﻿using First_App.Models.Commands;
+using First_App.Models.Game;
+using First_App.Navigation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +41,25 @@ namespace First_App.ViewModels
             set
             {
                 _strikesMessage = value;
+            }
+        }
+
+
+        /// <summary>
+        ///     Command after clicking continue button.
+        /// </summary>
+        private RelayCommand _continueGameCommand;
+        public RelayCommand ContinueGameCommand
+        {
+            get
+            {
+                return _continueGameCommand =
+                (_continueGameCommand = new RelayCommand(obj =>
+                {
+                    Counter.Strikes++;
+                    // change to play field interface
+                    Navigator.Create().CurrentViewModel = PlayFieldViewModel.Create();
+                }));
             }
         }
 
