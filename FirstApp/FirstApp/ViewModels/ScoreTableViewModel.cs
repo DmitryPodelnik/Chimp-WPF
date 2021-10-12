@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace First_App.ViewModels
 {
-    class ScoreTablewViewModel : INotifyPropertyChanged
+    class ScoreTableViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

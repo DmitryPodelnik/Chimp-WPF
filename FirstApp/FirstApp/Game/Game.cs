@@ -1,5 +1,7 @@
 ﻿using First_App.Interfaces;
 using First_App.Models.Commands;
+using First_App.Navigation;
+using First_App.ViewModels;
 using First_App.Views;
 using FirstApp;
 using System;
@@ -45,6 +47,8 @@ namespace First_App.Models.Game
         private CoordsGenerator _coordsGenerator = new();
         // chimp window
         private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
+
+        private static short _previousNumber = 0;
 
         // collection of play grid cube buttons
         private ObservableCollection<Button> _playGridCubeButtons { get; set; } = new();
@@ -134,6 +138,8 @@ namespace First_App.Models.Game
             if (_cubes.Count != 0)
             {
                 _cubes.Clear();
+                _previousNumber = 0;
+                Counter.PressedButtonsCounter = 0;
             }
             InitializeGameCubes();
 
@@ -175,9 +181,18 @@ namespace First_App.Models.Game
         {
             // explicit cast from RoutedEventArgs to Button
             Button button = (Button)e.Source;
-            // remove cube button from the play grid after clicking on it
-            _playGridCubeButtons.Remove(button);
-            Counter.PressedButtonsCounter++;
+            // if pressed cube button number is bigger by 1 from the previous number
+            if (short.Parse(button.Content.ToString()) == ++_previousNumber)
+            {
+                // remove cube button from the play grid after clicking on it
+                _playGridCubeButtons.Remove(button);
+                Counter.PressedButtonsCounter++;
+
+                return;
+            }
+            // _previousNumber = 0;
+            // Counter.PressedButtonsCounter = 0;
+            Navigator.Create().CurrentViewModel = new ScoreTableViewModel();
         }
 
         /// <summary>
