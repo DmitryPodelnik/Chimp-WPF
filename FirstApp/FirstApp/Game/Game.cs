@@ -197,13 +197,14 @@ namespace First_App.Models.Game
             {
                 Counter.Strikes = 1;
                 Navigator.Create().CurrentViewModel = new FinishGameTableViewModel();
+                Counter.Score = 4;
                 return;
             }
             Navigator.Create().CurrentViewModel = new ScoreTableViewModel();
         }
 
         /// <summary>
-        ///
+        ///     Temporarily not working.
         /// </summary>
         /// <param name="sender">sender</param>
         /// <param name="ev">event info</param>
