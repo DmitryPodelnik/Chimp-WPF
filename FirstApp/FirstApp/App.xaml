@@ -32,6 +32,9 @@
             <DataTemplate DataType="{x:Type viewmodels:PlayFieldViewModel}">
                 <uc:PlayField />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:ScoreTableViewModel}">
+                <uc:ScoreTable />
+            </DataTemplate>
 
             <BooleanToVisibilityConverter x:Key="BoolToVis" />
         </ResourceDictionary>
