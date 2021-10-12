@@ -144,7 +144,7 @@ namespace First_App.Models.Game
             }
             InitializeGameCubes();
 
-            CreateButtonsCreateCubeButtonsAtPlayFieldAtPlayField();
+            CreateCubeButtonsAtPlayField();
         }
 
         /// <summary>
@@ -166,15 +166,8 @@ namespace First_App.Models.Game
                 // get resource dictionary with cubeButton styles
                 ResourceDictionary resourceDictionary = Application.Current.Resources.MergedDictionaries[0];
 
-                if (Counter.Score == 4)
-                {
-                    // set cubeButton style to the button
-                    newButton.Style = (Style)resourceDictionary["cubeButton"];
-                }
-                else
-                {
-                    SetWhiteStyleToCubeButtons(newButton);
-                }
+                // set cubeButton style to the button
+                newButton.Style = (Style)resourceDictionary["cubeButton"];
 
                 // set event handler after clicking to cube button
                 newButton.Click += DeleteButton_Executed;
@@ -213,13 +206,6 @@ namespace First_App.Models.Game
             // explicit cast from RoutedEventArgs to Button
             Button button = (Button)e.Source;
 
-            if (Counter.Score > 4 && Counter.PressedButtonsCounter > 0)
-            {
-                foreach (var btn in _playGridCubeButtons)
-                {
-                    SetWhiteStyleToCubeButtons(btn);
-                }
-            }
             // if pressed cube button number is bigger by 1 from the previous number
             if (short.Parse(button.Content.ToString()) == ++_previousNumber)
             {
@@ -227,6 +213,13 @@ namespace First_App.Models.Game
                 _playGridCubeButtons.Remove(button);
                 Counter.PressedButtonsCounter++;
 
+                if (Counter.Score > 4 && Counter.PressedButtonsCounter > 0)
+                {
+                    foreach (var btn in _playGridCubeButtons)
+                    {
+                        SetWhiteStyleToCubeButtons(btn);
+                    }
+                }
                 return;
             }
             _previousNumber = 0;
