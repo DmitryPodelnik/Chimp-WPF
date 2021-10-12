@@ -28,7 +28,7 @@
                         Style="{StaticResource yellowButton}" Cursor="Hand"
                         Command="{Binding SaveScoreCommand}" />
 
-            <Button x:Name="tryAgainButton" Content="TryAgain" FontSize="18px" FontWeight="Bold"
+            <Button x:Name="tryAgainButton" Content="Try again" FontSize="18px" FontWeight="Bold"
                         Padding="25px 10px 25px 10px" Width="175px" FontFamily="Arial"
                         Style="{StaticResource cyanButton}" Cursor="Hand"
                         Command="{Binding TryAgainCommand}"
