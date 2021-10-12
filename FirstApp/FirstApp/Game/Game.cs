@@ -144,6 +144,14 @@ namespace First_App.Models.Game
             }
             InitializeGameCubes();
 
+            CreateButtonsCreateCubeButtonsAtPlayFieldAtPlayField();
+        }
+
+        /// <summary>
+        ///     Create cube buttons at play field.
+        /// </summary>
+        private void CreateCubeButtonsAtPlayField()
+        {
             for (int i = 0; i < Counter.Score; i++)
             {
                 // create new cube Button
@@ -157,8 +165,16 @@ namespace First_App.Models.Game
 
                 // get resource dictionary with cubeButton styles
                 ResourceDictionary resourceDictionary = Application.Current.Resources.MergedDictionaries[0];
-                // set cubeButton style to the button
-                newButton.Style = (Style)resourceDictionary["cubeButton"];
+
+                if (Counter.Score == 4)
+                {
+                    // set cubeButton style to the button
+                    newButton.Style = (Style)resourceDictionary["cubeButton"];
+                }
+                else
+                {
+                    SetWhiteStyleToCubeButtons(newButton);
+                }
 
                 // set event handler after clicking to cube button
                 newButton.Click += DeleteButton_Executed;
@@ -174,6 +190,20 @@ namespace First_App.Models.Game
         }
 
         /// <summary>
+        ///
+        /// </summary>
+        /// <param name="btn"></param>
+        private void SetWhiteStyleToCubeButtons(ContentControl btn)
+        {
+            // get resource dictionary with cubeButton styles
+            ResourceDictionary resourceDictionary = Application.Current.Resources.MergedDictionaries[0];
+            // set white text at the button
+            btn.Foreground = new SolidColorBrush(Colors.White);
+            // set cubeButton style to the button
+            btn.Style = (Style)resourceDictionary["cubeWhiteButton"];
+        }
+
+        /// <summary>
         ///     Event handler of clicking cube button to remove it from the play grid.
         /// </summary>
         /// <param name="sender">sender</param>
@@ -182,6 +212,14 @@ namespace First_App.Models.Game
         {
             // explicit cast from RoutedEventArgs to Button
             Button button = (Button)e.Source;
+
+            if (Counter.Score > 4 && Counter.PressedButtonsCounter > 0)
+            {
+                foreach (var btn in _playGridCubeButtons)
+                {
+                    SetWhiteStyleToCubeButtons(btn);
+                }
+            }
             // if pressed cube button number is bigger by 1 from the previous number
             if (short.Parse(button.Content.ToString()) == ++_previousNumber)
             {
