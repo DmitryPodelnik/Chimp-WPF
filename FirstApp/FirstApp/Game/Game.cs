@@ -193,8 +193,9 @@ namespace First_App.Models.Game
             }
             _previousNumber = 0;
             Counter.PressedButtonsCounter = 0;
-            if (Counter.Strikes == 3)
+            if (Counter.Strikes == Counter.MAX_STRIKES)
             {
+                Counter.Strikes = 1;
                 Navigator.Create().CurrentViewModel = new FinishGameTableViewModel();
                 return;
             }

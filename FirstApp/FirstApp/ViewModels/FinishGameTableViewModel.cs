@@ -35,7 +35,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     Command after clicking continue button.
+        ///     Command after clicking save score button.
         /// </summary>
         private RelayCommand _saveScoreCommand;
         public RelayCommand SaveScoreCommand
@@ -51,7 +51,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     Command after clicking continue button.
+        ///     Command after clicking try again button.
         /// </summary>
         private RelayCommand _tryAgainCommand;
         public RelayCommand TryAgainCommand
@@ -61,7 +61,7 @@ namespace First_App.ViewModels
                 return _tryAgainCommand =
                 (_tryAgainCommand = new RelayCommand(obj =>
                 {
-                    Navigator.Create().CurrentViewModel = new PlayFieldViewModel();
+                    Navigator.Create().CurrentViewModel = new StartGameViewModel();
                 }));
             }
         }
