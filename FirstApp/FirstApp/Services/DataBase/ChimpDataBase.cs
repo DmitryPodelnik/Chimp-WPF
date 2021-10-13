@@ -170,7 +170,6 @@ namespace First_App.Models.DataBase
 
             try
             {
-
                 var user = _context.Users.FirstOrDefault(u => u.Username == previousLogin);
                 if (user == null)
                 {
@@ -224,12 +223,14 @@ namespace First_App.Models.DataBase
         }
 
         /// <summary>
-        ///  Get all records from database.
+        ///     Get all records from database.
         /// </summary>
-        /// <returns>IEnumerable<Record> if exist at least one instance or null.</Record></returns>
+        /// <returns>IList of Records if exist at least one instance or null.</returns>
         public IList<Record> GetAllRecords()
         {
-            return _context.Records.ToList();
+            return _context.Records
+                .Include(r => r.User)
+                .ToList();
         }
 
         public void AddRecord(Record record)

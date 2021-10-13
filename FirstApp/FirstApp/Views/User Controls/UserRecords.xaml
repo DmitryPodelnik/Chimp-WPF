@@ -27,29 +27,36 @@
         <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5" HorizontalAlignment="Left" MinWidth="650" MinHeight="400"
                   AutoGenerateColumns="False" ItemsSource="{Binding Records}" >
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Username" >
+                <DataGridTemplateColumn Header="Username" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path=User.Username}"/>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Score" >
+                <DataGridTemplateColumn Header="Score"  Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path=Score}"/>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Date" SortMemberPath="Date">
+                <DataGridTemplateColumn Header="Date" SortMemberPath="Date"  Width="*">
                     <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate >
-                            <TextBlock Text="{Binding Path=Date, StringFormat='dd/MM/yyyy'}"/>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Path=TimeAgoMessage}"/>
+                                <TextBlock Text="{Binding Path=Date, StringFormat='dd/MM/yyyy'}"/>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                     <DataGridTemplateColumn.CellEditingTemplate>
                         <DataTemplate>
-                            <DatePicker SelectedDate="{Binding Date}"/>
+                            <!--<DatePicker SelectedDate="{Binding Date}"/>-->
                         </DataTemplate>
                     </DataGridTemplateColumn.CellEditingTemplate>
                 </DataGridTemplateColumn>

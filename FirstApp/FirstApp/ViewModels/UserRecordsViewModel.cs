@@ -30,6 +30,10 @@ namespace First_App.ViewModels
         {
             get => _records;
         }
+
+        public string TimeAgoMessage { get; set; }
+        public string Username { get; set; }
+        public string Score { get; set; }
         public UserRecordsViewModel()
         {
             _records = (List<Record>)_database.GetAllRecords();
