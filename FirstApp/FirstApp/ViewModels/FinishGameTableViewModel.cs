@@ -64,6 +64,8 @@ namespace First_App.ViewModels
                 {
                     // change to start game tab
                     Navigator.Create().CurrentViewModel = new StartGameViewModel();
+                    // assign to Game.IsGameStarted - false
+                    Game.IsGameStarted = false;
                 }));
             }
         }

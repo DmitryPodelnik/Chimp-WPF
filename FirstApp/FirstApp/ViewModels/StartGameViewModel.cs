@@ -40,10 +40,8 @@ namespace First_App.ViewModels
                 {
                     // change to play field interface
                     _nav.CurrentViewModel = new PlayFieldViewModel();
-                    // assign to Game.IsGameStarted - false
+                    // assign to Game.IsGameStarted - true
                     Game.IsGameStarted = true;
-                    // update property Game.IsGameStarted
-                    OnPropertyChanged("Game.IsGameStarted");
                 }));
             }
         }

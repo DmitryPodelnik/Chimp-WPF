@@ -54,8 +54,6 @@ namespace First_App.ViewModels
                             ShowMainTab();
                             // assign to Game.IsGameStarted - false
                             Game.IsGameStarted = false;
-                            // update property Game.IsGameStarted
-                            OnPropertyChanged("Game.IsGameStarted");
                         }
                         return;
                     }
@@ -95,8 +93,6 @@ namespace First_App.ViewModels
                             StartPlay();
                             // assign to Game.IsGameStarted - false
                             Game.IsGameStarted = false;
-                            // update property Game.IsGameStarted
-                            OnPropertyChanged("Game.IsGameStarted");
                         }
                         return;
                     }
@@ -136,8 +132,6 @@ namespace First_App.ViewModels
                             ShowProfile();
                             // assign to Game.IsGameStarted - false
                             Game.IsGameStarted = false;
-                            // update property Game.IsGameStarted
-                            OnPropertyChanged("Game.IsGameStarted");
                         }
                         return;
                     }
@@ -176,8 +170,6 @@ namespace First_App.ViewModels
                             ShowRecords();
                             // assign to Game.IsGameStarted - false
                             Game.IsGameStarted = false;
-                            // update property Game.IsGameStarted
-                            OnPropertyChanged("Game.IsGameStarted");
                         }
                         return;
                     }
@@ -219,8 +211,7 @@ namespace First_App.ViewModels
                                 ExitFromAccount();
                                 // assign to Game.IsGameStarted - false
                                 Game.IsGameStarted = false;
-                                // update property Game.IsGameStarted
-                                OnPropertyChanged(Game.IsGameStarted.ToString());
+
                                 return;
                             }
                             ExitGame();
@@ -232,8 +223,7 @@ namespace First_App.ViewModels
                         ExitFromAccount();
                         // assign to Game.IsGameStarted - false
                         Game.IsGameStarted = false;
-                        // update property Game.IsGameStarted
-                        OnPropertyChanged(Game.IsGameStarted.ToString());
+
                         return;
                     }
                     ExitGame();
