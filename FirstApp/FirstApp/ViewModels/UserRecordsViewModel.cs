@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace First_App.ViewModels
 {
@@ -33,8 +34,15 @@ namespace First_App.ViewModels
 
         public UserRecordsViewModel()
         {
-            // get from database records from all users ordering them by descending and cast to list
-            _records = _database.GetAllRecords().OrderByDescending(r => r.Date).ToList();
+            try
+            {
+                // get from database records from all users ordering them by descending and cast to list
+                _records = _database.GetAllRecords().OrderByDescending(r => r.Date).ToList();
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

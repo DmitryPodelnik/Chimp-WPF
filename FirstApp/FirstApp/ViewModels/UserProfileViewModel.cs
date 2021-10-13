@@ -33,7 +33,7 @@ namespace First_App.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        // field that containt user records
+        // field that contains user records
         private List<Record> _records = new();
         public List<Record> Records
         {
@@ -56,20 +56,27 @@ namespace First_App.ViewModels
         /// </summary>
         public UserProfileViewModel()
         {
-            // Get current user login from registry and get all user data from the database
-            var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
-            if (user is null)
+            try
             {
-                MessageBox.Show("User is not found", "Error");
-                return;
-            }
-            // welcome message in the profile
-            _currentUserMessage = "Hello, " + SavingRegistryData.GetCurrentUser() + "!";
+                // Get current user login from registry and get all user data from the database
+                var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
+                if (user is null)
+                {
+                    MessageBox.Show("User is not found", "Error");
+                    return;
+                }
+                // welcome message in the profile
+                _currentUserMessage = "Hello, " + SavingRegistryData.GetCurrentUser() + "!";
 
-            var bestRecord = _database.GetCurrentUserRecords().OrderByDescending(r => r.Score).First();
-            // score message in the profile
-            _currentUserScoreMessage = $"Your best score is {bestRecord.Score}";
-            _records = (List<Record>)_database.GetCurrentUserRecords();
+                var bestRecord = _database.GetCurrentUserRecords().OrderByDescending(r => r.Score).FirstOrDefault();
+                // score message in the profile
+                _currentUserScoreMessage = $"Your best score is {bestRecord?.Score}";
+                _records = (List<Record>)_database.GetCurrentUserRecords();
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         // field that stores current user best score message

@@ -247,7 +247,8 @@ namespace First_App.ViewModels
             Record newRecord = new();
             newRecord.Date = DateTime.Now.ToString();
             newRecord.UserId = _database.GetUser(SavingRegistryData.GetCurrentUser()).Id;
-            newRecord.Score = Game.lastScore;
+            newRecord.Score = Counter.Score;
+            Counter.Score = 4;
 
             _database.AddRecord(newRecord);
         }

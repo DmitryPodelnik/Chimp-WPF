@@ -228,10 +228,18 @@ namespace First_App.Models.DataBase
         /// <returns>IList of Records if exist at least one instance or null.</returns>
         public IList<Record> GetAllRecords()
         {
-            return _context.Records
-                .Include(r => r.User)
-                .OrderByDescending(r => r.Date)
-                .ToList();
+            try
+            {
+                return _context.Records
+                    .Include(r => r.User)
+                    .OrderByDescending(r => r.Date)
+                    .ToList();
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
 
         /// <summary>
@@ -240,8 +248,19 @@ namespace First_App.Models.DataBase
         /// <param name="record">New user game record.</param>
         public void AddRecord(Record record)
         {
-            _context.Records.Add(record);
-            _context.SaveChanges();
+            try
+            {
+                _context.Records.Add(record);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (DbUpdateException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -250,10 +269,18 @@ namespace First_App.Models.DataBase
         /// <returns>IList of Records if exists or null</returns>
         public IList<Record> GetCurrentUserRecords()
         {
-            return  _context.Records
-                            .Where(u => u.User.Username == SavingRegistryData.GetCurrentUser())
-                            .OrderByDescending(r => r.Date)
-                            .ToList();
+            try
+            {
+                return _context.Records
+                .Where(u => u.User.Username == SavingRegistryData.GetCurrentUser())
+                .OrderByDescending(r => r.Date)
+                .ToList();
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
     }
 }
