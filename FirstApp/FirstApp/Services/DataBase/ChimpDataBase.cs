@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using System.Windows;
 using First_App.Models.RegistryData;
 using FirstApp.Models;
+using First_App.Models.DataBase.Models;
 
 namespace First_App.Models.DataBase
 {
@@ -220,6 +221,12 @@ namespace First_App.Models.DataBase
                 MessageBox.Show(ex.Message);
                 return false;
             }
+        }
+
+
+        public IEnumerable<Record> GetAllRecords()
+        {
+            return null;
         }
     }
 }

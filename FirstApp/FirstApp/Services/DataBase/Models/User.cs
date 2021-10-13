@@ -1,5 +1,5 @@
 ﻿using First_App.Models;
-using First_App.Models.DataBase.Tables;
+using First_App.Models.DataBase.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstApp.Models
+namespace First_App.Models.DataBase.Models
 {
     /// <summary>
     ///     Class of User model.

@@ -1,4 +1,4 @@
-﻿using First_App.Models.Tables;
+﻿using First_App.Models.DataBase.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

@@ -1,4 +1,5 @@
-﻿using FirstApp.Models;
+﻿using First_App.Models.DataBase.Models;
+using FirstApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -28,7 +29,6 @@ namespace FirstApp.Configurations
                         Password = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes("12341234qwe")))},
                     new User { Id = 2,  Username = "user2",
                         Password = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes("12341234qwe")))},
-                           
               });
         }
     }

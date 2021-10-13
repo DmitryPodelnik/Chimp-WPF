@@ -1,4 +1,5 @@
-﻿using FirstApp.Models;
+﻿using First_App.Models.DataBase.Models;
+using FirstApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -17,12 +18,11 @@ namespace First_App.Models.DataBase.Configurations
     {
         public void Configure(EntityTypeBuilder<UserProfile> builder)
         {
-            SHA256Managed sha256 = new SHA256Managed();
-
             builder.HasData(
               new UserProfile[]
               {
-
+                  new UserProfile { Id = 1, UserId = 1 },
+                  new UserProfile { Id = 2, UserId = 2 },
               });
         }
     }

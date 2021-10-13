@@ -1,4 +1,5 @@
-﻿using FirstApp.Configurations;
+﻿using First_App.Models.DataBase.Models;
+using FirstApp.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace FirstApp.Models.DataBase
     public class ChimpDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Record> Records { get; set; }
 
         public ChimpDbContext(DbContextOptions<ChimpDbContext> options) : base(options)
         {
@@ -23,8 +25,8 @@ namespace FirstApp.Models.DataBase
         /// </summary>
         private void ConnectToDatabase()
         {
-               // if (Database.CanConnect())
-               // Database.EnsureDeleted();
+            // if (Database.CanConnect())
+            //  Database.EnsureDeleted();
 
             // Create database
             Database.EnsureCreated();
@@ -41,7 +43,7 @@ namespace FirstApp.Models.DataBase
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
