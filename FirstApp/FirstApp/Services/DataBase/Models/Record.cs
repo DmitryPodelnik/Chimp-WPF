@@ -32,7 +32,11 @@ namespace First_App.Models.DataBase.Models
             get
             {
                 TimeSpan diff = DateTime.Now - Convert.ToDateTime(Date);
-                if (diff.Hours < 1)
+                if (diff.Minutes < 1)
+                {
+                    _timeAgoMessage = diff.Seconds.ToString() + " seconds ago";
+                }
+                else if (diff.Hours < 1)
                 {
                     _timeAgoMessage = diff.Minutes.ToString() + " minutes ago";
                 }
