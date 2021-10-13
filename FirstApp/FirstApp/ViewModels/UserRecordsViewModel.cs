@@ -33,7 +33,7 @@ namespace First_App.ViewModels
 
         public UserRecordsViewModel()
         {
-            _records = (List<Record>)_database.GetAllRecords();
+            _records = (List<Record>)_database.GetAllRecords().OrderByDescending(r => r.Date);
         }
     }
 }

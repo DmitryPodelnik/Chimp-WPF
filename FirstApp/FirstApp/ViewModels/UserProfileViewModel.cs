@@ -64,8 +64,10 @@ namespace First_App.ViewModels
             }
             // welcome message in the profile
             _currentUserMessage = "Hello, " + SavingRegistryData.GetCurrentUser() + "!";
+
+            var bestRecord = _database.GetCurrentUserRecords().OrderByDescending(r => r.Score).First();
             // score message in the profile
-            _currentUserScoreMessage = $"Your best score is {user?.Score}";
+            _currentUserScoreMessage = $"Your best score is {bestRecord.Score}";
             _records = (List<Record>)_database.GetCurrentUserRecords();
         }
 

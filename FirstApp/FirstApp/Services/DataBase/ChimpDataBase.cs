@@ -244,7 +244,10 @@ namespace First_App.Models.DataBase
             _context.SaveChanges();
         }
 
-
+        /// <summary>
+        ///
+        /// </summary>
+        /// <returns></returns>
         public IList<Record> GetCurrentUserRecords()
         {
             return  _context.Records
