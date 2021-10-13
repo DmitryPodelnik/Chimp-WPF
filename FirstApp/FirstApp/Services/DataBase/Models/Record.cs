@@ -25,6 +25,34 @@ namespace First_App.Models.DataBase.Models
         [Required]
         public string Date { get; set; }
 
+        private string _timeAgoMessage;
+        [NotMapped]
+        public string TimeAgoMessage
+        {
+            get
+            {
+                TimeSpan diff = DateTime.Now - Convert.ToDateTime(Date);
+                if (diff.Hours < 1)
+                {
+                    _timeAgoMessage = diff.Minutes.ToString() + " minutes ago";
+                }
+                else if (diff.Hours < 24)
+                {
+                    _timeAgoMessage = diff.Hours.ToString() + " hours ago";
+                }
+                else
+                {
+                    _timeAgoMessage = diff.Days.ToString() + " days ago";
+                }
+
+                return _timeAgoMessage;
+            }
+            set
+            {
+                _timeAgoMessage = value;
+            }
+        }
+
         public int? UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual User User { get; set; }

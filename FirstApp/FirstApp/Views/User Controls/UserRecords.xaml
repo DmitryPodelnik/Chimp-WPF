@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <!-- Grid for records -->
     <Grid x:Name="recordsGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4"
-          HorizontalAlignment="Center" VerticalAlignment="Center">
+         HorizontalAlignment="Center" VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -25,8 +25,8 @@
         </Grid.ColumnDefinitions>
 
         <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5"
-                  MinWidth="650" MinHeight="400" Margin="0 0 0 0"
-                  AutoGenerateColumns="False" ItemsSource="{Binding Records}" >
+                  Margin="20 10 100 0" FontSize="20"
+                  AutoGenerateColumns="False" ItemsSource="{Binding Records}" VerticalScrollBarVisibility="Auto" GridLinesVisibility="None" >
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Username" SortMemberPath="Username" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
@@ -50,8 +50,8 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding Path=TimeAgoMessage}" FontSize="20" VerticalAlignment="Center"/>
-                                <TextBlock Text="{Binding Path=Date, StringFormat='dd/MM/yyyy'}" FontSize="14" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Path=TimeAgoMessage}" FontSize="16" />
+                                <TextBlock Text="{Binding Path=Date, StringFormat='dd/MM/yyyy'}" FontSize="14" Foreground="Gray" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
