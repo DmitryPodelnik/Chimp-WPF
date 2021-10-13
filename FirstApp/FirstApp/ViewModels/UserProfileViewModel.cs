@@ -33,6 +33,7 @@ namespace First_App.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
+        // field that containt user records
         private List<Record> _records = new();
         public List<Record> Records
         {
@@ -71,6 +72,7 @@ namespace First_App.ViewModels
             _records = (List<Record>)_database.GetCurrentUserRecords();
         }
 
+        // field that stores current user best score message
         private string _currentUserScoreMessage { get; set; }
         public string CurrentUserScoreMessage
         {

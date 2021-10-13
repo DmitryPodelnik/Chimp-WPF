@@ -30,6 +30,7 @@ namespace First_App.ViewModels
             _scoreMessage = Counter.Score.ToString();
         }
 
+        // field that shows finish score
         private string _scoreMessage;
         public string ScoreMessage
         {
@@ -51,6 +52,7 @@ namespace First_App.ViewModels
                 return _saveScoreCommand =
                 (_saveScoreCommand = new RelayCommand(obj =>
                 {
+                    // save current game record to database
                     SaveNewRecord();
                     // assign to Game.IsGameStarted - false
                     Game.IsGameStarted = false;
@@ -60,6 +62,9 @@ namespace First_App.ViewModels
             }
         }
 
+        /// <summary>
+        ///     Save new record to database.
+        /// </summary>
         private void SaveNewRecord()
         {
             Record newRecord = new();
@@ -68,7 +73,6 @@ namespace First_App.ViewModels
             newRecord.Score = Game.lastScore;
 
             _database.AddRecord(newRecord);
-
         }
 
         /// <summary>

@@ -208,46 +208,69 @@ namespace First_App.Models.Game
         /// <param name="e">event arguments</param>
         private void DeleteButton_Executed(object sender, RoutedEventArgs e)
         {
-            // explicit cast from RoutedEventArgs to Button
-            Button button = (Button)e.Source;
-
-            // if pressed cube button number is bigger by 1 from the previous number
-            if (short.Parse(button.Content.ToString()) == ++_previousButtonNumber)
+            try
             {
-                // remove cube button from the play grid after clicking on it
-                _playGridCubeButtons.Remove(button);
-                // increase pressed buttons counter
-                Counter.PressedButtonsCounter++;
+                // explicit cast from RoutedEventArgs to Button
+                Button button = (Button)e.Source;
 
-                if (Counter.Score > 4 && Counter.PressedButtonsCounter > 0)
+                // if pressed cube button number is bigger by 1 from the previous number
+                if (short.Parse(button.Content.ToString()) == ++_previousButtonNumber)
                 {
-                    // set style for each button in play grid cube button collection
-                    foreach (var btn in _playGridCubeButtons)
+                    // remove cube button from the play grid after clicking on it
+                    _playGridCubeButtons.Remove(button);
+                    // increase pressed buttons counter
+                    Counter.PressedButtonsCounter++;
+
+                    if (Counter.Score > 4 && Counter.PressedButtonsCounter > 0)
                     {
-                        // set white style to cube buttons
-                        SetWhiteStyleToCubeButtons(btn);
+                        // set style for each button in play grid cube button collection
+                        foreach (var btn in _playGridCubeButtons)
+                        {
+                            // set white style to cube buttons
+                            SetWhiteStyleToCubeButtons(btn);
+                        }
                     }
+                    return;
                 }
-                return;
+                // reset previous button number
+                _previousButtonNumber = 0;
+                // reset pressed button counter
+                Counter.PressedButtonsCounter = 0;
+                // if current strike == MAX_STRIKES (3)
+                if (Counter.Strikes == Counter.MAX_STRIKES)
+                {
+                    // reset strikes
+                    Counter.Strikes = 1;
+                    // change to finish game tab
+                    Navigator.Create().CurrentViewModel = new FinishGameTableViewModel();
+                    lastScore = Counter.Score;
+                    // reset score
+                    Counter.Score = 4;
+                    return;
+                }
+                // else change to score table tab
+                Navigator.Create().CurrentViewModel = new ScoreTableViewModel();
             }
-            // reset previous button number
-            _previousButtonNumber = 0;
-            // reset pressed button counter
-            Counter.PressedButtonsCounter = 0;
-            // if current strike == MAX_STRIKES (3)
-            if (Counter.Strikes == Counter.MAX_STRIKES)
+            catch (ArgumentNullException ex)
             {
-                // reset strikes
-                Counter.Strikes = 1;
-                // change to finish game tab
-                Navigator.Create().CurrentViewModel = new FinishGameTableViewModel();
-                lastScore = Counter.Score;
-                // reset score
-                Counter.Score = 4;
-                return;
+                MessageBox.Show(ex.Message);
             }
-            // else change to score table tab
-            Navigator.Create().CurrentViewModel = new ScoreTableViewModel();
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (OverflowException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>

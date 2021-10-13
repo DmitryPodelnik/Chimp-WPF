@@ -33,7 +33,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel VerticalAlignment="Center">
-                                    <TextBlock Text="{Binding Path=User.Username}" FontSize="20" />
+                                    <TextBlock Text="{Binding Path=User.Username}" FontSize="20" Padding="5" />
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

@@ -235,9 +235,9 @@ namespace First_App.Models.DataBase
         }
 
         /// <summary>
-        ///
+        ///     Add new user record to database.
         /// </summary>
-        /// <param name="record"></param>
+        /// <param name="record">New user game record.</param>
         public void AddRecord(Record record)
         {
             _context.Records.Add(record);
@@ -245,9 +245,9 @@ namespace First_App.Models.DataBase
         }
 
         /// <summary>
-        ///
+        ///     Get all current user records from database.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>IList of Records if exists or null</returns>
         public IList<Record> GetCurrentUserRecords()
         {
             return  _context.Records

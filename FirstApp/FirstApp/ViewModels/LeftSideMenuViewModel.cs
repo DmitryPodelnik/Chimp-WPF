@@ -1,6 +1,7 @@
 ﻿using First_App.Models;
 using First_App.Models.Commands;
 using First_App.Models.DataBase;
+using First_App.Models.DataBase.Models;
 using First_App.Models.Game;
 using First_App.Models.RegistryData;
 using First_App.Navigation;
@@ -50,6 +51,8 @@ namespace First_App.ViewModels
                         // are you sure to finish current game?
                         if (IsSureToFinishGame())
                         {
+                            // save current game record to database
+                            SaveNewRecord();
                             // show start main tab
                             ShowMainTab();
                             // assign to Game.IsGameStarted - false
@@ -89,6 +92,8 @@ namespace First_App.ViewModels
                         // are you sure to finish current game?
                         if (IsSureToFinishGame())
                         {
+                            // save current game record to database
+                            SaveNewRecord();
                             // show start game tab
                             StartPlay();
                             // assign to Game.IsGameStarted - false
@@ -128,6 +133,8 @@ namespace First_App.ViewModels
                         // are you sure to finish current game?
                         if (IsSureToFinishGame())
                         {
+                            // save current game record to database
+                            SaveNewRecord();
                             // show user profile tab
                             ShowProfile();
                             // assign to Game.IsGameStarted - false
@@ -166,6 +173,8 @@ namespace First_App.ViewModels
                         // are you sure to finish current game?
                         if (IsSureToFinishGame())
                         {
+                            // save current game record to database
+                            SaveNewRecord();
                             // show user records tab
                             ShowRecords();
                             // assign to Game.IsGameStarted - false
@@ -208,6 +217,8 @@ namespace First_App.ViewModels
                             // if yes then is not current user null
                             if (SavingRegistryData.GetCurrentUser() is not null)
                             {
+                                // save current game record to database
+                                SaveNewRecord();
                                 ExitFromAccount();
                                 // assign to Game.IsGameStarted - false
                                 Game.IsGameStarted = false;
@@ -229,6 +240,16 @@ namespace First_App.ViewModels
                     ExitGame();
                 }));
             }
+        }
+
+        private void SaveNewRecord()
+        {
+            Record newRecord = new();
+            newRecord.Date = DateTime.Now.ToString();
+            newRecord.UserId = _database.GetUser(SavingRegistryData.GetCurrentUser()).Id;
+            newRecord.Score = Game.lastScore;
+
+            _database.AddRecord(newRecord);
         }
 
         /// <summary>

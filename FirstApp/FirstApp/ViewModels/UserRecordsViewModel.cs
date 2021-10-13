@@ -24,7 +24,7 @@ namespace First_App.ViewModels
 
         // field to work with database
         private ChimpDataBase _database = new();
-
+        // field that contains user records
         private List<Record> _records = new();
         public List<Record> Records
         {
@@ -33,6 +33,7 @@ namespace First_App.ViewModels
 
         public UserRecordsViewModel()
         {
+            // get from database records from all users ordering them by descending and cast to list
             _records = _database.GetAllRecords().OrderByDescending(r => r.Date).ToList();
         }
     }
