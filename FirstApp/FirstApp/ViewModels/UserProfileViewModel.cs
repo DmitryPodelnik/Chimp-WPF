@@ -1,5 +1,6 @@
 ﻿using First_App.Models.Commands;
 using First_App.Models.DataBase;
+using First_App.Models.DataBase.Models;
 using First_App.Models.RegistryData;
 using First_App.Views;
 using System;
@@ -32,6 +33,12 @@ namespace First_App.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
+        private List<Record> _records = new();
+        public List<Record> Records
+        {
+            get => _records;
+        }
+
         private string _currentUserMessage { get; set; }
         public string CurrentUserMessage
         {
@@ -59,6 +66,7 @@ namespace First_App.ViewModels
             _currentUserMessage = "Hello, " + SavingRegistryData.GetCurrentUser() + "!";
             // score message in the profile
             _currentUserScoreMessage = $"Your best score is {user?.Score}";
+            _records = (List<Record>)_database.GetCurrentUserRecords();
         }
 
         private string _currentUserScoreMessage { get; set; }

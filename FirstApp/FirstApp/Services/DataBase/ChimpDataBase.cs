@@ -234,10 +234,23 @@ namespace First_App.Models.DataBase
                 .ToList();
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="record"></param>
         public void AddRecord(Record record)
         {
             _context.Records.Add(record);
             _context.SaveChanges();
+        }
+
+
+        public IList<Record> GetCurrentUserRecords()
+        {
+            return  _context.Records
+                            .Where(u => u.User.Username == SavingRegistryData.GetCurrentUser())
+                            .OrderByDescending(r => r.Date)
+                            .ToList();
         }
     }
 }
