@@ -28,6 +28,8 @@ namespace First_App.Models.Game
         // columns on the play grid
         private const short _COLUMNS = 10;
 
+        public static short lastScore;
+
         // indicate if game is started
         private static bool _isGameStarted = false;
         public static bool IsGameStarted
@@ -239,6 +241,7 @@ namespace First_App.Models.Game
                 Counter.Strikes = 1;
                 // change to finish game tab
                 Navigator.Create().CurrentViewModel = new FinishGameTableViewModel();
+                lastScore = Counter.Score;
                 // reset score
                 Counter.Score = 4;
                 return;

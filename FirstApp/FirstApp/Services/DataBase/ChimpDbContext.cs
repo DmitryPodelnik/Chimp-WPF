@@ -1,4 +1,5 @@
 ﻿using First_App.Models.DataBase.Models;
+using First_App.Services.DataBase.Configurations;
 using FirstApp.Configurations;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -26,7 +27,7 @@ namespace FirstApp.Models.DataBase
         private void ConnectToDatabase()
         {
             // if (Database.CanConnect())
-            //  Database.EnsureDeleted();
+            // Database.EnsureDeleted();
 
             // Create database
             Database.EnsureCreated();
@@ -49,7 +50,7 @@ namespace FirstApp.Models.DataBase
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UsersConfiguration());
-
+            modelBuilder.ApplyConfiguration(new RecordsConfiguration());
         }
     }
 }

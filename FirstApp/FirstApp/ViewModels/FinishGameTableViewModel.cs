@@ -1,5 +1,8 @@
 ﻿using First_App.Models.Commands;
+using First_App.Models.DataBase;
+using First_App.Models.DataBase.Models;
 using First_App.Models.Game;
+using First_App.Models.RegistryData;
 using First_App.Navigation;
 using System;
 using System.Collections.Generic;
@@ -18,6 +21,9 @@ namespace First_App.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
+
+        // field to work with database
+        private ChimpDataBase _database = new();
 
         public FinishGameTableViewModel()
         {
@@ -45,10 +51,24 @@ namespace First_App.ViewModels
                 return _saveScoreCommand =
                 (_saveScoreCommand = new RelayCommand(obj =>
                 {
+                    SaveNewRecord();
+                    // assign to Game.IsGameStarted - false
+                    Game.IsGameStarted = false;
                     // change to user records tab
                     Navigator.Create().CurrentViewModel = new UserRecordsViewModel();
                 }));
             }
+        }
+
+        private void SaveNewRecord()
+        {
+            Record newRecord = new();
+            newRecord.Date = DateTime.Now.ToString();
+            newRecord.UserId = _database.GetUser(SavingRegistryData.GetCurrentUser()).Id;
+            newRecord.Score = Game.lastScore;
+
+            _database.AddRecord(newRecord);
+
         }
 
         /// <summary>

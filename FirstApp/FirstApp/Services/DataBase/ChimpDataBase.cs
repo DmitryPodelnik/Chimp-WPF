@@ -223,10 +223,19 @@ namespace First_App.Models.DataBase
             }
         }
 
-
-        public IEnumerable<Record> GetAllRecords()
+        /// <summary>
+        ///  Get all records from database.
+        /// </summary>
+        /// <returns>IEnumerable<Record> if exist at least one instance or null.</Record></returns>
+        public IList<Record> GetAllRecords()
         {
-            return null;
+            return _context.Records.ToList();
+        }
+
+        public void AddRecord(Record record)
+        {
+            _context.Records.Add(record);
+            _context.SaveChanges();
         }
     }
 }

@@ -23,7 +23,7 @@ namespace First_App.Models.DataBase.Models
         public short Score { get; set; }
 
         [Required]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         public int? UserId { get; set; }
         [ForeignKey("UserId")]

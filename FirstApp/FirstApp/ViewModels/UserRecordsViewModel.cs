@@ -1,4 +1,5 @@
-﻿using First_App.Models.DataBase.Models;
+﻿using First_App.Models.DataBase;
+using First_App.Models.DataBase.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,14 +22,17 @@ namespace First_App.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        private ObservableCollection<Record> _records = new();
-        public ObservableCollection<Record> Records
+        // field to work with database
+        private ChimpDataBase _database = new();
+
+        private List<Record> _records = new();
+        public List<Record> Records
         {
             get => _records;
         }
         public UserRecordsViewModel()
         {
-
+            _records = (List<Record>)_database.GetAllRecords();
         }
     }
 }
