@@ -12,6 +12,8 @@
                 <ResourceDictionary Source="/Dictionaries/ButtonsDictionary.xaml" />
                 <ResourceDictionary Source="/Dictionaries/GridsDictionary.xaml" />
                 <ResourceDictionary Source="/Dictionaries/RadioButtonsDictionary.xaml" />
+                <ResourceDictionary Source="/Dictionaries/DataGridsDictionary.xaml" />
+                <ResourceDictionary Source="/Dictionaries/TextBlocksDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewmodels:MainTabViewModel}">

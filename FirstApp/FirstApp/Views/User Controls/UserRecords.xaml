@@ -24,33 +24,34 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5" HorizontalAlignment="Left" MinWidth="650" MinHeight="400"
+        <DataGrid x:Name="dataGrid" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5"
+                  MinWidth="650" MinHeight="400" Margin="0 0 0 0"
                   AutoGenerateColumns="False" ItemsSource="{Binding Records}" >
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Username" Width="*">
+                <DataGridTemplateColumn Header="Username" SortMemberPath="Username" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding Path=User.Username}"/>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Path=User.Username}" FontSize="20" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Score"  Width="*">
+                <DataGridTemplateColumn Header="Score" SortMemberPath="Score" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding Path=Score}"/>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Path=Score}" FontSize="20"  />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Date" SortMemberPath="Date"  Width="*">
+                <DataGridTemplateColumn Header="Date" SortMemberPath="Date" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding Path=TimeAgoMessage}"/>
-                                <TextBlock Text="{Binding Path=Date, StringFormat='dd/MM/yyyy'}"/>
+                                <TextBlock Text="{Binding Path=TimeAgoMessage}" FontSize="20" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Path=Date, StringFormat='dd/MM/yyyy'}" FontSize="14" VerticalAlignment="Center"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

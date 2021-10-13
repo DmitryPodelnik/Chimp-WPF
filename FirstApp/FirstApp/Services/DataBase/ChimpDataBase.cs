@@ -230,6 +230,7 @@ namespace First_App.Models.DataBase
         {
             return _context.Records
                 .Include(r => r.User)
+                .OrderByDescending(r => r.Date)
                 .ToList();
         }
 
