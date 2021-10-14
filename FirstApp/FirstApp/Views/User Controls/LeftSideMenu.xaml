@@ -13,8 +13,13 @@
     </UserControl.DataContext>
     <!-- Grid for left aside action buttons -->
     <Grid x:Name="leftAsideGrid" Grid.RowSpan="4" Background="{StaticResource leftAsideBackground}"
-          Width="200px">
+          Width="105">
         <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -24,7 +29,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="leftAside"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <!-- Main tab button (Chimp) -->
@@ -68,13 +73,13 @@
         </chimpcontrollibrary:LeftAsideRadioButton>
 
         <!-- Exit tab button -->
-        <Button x:Name="exitButton" Grid.Row="6" Cursor="Hand" Style="{StaticResource leftAsideButton}"
+        <Button x:Name="exitButton" Grid.Row="11" Cursor="Hand" Style="{StaticResource leftAsideButton}"
                     HorizontalContentAlignment="Left" Command="{Binding ExitCommand}">
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
-                <Image Source="/Views/images/exitIcon.png" MaxWidth="40" MaxHeight="40" Margin="0,0,5,0" Cursor="Hand"/>
-                <TextBlock Text="Exit" FontSize="22px" Cursor="Hand" FontFamily="Autumn"
+                <Image Source="/Views/images/exitIcon.png" MaxWidth="25" MaxHeight="25" Margin="0,0,5,0" Cursor="Hand"/>
+                <TextBlock Text="Exit" FontSize="14px" Cursor="Hand" FontFamily="Autumn"
                                VerticalAlignment="Center" Foreground="Black" />
             </StackPanel>
         </Button>
