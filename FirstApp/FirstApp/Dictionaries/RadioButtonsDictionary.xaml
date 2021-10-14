@@ -17,7 +17,6 @@
                                        FontSize="14px" Cursor="Hand" FontFamily="Autumn"
                                VerticalAlignment="Center" Foreground="#FFEBEBEB">
                             </TextBlock>
-                            <!-- Не понимаю зачем он нужен -->
                             <ContentPresenter />
                         </StackPanel>
                     </Button>
@@ -25,9 +24,8 @@
                         <Trigger Property="IsMouseOver" Value="true">
                             <Setter TargetName="radioButtonText" Property="Foreground" Value="Black" />
                         </Trigger>
-                        <Trigger Property="IsPressed" Value="true">
-                            <Setter TargetName="radioButton" Property="BorderBrush" Value="yellow" />
-                            <Setter TargetName="radioButton" Property="BorderThickness" Value="5" />
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter TargetName="radioButtonText" Property="Foreground" Value="Red" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

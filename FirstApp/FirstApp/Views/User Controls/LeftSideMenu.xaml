@@ -35,7 +35,7 @@
         <!-- Main tab button (Chimp) -->
         <chimpcontrollibrary:LeftAsideRadioButton x:Name="mainTabRadioButton" Style="{StaticResource leftSideMainRadioButton}"
                      Command="{Binding ReturnToMainTabCommand}"
-                     Text="Chimp" 
+                     Text="Chimp" GroupName="LeftAsideRadioButtons"
                      >
             <chimpcontrollibrary:LeftAsideRadioButton.Source>
                 <BitmapImage UriSource="/Views/images/chimpLogo.png"/>
@@ -45,7 +45,7 @@
         <!-- Play tab button -->
         <chimpcontrollibrary:LeftAsideRadioButton x:Name="playRadioButton" Grid.Row="1" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding PlayCommand}"
-                     Text="Play"
+                     Text="Play" GroupName="LeftAsideRadioButtons"
                          >
             <chimpcontrollibrary:LeftAsideRadioButton.Source>
                 <BitmapImage UriSource="/Views/images/playIcon.png"/>
@@ -55,7 +55,7 @@
         <!-- Show profile tab button -->
         <chimpcontrollibrary:LeftAsideRadioButton x:Name="profileRadioButton" Grid.Row="2" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding ShowProfileCommand}"
-                     Text="Profile"
+                     Text="Profile" GroupName="LeftAsideRadioButtons"
                          >
             <chimpcontrollibrary:LeftAsideRadioButton.Source>
                 <BitmapImage UriSource="/Views/images/profileIcon.png"/>
@@ -65,7 +65,7 @@
         <!-- Show records tab button -->
         <chimpcontrollibrary:LeftAsideRadioButton x:Name="recordsButton" Grid.Row="3" Style="{StaticResource leftSideRadioButton}"
                      Command="{Binding ShowRecordsCommand}"
-                     Text="Records"
+                     Text="Records" GroupName="LeftAsideRadioButtons"
                          >
             <chimpcontrollibrary:LeftAsideRadioButton.Source>
                 <BitmapImage UriSource="/Views/images/ratingIcon.png"/>
