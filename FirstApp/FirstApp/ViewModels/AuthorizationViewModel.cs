@@ -36,7 +36,7 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _loginCommand ??
+                return _loginCommand ??=
                 new RelayCommand(obj =>
                 {
                     // verify whether the data of user are correct

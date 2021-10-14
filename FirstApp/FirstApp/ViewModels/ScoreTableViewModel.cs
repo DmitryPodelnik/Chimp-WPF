@@ -38,7 +38,6 @@ namespace First_App.ViewModels
             set => _strikesMessage = value;
         }
 
-
         /// <summary>
         ///     Command after clicking continue button.
         /// </summary>
@@ -47,7 +46,7 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _continueGameCommand ??
+                return _continueGameCommand ??=
                 new RelayCommand(obj =>
                 {
                     // increase current strike

@@ -73,7 +73,7 @@ namespace First_App.Services.Authentication
             // if login or password box is null or empty then error message
             if (String.IsNullOrEmpty(login) || String.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK);
+                MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
@@ -90,7 +90,7 @@ namespace First_App.Services.Authentication
             }
             else // or show error message
             {
-                MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK);
+                MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             // clear password box field
@@ -104,7 +104,6 @@ namespace First_App.Services.Authentication
         /// </summary>
         private void LoginSuccessActions(string login)
         {
-            MessageBox.Show("You have been successfully logged in!", "Authorization", MessageBoxButton.OK);
             // get current user from registry
             CurrentUser = SavingRegistryData.GetCurrentUser();
             // show game user interface

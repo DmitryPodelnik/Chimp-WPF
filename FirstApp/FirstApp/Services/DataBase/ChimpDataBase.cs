@@ -62,11 +62,11 @@ namespace First_App.Models.DataBase
             }
             catch (UnauthorizedAccessException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (NotSupportedException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -94,22 +94,22 @@ namespace First_App.Models.DataBase
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             catch (ArgumentOutOfRangeException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             catch (ObjectDisposedException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             catch (EncoderFallbackException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }
@@ -123,7 +123,7 @@ namespace First_App.Models.DataBase
         {
             try
             {
-                if (String.IsNullOrEmpty(login))
+                if (string.IsNullOrEmpty(login))
                 {
                     return null;
                 }
@@ -131,7 +131,7 @@ namespace First_App.Models.DataBase
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
         }
@@ -146,20 +146,20 @@ namespace First_App.Models.DataBase
         /// <returns>True if saved or false.</returns>
         public bool SaveNewData (string previousLogin, string newLogin, string password, string confirmPassword)
         {
-            if (String.IsNullOrEmpty(previousLogin))
+            if (string.IsNullOrEmpty(previousLogin))
             {
                 MessageBox.Show("Inccorect values!", "Error", MessageBoxButton.OK);
                 return false;
             }
-            if (String.IsNullOrEmpty(newLogin) &&
-                (String.IsNullOrEmpty(password) || String.IsNullOrEmpty(confirmPassword)))
+            if (string.IsNullOrEmpty(newLogin) &&
+                (string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword)))
             {
-                MessageBox.Show("Inccorect values!", "Error", MessageBoxButton.OK);
+                MessageBox.Show("Inccorect values!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             if (password != confirmPassword)
             {
-                MessageBox.Show("Passwords are not equal!", "Error", MessageBoxButton.OK);
+                MessageBox.Show("Passwords are not equal!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
@@ -168,10 +168,10 @@ namespace First_App.Models.DataBase
                 var user = _context.Users.FirstOrDefault(u => u.Username == previousLogin);
                 if (user == null)
                 {
-                    MessageBox.Show("User is not found!", "Error", MessageBoxButton.OK);
+                    MessageBox.Show("User is not found!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return false;
                 }
-                if (!String.IsNullOrEmpty(newLogin))
+                if (!string.IsNullOrEmpty(newLogin))
                 {
                     var existedUser = _context.Users.FirstOrDefault(u => u.Username == newLogin);
                     if (existedUser == null)
@@ -180,7 +180,7 @@ namespace First_App.Models.DataBase
                     }
                 }
                 // if password and confirm password are not null or empty - set new password
-                if (!(String.IsNullOrEmpty(password) || String.IsNullOrEmpty(confirmPassword))) {
+                if (!(string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))) {
                     user.Password = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
                 }
                 _context.Users.Update(user);
@@ -189,7 +189,7 @@ namespace First_App.Models.DataBase
                 SavingRegistryData registry = new();
 
                 // if new login is not null or empty
-                if (!String.IsNullOrEmpty(newLogin))
+                if (!string.IsNullOrEmpty(newLogin))
                 {
                     registry.SaveUserData(newLogin, password);
                 }
@@ -201,17 +201,17 @@ namespace First_App.Models.DataBase
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             catch (DbUpdateConcurrencyException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             catch (DbUpdateException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }
@@ -231,7 +231,7 @@ namespace First_App.Models.DataBase
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
         }
@@ -249,11 +249,11 @@ namespace First_App.Models.DataBase
             }
             catch (DbUpdateConcurrencyException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (DbUpdateException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -272,7 +272,7 @@ namespace First_App.Models.DataBase
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
         }

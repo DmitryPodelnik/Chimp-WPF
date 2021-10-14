@@ -29,7 +29,7 @@ namespace First_App.Models.Game
                 }
                 catch (ArgumentException ex)
                 {
-                    MessageBox.Show(ex.Message, "Error");
+                    MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -51,7 +51,7 @@ namespace First_App.Models.Game
                 }
                 catch (ArgumentException ex)
                 {
-                    MessageBox.Show(ex.Message, "Error");
+                    MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 finally
                 {
@@ -88,7 +88,7 @@ namespace First_App.Models.Game
                 }
                 catch (ArgumentException ex)
                 {
-                    MessageBox.Show(ex.Message, "Error");
+                    MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }

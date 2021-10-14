@@ -48,7 +48,6 @@ namespace First_App.Models.DataBase.Models
                 {
                     _timeAgoMessage = diff.Days.ToString() + " days ago";
                 }
-
                 return _timeAgoMessage;
             }
             set => _timeAgoMessage = value;

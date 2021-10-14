@@ -40,7 +40,7 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _returnToMainTabCommand ??
+                return _returnToMainTabCommand ??=
                 new RelayCommand(obj =>
                 {
                     // if game is started then
@@ -81,7 +81,7 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _playCommand ??
+                return _playCommand ??=
                 new RelayCommand(obj =>
                 {
                     // if game is started then
@@ -122,7 +122,7 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _showProfileCommand ??
+                return _showProfileCommand ??=
                 new RelayCommand(obj =>
                 {
                     // if game is started then
@@ -162,7 +162,7 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _showRecordsCommand ??
+                return _showRecordsCommand ??=
                 new RelayCommand(obj =>
                 {
                     // if game is started then
@@ -203,7 +203,7 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _exitCommand ??
+                return _exitCommand ??=
                 new RelayCommand(obj =>
                 {
                     // if game is started then
@@ -256,7 +256,7 @@ namespace First_App.ViewModels
         /// </summary>
         private void ExitGame()
         {
-            var res = MessageBox.Show("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo);
+            var res = MessageBox.Show("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (res == MessageBoxResult.Yes)
             {
                 // close chimp window
@@ -270,7 +270,7 @@ namespace First_App.ViewModels
         /// </summary>
         private void ExitFromAccount()
         {
-            var res = MessageBox.Show("Are you sure to exit from the account?", "Exit", MessageBoxButton.YesNo);
+            var res = MessageBox.Show("Are you sure to exit from the account?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (res == MessageBoxResult.Yes)
             {
                 SavingRegistryData registry = new();
@@ -289,10 +289,11 @@ namespace First_App.ViewModels
         /// <returns>True if yes or false.</returns>
         private bool IsSureToFinishGame()
         {
-            MessageBoxResult res = MessageBox.Show(
-                    "Are you sure to finish the game and save current result?",
-                    "Warning",
-                    MessageBoxButton.YesNo
+            MessageBoxResult res =
+                MessageBox.Show("Are you sure to finish the game and save current result?",
+                                "Warning",
+                                MessageBoxButton.YesNo,
+                                MessageBoxImage.Warning
                 );
             if (res == MessageBoxResult.Yes)
             {

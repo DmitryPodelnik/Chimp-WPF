@@ -41,7 +41,7 @@ namespace First_App.ViewModels
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

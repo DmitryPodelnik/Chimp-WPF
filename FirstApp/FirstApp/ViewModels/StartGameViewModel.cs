@@ -34,7 +34,7 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _startGameCommand ??
+                return _startGameCommand ??=
                 new RelayCommand(obj =>
                 {
                     // change to play field interface

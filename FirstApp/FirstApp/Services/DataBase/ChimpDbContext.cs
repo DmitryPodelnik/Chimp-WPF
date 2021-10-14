@@ -26,10 +26,10 @@ namespace FirstApp.Models.DataBase
         /// </summary>
         private void ConnectToDatabase()
         {
-            if (Database.CanConnect())
-            {
-                Database.EnsureDeleted();
-            }
+            //if (Database.CanConnect())
+            //{
+            //    Database.EnsureDeleted();
+            //}
 
             // Create database
             Database.EnsureCreated();

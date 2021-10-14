@@ -46,7 +46,7 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _saveScoreCommand ??
+                return _saveScoreCommand ??=
                 new RelayCommand(obj =>
                 {
                     // save current game record to database
@@ -80,7 +80,7 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _tryAgainCommand ??
+                return _tryAgainCommand ??=
                 new RelayCommand(obj =>
                 {
                     // change to start game tab

@@ -57,7 +57,7 @@ namespace First_App.ViewModels
                 var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
                 if (user is null)
                 {
-                    MessageBox.Show("User is not found", "Error");
+                    MessageBox.Show("User is not found", "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 // welcome message in the profile
@@ -65,12 +65,19 @@ namespace First_App.ViewModels
 
                 var bestRecord = _database.GetCurrentUserRecords().OrderByDescending(r => r.Score).FirstOrDefault();
                 // score message in the profile
-                _currentUserScoreMessage = $"Your best score is {bestRecord?.Score}";
+                if (bestRecord != null)
+                {
+                    _currentUserScoreMessage = $"Your best score is {bestRecord.Score}";
+                }
+                else
+                {
+                    _currentUserScoreMessage = $"Your best score is 0";
+                }
                 _records = (List<Record>)_database.GetCurrentUserRecords();
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -90,7 +97,7 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _saveProfileCommand ??
+                return _saveProfileCommand ??=
                 new RelayCommand(obj =>
                 {
                     // save new profile data in database and registry
@@ -115,7 +122,7 @@ namespace First_App.ViewModels
             // if ok then show success message and welcome message
             if (res == true)
             {
-                MessageBox.Show("You have been successfully changed the user data", "Saving User Data", MessageBoxButton.OK);
+                MessageBox.Show("You have been successfully changed the user data", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
                 // welcome message in the profile
                 _currentUserMessage = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
                 // update CurrentUserMessage property

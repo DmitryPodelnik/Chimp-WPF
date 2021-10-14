@@ -22,7 +22,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -30,7 +30,7 @@
         </Grid.ColumnDefinitions>
 
         <Border x:Name="leftSideMenu" Grid.RowSpan="4" HorizontalAlignment="Left" Visibility="{Binding Authenticator.IsLoggedIn,
-                          Converter={StaticResource BoolToVis}, FallbackValue=Collapsed, TargetNullValue=Collapsed}">
+                          Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}">
             <vsc:LeftSideMenu />
         </Border>
 

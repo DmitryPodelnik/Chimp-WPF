@@ -57,11 +57,11 @@ namespace First_App.Models.Game
             }
             catch (ArgumentOutOfRangeException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message , "Eror",MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
