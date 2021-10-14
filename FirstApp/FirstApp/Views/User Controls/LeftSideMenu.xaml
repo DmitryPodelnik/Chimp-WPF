@@ -15,7 +15,7 @@
     <Grid x:Name="leftAsideGrid" Grid.RowSpan="4" Background="{StaticResource leftAsideBackground}"
           Width="105">
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -33,9 +33,9 @@
         </Grid.ColumnDefinitions>
 
         <!-- Main tab button (Chimp) -->
-        <chimpcontrollibrary:LeftAsideRadioButton x:Name="mainTabRadioButton" Style="{StaticResource leftSideRadioButton}"
+        <chimpcontrollibrary:LeftAsideRadioButton x:Name="mainTabRadioButton" Style="{StaticResource leftSideMainRadioButton}"
                      Command="{Binding ReturnToMainTabCommand}"
-                     Text="Chimp"
+                     Text="Chimp" 
                      >
             <chimpcontrollibrary:LeftAsideRadioButton.Source>
                 <BitmapImage UriSource="/Views/images/chimpLogo.png"/>
