@@ -11,7 +11,7 @@ namespace First_App.Models.Game
     /// <summary>
     ///     Class of generating number for cube buttons.
     /// </summary>
-    public class NumberGenerator : GameComponent
+    public class NumberGenerator
     {
         private short _generatedNumber;
         public short GeneratedNumber
@@ -40,10 +40,7 @@ namespace First_App.Models.Game
         /// <summary>
         ///     NumberGenerator constructor().
         /// </summary>
-        public NumberGenerator ()
-        {
-
-        }
+        public NumberGenerator () {}
 
         /// <summary>
         ///     Generate number for cube buttons

@@ -20,20 +20,17 @@ namespace First_App.Services.Authentication
     public class Authenticator : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        public void OnPropertyChanged(string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
-
-        // field of main window
-        private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
         // singleton instance of Navigator
         private Navigator _nav = Navigator.Create();
         // field to work with database
         private ChimpDataBase _database = new();
         // singleton instance of Authenticator
-        private static Authenticator _instance = null;
+        private static Authenticator _instance;
         public static Authenticator Create()
         {
             if (_instance == null)
@@ -50,8 +47,8 @@ namespace First_App.Services.Authentication
             set
             {
                 _currentUser = value;
-                OnPropertyChanged("CurrentUser");
-                OnPropertyChanged("IsLoggedIn");
+                OnPropertyChanged(nameof(CurrentUser));
+                OnPropertyChanged(nameof(IsLoggedIn));
             }
         }
 

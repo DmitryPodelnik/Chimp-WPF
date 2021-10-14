@@ -14,7 +14,7 @@ namespace First_App.ViewModels
     class ScoreTableViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        public void OnPropertyChanged(string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
@@ -29,19 +29,13 @@ namespace First_App.ViewModels
         public string NumbersMessage
         {
             get => _numbersMessage;
-            set
-            {
-                _numbersMessage = value;
-            }
+            set => _numbersMessage = value;
         }
         private string _strikesMessage;
         public string StrikesMessage
         {
             get => _strikesMessage;
-            set
-            {
-                _strikesMessage = value;
-            }
+            set => _strikesMessage = value;
         }
 
 
@@ -53,14 +47,14 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _continueGameCommand =
-                (_continueGameCommand = new RelayCommand(obj =>
+                return _continueGameCommand ??
+                new RelayCommand(obj =>
                 {
                     // increase current strike
                     Counter.Strikes++;
                     // change to play field interface
                     Navigator.Create().CurrentViewModel = new PlayFieldViewModel();
-                }));
+                });
             }
         }
 

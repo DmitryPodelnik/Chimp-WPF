@@ -14,22 +14,18 @@ namespace First_App.ViewModels
     class PlayFieldViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        public void OnPropertyChanged(string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
         // field of game play
         private Game _game;
-
         private ObservableCollection<Button> _playGrid { get; set; } = new();
         public ObservableCollection<Button> PlayGrid
         {
             get => _playGrid;
-            set
-            {
-                _playGrid = value;
-            }
+            set =>_playGrid = value;
         }
         public PlayFieldViewModel()
         {

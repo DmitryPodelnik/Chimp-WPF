@@ -11,7 +11,7 @@ namespace First_App.Models.Game
     /// <summary>
     ///     Class of generating coords for cube buttons on the play grid.
     /// </summary>
-    public class CoordsGenerator : GameComponent
+    public class CoordsGenerator
     {
         // object for generate random coords for cube buttons on the play grid
         private Random _random = new();

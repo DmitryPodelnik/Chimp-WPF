@@ -20,16 +20,11 @@ namespace First_App.ViewModels
     class AuthorizationViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        public void OnPropertyChanged(string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
-
-        // field of main window
-        private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
-
         private Authenticator _authenticator = Authenticator.Create();
-
         public string Login { get; set; }
         public string Password { get; set; }
 
@@ -41,16 +36,12 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _loginCommand =
-                (_loginCommand = new RelayCommand(obj =>
+                return _loginCommand ??
+                new RelayCommand(obj =>
                 {
                     // verify whether the data of user are correct
                     bool result = _authenticator.CheckAuthorization(Login, Password);
-                    if (result == true)
-                    {
-
-                    }
-                }));
+                });
             }
         }
     }

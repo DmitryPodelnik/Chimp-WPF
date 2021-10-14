@@ -51,10 +51,7 @@ namespace First_App.Models.DataBase.Models
 
                 return _timeAgoMessage;
             }
-            set
-            {
-                _timeAgoMessage = value;
-            }
+            set => _timeAgoMessage = value;
         }
 
         public int? UserId { get; set; }

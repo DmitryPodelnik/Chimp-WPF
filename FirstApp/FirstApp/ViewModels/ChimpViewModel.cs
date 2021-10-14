@@ -26,10 +26,11 @@ namespace First_App.ViewModels
     /// </summary>
     public class ChimpViewModel : INotifyPropertyChanged
     {
-        // field of main window
-        private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
-
-        private LeftSideMenu _menu = new();
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
 
         public Navigator Navigator { get; }
         public Authenticator Authenticator { get; }
@@ -50,13 +51,6 @@ namespace First_App.ViewModels
                 // change to authorization tab
                 Navigator.CurrentViewModel = new AuthorizationViewModel();
             }
-
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged ([CallerMemberName] string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

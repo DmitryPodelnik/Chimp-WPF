@@ -19,20 +19,18 @@ namespace First_App.ViewModels
     /// </summary>
     public class UserProfileViewModel : INotifyPropertyChanged
     {
-        // field of main window
-        private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
+
         // field to work with database
         private ChimpDataBase _database = new();
         public string NewLogin { get; set; }
         public string NewPassword { get; set; }
         public string ConfirmNewPassword { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
-
         // field that contains user records
         private List<Record> _records = new();
         public List<Record> Records
@@ -44,10 +42,7 @@ namespace First_App.ViewModels
         public string CurrentUserMessage
         {
             get => _currentUserMessage;
-            set
-            {
-                _currentUserMessage = value;
-            }
+            set => _currentUserMessage = value;
         }
 
         /// <summary>
@@ -84,10 +79,7 @@ namespace First_App.ViewModels
         public string CurrentUserScoreMessage
         {
             get => _currentUserScoreMessage;
-            set
-            {
-                _currentUserScoreMessage = value;
-            }
+            set => _currentUserScoreMessage = value;
         }
 
         /// <summary>
@@ -98,12 +90,12 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _saveProfileCommand =
-                (_saveProfileCommand = new RelayCommand(obj =>
+                return _saveProfileCommand ??
+                new RelayCommand(obj =>
                 {
                     // save new profile data in database and registry
                     SaveProfile();
-                }));
+                });
             }
         }
 

@@ -10,7 +10,7 @@ namespace First_App.Models.Game
     /// <summary>
     ///     Class of cube buttons.
     /// </summary>
-    public class Cube : GameComponent
+    public class Cube
     {
         // field of cube button number
         private short _value;
@@ -59,10 +59,7 @@ namespace First_App.Models.Game
             }
         }
 
-        public Cube ()
-        {
-
-        }
+        public Cube () {}
 
         /// <summary>
         ///     Cube constructor(value).

@@ -25,10 +25,7 @@ namespace First_App.Models.DataBase
         public ChimpDbContext Context
         {
             get => _context;
-            set
-            {
-                _context = value;
-            }
+            set => _context = value;
         }
 
         public string ConnectionString { get; set; }
@@ -49,7 +46,6 @@ namespace First_App.Models.DataBase
                          .SetBasePath(Directory.GetCurrentDirectory())
                          .AddJsonFile("appsettings.json")
                          .Build();
-
 
                 // Get connection string from the appsettings.json
                 ConnectionString = configuration.GetConnectionString("DefaultConnection");
@@ -132,6 +128,7 @@ namespace First_App.Models.DataBase
                     return null;
                 }
                 var user = _context.Users.FirstOrDefault(u => u.Username == login);
+
                 return user;
             }
             catch (ArgumentNullException ex)

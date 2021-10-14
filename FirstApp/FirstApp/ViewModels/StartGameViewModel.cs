@@ -19,13 +19,12 @@ namespace First_App.ViewModels
     class StartGameViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        public void OnPropertyChanged(string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
         private Navigator _nav = Navigator.Create();
-        private StartGame _gameFieldUserControl = new();
 
         /// <summary>
         ///     Command after clicking start game button.
@@ -35,14 +34,14 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _startGameCommand =
-                (_startGameCommand = new RelayCommand(obj =>
+                return _startGameCommand ??
+                new RelayCommand(obj =>
                 {
                     // change to play field interface
                     _nav.CurrentViewModel = new PlayFieldViewModel();
                     // assign to Game.IsGameStarted - true
                     Game.IsGameStarted = true;
-                }));
+                });
             }
         }
     }

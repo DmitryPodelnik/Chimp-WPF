@@ -71,7 +71,6 @@ namespace First_App.Models.Game
         }
 
         public const short MAX_STRIKES = 3;
-
         // field that stores value of current strikes
         private static short _strikes = 1;
         public static short Strikes

@@ -12,7 +12,7 @@ namespace First_App.Navigation
     public class Navigator : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        public void OnPropertyChanged(string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
@@ -24,7 +24,7 @@ namespace First_App.Navigation
             set
             {
                 _currentViewModel = value;
-                OnPropertyChanged("CurrentViewModel");
+                OnPropertyChanged(nameof(CurrentViewModel));
             }
         }
         public RelayCommand UpdateCurrentViewModelCommand { get; }

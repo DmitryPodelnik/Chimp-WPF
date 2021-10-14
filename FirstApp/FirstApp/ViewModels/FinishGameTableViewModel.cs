@@ -17,7 +17,7 @@ namespace First_App.ViewModels
     class FinishGameTableViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        public void OnPropertyChanged(string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
@@ -35,10 +35,7 @@ namespace First_App.ViewModels
         public string ScoreMessage
         {
             get => _scoreMessage;
-            set
-            {
-                _scoreMessage = value;
-            }
+            set => _scoreMessage = value;
         }
 
         /// <summary>
@@ -49,8 +46,8 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _saveScoreCommand =
-                (_saveScoreCommand = new RelayCommand(obj =>
+                return _saveScoreCommand ??
+                new RelayCommand(obj =>
                 {
                     // save current game record to database
                     SaveNewRecord();
@@ -58,7 +55,7 @@ namespace First_App.ViewModels
                     Game.IsGameStarted = false;
                     // change to user records tab
                     Navigator.Create().CurrentViewModel = new UserRecordsViewModel();
-                }));
+                });
             }
         }
 
@@ -83,14 +80,14 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _tryAgainCommand =
-                (_tryAgainCommand = new RelayCommand(obj =>
+                return _tryAgainCommand ??
+                new RelayCommand(obj =>
                 {
                     // change to start game tab
                     Navigator.Create().CurrentViewModel = new StartGameViewModel();
                     // assign to Game.IsGameStarted - false
                     Game.IsGameStarted = false;
-                }));
+                });
             }
         }
     }

@@ -1,5 +1,4 @@
-﻿using First_App.Interfaces;
-using First_App.Models.Commands;
+﻿using First_App.Models.Commands;
 using First_App.Navigation;
 using First_App.ViewModels;
 using First_App.Views;
@@ -21,15 +20,14 @@ namespace First_App.Models.Game
     /// <summary>
     ///     Concrete class, that implements IGameMediator
     /// </summary>
-    public class Game : IGameMediator
+    public class Game
     {
         // rows on the play grid
         private const short _ROWS = 8;
         // columns on the play grid
         private const short _COLUMNS = 10;
-
+        // field that stores finish score
         public static short lastScore;
-
         // indicate if game is started
         private static bool _isGameStarted = false;
         public static bool IsGameStarted
@@ -46,8 +44,6 @@ namespace First_App.Models.Game
         private NumberGenerator _numberGenerator = new();
         // generator of coords for cube buttons on the play field
         private CoordsGenerator _coordsGenerator = new();
-        // chimp window
-        private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
         // field that stores a previous number of pressed cube button
         private static short _previousButtonNumber = 0;
 
@@ -56,10 +52,7 @@ namespace First_App.Models.Game
         public static ObservableCollection<Button> PlayGridCubeButtons
         {
             get => _playGridCubeButtons;
-            set
-            {
-                _playGridCubeButtons = value;
-            }
+            set => _playGridCubeButtons = value;
         }
 
         // realizing singleton instance
@@ -85,6 +78,7 @@ namespace First_App.Models.Game
                 _instance = new Game(playGrid);
             }
             _playGridCubeButtons = playGrid;
+
             return _instance;
         }
 
@@ -246,6 +240,7 @@ namespace First_App.Models.Game
                     lastScore = Counter.Score;
                     // reset score
                     Counter.Score = 4;
+
                     return;
                 }
                 // else change to score table tab
@@ -270,26 +265,6 @@ namespace First_App.Models.Game
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-        }
-
-        /// <summary>
-        ///     Temporarily not working.
-        /// </summary>
-        /// <param name="sender">sender</param>
-        /// <param name="ev">event info</param>
-        public void Notify(object sender, string ev)
-        {
-            if (ev == "A")
-            {
-                // Console.WriteLine("Mediator reacts on A and triggers folowing operations:");
-                // this._component2.DoC();
-            }
-            if (ev == "D")
-            {
-                // Console.WriteLine("Mediator reacts on D and triggers following operations:");
-                // this._component1.DoB();
-                // this._component2.DoC();
             }
         }
     }

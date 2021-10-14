@@ -23,7 +23,7 @@ namespace First_App.ViewModels
     class LeftSideMenuViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        public void OnPropertyChanged(string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
@@ -42,8 +42,8 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _returnToMainTabCommand =
-                (_returnToMainTabCommand = new RelayCommand(obj =>
+                return _returnToMainTabCommand ??
+                new RelayCommand(obj =>
                 {
                     // if game is started then
                     if (Game.IsGameStarted)
@@ -62,7 +62,7 @@ namespace First_App.ViewModels
                     }
                     // show start main tab
                     ShowMainTab();
-                }));
+                });
             }
         }
 
@@ -83,8 +83,8 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _playCommand =
-                (_playCommand = new RelayCommand(obj =>
+                return _playCommand ??
+                new RelayCommand(obj =>
                 {
                     // if game is started then
                     if (Game.IsGameStarted)
@@ -103,7 +103,7 @@ namespace First_App.ViewModels
                     }
                     // show start game tab
                     StartPlay();
-                }));
+                });
             }
         }
 
@@ -124,8 +124,8 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _showProfileCommand =
-                (_showProfileCommand = new RelayCommand(obj =>
+                return _showProfileCommand ??
+                new RelayCommand(obj =>
                 {
                     // if game is started then
                     if (Game.IsGameStarted)
@@ -144,7 +144,7 @@ namespace First_App.ViewModels
                     }
                     // show user profile tab
                     ShowProfile();
-                }));
+                });
             }
         }
 
@@ -164,8 +164,8 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _showRecordsCommand =
-                (_showRecordsCommand = new RelayCommand(obj =>
+                return _showRecordsCommand ??
+                new RelayCommand(obj =>
                 {
                     // if game is started then
                     if (Game.IsGameStarted)
@@ -184,7 +184,7 @@ namespace First_App.ViewModels
                     }
                     // show user records tab
                     ShowRecords();
-                }));
+                });
             }
         }
 
@@ -205,8 +205,8 @@ namespace First_App.ViewModels
         {
             get
             {
-                return _exitCommand =
-                (_exitCommand = new RelayCommand(obj =>
+                return _exitCommand ??
+                new RelayCommand(obj =>
                 {
                     // if game is started then
                     if (Game.IsGameStarted)
@@ -238,7 +238,7 @@ namespace First_App.ViewModels
                         return;
                     }
                     ExitGame();
-                }));
+                });
             }
         }
 
