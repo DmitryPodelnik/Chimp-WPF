@@ -22,12 +22,13 @@
                     <Border Name="Border"
                 CornerRadius="2"
                 Padding="2"
-                BorderThickness="1">
+                BorderThickness="1"
+                        >
                         <Border.Background>
-                            <SolidColorBrush Color="White" />
-                        </Border.Background>
+                            <SolidColorBrush Color="#FF145B99" />
+                        </Border.Background> 
                         <Border.BorderBrush>
-                            <SolidColorBrush Color="#FF888888" />
+                            <SolidColorBrush Color="#CC093757" />
                         </Border.BorderBrush>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
@@ -62,4 +63,17 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <LinearGradientBrush x:Key="textBoxColor" EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.6">
+        <LinearGradientBrush.RelativeTransform>
+            <TransformGroup>
+                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </LinearGradientBrush.RelativeTransform>
+        <GradientStop Color="#CC093757" Offset="0"/>
+        <GradientStop Color="#FF003F6C" Offset="0.058"/>
+    </LinearGradientBrush>
 </ResourceDictionary>

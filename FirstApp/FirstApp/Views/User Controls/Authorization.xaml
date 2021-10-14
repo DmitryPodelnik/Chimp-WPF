@@ -12,7 +12,7 @@
         <TextBlock x:Name="loginTextBlock" Text="Enter a login: " FontSize="15" Margin="10 0 0 10"></TextBlock>
         <TextBox x:Name="loginTextBox" Height="30" VerticalAlignment="Bottom" Margin="0 0 0 10"
                  VerticalContentAlignment="Center" Style="{StaticResource chimpTextBox}"
-                 Text="{Binding Login}" ></TextBox>
+                 Text="{Binding Login}" Foreground="White"></TextBox>
 
         <TextBlock x:Name="passwordTextBlock" Text="Enter a password: " FontSize="15" Margin="10 0 0 10"></TextBlock>
         <PasswordBox x:Name="passwordBox" Height="30" VerticalContentAlignment="Center" Margin="0 0 0 15"

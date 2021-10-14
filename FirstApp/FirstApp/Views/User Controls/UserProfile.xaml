@@ -28,19 +28,21 @@
             <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left" Margin="25 20 0 0"
                        Text="{Binding CurrentUserMessage}"></TextBlock>
 
-            <TextBlock x:Name="accountLoginTextBlock" Text="New login: " FontSize="15" Margin="25 20 0 0"></TextBlock>
+            <TextBlock x:Name="accountLoginTextBlock" Text="New login: " FontSize="15" Margin="35 20 0 10"
+                       ></TextBlock>
             <TextBox x:Name="accountLoginTextBox" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0"
-                     VerticalContentAlignment="Center"
+                     VerticalContentAlignment="Center" Style="{StaticResource chimpTextBox}"
                      Text="{Binding NewLogin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 
-            <TextBlock x:Name="accountPasswordTextBlock" Text="New password: " FontSize="15" Margin="25 15 0 0"></TextBlock>
+            <TextBlock x:Name="accountPasswordTextBlock" Text="New password: " FontSize="15" Margin="35 15 0 10"></TextBlock>
             <PasswordBox x:Name="accountPasswordBox" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0"
-                     VerticalContentAlignment="Center"
+                     VerticalContentAlignment="Center" Style="{StaticResource chimpPasswordBox}"
                      PasswordChanged="PasswordBox_PasswordChanged"></PasswordBox>
 
-            <TextBlock x:Name="accountPasswordTextBlockConfirm" Text="Confirm new password: " FontSize="15" Margin="25 15 0 0" Foreground="Black"></TextBlock>
+            <TextBlock x:Name="accountPasswordTextBlockConfirm" Text="Confirm new password: " FontSize="15"
+                       Margin="35 15 0 10" Foreground="Black"></TextBlock>
             <PasswordBox x:Name="accountPasswordBoxConfirm" Height="30" Width="200" VerticalAlignment="Bottom" Margin="25 0 0 0"
-                     VerticalContentAlignment="Center"
+                     VerticalContentAlignment="Center" Style="{StaticResource chimpPasswordBox}"
                      PasswordChanged="PasswordBoxConfirm_PasswordChanged"></PasswordBox>
 
             <Button x:Name="saveProfileButton" Content="Save Profile" Width="100px"
