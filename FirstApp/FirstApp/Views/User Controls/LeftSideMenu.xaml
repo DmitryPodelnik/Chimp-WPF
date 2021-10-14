@@ -13,7 +13,7 @@
     </UserControl.DataContext>
     <!-- Grid for left aside action buttons -->
     <Grid x:Name="leftAsideGrid" Grid.RowSpan="4" Background="{StaticResource leftAsideBackground}"
-          Width="105">
+          Width="200">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
