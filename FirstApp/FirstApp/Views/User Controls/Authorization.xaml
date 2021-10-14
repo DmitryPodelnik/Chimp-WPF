@@ -9,18 +9,18 @@
     <!-- Stack panel for authorization panel -->
     <StackPanel x:Name="authorizationPanel" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" Width="200px"
                     VerticalAlignment="Center">
-        <TextBlock x:Name="loginTextBlock" Text="Enter a login: " FontSize="15" Margin="10 0 0 10"></TextBlock>
+        <TextBlock x:Name="loginTextBlock" Text="Enter a login: " FontSize="15" Margin="10 0 0 10" />
         <TextBox x:Name="loginTextBox" Height="30" VerticalAlignment="Bottom" Margin="0 0 0 10"
                  VerticalContentAlignment="Center" Style="{StaticResource chimpTextBox}"
-                 Text="{Binding Login}" Foreground="White"></TextBox>
+                 Text="{Binding Login}" />
 
-        <TextBlock x:Name="passwordTextBlock" Text="Enter a password: " FontSize="15" Margin="10 0 0 10"></TextBlock>
+        <TextBlock x:Name="passwordTextBlock" Text="Enter a password: " FontSize="15" Margin="10 0 0 10" />
         <PasswordBox x:Name="passwordBox" Height="30" VerticalContentAlignment="Center" Margin="0 0 0 15"
                     PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource chimpPasswordBox}"
-                     ></PasswordBox>
+                     />
 
         <Button x:Name="loginButton" Content="Login" Width="75px" FontWeight="Bold"
                 Command="{Binding LoginCommand}" Style="{StaticResource yellowButton}"
-                Background="#FF003F6C"></Button>
+                Background="#FF003F6C" />
     </StackPanel>
 </UserControl>
