@@ -127,9 +127,7 @@ namespace First_App.Models.DataBase
                 {
                     return null;
                 }
-                var user = _context.Users.FirstOrDefault(u => u.Username == login);
-
-                return user;
+                return _context.Users.FirstOrDefault(u => u.Username == login);
             }
             catch (ArgumentNullException ex)
             {
@@ -199,7 +197,6 @@ namespace First_App.Models.DataBase
                 {
                     registry.SaveUserData(previousLogin, password);
                 }
-
                 return true;
             }
             catch (ArgumentNullException ex)

@@ -18,7 +18,7 @@ using System.Windows.Media;
 namespace First_App.Models.Game
 {
     /// <summary>
-    ///     Concrete class, that implements IGameMediator
+    ///     Concrete class, that implements IGameMediator.
     /// </summary>
     public class Game
     {
@@ -206,7 +206,6 @@ namespace First_App.Models.Game
             {
                 // explicit cast from RoutedEventArgs to Button
                 Button button = (Button)e.Source;
-
                 // if pressed cube button number is bigger by 1 from the previous number
                 if (short.Parse(button.Content.ToString()) == ++_previousButtonNumber)
                 {

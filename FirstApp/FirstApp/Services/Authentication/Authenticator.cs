@@ -71,28 +71,20 @@ namespace First_App.Services.Authentication
         public bool CheckAuthorization(string login, string password)
         {
             // if login or password box is null or empty then error message
-            if (String.IsNullOrEmpty(login) ||
-                String.IsNullOrEmpty(password))
+            if (String.IsNullOrEmpty(login) || String.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK);
-
                 return false;
             }
 
             // verify whether login and password are correct and exists and compares in the database
-            bool result = _database.IsAuthorized(
-                login,
-                password
-                );
-
+            bool result = _database.IsAuthorized(login, password);
             // if correct then save user data in the registry
             if (result)
             {
                 SavingRegistryData registry = new();
-                registry.SaveUserData(
-                    login,
-                    password
-                    );
+                registry.SaveUserData(login, password);
+
                 // show success message box and welcome message and show game user interface
                 LoginSuccessActions(login);
             }
@@ -103,6 +95,7 @@ namespace First_App.Services.Authentication
             }
             // clear password box field
             password = "";
+
             return true;
         }
 

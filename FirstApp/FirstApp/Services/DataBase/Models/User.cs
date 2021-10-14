@@ -34,7 +34,6 @@ namespace First_App.Models.DataBase.Models
 
         [NotMapped]
         [Display(Name = "Password Confirmation")]
-        //[Required(ErrorMessage = "Incorrect password")]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Passwords are not equal")]
         public string PasswordConfirmation { get; set; }

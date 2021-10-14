@@ -119,7 +119,7 @@ namespace First_App.ViewModels
                 // welcome message in the profile
                 _currentUserMessage = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
                 // update CurrentUserMessage property
-                OnPropertyChanged("CurrentUserMessage");
+                OnPropertyChanged(nameof(CurrentUserMessage));
             }
             // clear fields of new user data
             NewLogin = "";

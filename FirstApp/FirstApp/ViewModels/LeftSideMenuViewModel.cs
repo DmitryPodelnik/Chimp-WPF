@@ -31,8 +31,6 @@ namespace First_App.ViewModels
         private Navigator _nav = Navigator.Create();
         // field to work with database
         private ChimpDataBase _database = new();
-        // field of main window
-        private Chimp _chimpWindow = (Chimp)Application.Current.MainWindow;
 
         /// <summary>
         ///     Command after clicking main tab(Chimp) button.
@@ -259,11 +257,10 @@ namespace First_App.ViewModels
         private void ExitGame()
         {
             var res = MessageBox.Show("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo);
-
             if (res == MessageBoxResult.Yes)
             {
                 // close chimp window
-                _chimpWindow.Close();
+                ((Chimp)Application.Current.MainWindow).Close();
             }
         }
 
@@ -274,7 +271,6 @@ namespace First_App.ViewModels
         private void ExitFromAccount()
         {
             var res = MessageBox.Show("Are you sure to exit from the account?", "Exit", MessageBoxButton.YesNo);
-
             if (res == MessageBoxResult.Yes)
             {
                 SavingRegistryData registry = new();
