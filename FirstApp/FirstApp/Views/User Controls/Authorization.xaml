@@ -19,7 +19,8 @@
                     PasswordChanged="PasswordBox_PasswordChanged"
                      ></PasswordBox>
 
-        <Button x:Name="loginButton" Content="Login" Width="75px" Command="{Binding LoginCommand}"
-                    Background="#FF003F6C" Foreground="White"></Button>
+        <Button x:Name="loginButton" Content="Login" Width="75px" FontWeight="Bold"
+                Command="{Binding LoginCommand}" Style="{StaticResource yellowButton}"
+                Background="#FF003F6C"></Button>
     </StackPanel>
 </UserControl>

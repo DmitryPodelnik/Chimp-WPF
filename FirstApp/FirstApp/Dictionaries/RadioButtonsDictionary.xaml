@@ -10,13 +10,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type chimpcontrollibrary:LeftAsideRadioButton}">
-                    <Button x:Name="radioBorder" Cursor="Hand" HorizontalContentAlignment="Left" Style="{StaticResource leftAsideButton}"
+                    <Button Cursor="Hand" HorizontalContentAlignment="Left" Style="{StaticResource leftAsideButton}"
                             Command="{TemplateBinding Command}">
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"
                             Margin="10 0 0 0">
                             <Image Source="{TemplateBinding Source}"
                                    MaxWidth="55" MaxHeight="55" Margin="0,0,5,0" Cursor="Hand"/>
-                            <TextBlock Text="{TemplateBinding Text}"
+                            <TextBlock x:Name="radioButtonText" Text="{TemplateBinding Text}"
                                        FontSize="22px" Cursor="Hand" FontFamily="Autumn"
                                VerticalAlignment="Center" Foreground="#FFEBEBEB">
                             </TextBlock>
@@ -25,12 +25,12 @@
                         </StackPanel>
                     </Button>
                     <ControlTemplate.Triggers>
-                        <!--<Trigger Property="IsChecked" Value="true">
-                            <Setter TargetName="radioBorder" Property="Background" Value="Red" />
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="radioButtonText" Property="Foreground" Value="Black" />
                         </Trigger>
-                        <Trigger Property="IsChecked" Value="false">
-                            <Setter TargetName="radioBorder" Property="Background" Value="White" />
-                        </Trigger>-->
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="radioButtonText" Property="Foreground" Value="Black" />
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
