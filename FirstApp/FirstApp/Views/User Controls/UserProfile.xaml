@@ -59,10 +59,11 @@
 
             <StackPanel Orientation="Vertical" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5" HorizontalAlignment="Center"
                         Margin="0 40 20 0">
-                <DataGrid x:Name="dataGrid" HeadersVisibility="Column" Height="300"
+                <DataGrid x:Name="dataGrid" HeadersVisibility="Column" Height="280"
                    FontSize="16" FontWeight="Bold"
                    AutoGenerateColumns="False" ItemsSource="{Binding Records}"
-                   GridLinesVisibility="Horizontal"
+                   GridLinesVisibility="Horizontal" CanUserAddRows="False"
+                          
                           >
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Username" SortMemberPath="Username" Width="*" MinWidth="100" >
