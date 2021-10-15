@@ -39,7 +39,7 @@
                         >
 
             <Image x:Name="playLogo" Source="/Views/images/playLogo.png" Width="140" Height="140"
-                       Margin="0 0 0 40"/>
+                       Margin="0 0 0 40" Opacity="100"/>
 
             <TextBlock x:Name="playStartText1" Text="Are You Smarter Than A Chimpanzee?"
                        Margin="0 0 0 20" Foreground="White" FontSize="36"

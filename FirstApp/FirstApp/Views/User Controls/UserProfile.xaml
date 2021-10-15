@@ -60,33 +60,34 @@
             <StackPanel Orientation="Vertical" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5" HorizontalAlignment="Center"
                         Margin="0 40 20 0">
                 <DataGrid x:Name="dataGrid" HeadersVisibility="Column"
-                   FontSize="20"
-                  AutoGenerateColumns="False" ItemsSource="{Binding Records}" VerticalScrollBarVisibility="Auto" GridLinesVisibility="None" >
+                   FontSize="16" FontWeight="Bold"
+                  AutoGenerateColumns="False" ItemsSource="{Binding Records}" VerticalScrollBarVisibility="Auto" GridLinesVisibility="Horizontal"
+                          >
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="Username" SortMemberPath="Username" Width="*">
+                        <DataGridTemplateColumn Header="Username" SortMemberPath="Username" Width="*" MinWidth="100" >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel VerticalAlignment="Center">
-                                        <TextBlock Text="{Binding Path=User.Username}" FontSize="20" Padding="5" />
+                                        <TextBlock Text="{Binding Path=User.Username}" FontSize="16" Padding="5" FontWeight="Normal" />
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Score" SortMemberPath="Score" Width="*">
+                        <DataGridTemplateColumn Header="Score" SortMemberPath="Score" Width="*" MinWidth="100">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel VerticalAlignment="Center">
-                                        <TextBlock Text="{Binding Path=Score}" FontSize="20" />
+                                        <TextBlock Text="{Binding Path=Score}" FontSize="16" FontWeight="Normal" />
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Date" SortMemberPath="Date" Width="*">
+                        <DataGridTemplateColumn Header="Date" SortMemberPath="Date" Width="*" MinWidth="150">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="{Binding Path=TimeAgoMessage}" FontSize="16" />
-                                        <TextBlock Text="{Binding Path=Date, StringFormat='dd/MM/yyyy'}" FontSize="14" Foreground="Gray" />
+                                    <StackPanel Orientation="Vertical" >
+                                        <TextBlock Text="{Binding Path=TimeAgoMessage}" FontSize="16" FontWeight="Normal" />
+                                        <TextBlock Text="{Binding Path=Date, StringFormat='dd/MM/yyyy'}" FontSize="14" Foreground="Gray" FontWeight="Normal" />
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
