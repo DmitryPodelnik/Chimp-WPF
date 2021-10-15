@@ -25,9 +25,10 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5" HorizontalAlignment="Center">
-            <DataGrid x:Name="dataGrid" HeadersVisibility="Column"
+            <DataGrid x:Name="dataGrid" HeadersVisibility="Column" Height="300"
                    FontSize="20" FontWeight="Bold"
-                  AutoGenerateColumns="False" ItemsSource="{Binding Records}" VerticalScrollBarVisibility="Auto" GridLinesVisibility="Horizontal">
+                   AutoGenerateColumns="False" ItemsSource="{Binding Records}"
+                   GridLinesVisibility="Horizontal">
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="Username" SortMemberPath="Username" Width="*">
                         <DataGridTemplateColumn.CellTemplate>

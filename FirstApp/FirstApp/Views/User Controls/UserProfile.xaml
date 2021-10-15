@@ -59,21 +59,22 @@
 
             <StackPanel Orientation="Vertical" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5" HorizontalAlignment="Center"
                         Margin="0 40 20 0">
-                <DataGrid x:Name="dataGrid" HeadersVisibility="Column"
+                <DataGrid x:Name="dataGrid" HeadersVisibility="Column" Height="300"
                    FontSize="16" FontWeight="Bold"
-                  AutoGenerateColumns="False" ItemsSource="{Binding Records}" VerticalScrollBarVisibility="Auto" GridLinesVisibility="Horizontal"
+                   AutoGenerateColumns="False" ItemsSource="{Binding Records}"
+                   GridLinesVisibility="Horizontal"
                           >
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Username" SortMemberPath="Username" Width="*" MinWidth="100" >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <StackPanel VerticalAlignment="Center">
+                                    <StackPanel VerticalAlignment="Center" >
                                         <TextBlock Text="{Binding Path=User.Username}" FontSize="16" Padding="5" FontWeight="Normal" />
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Score" SortMemberPath="Score" Width="*" MinWidth="100">
+                        <DataGridTemplateColumn Header="Score" SortMemberPath="Score" Width="*" MinWidth="100" >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel VerticalAlignment="Center">
@@ -91,16 +92,10 @@
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
-                            <DataGridTemplateColumn.CellEditingTemplate>
-                                <DataTemplate>
-                                    <!--<DatePicker SelectedDate="{Binding Date}"/>-->
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellEditingTemplate>
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
-
         </StackPanel>
     </Grid>
 </UserControl>
