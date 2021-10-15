@@ -16,6 +16,7 @@
                 <ResourceDictionary Source="/Dictionaries/TextBlocksDictionary.xaml" />
                 <ResourceDictionary Source="/Dictionaries/TextBoxesDictionary.xaml" />
                 <ResourceDictionary Source="/Dictionaries/PasswordBoxesDictionary.xaml" />
+                <ResourceDictionary Source="/Dictionaries/ColorsDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewmodels:MainTabViewModel}">

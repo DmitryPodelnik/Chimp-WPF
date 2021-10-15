@@ -21,6 +21,6 @@
 
         <Button x:Name="loginButton" Content="Login" Width="75px" FontWeight="Bold"
                 Command="{Binding LoginCommand}" Style="{StaticResource yellowButton}"
-                Background="#FF003F6C" />
+                Background="#FF003F6C" IsDefault="True" />
     </StackPanel>
 </UserControl>
