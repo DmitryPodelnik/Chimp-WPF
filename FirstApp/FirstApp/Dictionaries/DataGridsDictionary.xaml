@@ -7,13 +7,7 @@
           Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
         <Setter Property="BorderBrush">
             <Setter.Value>
-                <LinearGradientBrush EndPoint="0.5,1"
-                           StartPoint="0.5,0">
-                    <GradientStop Color="{DynamicResource BorderLightColor}"
-                      Offset="0" />
-                    <GradientStop Color="{DynamicResource BorderDarkColor}"
-                      Offset="1" />
-                </LinearGradientBrush>
+                <SolidColorBrush Color="{DynamicResource ControlMediumColor}" />
             </Setter.Value>
         </Setter>
         <Setter Property="BorderThickness"
