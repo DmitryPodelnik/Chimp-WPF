@@ -502,6 +502,8 @@
     </Style>
 
     <Style x:Key="mainDataGridCellStyle" TargetType="{x:Type DataGridCell}">
+        <Setter Property="BorderBrush" Value="#FF2C93BD" />
+        <Setter Property="Background" Value="SkyBlue" />
         <Style.Triggers>
             <Trigger Property="DataGridCell.IsSelected" Value="true">
                 <Setter Property="BorderBrush" Value="Orange"/>
