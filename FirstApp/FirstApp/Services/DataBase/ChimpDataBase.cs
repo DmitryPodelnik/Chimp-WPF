@@ -262,6 +262,36 @@ namespace First_App.Models.DataBase
         }
 
         /// <summary>
+        ///     Update current user data in the database: game count, max score and average score.
+        /// </summary>
+        public bool UpdateCurrentUserData()
+        {
+            try
+            {
+                var user = GetUser(SavingRegistryData.GetCurrentUser());
+                if (user is not null)
+                {
+                    user.Profile.GameCount++;
+                    if (user.Records.Count != 0)
+                    {
+                        user.Profile.MaxScore = GetCurrentUserRecords().Max(u => u.Score);
+                        user.Profile.AverageScore = GetCurrentUserRecords().Average(u => u.Score);
+                    }
+                    _context.Users.Update(user);
+                    _context.SaveChanges();
+
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
+        /// <summary>
         ///     Get all current user records from database.
         /// </summary>
         /// <returns>IList of Records if exists or null</returns>
@@ -278,33 +308,6 @@ namespace First_App.Models.DataBase
             {
                 MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
-            }
-        }
-
-        public bool IncreaseCurrentUserGameScore()
-        {
-            try
-            {
-                var user = GetUser(SavingRegistryData.GetCurrentUser());
-                if (user is not null)
-                {
-                    user.Profile.GameCount++;
-                    _context.Users.Update(user);
-                    _context.SaveChanges();
-
-                    return true;
-                }
-                return false;
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
-            }
-            catch (DbUpdateException ex)
-            {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
             }
         }
     }

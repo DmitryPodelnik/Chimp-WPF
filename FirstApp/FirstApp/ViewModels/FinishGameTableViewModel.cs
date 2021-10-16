@@ -70,6 +70,7 @@ namespace First_App.ViewModels
             newRecord.Score = Game.lastScore;
 
             _database.AddRecord(newRecord);
+            _database.UpdateCurrentUserData();
         }
 
         /// <summary>

@@ -249,6 +249,7 @@ namespace First_App.ViewModels
             Counter.Score = 4;
 
             _database.AddRecord(newRecord);
+            _database.UpdateCurrentUserData();
         }
 
         /// <summary>
