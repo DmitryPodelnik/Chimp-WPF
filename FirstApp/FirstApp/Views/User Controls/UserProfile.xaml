@@ -54,8 +54,12 @@
         <!-- Stack panel for right account panel -->
         <!-- Shows you best score and last games -->
         <StackPanel x:Name="rightAccountPanel" Grid.RowSpan="4"  Grid.Column="2" Grid.ColumnSpan="3">
-            <TextBlock x:Name="scoreText" FontSize="22px" Margin="0 20 0 0" HorizontalAlignment="Center"
-                       Text="{Binding CurrentUserScoreMessage}"/>
+            <TextBlock x:Name="maxScoreText" FontSize="22px" Margin="0 20 0 0" HorizontalAlignment="Center"
+                       Text="{Binding CurrentUserMaxScoreMessage}"/>
+            <TextBlock x:Name="gameCountText" FontSize="22px" Margin="0 20 0 0" HorizontalAlignment="Center"
+                       Text="{Binding CurrentUserGameCountMessage}"/>
+            <TextBlock x:Name="averageScoreText" FontSize="22px" Margin="0 20 0 0" HorizontalAlignment="Center"
+                       Text="{Binding CurrentUserAverageScoreMessage}"/>
 
             <StackPanel Orientation="Vertical" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5" HorizontalAlignment="Center"
                         Margin="0 40 20 0">
@@ -63,7 +67,7 @@
                    FontSize="16" FontWeight="Bold"
                    AutoGenerateColumns="False" ItemsSource="{Binding Records}"
                    GridLinesVisibility="Horizontal" CanUserAddRows="False"
-                          
+
                           >
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Username" SortMemberPath="Username" Width="*" MinWidth="100" >

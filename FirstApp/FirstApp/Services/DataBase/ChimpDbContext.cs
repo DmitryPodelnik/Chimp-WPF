@@ -1,4 +1,5 @@
-﻿using First_App.Models.DataBase.Models;
+﻿using First_App.Models.DataBase.Configurations;
+using First_App.Models.DataBase.Models;
 using First_App.Services.DataBase.Configurations;
 using FirstApp.Configurations;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,7 @@ namespace FirstApp.Models.DataBase
     public class ChimpDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        // public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Record> Records { get; set; }
 
         public ChimpDbContext(DbContextOptions<ChimpDbContext> options) : base(options)
@@ -52,6 +54,7 @@ namespace FirstApp.Models.DataBase
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UsersConfiguration());
+            modelBuilder.ApplyConfiguration(new UserProfilesConfiguration());
             modelBuilder.ApplyConfiguration(new RecordsConfiguration());
         }
     }

@@ -45,6 +45,29 @@ namespace First_App.ViewModels
             set => _currentUserMessage = value;
         }
 
+
+        // field that stores current user best score message
+        private string _currentUserMaxScoreMessage { get; set; }
+        public string CurrentUserMaxScoreMessage
+        {
+            get => _currentUserMaxScoreMessage;
+            set => _currentUserMaxScoreMessage = value;
+        }
+        // field that stores current user best score message
+        private string _currentUserAverageScoreMessage { get; set; }
+        public string CurrentUserAverageScoreMessage
+        {
+            get => _currentUserAverageScoreMessage;
+            set => _currentUserAverageScoreMessage = value;
+        }
+        // field that stores current user best score message
+        private string _currentUserGameCountMessage { get; set; }
+        public string CurrentUserGameCountMessage
+        {
+            get => _currentUserGameCountMessage;
+            set => _currentUserGameCountMessage = value;
+        }
+
         /// <summary>
         ///     UserProfileViewModel constructor().
         ///     Get current user from the registry.
@@ -63,15 +86,35 @@ namespace First_App.ViewModels
                 // welcome message in the profile
                 _currentUserMessage = "Hello, " + SavingRegistryData.GetCurrentUser() + "!";
 
-                var bestRecord = _database.GetCurrentUserRecords().OrderByDescending(r => r.Score).FirstOrDefault();
-                // score message in the profile
-                if (bestRecord != null)
+                //var bestRecord = _database.GetCurrentUserRecords().OrderByDescending(r => r.Score).FirstOrDefault();
+                //// score message in the profile
+                //if (bestRecord is not null)
+                //{
+                //    _currentUserMaxScoreMessage = $"Your best score is {bestRecord.Score}";
+                //}
+                //else
+                //{
+                //    _currentUserMaxScoreMessage = $"Your best score is 0";
+                //}
+
+                var userProfile = _database.GetUser(SavingRegistryData.GetCurrentUser());
+                if (userProfile.Profile is not null)
                 {
-                    _currentUserScoreMessage = $"Your best score is {bestRecord.Score}";
+                    // max score message in the profile
+                    _currentUserMaxScoreMessage = $"Best score: {userProfile.Profile.MaxScore}";
+                    // average score message in the profile
+                    _currentUserAverageScoreMessage = $"Average score: {userProfile.Profile.AverageScore}";
+                    // game count message in the profile
+                    _currentUserGameCountMessage = $"Game count: {userProfile.Profile.GameCount}";
                 }
                 else
                 {
-                    _currentUserScoreMessage = $"Your best score is 0";
+                    // max score message in the profile
+                    _currentUserMaxScoreMessage = $"Best score: 0";
+                    // average score message in the profile
+                    _currentUserAverageScoreMessage = $"Average score: 0";
+                    // game count message in the profile
+                    _currentUserGameCountMessage = $"Game count: 0";
                 }
                 _records = (List<Record>)_database.GetCurrentUserRecords();
             }
@@ -79,14 +122,6 @@ namespace First_App.ViewModels
             {
                 MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-        // field that stores current user best score message
-        private string _currentUserScoreMessage { get; set; }
-        public string CurrentUserScoreMessage
-        {
-            get => _currentUserScoreMessage;
-            set => _currentUserScoreMessage = value;
         }
 
         /// <summary>

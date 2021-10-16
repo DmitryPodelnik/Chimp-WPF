@@ -76,7 +76,7 @@ namespace First_App.Models.DataBase
         /// <param name="login">User login.</param>
         /// <param name="password">User password.</param>
         /// <returns>True if login and password are correct or false.</returns>
-        public bool IsAuthorized (string login, string password)
+        public bool IsAuthorized(string login, string password)
         {
             try
             {
@@ -119,7 +119,7 @@ namespace First_App.Models.DataBase
         /// </summary>
         /// <param name="login">User login.</param>
         /// <returns>User if exists or null.</returns>
-        public User GetUser (string login)
+        public User GetUser(string login)
         {
             try
             {
@@ -127,7 +127,10 @@ namespace First_App.Models.DataBase
                 {
                     return null;
                 }
-                return _context.Users.FirstOrDefault(u => u.Username == login);
+                return _context.Users
+                    .Include(u => u.Profile)
+                    .Include(u => u.Records)
+                    .FirstOrDefault(u => u.Username == login);
             }
             catch (ArgumentNullException ex)
             {
@@ -144,7 +147,7 @@ namespace First_App.Models.DataBase
         /// <param name="password">New password.</param>
         /// <param name="confirmPassword">Confirm new password.</param>
         /// <returns>True if saved or false.</returns>
-        public bool SaveNewData (string previousLogin, string newLogin, string password, string confirmPassword)
+        public bool SaveNewData(string previousLogin, string newLogin, string password, string confirmPassword)
         {
             if (string.IsNullOrEmpty(previousLogin))
             {
@@ -180,7 +183,8 @@ namespace First_App.Models.DataBase
                     }
                 }
                 // if password and confirm password are not null or empty - set new password
-                if (!(string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))) {
+                if (!(string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword)))
+                {
                     user.Password = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
                 }
                 _context.Users.Update(user);
@@ -274,6 +278,33 @@ namespace First_App.Models.DataBase
             {
                 MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
+            }
+        }
+
+        public bool IncreaseCurrentUserGameScore()
+        {
+            try
+            {
+                var user = GetUser(SavingRegistryData.GetCurrentUser());
+                if (user is not null)
+                {
+                    user.Profile.GameCount++;
+                    _context.Users.Update(user);
+                    _context.SaveChanges();
+
+                    return true;
+                }
+                return false;
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            catch (DbUpdateException ex)
+            {
+                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
             }
         }
     }

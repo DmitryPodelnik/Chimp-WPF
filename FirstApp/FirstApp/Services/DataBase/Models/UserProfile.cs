@@ -22,6 +22,12 @@ namespace First_App.Models.DataBase.Models
         [Required]
         public double AverageScore { get; set; }
 
+        [Required]
+        public short MaxScore { get; set; }
+
+        [Required]
+        public int GameCount { get; set; }
+
         public int? UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual User User { get; set; }

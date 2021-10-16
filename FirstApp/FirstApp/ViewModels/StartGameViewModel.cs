@@ -1,5 +1,7 @@
 ﻿using First_App.Models.Commands;
+using First_App.Models.DataBase;
 using First_App.Models.Game;
+using First_App.Models.RegistryData;
 using First_App.Navigation;
 using First_App.Views;
 using System;
@@ -25,6 +27,8 @@ namespace First_App.ViewModels
         }
 
         private Navigator _nav = Navigator.Create();
+        // field to work with database
+        private ChimpDataBase _database = new();
 
         /// <summary>
         ///     Command after clicking start game button.
@@ -37,6 +41,7 @@ namespace First_App.ViewModels
                 return _startGameCommand ??=
                 new RelayCommand(obj =>
                 {
+                    _database.IncreaseCurrentUserGameScore();
                     // change to play field interface
                     _nav.CurrentViewModel = new PlayFieldViewModel();
                     // assign to Game.IsGameStarted - true

@@ -18,10 +18,14 @@ namespace First_App.Models.DataBase.Configurations
     {
         public void Configure(EntityTypeBuilder<UserProfile> builder)
         {
+            builder.Property(u => u.MaxScore).HasDefaultValue(0);
+            builder.Property(u => u.AverageScore).HasDefaultValue(0);
+            builder.Property(u => u.GameCount).HasDefaultValue(0);
+
             builder.HasData(
               new UserProfile[]
               {
-                  new UserProfile { Id = 1, UserId = 1 },
+                  new UserProfile { Id = 1, UserId = 1, GameCount = 0 },
                   new UserProfile { Id = 2, UserId = 2 },
               });
         }
