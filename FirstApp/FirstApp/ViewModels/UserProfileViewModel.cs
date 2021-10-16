@@ -103,7 +103,7 @@ namespace First_App.ViewModels
                     // max score message in the profile
                     _currentUserMaxScoreMessage = $"Best score: {userProfile.Profile.MaxScore}";
                     // average score message in the profile
-                    _currentUserAverageScoreMessage = $"Average score: {userProfile.Profile.AverageScore}";
+                    _currentUserAverageScoreMessage = $"Average score: {Math.Round(userProfile.Profile.AverageScore, 1)}";
                     // game count message in the profile
                     _currentUserGameCountMessage = $"Game count: {userProfile.Profile.GameCount}";
                 }
