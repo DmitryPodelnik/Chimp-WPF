@@ -500,4 +500,14 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="mainDataGridCellStyle" TargetType="{x:Type DataGridCell}">
+        <Style.Triggers>
+            <Trigger Property="DataGridCell.IsSelected" Value="true">
+                <Setter Property="BorderBrush" Value="Orange"/>
+                <Setter Property="Background" Value="#FFD1D300"/>
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>
