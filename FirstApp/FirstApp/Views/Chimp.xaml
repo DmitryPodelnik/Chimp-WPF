@@ -3,14 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:First_App"
         xmlns:vm="clr-namespace:First_App.ViewModels"
-        xmlns:navigation="clr-namespace:First_App.Navigation"
-        xmlns:chimpcontrollibrary="clr-namespace:ChimpControlLibrary;assembly=ChimpControlLibrary"
         xmlns:vsc="clr-namespace:First_App.Views"
         mc:Ignorable="d"
         Title="Chimp" MinHeight="500" MinWidth="850" Icon="/Views/images/chimpLogo.png"
-        Background="{StaticResource mainBackground}">
+        Background="{StaticResource mainBackground}" >
     <Window.DataContext>
         <vm:ChimpViewModel/>
     </Window.DataContext>
@@ -28,6 +25,8 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
+
 
         <Border x:Name="leftSideMenu" Grid.RowSpan="4" HorizontalAlignment="Left" Visibility="{Binding Authenticator.IsLoggedIn,
                           Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}">

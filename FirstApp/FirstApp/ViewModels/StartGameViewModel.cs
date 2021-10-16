@@ -41,7 +41,7 @@ namespace First_App.ViewModels
                 return _startGameCommand ??=
                 new RelayCommand(obj =>
                 {
-                    _database.UpdateCurrentUserData();
+                    //_database.UpdateCurrentUserData();
                     // change to play field interface
                     _nav.CurrentViewModel = new PlayFieldViewModel();
                     // assign to Game.IsGameStarted - true
