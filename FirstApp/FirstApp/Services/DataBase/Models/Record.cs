@@ -32,21 +32,22 @@ namespace First_App.Models.DataBase.Models
             get
             {
                 TimeSpan diff = DateTime.Now - Convert.ToDateTime(Date);
-                if (diff.Minutes < 1)
+
+                if (diff.Days > 0)
                 {
-                    _timeAgoMessage = diff.Seconds.ToString() + " seconds ago";
+                    _timeAgoMessage = diff.Days.ToString() + " days ago";
                 }
-                else if (diff.Hours < 1)
-                {
-                    _timeAgoMessage = diff.Minutes.ToString() + " minutes ago";
-                }
-                else if (diff.Hours < 24)
+                else if (diff.Hours > 0)
                 {
                     _timeAgoMessage = diff.Hours.ToString() + " hours ago";
                 }
+                else if (diff.Minutes > 0)
+                {
+                    _timeAgoMessage = diff.Minutes.ToString() + " minutes ago";
+                }
                 else
                 {
-                    _timeAgoMessage = diff.Days.ToString() + " days ago";
+                    _timeAgoMessage = diff.Seconds.ToString() + " seconds ago";
                 }
                 return _timeAgoMessage;
             }
