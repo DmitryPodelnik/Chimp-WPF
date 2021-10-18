@@ -476,6 +476,11 @@
                  HorizontalAlignment="Right"
                  Style="{StaticResource ColumnHeaderGripperStyle}" />
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="columnHeaderBorder" Property="Background" Value="#CC8ACFFF" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
