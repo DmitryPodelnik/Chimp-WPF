@@ -24,5 +24,41 @@ namespace First_App.Views.User_Controls
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        ///     Bind password property of control to NewPassword property in the viewmodel.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">Routed event arguments.</param>
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (this.DataContext != null)
+                { ((dynamic)this.DataContext).NewPassword = ((PasswordBox)sender).Password; }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        ///     Bind password property of control to NewPassword property in the viewmodel.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">Routed event arguments.</param>
+        private void PasswordBoxConfirm_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (this.DataContext != null)
+                { ((dynamic)this.DataContext).NewPassword = ((PasswordBox)sender).Password; }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

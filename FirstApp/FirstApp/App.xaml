@@ -47,7 +47,7 @@
             <DataTemplate DataType="{x:Type viewmodels:EditProfileViewModel}">
                 <uc:EditProfile />
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:UserGameHistoryViewModel}">
+            <DataTemplate DataType="{x:Type viewmodels:UserGamesHistoryViewModel}">
                 <uc:UserGameHistory />
             </DataTemplate>
 

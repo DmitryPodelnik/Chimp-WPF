@@ -2,6 +2,7 @@
 using First_App.Models.DataBase;
 using First_App.Models.DataBase.Models;
 using First_App.Models.RegistryData;
+using First_App.Navigation;
 using First_App.Views;
 using System;
 using System.Collections.Generic;
@@ -26,11 +27,9 @@ namespace First_App.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
+        private Navigator _nav = Navigator.Create();
         // field to work with database
         private ChimpDataBase _database = new();
-        public string NewLogin { get; set; }
-        public string NewPassword { get; set; }
-        public string ConfirmNewPassword { get; set; }
         // field that contains user records
         private List<Record> _records = new();
         public List<Record> Records
@@ -86,17 +85,6 @@ namespace First_App.ViewModels
                 // welcome message in the profile
                 _currentUserMessage = "Hello, " + SavingRegistryData.GetCurrentUser() + "!";
 
-                //var bestRecord = _database.GetCurrentUserRecords().OrderByDescending(r => r.Score).FirstOrDefault();
-                //// score message in the profile
-                //if (bestRecord is not null)
-                //{
-                //    _currentUserMaxScoreMessage = $"Your best score is {bestRecord.Score}";
-                //}
-                //else
-                //{
-                //    _currentUserMaxScoreMessage = $"Your best score is 0";
-                //}
-
                 var userProfile = _database.GetUser(SavingRegistryData.GetCurrentUser());
                 if (userProfile.Profile is not null)
                 {
@@ -125,50 +113,37 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     Command after clicking save profile button.
+        ///
         /// </summary>
-        private RelayCommand _saveProfileCommand;
-        public RelayCommand SaveProfileCommand
+        private RelayCommand _gamesHistoryCommand;
+        public RelayCommand GamesHistoryCommand
         {
             get
             {
-                return _saveProfileCommand ??=
+                return _gamesHistoryCommand ??=
                 new RelayCommand(obj =>
                 {
-                    // save new profile data in database and registry
-                    SaveProfile();
+                    // change to user games history tab
+                    _nav.CurrentViewModel = new UserGamesHistoryViewModel();
                 });
             }
         }
 
         /// <summary>
-        ///     Save new user data into registry and database.
+        ///
         /// </summary>
-        private void SaveProfile()
+        private RelayCommand _editProfileCommand;
+        public RelayCommand EditProfileCommand
         {
-            // save new data into database
-            bool res = _database.SaveNewData(
-                     SavingRegistryData.GetCurrentUser(),
-                     NewLogin,
-                     NewPassword,
-                     ConfirmNewPassword
-                 );
-
-            // if ok then show success message and welcome message
-            if (res == true)
+            get
             {
-                MessageBox.Show("You have been successfully changed the user data", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-                // welcome message in the profile
-                _currentUserMessage = $"Hello, {SavingRegistryData.GetCurrentUser()}!";
-                // update CurrentUserMessage property
-                OnPropertyChanged(nameof(CurrentUserMessage));
+                return _editProfileCommand ??=
+                new RelayCommand(obj =>
+                {
+                    // change to user games history tab
+                    _nav.CurrentViewModel = new EditProfileViewModel();
+                });
             }
-            // clear fields of new user data
-            NewLogin = "";
-            NewPassword = "";
-            ConfirmNewPassword = "";
-
-            return;
         }
     }
 }

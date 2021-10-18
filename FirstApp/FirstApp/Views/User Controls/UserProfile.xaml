@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:First_App.Views" xmlns:viewmodels="clr-namespace:First_App.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:UserProfileViewModel}"
-             mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:local="clr-namespace:First_App.Views" xmlns:viewmodels="clr-namespace:First_App.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:UserProfileViewModel}" mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800" >
     <!-- Grid for account panel -->
     <Grid x:Name="accountPanel" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
         <Grid.RowDefinitions>
@@ -21,43 +21,14 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <!-- Stack panel for left account panel -->
-        <!-- You can change login, password and save new data -->
-        <StackPanel x:Name="accountLeftPanel" Grid.RowSpan="4" Grid.ColumnSpan="2"
-                    HorizontalAlignment="Left">
-            <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left" Margin="25 20 0 0"
-                       Text="{Binding CurrentUserMessage}"></TextBlock>
-
-            <TextBlock x:Name="accountLoginTextBlock" Text="New login: " FontSize="15" Margin="35 20 0 10"
-                       ></TextBlock>
-            <TextBox x:Name="accountLoginTextBox" Height="30" Width="222" VerticalAlignment="Bottom" Margin="25 0 0 0"
-                     VerticalContentAlignment="Center" Style="{StaticResource chimpTextBox}"
-                     Text="{Binding NewLogin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-
-            <TextBlock x:Name="accountPasswordTextBlock" Text="New password: " FontSize="15" Margin="35 15 0 10"></TextBlock>
-            <PasswordBox x:Name="accountPasswordBox" Height="30" Width="222" VerticalAlignment="Bottom" Margin="25 0 0 0"
-                     VerticalContentAlignment="Center" Style="{StaticResource chimpPasswordBox}"
-                     PasswordChanged="PasswordBox_PasswordChanged"></PasswordBox>
-
-            <TextBlock x:Name="accountPasswordTextBlockConfirm" Text="Confirm new password: " FontSize="15"
-                       Margin="35 15 0 10" Foreground="Black"></TextBlock>
-            <PasswordBox x:Name="accountPasswordBoxConfirm" Height="30" Width="222" VerticalAlignment="Bottom" Margin="25 0 0 0"
-                     VerticalContentAlignment="Center" Style="{StaticResource chimpPasswordBox}"
-                     PasswordChanged="PasswordBoxConfirm_PasswordChanged"></PasswordBox>
-
-            <Button x:Name="saveProfileButton" Content="Save Profile" Width="100"
-                    Margin="0 15 0 0" FontWeight="Bold"
-                    Command="{Binding SaveProfileCommand}" Style="{StaticResource yellowButton}"
-                    />
-        </StackPanel>
-
-        <StackPanel x:Name="navPanel" Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+        <StackPanel x:Name="navPanel" Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2"
+                    VerticalAlignment="Bottom">
             <Button x:Name="gamesHistory" Content="Games History" Height="30" Width="100"
-                    Margin="30 0 20 0" BorderBrush="Black"
-                    Style="{StaticResource cyanButton}" />
+                    Margin="30 0 20 15" BorderBrush="Black"
+                    Style="{StaticResource cyanButton}" Command="{Binding GamesHistoryCommand}" />
             <Button x:Name="editProfile" Content="Edit Profile"  Height="30" Width="100"
-                    BorderBrush="Black"
-                    Style="{StaticResource cyanButton}" />
+                    BorderBrush="Black" Margin="0 0 0 15"
+                    Style="{StaticResource cyanButton}" Command="{Binding EditProfileCommand}" />
         </StackPanel>
 
         <!-- Stack panel for right account panel -->

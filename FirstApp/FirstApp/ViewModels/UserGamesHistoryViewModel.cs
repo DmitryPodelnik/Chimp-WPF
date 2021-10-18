@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace First_App.ViewModels
 {
-    public class UserGameHistoryViewModel : INotifyPropertyChanged
+    public class UserGamesHistoryViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "")
