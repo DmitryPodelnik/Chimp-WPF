@@ -21,10 +21,20 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left" Margin="25 20 0 0"
-                   Grid.ColumnSpan="2" Text="{Binding CurrentUserMessage}"></TextBlock>
+        <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Margin="25 20 0 0" Grid.Row="1" Grid.RowSpan="2"
+                   Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentUserMessage}"
+                   Foreground="Cyan" FontWeight="DemiBold" />
+        <TextBlock x:Name="lastSeenTextBlock" FontSize="15" HorizontalAlignment="Center"
+                   VerticalAlignment="Center" Margin="0 0 0 0" Grid.Row="3"
+                   Grid.ColumnSpan="2" Text="{Binding LastSeenMessage}"
+                   Foreground="Cyan" />
+        <TextBlock x:Name="wasRegisteredTextBlock" FontSize="15" HorizontalAlignment="Center"
+                   Margin="0 0 -30 20" Grid.Row="3" VerticalAlignment="Bottom"
+                   Grid.Column="3" Text="{Binding WasRegisteredMessage}"
+                   Foreground="Cyan" />
 
-        <StackPanel x:Name="navPanel" Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2"
+        <StackPanel x:Name="navPanel" Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2"
                     VerticalAlignment="Bottom">
             <Button x:Name="gamesHistory" Content="Games History" Height="30" Width="100"
                     Margin="30 0 20 15" BorderBrush="Black"
@@ -38,11 +48,11 @@
         <!-- Shows you best score and last games -->
         <StackPanel x:Name="rightAccountPanel" Grid.RowSpan="4"  Grid.Column="2" Grid.ColumnSpan="3">
             <TextBlock x:Name="maxScoreText" FontSize="22px" Margin="0 20 0 0" HorizontalAlignment="Center"
-                       Text="{Binding CurrentUserMaxScoreMessage}"/>
+                       Text="{Binding CurrentUserMaxScoreMessage}" Foreground="Cyan" />
             <TextBlock x:Name="gameCountText" FontSize="22px" Margin="0 20 0 0" HorizontalAlignment="Center"
-                       Text="{Binding CurrentUserGameCountMessage}"/>
+                       Text="{Binding CurrentUserGameCountMessage}" Foreground="Cyan" />
             <TextBlock x:Name="averageScoreText" FontSize="22px" Margin="0 20 0 0" HorizontalAlignment="Center"
-                       Text="{Binding CurrentUserAverageScoreMessage}"/>
+                       Text="{Binding CurrentUserAverageScoreMessage}" Foreground="Cyan" />
         </StackPanel>
     </Grid>
 </UserControl>

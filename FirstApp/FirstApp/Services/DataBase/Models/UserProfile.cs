@@ -28,6 +28,9 @@ namespace First_App.Models.DataBase.Models
         [Required]
         public int GameCount { get; set; }
 
+        [Required]
+        public string RegisterDate { get; set; }
+
         public int? UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual User User { get; set; }

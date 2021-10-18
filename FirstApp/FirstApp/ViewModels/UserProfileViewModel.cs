@@ -30,15 +30,25 @@ namespace First_App.ViewModels
         private Navigator _nav = Navigator.Create();
         // field to work with database
         private ChimpDataBase _database = new();
-    
+
         private string _currentUserMessage { get; set; }
         public string CurrentUserMessage
         {
             get => _currentUserMessage;
             set => _currentUserMessage = value;
         }
-
-
+        private string _lastSeenMessage { get; set; }
+        public string LastSeenMessage
+        {
+            get => _lastSeenMessage;
+            set => _lastSeenMessage = value;
+        }
+        private string _wasRegisteredMessage { get; set; }
+        public string WasRegisteredMessage
+        {
+            get => _wasRegisteredMessage;
+            set => _wasRegisteredMessage = value;
+        }
         // field that stores current user best score message
         private string _currentUserMaxScoreMessage { get; set; }
         public string CurrentUserMaxScoreMessage
@@ -77,17 +87,19 @@ namespace First_App.ViewModels
                     return;
                 }
                 // welcome message in the profile
-                _currentUserMessage = "Hello, " + SavingRegistryData.GetCurrentUser() + "!";
+                _currentUserMessage = SavingRegistryData.GetCurrentUser();
 
-                var userProfile = _database.GetUser(SavingRegistryData.GetCurrentUser());
-                if (userProfile.Profile is not null)
+
+                // var userProfile = _database.GetUser(SavingRegistryData.GetCurrentUser());
+                if (user.Profile is not null)
                 {
                     // max score message in the profile
-                    _currentUserMaxScoreMessage = $"Best score: {userProfile.Profile.MaxScore}";
+                    _currentUserMaxScoreMessage = $"Best score: {user.Profile.MaxScore}";
                     // average score message in the profile
-                    _currentUserAverageScoreMessage = $"Average score: {Math.Round(userProfile.Profile.AverageScore, 1)}";
+                    _currentUserAverageScoreMessage = $"Average score: {Math.Round(user.Profile.AverageScore, 1)}";
                     // game count message in the profile
-                    _currentUserGameCountMessage = $"Game count: {userProfile.Profile.GameCount}";
+                    _currentUserGameCountMessage = $"Game count: {user.Profile.GameCount}";
+                    _wasRegisteredMessage = $"Registered: {user.Profile.RegisterDate}";
                 }
                 else
                 {
@@ -101,7 +113,7 @@ namespace First_App.ViewModels
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
