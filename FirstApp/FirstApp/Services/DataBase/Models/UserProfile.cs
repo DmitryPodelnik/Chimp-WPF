@@ -29,6 +29,12 @@ namespace First_App.Models.DataBase.Models
         public int GameCount { get; set; }
 
         [Required]
+        public double Rate { get; set; }
+
+        [Required]
+        public DateTime LastSeen { get; set; }
+
+        [Required]
         public string RegisterDate { get; set; }
 
         public int? UserId { get; set; }

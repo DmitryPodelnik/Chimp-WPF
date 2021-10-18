@@ -21,7 +21,9 @@ namespace First_App.Models.DataBase.Configurations
             builder.Property(u => u.MaxScore).HasDefaultValue(0);
             builder.Property(u => u.AverageScore).HasDefaultValue(0);
             builder.Property(u => u.GameCount).HasDefaultValue(0);
+            builder.Property(u => u.Rate).HasDefaultValue(0);
             builder.Property(u => u.RegisterDate).HasDefaultValue(DateTime.Now.ToShortDateString());
+            builder.Property(u => u.LastSeen).HasDefaultValue(DateTime.Now);
 
             builder.HasData(
               new UserProfile[]

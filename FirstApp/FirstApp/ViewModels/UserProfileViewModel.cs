@@ -31,44 +31,54 @@ namespace First_App.ViewModels
         // field to work with database
         private ChimpDataBase _database = new();
 
+        // field that stores
         private string _currentUserMessage { get; set; }
         public string CurrentUserMessage
         {
             get => _currentUserMessage;
             set => _currentUserMessage = value;
         }
+        // field that stores
         private string _lastSeenMessage { get; set; }
         public string LastSeenMessage
         {
             get => _lastSeenMessage;
             set => _lastSeenMessage = value;
         }
+        // field that stores
         private string _wasRegisteredMessage { get; set; }
         public string WasRegisteredMessage
         {
             get => _wasRegisteredMessage;
             set => _wasRegisteredMessage = value;
         }
-        // field that stores current user best score message
+        // field that stores
         private string _currentUserMaxScoreMessage { get; set; }
         public string CurrentUserMaxScoreMessage
         {
             get => _currentUserMaxScoreMessage;
             set => _currentUserMaxScoreMessage = value;
         }
-        // field that stores current user best score message
+        // field that stores
         private string _currentUserAverageScoreMessage { get; set; }
         public string CurrentUserAverageScoreMessage
         {
             get => _currentUserAverageScoreMessage;
             set => _currentUserAverageScoreMessage = value;
         }
-        // field that stores current user best score message
+        // field that stores
         private string _currentUserGameCountMessage { get; set; }
         public string CurrentUserGameCountMessage
         {
             get => _currentUserGameCountMessage;
             set => _currentUserGameCountMessage = value;
+        }
+        // field that stores
+        private string _currentUserRateMessage { get; set; }
+        public string CurrentUserRateMessage
+        {
+            get => _currentUserRateMessage;
+            set => _currentUserRateMessage = value;
         }
 
         /// <summary>
@@ -100,6 +110,7 @@ namespace First_App.ViewModels
                     // game count message in the profile
                     _currentUserGameCountMessage = $"Game count: {user.Profile.GameCount}";
                     _wasRegisteredMessage = $"Registered: {user.Profile.RegisterDate}";
+                    _lastSeenMessage = CalculateLastSeenMessage(user);
                 }
                 else
                 {
@@ -115,6 +126,38 @@ namespace First_App.ViewModels
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private string CalculateLastSeenMessage(User user)
+        {
+            string result = "Last seen ";
+            try
+            {
+
+                TimeSpan diff = DateTime.Now - Convert.ToDateTime(user.Profile.LastSeen);
+
+                if (diff.Days > 0)
+                {
+                    result += diff.Days.ToString() + " days ago";
+                }
+                else if (diff.Hours > 0)
+                {
+                    result += diff.Hours.ToString() + " hours ago";
+                }
+                else if (diff.Minutes > 0)
+                {
+                    result += diff.Minutes.ToString() + " minutes ago";
+                }
+                else
+                {
+                    result += diff.Seconds.ToString() + " seconds ago";
+                }
+            }
+            catch (InvalidCastException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            return result;
         }
 
         /// <summary>
