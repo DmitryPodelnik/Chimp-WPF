@@ -32,7 +32,7 @@
                         Padding="25px 10px 25px 10px" Width="175px" FontFamily="Arial"
                         Style="{StaticResource cyanButton}" Cursor="Hand"
                         Command="{Binding TryAgainCommand}"
-                        Margin="10 0 0 0"/>
+                        Margin="10 0 0 0" BorderBrush="DarkCyan" />
         </StackPanel>
     </StackPanel>
 </UserControl>

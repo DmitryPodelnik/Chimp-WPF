@@ -44,6 +44,12 @@
             <DataTemplate DataType="{x:Type viewmodels:FinishGameTableViewModel}">
                 <uc:FinishGameTable />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:EditProfileViewModel}">
+                <uc:EditProfile />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:UserGameHistoryViewModel}">
+                <uc:UserGameHistory />
+            </DataTemplate>
 
             <BooleanToVisibilityConverter x:Key="BoolToVis" />
         </ResourceDictionary>
