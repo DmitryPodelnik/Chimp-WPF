@@ -83,7 +83,7 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel VerticalAlignment="Center">
-                                        <TextBlock Text="{Binding Path=Score}" FontSize="16" FontWeight="Normal" />
+                                        <TextBlock Text="{Binding Path=Score}" FontSize="16" FontWeight="Normal" Padding="5"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
@@ -92,7 +92,7 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical" >
-                                        <TextBlock Text="{Binding Path=TimeAgoMessage}" FontSize="16" FontWeight="Normal" />
+                                        <TextBlock Text="{Binding Path=TimeAgoMessage}" FontSize="16" FontWeight="Normal" Padding="5" />
                                         <TextBlock Text="{Binding Path=Date, StringFormat='dd/MM/yyyy'}" FontSize="14" Foreground="Gray" FontWeight="Normal" />
                                     </StackPanel>
                                 </DataTemplate>
