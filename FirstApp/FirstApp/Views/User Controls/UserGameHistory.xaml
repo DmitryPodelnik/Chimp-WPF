@@ -24,9 +24,9 @@
                     Style="{StaticResource yellowButton}" Command="{Binding BackCommand}"
                     HorizontalAlignment="Left" />
 
-        <StackPanel Orientation="Vertical" Grid.RowSpan="4"  Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center"
-                        Margin="0 40 20 0">
-            <DataGrid x:Name="dataGrid" HeadersVisibility="Column" Height="280"
+        <StackPanel Orientation="Vertical" Grid.RowSpan="4"  Grid.ColumnSpan="4" HorizontalAlignment="Center"
+                    >
+            <DataGrid x:Name="dataGrid" HeadersVisibility="Column" Height="345"
                    FontSize="16" FontWeight="Bold"
                    AutoGenerateColumns="False" ItemsSource="{Binding Records}"
                    GridLinesVisibility="Horizontal" CanUserAddRows="False"
