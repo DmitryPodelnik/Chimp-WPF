@@ -62,11 +62,11 @@ namespace First_App.Models.DataBase
             }
             catch (UnauthorizedAccessException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (NotSupportedException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -94,22 +94,22 @@ namespace First_App.Models.DataBase
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             catch (ArgumentOutOfRangeException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             catch (ObjectDisposedException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             catch (EncoderFallbackException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }
@@ -134,7 +134,7 @@ namespace First_App.Models.DataBase
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
         }
@@ -205,17 +205,17 @@ namespace First_App.Models.DataBase
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             catch (DbUpdateConcurrencyException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             catch (DbUpdateException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }
@@ -235,7 +235,7 @@ namespace First_App.Models.DataBase
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
         }
@@ -253,11 +253,11 @@ namespace First_App.Models.DataBase
             }
             catch (DbUpdateConcurrencyException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (DbUpdateException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -277,6 +277,10 @@ namespace First_App.Models.DataBase
                         user.Profile.MaxScore = GetCurrentUserRecords().Max(u => u.Score);
                         user.Profile.AverageScore = GetCurrentUserRecords().Average(u => u.Score);
                     }
+                    if (user.Profile.AverageScore != 0 && user.Profile.GameCount != 0)
+                    {
+                        user.Profile.Rate = Math.Round((user.Profile.AverageScore / user.Profile.GameCount) * 10, 1);
+                    }
                     _context.Users.Update(user);
                     _context.SaveChanges();
 
@@ -286,7 +290,30 @@ namespace First_App.Models.DataBase
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
+
+        public bool UpdateLastSeenTime()
+        {
+            try
+            {
+                var user = GetUser(SavingRegistryData.GetCurrentUser());
+                if (user is not null)
+                {
+                    user.Profile.LastSeen = DateTime.Now;
+                    _context.Users.Update(user);
+                    _context.SaveChanges();
+
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }
@@ -307,7 +334,7 @@ namespace First_App.Models.DataBase
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
             }
         }

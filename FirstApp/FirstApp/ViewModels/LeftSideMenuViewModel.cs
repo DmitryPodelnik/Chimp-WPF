@@ -274,6 +274,7 @@ namespace First_App.ViewModels
             var res = MessageBox.Show("Are you sure to exit from the account?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (res == MessageBoxResult.Yes)
             {
+                _database.UpdateLastSeenTime();
                 SavingRegistryData registry = new();
                 // remove user data from registry
                 registry.RemoveUserData();

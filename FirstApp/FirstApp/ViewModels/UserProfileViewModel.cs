@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -110,6 +111,7 @@ namespace First_App.ViewModels
                     // game count message in the profile
                     _currentUserGameCountMessage = $"Game count: {user.Profile.GameCount}";
                     _wasRegisteredMessage = $"Registered: {user.Profile.RegisterDate}";
+                    _currentUserRateMessage = $"Rate: {user.Profile.Rate}";
                     _lastSeenMessage = CalculateLastSeenMessage(user);
                 }
                 else
@@ -128,7 +130,12 @@ namespace First_App.ViewModels
             }
         }
 
-        private string CalculateLastSeenMessage(User user)
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        string CalculateLastSeenMessage(User user)
         {
             string result = "Last seen ";
             try

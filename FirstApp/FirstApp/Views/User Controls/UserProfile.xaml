@@ -46,12 +46,13 @@
 
         <!-- Stack panel for right account panel -->
         <!-- Shows you best score and last games -->
-        <StackPanel x:Name="rightAccountPanel" Grid.RowSpan="4"  Grid.Column="2" Grid.ColumnSpan="3">
-            <TextBlock x:Name="maxScoreText" FontSize="20px" Margin="0 20 0 0" HorizontalAlignment="Center"
+        <StackPanel x:Name="rightAccountPanel" Grid.ColumnSpan="4"
+                    Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock x:Name="maxScoreText" FontSize="20px" Margin="0 20 50 0" HorizontalAlignment="Center"
                        Text="{Binding CurrentUserMaxScoreMessage}" Foreground="Cyan" />
-            <TextBlock x:Name="gameCountText" FontSize="20px" Margin="0 20 0 0" HorizontalAlignment="Center"
+            <TextBlock x:Name="gameCountText" FontSize="20px" Margin="0 20 50 0" HorizontalAlignment="Center"
                        Text="{Binding CurrentUserGameCountMessage}" Foreground="Cyan" />
-            <TextBlock x:Name="averageScoreText" FontSize="20" Margin="0 20 0 0" HorizontalAlignment="Center"
+            <TextBlock x:Name="averageScoreText" FontSize="20" Margin="0 20 50 0" HorizontalAlignment="Center"
                        Text="{Binding CurrentUserAverageScoreMessage}" Foreground="Cyan" />
             <TextBlock x:Name="rateText" FontSize="20" Margin="0 20 0 0" HorizontalAlignment="Center"
                        Text="{Binding CurrentUserRateMessage}" Foreground="Cyan" />
