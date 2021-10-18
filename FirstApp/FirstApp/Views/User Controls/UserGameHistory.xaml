@@ -3,10 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:First_App.Views.User_Controls"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
+        <Button x:Name="editProfile" Content="&lt; Back"  Height="30" Width="85" FontWeight="Bold"
+                    BorderBrush="Black" Margin="20 0 0 15" Grid.Row="3" VerticalAlignment="Bottom"
+                    Style="{StaticResource yellowButton}" Command="{Binding BackCommand}"
+                    HorizontalAlignment="Left" />
+
+        <StackPanel Orientation="Vertical" Grid.RowSpan="4"  Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center"
+                        Margin="0 40 20 0">
+            <DataGrid x:Name="dataGrid" HeadersVisibility="Column" Height="280"
+                   FontSize="16" FontWeight="Bold"
+                   AutoGenerateColumns="False" ItemsSource="{Binding Records}"
+                   GridLinesVisibility="Horizontal" CanUserAddRows="False"
+                   CellStyle="{StaticResource mainDataGridCellStyle}"
+                          >
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Username" SortMemberPath="Username" Width="*" MinWidth="100" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Center" >
+                                    <TextBlock Text="{Binding Path=User.Username}" FontSize="16" Padding="5" FontWeight="Normal" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Score" SortMemberPath="Score" Width="*" MinWidth="100" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Path=Score}" FontSize="16" FontWeight="Normal" Padding="5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Date" SortMemberPath="Date" Width="*" MinWidth="150">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" >
+                                    <TextBlock Text="{Binding Path=TimeAgoMessage}" FontSize="16" FontWeight="Normal" Padding="5" />
+                                    <TextBlock Text="{Binding Path=Date, StringFormat='dd/MM/yyyy'}" FontSize="14" Foreground="Gray" FontWeight="Normal" Padding="5" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
     </Grid>
 </UserControl>

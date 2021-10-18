@@ -300,6 +300,7 @@ namespace First_App.Models.DataBase
             try
             {
                 return _context.Records
+                .Include(r => r.User)
                 .Where(u => u.User.Username == SavingRegistryData.GetCurrentUser())
                 .OrderByDescending(r => r.Date)
                 .ToList();

@@ -30,13 +30,7 @@ namespace First_App.ViewModels
         private Navigator _nav = Navigator.Create();
         // field to work with database
         private ChimpDataBase _database = new();
-        // field that contains user records
-        private List<Record> _records = new();
-        public List<Record> Records
-        {
-            get => _records;
-        }
-
+    
         private string _currentUserMessage { get; set; }
         public string CurrentUserMessage
         {
@@ -104,7 +98,6 @@ namespace First_App.ViewModels
                     // game count message in the profile
                     _currentUserGameCountMessage = $"Game count: 0";
                 }
-                _records = (List<Record>)_database.GetCurrentUserRecords();
             }
             catch (ArgumentNullException ex)
             {

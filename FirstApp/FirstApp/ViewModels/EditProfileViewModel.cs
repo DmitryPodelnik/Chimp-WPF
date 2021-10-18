@@ -1,6 +1,7 @@
 ﻿using First_App.Models.Commands;
 using First_App.Models.DataBase;
 using First_App.Models.RegistryData;
+using First_App.Navigation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace First_App.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
+        private Navigator _nav = Navigator.Create();
         // field to work with database
         private ChimpDataBase _database = new();
 
@@ -69,5 +71,20 @@ namespace First_App.ViewModels
             return;
         }
 
+        /// <summary>
+        ///     Command after clicking back button.
+        /// </summary>
+        private RelayCommand _backCommand;
+        public RelayCommand BackCommand
+        {
+            get
+            {
+                return _backCommand ??=
+                new RelayCommand(obj =>
+                {
+                    _nav.CurrentViewModel = new UserProfileViewModel();
+                });
+            }
+        }
     }
 }

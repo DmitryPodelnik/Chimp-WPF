@@ -24,8 +24,6 @@
         <!-- You can change login, password and save new data -->
         <StackPanel x:Name="accountLeftPanel" Grid.RowSpan="4" Grid.ColumnSpan="2"
                     HorizontalAlignment="Left">
-            <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left" Margin="25 20 0 0"
-                       Text="{Binding CurrentUserMessage}"></TextBlock>
 
             <TextBlock x:Name="accountLoginTextBlock" Text="New login: " FontSize="15" Margin="35 20 0 10"
                        ></TextBlock>
@@ -45,9 +43,14 @@
                      PasswordChanged="PasswordBoxConfirm_PasswordChanged"></PasswordBox>
 
             <Button x:Name="saveProfileButton" Content="Save Profile" Width="100"
-                    Margin="20 15 0 0" FontWeight="Bold"
-                    Command="{Binding SaveProfileCommand}" Style="{StaticResource yellowButton}"
+                    Margin="20 15 0 0" FontWeight="Bold" BorderBrush="Black"
+                    Command="{Binding SaveProfileCommand}" Style="{StaticResource cyanButton}"
                     />
         </StackPanel>
+
+        <Button x:Name="editProfile" Content="&lt; Back"  Height="30" Width="85" FontWeight="Bold"
+                    BorderBrush="Black" Margin="20 0 0 15" Grid.Row="3" VerticalAlignment="Bottom"
+                    Style="{StaticResource yellowButton}" Command="{Binding BackCommand}"
+                    HorizontalAlignment="Left" />
     </Grid>
 </UserControl>
