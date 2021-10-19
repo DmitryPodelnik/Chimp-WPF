@@ -19,7 +19,7 @@ namespace First_App.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        // field of game play
+        // field of game
         private Game _game;
         private ObservableCollection<Button> _playGrid { get; set; } = new();
         public ObservableCollection<Button> PlayGrid
@@ -37,9 +37,9 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     Create or get singleton instance of Game class.
-        ///     Call Game constructor() pass the playGrid to constructor
-        ///     and initialize game cubes.
+        ///     Creates or gets singleton instance of Game class.
+        ///     Calls Game constructor() pass the playGrid to constructor
+        ///     and initializes game cubes.
         /// </summary>
         private void InitializeGameField()
         {

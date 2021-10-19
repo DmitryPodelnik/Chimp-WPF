@@ -106,7 +106,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     Hide panels excepting play tab.
+        ///     Change user contol to Start Game tab.
         /// </summary>
         private void StartPlay()
         {
@@ -147,7 +147,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     Hide panels excepting profile tab.
+        ///     Change user contol to Profile tab.
         /// </summary>
         private void ShowProfile()
         {
@@ -187,7 +187,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     Hide panels excepting play tab.
+        ///     Change user contol to Records tab.
         /// </summary>
         private void ShowRecords()
         {
@@ -240,6 +240,9 @@ namespace First_App.ViewModels
             }
         }
 
+        /// <summary>
+        ///     Saves a new record into database.
+        /// </summary>
         private void SaveNewRecord()
         {
             Record newRecord = new();
@@ -249,11 +252,12 @@ namespace First_App.ViewModels
             Counter.Score = 4;
 
             _database.AddRecord(newRecord);
+            // update current user data in the database: game count, max score and average score
             _database.UpdateCurrentUserData();
         }
 
         /// <summary>
-        ///     Close game if you sure.
+        ///     Closes game if you are sure.
         /// </summary>
         private void ExitGame()
         {
@@ -266,14 +270,15 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     Hide panels excepting authorization tab.
-        ///     Exit from account and forward to authorization tab.
+        ///     Hides panels excepting authorization tab.
+        ///     Exits from account and forward to authorization tab.
         /// </summary>
         private void ExitFromAccount()
         {
             var res = MessageBox.Show("Are you sure to exit from the account?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (res == MessageBoxResult.Yes)
             {
+                // update current user data in the database: game count, max score and average score
                 _database.UpdateLastSeenTime();
                 SavingRegistryData registry = new();
                 // remove user data from registry
@@ -286,7 +291,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     If user want to finish current game.
+        ///     If user wants to finish current game.
         /// </summary>
         /// <returns>True if yes or false.</returns>
         private bool IsSureToFinishGame()

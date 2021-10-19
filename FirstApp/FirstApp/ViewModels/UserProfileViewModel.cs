@@ -32,49 +32,49 @@ namespace First_App.ViewModels
         // field to work with database
         private ChimpDataBase _database = new();
 
-        // field that stores
+        // field that stores user name message
         private string _currentUserMessage { get; set; }
         public string CurrentUserMessage
         {
             get => _currentUserMessage;
             set => _currentUserMessage = value;
         }
-        // field that stores
+        // field that stores last seen message
         private string _lastSeenMessage { get; set; }
         public string LastSeenMessage
         {
             get => _lastSeenMessage;
             set => _lastSeenMessage = value;
         }
-        // field that stores
+        // field that stores register date message
         private string _wasRegisteredMessage { get; set; }
         public string WasRegisteredMessage
         {
             get => _wasRegisteredMessage;
             set => _wasRegisteredMessage = value;
         }
-        // field that stores
+        // field that stores max score message
         private string _currentUserMaxScoreMessage { get; set; }
         public string CurrentUserMaxScoreMessage
         {
             get => _currentUserMaxScoreMessage;
             set => _currentUserMaxScoreMessage = value;
         }
-        // field that stores
+        // field that stores average score message
         private string _currentUserAverageScoreMessage { get; set; }
         public string CurrentUserAverageScoreMessage
         {
             get => _currentUserAverageScoreMessage;
             set => _currentUserAverageScoreMessage = value;
         }
-        // field that stores
+        // field that stores game count message
         private string _currentUserGameCountMessage { get; set; }
         public string CurrentUserGameCountMessage
         {
             get => _currentUserGameCountMessage;
             set => _currentUserGameCountMessage = value;
         }
-        // field that stores
+        // field that stores rate message
         private string _currentUserRateMessage { get; set; }
         public string CurrentUserRateMessage
         {
@@ -84,7 +84,7 @@ namespace First_App.ViewModels
 
         /// <summary>
         ///     UserProfileViewModel constructor().
-        ///     Get current user from the registry.
+        ///     Gets current user from the registry.
         /// </summary>
         public UserProfileViewModel()
         {
@@ -100,18 +100,19 @@ namespace First_App.ViewModels
                 // welcome message in the profile
                 _currentUserMessage = SavingRegistryData.GetCurrentUser();
 
-
-                // var userProfile = _database.GetUser(SavingRegistryData.GetCurrentUser());
                 if (user.Profile is not null)
                 {
-                    // max score message in the profile
+                    // max score message at the profile
                     _currentUserMaxScoreMessage = $"Best score: {user.Profile.MaxScore}";
-                    // average score message in the profile
+                    // average score message at the profile
                     _currentUserAverageScoreMessage = $"Average score: {Math.Round(user.Profile.AverageScore, 1)}";
-                    // game count message in the profile
+                    // game count message at the profile
                     _currentUserGameCountMessage = $"Game count: {user.Profile.GameCount}";
+                    // register date message at the profile
                     _wasRegisteredMessage = $"Registered: {user.Profile.RegisterDate}";
+                    // user rate message
                     _currentUserRateMessage = $"Rate: {user.Profile.Rate}";
+                    // last seen message
                     _lastSeenMessage = CalculateLastSeenMessage(user);
                 }
                 else
@@ -131,7 +132,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///
+        ///     Calculates timespan from the last seen of user.
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
@@ -168,7 +169,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///
+        ///     Command after clicking games history button.
         /// </summary>
         private RelayCommand _gamesHistoryCommand;
         public RelayCommand GamesHistoryCommand
@@ -185,7 +186,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///
+        ///     Command after clicking edit profile button.
         /// </summary>
         private RelayCommand _editProfileCommand;
         public RelayCommand EditProfileCommand

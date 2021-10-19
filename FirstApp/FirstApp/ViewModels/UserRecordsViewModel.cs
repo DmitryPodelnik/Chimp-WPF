@@ -36,12 +36,12 @@ namespace First_App.ViewModels
         {
             try
             {
-                // get from database records from all users ordering them by descending and cast to list
+                // gets from database records from all users and orders them by descending then casts to list
                 _records = _database.GetAllRecords().OrderByDescending(r => r.Date).ToList();
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
