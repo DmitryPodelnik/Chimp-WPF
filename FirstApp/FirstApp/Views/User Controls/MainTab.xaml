@@ -7,8 +7,22 @@
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock x:Name="mainText" Text="MAIN WINDOW" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1"
-                   VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="72"
-                   />
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left"
+                   VerticalAlignment="Top" Margin="30 20 0 0"
+                   Text="{Binding CurrentUserMessage}"
+                   Foreground="Cyan" FontWeight="DemiBold" />
     </Grid>
 </UserControl>

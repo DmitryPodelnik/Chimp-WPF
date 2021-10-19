@@ -94,7 +94,7 @@ namespace First_App.ViewModels
                 var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
                 if (user is null)
                 {
-                    MessageBox.Show("User is not found", "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("User is not found", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 // welcome message in the profile

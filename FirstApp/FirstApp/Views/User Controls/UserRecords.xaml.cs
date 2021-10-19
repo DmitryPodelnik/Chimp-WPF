@@ -25,5 +25,10 @@ namespace First_App.Views
         {
             InitializeComponent();
         }
+
+        private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            dataGrid.Height = ((Chimp)Application.Current.MainWindow).contentControl.ActualHeight;
+        }
     }
 }

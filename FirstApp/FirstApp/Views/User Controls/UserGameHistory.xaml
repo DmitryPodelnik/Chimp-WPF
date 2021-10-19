@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" SizeChanged="UserControl_SizeChanged">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -26,7 +26,7 @@
 
         <StackPanel Orientation="Vertical" Grid.RowSpan="4"  Grid.ColumnSpan="4" HorizontalAlignment="Center"
                     >
-            <DataGrid x:Name="dataGrid" HeadersVisibility="Column" Height="345"
+            <DataGrid x:Name="dataGrid" HeadersVisibility="Column"
                    FontSize="16" FontWeight="Bold"
                    AutoGenerateColumns="False" ItemsSource="{Binding Records}"
                    GridLinesVisibility="Horizontal" CanUserAddRows="False"
