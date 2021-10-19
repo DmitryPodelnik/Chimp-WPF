@@ -230,7 +230,7 @@ namespace First_App.Models.DataBase
             {
                 return _context.Records
                     .Include(r => r.User)
-                    .OrderByDescending(r => r.Date)
+                    .ThenInclude(u => u.Profile)
                     .ToList();
             }
             catch (ArgumentNullException ex)
@@ -328,6 +328,7 @@ namespace First_App.Models.DataBase
             {
                 return _context.Records
                 .Include(r => r.User)
+                .ThenInclude(u => u.Profile)
                 .Where(u => u.User.Username == SavingRegistryData.GetCurrentUser())
                 .OrderByDescending(r => r.Date)
                 .ToList();
