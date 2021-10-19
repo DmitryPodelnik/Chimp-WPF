@@ -60,7 +60,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     Save new record to database.
+        ///     Saves new record to database.
         /// </summary>
         private void SaveNewRecord()
         {

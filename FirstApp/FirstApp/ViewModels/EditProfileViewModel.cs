@@ -46,7 +46,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     Save new user data into registry and database.
+        ///     Saves new user data into registry and database.
         /// </summary>
         private void SaveProfile()
         {

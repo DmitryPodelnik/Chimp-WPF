@@ -1,5 +1,6 @@
 ﻿using First_App.Models.DataBase;
 using First_App.Models.DataBase.Models;
+using First_App.Services.Comparers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -37,7 +38,11 @@ namespace First_App.ViewModels
             try
             {
                 // gets from database records from all users and orders them by descending then casts to list
-                _records = _database.GetAllRecords().OrderByDescending(r => r.Date).ToList();
+                _records = _database.GetAllRecords()
+                    .OrderByDescending(r => r.Score)
+                    .Distinct(new RecordsComparer())
+                    .OrderByDescending(r => r.User.Profile.Rate)
+                    .ToList();
             }
             catch (ArgumentNullException ex)
             {

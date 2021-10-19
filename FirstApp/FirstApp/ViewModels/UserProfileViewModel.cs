@@ -90,7 +90,7 @@ namespace First_App.ViewModels
         {
             try
             {
-                // Get current user login from registry and get all user data from the database
+                // Gets current user login from registry and gets all user data from the database
                 var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
                 if (user is null)
                 {
