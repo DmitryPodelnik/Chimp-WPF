@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -30,21 +31,20 @@ namespace First_App.Views
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             dataGrid.Height = ((Chimp)Application.Current.MainWindow).contentControl.ActualHeight;
-
         }
 
         private void dataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            DataGridRow row = dataGrid.ItemContainerGenerator.ContainerFromIndex(0) as DataGridRow;
-            //dataGrid.ItemContainerGenerator.ContainerFromIndex(0) = row;
-            row.Background = new SolidColorBrush(Colors.Red);
+            DataGridRow row1 = dataGrid.ItemContainerGenerator.ContainerFromIndex(0) as DataGridRow;
+            row1.Background = new SolidColorBrush(Colors.Gold);
 
-            // get resource dictionary with styles
-            ResourceDictionary resourceDictionary = Application.Current.Resources.MergedDictionaries[3];
+            DataGridRow row2 = dataGrid.ItemContainerGenerator.ContainerFromIndex(1) as DataGridRow;
+            row2.Background = new SolidColorBrush(Colors.Silver);
 
-            dataGrid.Columns[0].CellStyle = (Style)resourceDictionary["mainDataGridCellStyle2"];
-            dataGrid.Columns[1].CellStyle = (Style)resourceDictionary["mainDataGridCellStyle2"];
-            dataGrid.Columns[2].CellStyle = (Style)resourceDictionary["mainDataGridCellStyle2"];
+            DataGridRow row3 = dataGrid.ItemContainerGenerator.ContainerFromIndex(2) as DataGridRow;
+            row3.Background = new SolidColorBrush(Colors.Coral);
+
         }
+
     }
 }
