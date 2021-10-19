@@ -28,16 +28,16 @@ namespace First_App.Models.DataBase.Configurations
             builder.HasData(
               new UserProfile[]
               {
-                  new UserProfile { Id = 1, UserId = 1 },
-                  new UserProfile { Id = 2, UserId = 2 },
-                  new UserProfile { Id = 3, UserId = 3 },
-                  new UserProfile { Id = 4, UserId = 4 },
-                  new UserProfile { Id = 5, UserId = 5 },
-                  new UserProfile { Id = 6, UserId = 6 },
-                  new UserProfile { Id = 7, UserId = 7 },
-                  new UserProfile { Id = 8, UserId = 8 },
-                  new UserProfile { Id = 9, UserId = 9 },
-                  new UserProfile { Id = 10, UserId = 10 },
+                  new UserProfile { Id = 1, UserId = 1, GameCount = 11 },
+                  new UserProfile { Id = 2, UserId = 2, GameCount = 9 },
+                  new UserProfile { Id = 3, UserId = 3, GameCount = 7 },
+                  new UserProfile { Id = 4, UserId = 4, GameCount = 9 },
+                  new UserProfile { Id = 5, UserId = 5, GameCount = 9 },
+                  new UserProfile { Id = 6, UserId = 6, GameCount = 11 },
+                  new UserProfile { Id = 7, UserId = 7, GameCount = 9 },
+                  new UserProfile { Id = 8, UserId = 8, GameCount = 7 },
+                  new UserProfile { Id = 9, UserId = 9, GameCount = 9 },
+                  new UserProfile { Id = 10, UserId = 10, GameCount = 9 },
               });
         }
     }
