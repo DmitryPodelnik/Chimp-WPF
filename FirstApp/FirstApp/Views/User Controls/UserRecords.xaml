@@ -28,9 +28,10 @@
                    FontSize="20" FontWeight="Bold"
                    AutoGenerateColumns="False" ItemsSource="{Binding Records}"
                    GridLinesVisibility="Horizontal" CanUserAddRows="False"
-                   CellStyle="{StaticResource mainDataGridCellStyle}"
+                   CellStyle="{StaticResource mainDataGridCellStyle}" Loaded="dataGrid_Loaded"
                       >
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                     <DataGridTemplateColumn Header="Username" SortMemberPath="Username" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

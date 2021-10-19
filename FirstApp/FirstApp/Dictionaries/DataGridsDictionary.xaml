@@ -517,4 +517,16 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="mainDataGridCellStyle2" TargetType="{x:Type DataGridCell}">
+        <Setter Property="BorderBrush" Value="#FF2C93BD" />
+        <Setter Property="Background" Value="Red" />
+        <Style.Triggers>
+            <Trigger Property="DataGridCell.IsSelected" Value="true">
+                <Setter Property="BorderBrush" Value="Orange"/>
+                <Setter Property="Background" Value="#FFD1D300"/>
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

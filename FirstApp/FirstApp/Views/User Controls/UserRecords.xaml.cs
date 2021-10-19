@@ -24,11 +24,27 @@ namespace First_App.Views
         public UserRecords()
         {
             InitializeComponent();
+
         }
 
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             dataGrid.Height = ((Chimp)Application.Current.MainWindow).contentControl.ActualHeight;
+
+        }
+
+        private void dataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataGridRow row = dataGrid.ItemContainerGenerator.ContainerFromIndex(0) as DataGridRow;
+            //dataGrid.ItemContainerGenerator.ContainerFromIndex(0) = row;
+            row.Background = new SolidColorBrush(Colors.Red);
+
+            // get resource dictionary with styles
+            ResourceDictionary resourceDictionary = Application.Current.Resources.MergedDictionaries[3];
+
+            dataGrid.Columns[0].CellStyle = (Style)resourceDictionary["mainDataGridCellStyle2"];
+            dataGrid.Columns[1].CellStyle = (Style)resourceDictionary["mainDataGridCellStyle2"];
+            dataGrid.Columns[2].CellStyle = (Style)resourceDictionary["mainDataGridCellStyle2"];
         }
     }
 }

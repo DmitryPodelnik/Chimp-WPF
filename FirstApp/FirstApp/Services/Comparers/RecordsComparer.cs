@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace First_App.Services.Comparers
 {
-    // Custom comparer for the Product class
+    // Custom comparer for the Record class
     class RecordsComparer : IEqualityComparer<Record>
     {
-        // Products are equal if their names and product numbers are equal.
+        // Reecords are equal if their Usernames are equal.
         public bool Equals(Record x, Record y)
         {
 
@@ -21,7 +21,7 @@ namespace First_App.Services.Comparers
             if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
                 return false;
 
-            //Check whether the products' properties are equal.
+            //Check whether the records' properties are equal.
             return x.User.Username == y.User.Username;
         }
 
@@ -33,13 +33,13 @@ namespace First_App.Services.Comparers
             //Check whether the object is null
             if (Object.ReferenceEquals(record, null)) return 0;
 
-            //Get hash code for the Name field if it is not null.
+            //Get hash code for the Username field if it is not null.
             int hashUserRecord= record.User.Username == null ? 0 : record.User.Username.GetHashCode();
 
-            //Get hash code for the Code field.
+            //Get hash code for the User Rate field.
             int hashRecordRate = record.User.Profile.Rate.GetHashCode();
 
-            //Calculate the hash code for the product.
+            //Calculate the hash code for the record.
             return hashUserRecord ^ hashRecordRate;
         }
     }
