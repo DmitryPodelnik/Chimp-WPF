@@ -1,4 +1,5 @@
-﻿using System;
+﻿using First_App.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,13 @@ namespace First_App.Views.Windows
     {
         public SelectedUserProfile()
         {
+
+        }
+        public SelectedUserProfile(string username)
+        {
             InitializeComponent();
+
+            DataContext = new UserProfileViewModel(username);
         }
     }
 }

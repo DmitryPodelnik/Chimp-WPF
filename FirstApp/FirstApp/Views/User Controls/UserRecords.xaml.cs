@@ -72,7 +72,8 @@ namespace First_App.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SelectedUserProfile userProfile = new();
+            Button button = (Button)sender;
+            SelectedUserProfile userProfile = new SelectedUserProfile(button.Content.ToString());
             userProfile.ShowDialog();
         }
     }

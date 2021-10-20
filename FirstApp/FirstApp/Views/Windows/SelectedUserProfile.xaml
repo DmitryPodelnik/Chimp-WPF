@@ -7,9 +7,6 @@
         mc:Ignorable="d"  Icon="/Views/Windows/profileIcon.png"
         Title="Selected User Profile" MinHeight="450" MinWidth="750" MaxHeight="350" MaxWidth="600"
         Background="{StaticResource mainBackground}" >
-    <Window.DataContext>
-        <vm:UserProfileViewModel/>
-    </Window.DataContext>
     <!-- Grid for account panel -->
     <Grid x:Name="accountPanel" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
         <Grid.RowDefinitions>
