@@ -506,7 +506,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="mainDataGridCellStyle" TargetType="{x:Type DataGridCell}">
+    <Style x:Key="gameHistoryDataGridCellStyle" TargetType="{x:Type DataGridCell}">
         <Setter Property="BorderBrush" Value="#FF2C93BD" />
         <Setter Property="Background" Value="SkyBlue" />
         <Style.Triggers>
@@ -518,7 +518,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="mainDataGridCellStyle2" TargetType="{x:Type DataGridRow}">
+    <Style x:Key="recordsDataGridRowStyle" TargetType="{x:Type DataGridRow}">
         <Setter Property="BorderBrush" Value="#FF2C93BD" />
         <Setter Property="Background" Value="SkyBlue" />
         <Style.Triggers>

@@ -191,7 +191,10 @@ namespace First_App.ViewModels
         /// </summary>
         private void ShowRecords()
         {
-            _nav.CurrentViewModel = new UserRecordsViewModel();
+            if (_nav.CurrentViewModel is not UserRecordsViewModel)
+            {
+                _nav.CurrentViewModel = new UserRecordsViewModel();
+            }
         }
 
         /// <summary>

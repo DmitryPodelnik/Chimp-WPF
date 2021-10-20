@@ -1,7 +1,6 @@
 ﻿<Application x:Class="FirstApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:First_App"
              xmlns:views="clr-namespace:First_App.Views"
              xmlns:uc="clr-namespace:First_App.Views.User_Controls"
              xmlns:viewmodels="clr-namespace:First_App.ViewModels"
