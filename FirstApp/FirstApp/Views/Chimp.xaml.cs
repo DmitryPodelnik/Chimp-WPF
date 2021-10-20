@@ -29,6 +29,13 @@ namespace First_App
         public Chimp()
         {
             InitializeComponent();
+
+            ChimpViewModel vm = new();
+
+            DataContext = vm;
+
+            Closing += vm.OnWindowClosing;
         }
+
     }
 }

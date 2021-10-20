@@ -1,6 +1,7 @@
 ﻿using First_App.Models;
 using First_App.Models.Commands;
 using First_App.Models.DataBase;
+using First_App.Models.DataBase.Models;
 using First_App.Models.Game;
 using First_App.Models.RegistryData;
 using First_App.Navigation;
@@ -33,6 +34,8 @@ namespace First_App.ViewModels
         }
 
         public Navigator Navigator { get; }
+        // field to work with database
+        private ChimpDataBase _database = new();
         public Authenticator Authenticator { get; }
 
         public ChimpViewModel()
@@ -51,6 +54,109 @@ namespace First_App.ViewModels
                 // change to authorization tab
                 Navigator.CurrentViewModel = new AuthorizationViewModel();
             }
+        }
+
+        public void OnWindowClosing(object sender, CancelEventArgs e)
+        {
+            // if game is started then
+            if (Game.IsGameStarted)
+            {
+                // are you sure to finish current game?
+                if (IsSureToFinishGame())
+                {
+                    // if yes then is not current user null
+                    if (SavingRegistryData.GetCurrentUser() is not null)
+                    {
+                        // save current game record to database
+                        SaveNewRecord();
+                        ExitFromAccount();
+                        // assign to Game.IsGameStarted - false
+                        Game.IsGameStarted = false;
+
+                        return;
+                    }
+                    ExitGame(e);
+                }
+                //e.Cancel = true;
+                return;
+            }
+            if (SavingRegistryData.GetCurrentUser() is not null)
+            {
+                ExitFromAccount();
+                // assign to Game.IsGameStarted - false
+                Game.IsGameStarted = false;
+                //e.Cancel = true;
+                return;
+            }
+            ExitGame(e);
+        }
+
+        /// <summary>
+        ///     Saves a new record into database.
+        /// </summary>
+        private void SaveNewRecord()
+        {
+            Record newRecord = new();
+            newRecord.Date = DateTime.Now.ToString();
+            newRecord.UserId = _database.GetUser(SavingRegistryData.GetCurrentUser()).Id;
+            newRecord.Score = Counter.Score;
+            Counter.Score = 4;
+
+            _database.AddRecord(newRecord);
+            // update current user data in the database: game count, max score and average score
+            _database.UpdateCurrentUserData();
+        }
+
+        /// <summary>
+        ///     Closes game if you are sure.
+        /// </summary>
+        private void ExitGame(CancelEventArgs e)
+        {
+            var res = MessageBox.Show("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (res == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        /// <summary>
+        ///     Hides panels excepting authorization tab.
+        ///     Exits from account and forward to authorization tab.
+        /// </summary>
+        private void ExitFromAccount()
+        {
+            var res = MessageBox.Show("Are you sure to exit from the account?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (res == MessageBoxResult.Yes)
+            {
+                // update current user data in the database: game count, max score and average score
+                _database.UpdateLastSeenTime();
+                SavingRegistryData registry = new();
+                // remove user data from registry
+                registry.RemoveUserData();
+                // reset current user in authenticator
+                Authenticator.Create().CurrentUser = null;
+                // show authorization panel
+                Navigator.CurrentViewModel = new AuthorizationViewModel();
+            }
+        }
+
+        /// <summary>
+        ///     If user wants to finish current game.
+        /// </summary>
+        /// <returns>True if yes or false.</returns>
+        private bool IsSureToFinishGame()
+        {
+            MessageBoxResult res =
+                MessageBox.Show("Are you sure to finish the game and save current result?",
+                                "Warning",
+                                MessageBoxButton.YesNo,
+                                MessageBoxImage.Warning
+                );
+            if (res == MessageBoxResult.Yes)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

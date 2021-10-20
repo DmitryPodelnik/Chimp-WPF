@@ -291,6 +291,10 @@ namespace First_App.ViewModels
                 // show authorization panel
                 _nav.CurrentViewModel = new AuthorizationViewModel();
             }
+            else
+            {
+                _nav.CurrentViewModel = new UserProfileViewModel();
+            }
         }
 
         /// <summary>
