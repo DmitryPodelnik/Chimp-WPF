@@ -18,6 +18,7 @@
                 <ResourceDictionary Source="/Dictionaries/PasswordBoxesDictionary.xaml" />
                 <ResourceDictionary Source="/Dictionaries/ColorsDictionary.xaml" />
                 <ResourceDictionary Source="/Dictionaries/WindowsDictionary.xaml" />
+                <ResourceDictionary Source="/Dictionaries/ScrollViewersDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewmodels:MainTabViewModel}">
