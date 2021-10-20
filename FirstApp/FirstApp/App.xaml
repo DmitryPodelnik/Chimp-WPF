@@ -4,7 +4,7 @@
              xmlns:views="clr-namespace:First_App.Views"
              xmlns:uc="clr-namespace:First_App.Views.User_Controls"
              xmlns:viewmodels="clr-namespace:First_App.ViewModels"
-             StartupUri="Views/Chimp.xaml">
+             StartupUri="Views/Windows/Chimp.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

@@ -1,4 +1,5 @@
-﻿using First_App.Models.DataBase;
+﻿using First_App.Models.Commands;
+using First_App.Models.DataBase;
 using First_App.Models.DataBase.Models;
 using First_App.Services.Comparers;
 using System;
@@ -47,6 +48,22 @@ namespace First_App.ViewModels
             catch (ArgumentNullException ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        /// <summary>
+        ///     Command after clicking login button.
+        /// </summary>
+        private RelayCommand _showUserProfileCommand;
+        public RelayCommand ShowUserProfileCommand
+        {
+            get
+            {
+                return _showUserProfileCommand ??=
+                new RelayCommand(obj =>
+                {
+
+                });
             }
         }
     }

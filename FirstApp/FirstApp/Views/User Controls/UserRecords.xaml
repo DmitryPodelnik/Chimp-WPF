@@ -36,8 +36,10 @@
                     <DataGridTemplateColumn Header="Username" SortMemberPath="Username" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel VerticalAlignment="Center">
-                                    <TextBlock Text="{Binding Path=User.Username}" FontSize="20" Padding="5" FontWeight="Normal" />
+                                <StackPanel VerticalAlignment="Center" >
+                                    <Button Content="{Binding Path=User.Username}" FontSize="20" Padding="5" FontWeight="Normal" Cursor="Hand"
+                                             Style="{StaticResource usernameButton}" HorizontalAlignment="Left"
+                                             Command="{Binding ShowUserProfileCommand}" />
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

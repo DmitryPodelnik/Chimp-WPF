@@ -14,6 +14,7 @@
     <None Remove="Views\playLogo.png" />
     <None Remove="Views\profileIcon.png" />
     <None Remove="Views\ratingIcon.png" />
+    <None Remove="Views\Windows\profileIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,6 +47,7 @@
     <Resource Include="Views\images\playLogo.png" />
     <Resource Include="Views\images\profileIcon.png" />
     <Resource Include="Views\images\ratingIcon.png" />
+    <Resource Include="Views\Windows\profileIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
