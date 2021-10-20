@@ -69,23 +69,15 @@ namespace First_App.ViewModels
                     {
                         // save current game record to database
                         SaveNewRecord();
-                        ExitFromAccount();
                         // assign to Game.IsGameStarted - false
                         Game.IsGameStarted = false;
-
-                        return;
                     }
                     ExitGame(e);
+
+                    return;
                 }
-                //e.Cancel = true;
-                return;
-            }
-            if (SavingRegistryData.GetCurrentUser() is not null)
-            {
-                ExitFromAccount();
-                // assign to Game.IsGameStarted - false
-                Game.IsGameStarted = false;
-                //e.Cancel = true;
+                // cancel closing chimp window
+                e.Cancel = true;
                 return;
             }
             ExitGame(e);
@@ -115,7 +107,14 @@ namespace First_App.ViewModels
             var res = MessageBox.Show("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (res == MessageBoxResult.No)
             {
+                // cancel closing chimp window
                 e.Cancel = true;
+                // change to user profile tab
+                Navigator.CurrentViewModel = new UserProfileViewModel();
+            }
+            else
+            {
+                ExitFromAccount();
             }
         }
 
@@ -125,19 +124,11 @@ namespace First_App.ViewModels
         /// </summary>
         private void ExitFromAccount()
         {
-            var res = MessageBox.Show("Are you sure to exit from the account?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (res == MessageBoxResult.Yes)
-            {
-                // update current user data in the database: game count, max score and average score
-                _database.UpdateLastSeenTime();
-                SavingRegistryData registry = new();
-                // remove user data from registry
-                registry.RemoveUserData();
-                // reset current user in authenticator
-                Authenticator.Create().CurrentUser = null;
-                // show authorization panel
-                Navigator.CurrentViewModel = new AuthorizationViewModel();
-            }
+            // update current user data in the database: game count, max score and average score
+            _database.UpdateLastSeenTime();
+            SavingRegistryData registry = new();
+            // remove user data from registry
+            registry.RemoveUserData();
         }
 
         /// <summary>

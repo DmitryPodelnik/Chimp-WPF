@@ -31,9 +31,7 @@ namespace First_App
             InitializeComponent();
 
             ChimpViewModel vm = new();
-
             DataContext = vm;
-
             Closing += vm.OnWindowClosing;
         }
 
