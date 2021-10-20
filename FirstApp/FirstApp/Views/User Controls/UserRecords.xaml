@@ -39,7 +39,7 @@
                                 <StackPanel VerticalAlignment="Center" >
                                     <Button Content="{Binding Path=User.Username}" FontSize="20" Padding="5" FontWeight="Normal" Cursor="Hand"
                                              Style="{StaticResource usernameButton}" HorizontalAlignment="Left"
-                                             Command="{Binding ShowUserProfileCommand}" />
+                                             Command="{Binding ShowUserProfileCommand}" Click="Button_Click" />
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

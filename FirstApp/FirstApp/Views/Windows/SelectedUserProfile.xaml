@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:First_App.ViewModels"
         mc:Ignorable="d"  Icon="/Views/Windows/profileIcon.png"
-        Title="Selected User Profile" MinHeight="450" MinWidth="750"
+        Title="Selected User Profile" MinHeight="450" MinWidth="750" MaxHeight="350" MaxWidth="600"
         Background="{StaticResource mainBackground}" >
     <Window.DataContext>
-        <vm:ChimpViewModel/>
+        <vm:UserProfileViewModel/>
     </Window.DataContext>
     <!-- Grid for account panel -->
     <Grid x:Name="accountPanel" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">

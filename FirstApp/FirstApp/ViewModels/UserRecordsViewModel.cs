@@ -2,6 +2,7 @@
 using First_App.Models.DataBase;
 using First_App.Models.DataBase.Models;
 using First_App.Services.Comparers;
+using First_App.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -52,7 +53,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     Command after clicking login button.
+        ///     Command after clicking username button.
         /// </summary>
         private RelayCommand _showUserProfileCommand;
         public RelayCommand ShowUserProfileCommand
@@ -62,7 +63,9 @@ namespace First_App.ViewModels
                 return _showUserProfileCommand ??=
                 new RelayCommand(obj =>
                 {
-
+                    MessageBox.Show("Hello");
+                    SelectedUserProfile userProfile = new();
+                    userProfile.ShowDialog();
                 });
             }
         }

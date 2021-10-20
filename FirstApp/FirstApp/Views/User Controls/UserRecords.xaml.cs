@@ -1,5 +1,6 @@
 ﻿using ChimpControlLibrary;
 using First_App.ViewModels;
+using First_App.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,6 +68,12 @@ namespace First_App.Views
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedUserProfile userProfile = new();
+            userProfile.ShowDialog();
         }
     }
 }
