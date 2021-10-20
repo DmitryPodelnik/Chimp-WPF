@@ -73,8 +73,9 @@ namespace First_App.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            SelectedUserProfile userProfile = new SelectedUserProfile(button.Content.ToString());
-            userProfile.ShowDialog();
+            SelectedUserProfile userProfileWindow = new SelectedUserProfile(button.Content.ToString());
+            userProfileWindow.Owner = Application.Current.MainWindow;
+            userProfileWindow.ShowDialog();
         }
     }
 }

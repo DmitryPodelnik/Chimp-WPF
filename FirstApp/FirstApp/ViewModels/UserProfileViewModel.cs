@@ -82,6 +82,51 @@ namespace First_App.ViewModels
             set => _currentUserRateMessage = value;
         }
 
+        public UserProfileViewModel(string username)
+        {
+            try
+            {
+                // Gets current user login from registry and gets all user data from the database
+                var user = _database.GetUser(username);
+                if (user is null)
+                {
+                    MessageBox.Show("User is not found", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                // welcome message in the profile
+                _currentUserMessage = username;
+
+                if (user.Profile is not null)
+                {
+                    // max score message at the profile
+                    _currentUserMaxScoreMessage = $"Best score: {user.Profile.MaxScore}";
+                    // average score message at the profile
+                    _currentUserAverageScoreMessage = $"Average score: {Math.Round(user.Profile.AverageScore, 1)}";
+                    // game count message at the profile
+                    _currentUserGameCountMessage = $"Game count: {user.Profile.GameCount}";
+                    // register date message at the profile
+                    _wasRegisteredMessage = $"Registered: {user.Profile.RegisterDate}";
+                    // user rate message
+                    _currentUserRateMessage = $"Rate: {user.Profile.Rate}";
+                    // last seen message
+                    _lastSeenMessage = CalculateLastSeenMessage(user);
+                }
+                else
+                {
+                    // max score message in the profile
+                    _currentUserMaxScoreMessage = $"Best score: 0";
+                    // average score message in the profile
+                    _currentUserAverageScoreMessage = $"Average score: 0";
+                    // game count message in the profile
+                    _currentUserGameCountMessage = $"Game count: 0";
+                }
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         /// <summary>
         ///     UserProfileViewModel constructor().
         ///     Gets current user from the registry.
@@ -90,42 +135,39 @@ namespace First_App.ViewModels
         {
             try
             {
-                if (_nav.CurrentViewModel is not UserRecordsViewModel)
+                // Gets current user login from registry and gets all user data from the database
+                var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
+                if (user is null)
                 {
-                    // Gets current user login from registry and gets all user data from the database
-                    var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
-                    if (user is null)
-                    {
-                        MessageBox.Show("User is not found", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return;
-                    }
-                    // welcome message in the profile
-                    _currentUserMessage = SavingRegistryData.GetCurrentUser();
+                    MessageBox.Show("User is not found", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                // welcome message in the profile
+                _currentUserMessage = SavingRegistryData.GetCurrentUser();
 
-                    if (user.Profile is not null)
-                    {
-                        // max score message at the profile
-                        _currentUserMaxScoreMessage = $"Best score: {user.Profile.MaxScore}";
-                        // average score message at the profile
-                        _currentUserAverageScoreMessage = $"Average score: {Math.Round(user.Profile.AverageScore, 1)}";
-                        // game count message at the profile
-                        _currentUserGameCountMessage = $"Game count: {user.Profile.GameCount}";
-                        // register date message at the profile
-                        _wasRegisteredMessage = $"Registered: {user.Profile.RegisterDate}";
-                        // user rate message
-                        _currentUserRateMessage = $"Rate: {user.Profile.Rate}";
-                        // last seen message
-                        _lastSeenMessage = CalculateLastSeenMessage(user);
-                    }
-                    else
-                    {
-                        // max score message in the profile
-                        _currentUserMaxScoreMessage = $"Best score: 0";
-                        // average score message in the profile
-                        _currentUserAverageScoreMessage = $"Average score: 0";
-                        // game count message in the profile
-                        _currentUserGameCountMessage = $"Game count: 0";
-                    }
+                if (user.Profile is not null)
+                {
+                    // max score message at the profile
+                    _currentUserMaxScoreMessage = $"Best score: {user.Profile.MaxScore}";
+                    // average score message at the profile
+                    _currentUserAverageScoreMessage = $"Average score: {Math.Round(user.Profile.AverageScore, 1)}";
+                    // game count message at the profile
+                    _currentUserGameCountMessage = $"Game count: {user.Profile.GameCount}";
+                    // register date message at the profile
+                    _wasRegisteredMessage = $"Registered: {user.Profile.RegisterDate}";
+                    // user rate message
+                    _currentUserRateMessage = $"Rate: {user.Profile.Rate}";
+                    // last seen message
+                    _lastSeenMessage = CalculateLastSeenMessage(user);
+                }
+                else
+                {
+                    // max score message in the profile
+                    _currentUserMaxScoreMessage = $"Best score: 0";
+                    // average score message in the profile
+                    _currentUserAverageScoreMessage = $"Average score: 0";
+                    // game count message in the profile
+                    _currentUserGameCountMessage = $"Game count: 0";
                 }
             }
             catch (ArgumentNullException ex)

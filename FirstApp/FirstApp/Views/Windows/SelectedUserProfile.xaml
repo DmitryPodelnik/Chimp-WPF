@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:First_App.ViewModels"
         mc:Ignorable="d"  Icon="/Views/Windows/profileIcon.png"
         Title="Selected User Profile" MinHeight="450" MinWidth="750" MaxHeight="350" MaxWidth="600"
-        Background="{StaticResource mainBackground}" >
+        Background="{StaticResource mainBackground}" ResizeMode="CanResize" WindowStartupLocation="CenterOwner" >
     <!-- Grid for account panel -->
     <Grid x:Name="accountPanel" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
         <Grid.RowDefinitions>
@@ -40,9 +40,6 @@
             <Button x:Name="gamesHistory" Content="Games History" Height="30" Width="100"
                     Margin="0 0 20 15" BorderBrush="Black"
                     Style="{StaticResource cyanButton}" Command="{Binding GamesHistoryCommand}" />
-            <Button x:Name="editProfile" Content="Edit Profile"  Height="30" Width="100"
-                    BorderBrush="Black" Margin="0 0 0 15"
-                    Style="{StaticResource cyanButton}" Command="{Binding EditProfileCommand}" />
         </StackPanel>
 
         <!-- Stack panel for right account panel -->
