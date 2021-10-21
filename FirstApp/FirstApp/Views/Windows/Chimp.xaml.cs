@@ -5,6 +5,7 @@ using First_App.ViewModels;
 using First_App.Views;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,7 +48,6 @@ namespace First_App
                 if (this.WindowState != WindowState.Maximized)
                 {
                     SystemCommands.MaximizeWindow(this);
-                    this.WindowState = WindowState.Maximized;
                     minMaxIcon.Source = new BitmapImage(
                         new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
                     );
@@ -60,6 +60,18 @@ namespace First_App
                         new Uri("pack://application:,,,/First App;component/Views/Windows/maximize.png")
                     );
                 }
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (UriFormatException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
