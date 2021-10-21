@@ -35,6 +35,14 @@ namespace First_App.ViewModels
             get => _records;
         }
 
+        // field that stores last seen message
+        private string _lastSeenMessage { get; set; }
+        public string LastSeenMessage
+        {
+            get => _lastSeenMessage;
+            set => _lastSeenMessage = value;
+        }
+
         public UserRecordsViewModel()
         {
             try
