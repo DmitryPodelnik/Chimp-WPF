@@ -130,10 +130,56 @@ namespace First_App
                 this.Top = SystemParameters.WorkArea.Top + 20;
                 this.Width = SystemParameters.WorkArea.Width;
                 this.Height = SystemParameters.WorkArea.Height;
+                this.ResizeMode = ResizeMode.NoResize;
                 this.WindowState = WindowState.Normal;
                 minMaxIcon.Source = new BitmapImage(
                     new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
                 );
+            }
+        }
+
+        private void Window_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (this.Height != SystemParameters.WorkArea.Height)
+                {
+                    this.Left = SystemParameters.WorkArea.Left;
+                    this.Top = SystemParameters.WorkArea.Top;
+                    this.Width = SystemParameters.WorkArea.Width;
+                    this.Height = SystemParameters.WorkArea.Height;
+                    this.ResizeMode = ResizeMode.NoResize;
+                    minMaxIcon.Source = new BitmapImage(
+                        new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
+                    );
+                }
+                else
+                {
+                    this.Left = _left;
+                    this.Top = _top;
+                    this.Width = _width;
+                    this.Height = _height;
+                    this.ResizeMode = ResizeMode.CanResize;
+                    minMaxIcon.Source = new BitmapImage(
+                        new Uri("pack://application:,,,/First App;component/Views/Windows/maximize.png")
+                    );
+                }
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (UriFormatException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

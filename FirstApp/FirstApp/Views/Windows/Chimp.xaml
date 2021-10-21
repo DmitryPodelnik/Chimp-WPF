@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Chimp" MinHeight="500" MinWidth="1000" Icon="/Views/images/chimpLogo.png"
         Background="{StaticResource mainBackground}" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" Padding="0" ResizeMode="CanResize" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged"
+        WindowStyle="None" Padding="0" ResizeMode="CanResize" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" MouseDoubleClick="Window_MouseDoubleClick"
         >
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"/>
@@ -33,7 +33,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <Grid Grid.ColumnSpan="5" Background="#FF0A2E5A">
+        <Grid x:Name="chromePanel" Grid.ColumnSpan="5" Background="#FF0A2E5A">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition/>
