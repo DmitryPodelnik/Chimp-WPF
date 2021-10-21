@@ -8,8 +8,9 @@
         mc:Ignorable="d"
         Title="Chimp" MinHeight="500" MinWidth="1000" Icon="/Views/images/chimpLogo.png"
         Background="{StaticResource mainBackground}" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" Padding="0" ResizeMode="CanResize" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged" MouseDoubleClick="Window_MouseDoubleClick"
-        >
+        WindowStyle="None" Padding="0" ResizeMode="CanResize" Loaded="Window_Loaded"
+        SizeChanged="Window_SizeChanged"
+         >
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"/>
     </WindowChrome.WindowChrome>
@@ -32,7 +33,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-
+        <!-- Chrome Grid -->
         <Grid x:Name="chromePanel" Grid.ColumnSpan="5" Background="#FF0A2E5A">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -42,9 +43,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="/Views/Windows/chimpLogo.png" Height="20" Width="20" HorizontalAlignment="Left" Margin="7 5 7 5" />
+            <Image Source="/Views/Windows/chimpLogo.png" Height="20" Width="20" HorizontalAlignment="Left" Margin="7 5 7 5"  />
 
-            <StackPanel Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right" Panel.ZIndex="99">
                 <Button x:Name="minimizeButton" Background="Transparent" Height="30" Width="47" BorderThickness="0" Click="minimizeButton_Click">
                     <Button.Content>
                         <Line X1="0" Y1="5" X2="10" Y2="5"  Stroke="#FF399EF0" StrokeThickness="1" />
@@ -62,8 +63,10 @@
                     </Button.Content>
                 </Button>
             </StackPanel>
-        </Grid>
 
+            <Button Grid.ColumnSpan="5" Background="Transparent" MouseDoubleClick="Button_MouseDoubleClick"
+                    Style="{StaticResource chromeButton}"  Panel.ZIndex="1" PreviewMouseLeftButtonDown="Button_MouseLeftButtonDown" />
+        </Grid>
 
         <Border x:Name="leftSideMenu" Grid.Row="1" Grid.RowSpan="4" HorizontalAlignment="Left" Visibility="{Binding Authenticator.IsLoggedIn,
                           Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}">

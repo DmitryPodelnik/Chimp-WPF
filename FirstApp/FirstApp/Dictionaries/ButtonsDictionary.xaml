@@ -149,30 +149,21 @@
         </Setter>
     </Style>
 
-    <Style x:Key="usernameButton" TargetType="{x:Type Button}">
+    <Style x:Key="chromeButton" TargetType="{x:Type Button}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="buttonBorder" BorderBrush="Transparent"
-                            Background="Transparent"
-                            Padding="{TemplateBinding Padding}"
-                            >
-                        <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center"
+                    <Border x:Name="chromeBorder" Background="Transparent">
 
-                                Margin="{TemplateBinding Margin}"
-                                Content="{TemplateBinding Content}"
-                                FontSize="{TemplateBinding FontSize}"
-                                FontWeight="{TemplateBinding FontWeight}"
-                                Cursor="Hand">
-                        </ContentControl>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter TargetName="buttonBorder" Property="BorderBrush" Value="Transparent" />
+                            <Setter TargetName="chromeBorder" Property="BorderBrush" Value="Transparent" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
 </ResourceDictionary>

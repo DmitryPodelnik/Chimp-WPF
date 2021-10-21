@@ -60,66 +60,23 @@ namespace First_App
 
         private void maximizeButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (this.Height != SystemParameters.WorkArea.Height)
-                {
-                    this.Left = SystemParameters.WorkArea.Left;
-                    this.Top = SystemParameters.WorkArea.Top;
-                    this.Width = SystemParameters.WorkArea.Width;
-                    this.Height = SystemParameters.WorkArea.Height;
-                    this.ResizeMode = ResizeMode.NoResize;
-                    minMaxIcon.Source = new BitmapImage(
-                        new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
-                    );
-                }
-                else
-                {
-                    this.Left = _left;
-                    this.Top = _top;
-                    this.Width = _width;
-                    this.Height = _height;
-                    this.ResizeMode = ResizeMode.CanResize;
-                    minMaxIcon.Source = new BitmapImage(
-                        new Uri("pack://application:,,,/First App;component/Views/Windows/maximize.png")
-                    );
-                }
-            }
-            catch (ArgumentNullException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            catch (FileNotFoundException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            catch (UriFormatException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            ResizeWindow();
         }
-
         private void crossButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        private void Button_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            base.OnMouseLeftButtonDown(e);
-            if (e.ButtonState == MouseButtonState.Pressed)
-                DragMove();
+            ResizeWindow();
         }
-
         protected override void OnContentRendered(EventArgs e)
         {
             base.OnContentRendered(e);
             if (SizeToContent == SizeToContent.WidthAndHeight)
+            {
                 InvalidateMeasure();
+            }
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -133,12 +90,12 @@ namespace First_App
                 this.ResizeMode = ResizeMode.NoResize;
                 this.WindowState = WindowState.Normal;
                 minMaxIcon.Source = new BitmapImage(
-                    new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
+                   new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
                 );
             }
         }
 
-        private void Window_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void ResizeWindow()
         {
             try
             {
@@ -181,6 +138,13 @@ namespace First_App
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            if (e.ButtonState == MouseButtonState.Pressed)
+                DragMove();
         }
     }
 }

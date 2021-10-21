@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "First App", "FirstApp\First App.csproj", "{9675508E-23FC-420E-BF4A-29E9D563AE8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChimpControlLibrary", "ChimpControlLibrary\ChimpControlLibrary.csproj", "{4E95CE77-D74C-46E5-B492-7043D6A03E48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChimpControlLibrary", "ChimpControlLibrary\ChimpControlLibrary.csproj", "{4E95CE77-D74C-46E5-B492-7043D6A03E48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
