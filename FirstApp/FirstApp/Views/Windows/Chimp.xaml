@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Chimp" MinHeight="500" MinWidth="1000" Icon="/Views/images/chimpLogo.png"
         Background="{StaticResource mainBackground}" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" Padding="0" ResizeMode="CanResizeWithGrip" Loaded="Window_Loaded"
+        WindowStyle="None" Padding="0" ResizeMode="CanResize" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged"
         >
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"/>

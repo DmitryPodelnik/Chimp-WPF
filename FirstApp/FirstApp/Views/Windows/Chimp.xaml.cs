@@ -49,6 +49,8 @@ namespace First_App
             _left = this.Left;
             _width = this.Width;
             _height = this.Height;
+            this.MaxWidth = SystemParameters.WorkArea.Width;
+            this.MaxHeight = SystemParameters.WorkArea.Height;
         }
 
         private void minimizeButton_Click(object sender, RoutedEventArgs e)
@@ -66,6 +68,7 @@ namespace First_App
                     this.Top = SystemParameters.WorkArea.Top;
                     this.Width = SystemParameters.WorkArea.Width;
                     this.Height = SystemParameters.WorkArea.Height;
+                    this.ResizeMode = ResizeMode.NoResize;
                     minMaxIcon.Source = new BitmapImage(
                         new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
                     );
@@ -76,6 +79,7 @@ namespace First_App
                     this.Top = _top;
                     this.Width = _width;
                     this.Height = _height;
+                    this.ResizeMode = ResizeMode.CanResize;
                     minMaxIcon.Source = new BitmapImage(
                         new Uri("pack://application:,,,/First App;component/Views/Windows/maximize.png")
                     );
@@ -102,6 +106,35 @@ namespace First_App
         private void crossButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            if (e.ButtonState == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        protected override void OnContentRendered(EventArgs e)
+        {
+            base.OnContentRendered(e);
+            if (SizeToContent == SizeToContent.WidthAndHeight)
+                InvalidateMeasure();
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.Left = SystemParameters.WorkArea.Left;
+                this.Top = SystemParameters.WorkArea.Top + 20;
+                this.Width = SystemParameters.WorkArea.Width;
+                this.Height = SystemParameters.WorkArea.Height;
+                this.WindowState = WindowState.Normal;
+                minMaxIcon.Source = new BitmapImage(
+                    new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
+                );
+            }
         }
     }
 }
