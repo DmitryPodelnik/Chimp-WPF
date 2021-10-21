@@ -35,13 +35,6 @@
                    Grid.Column="3" Text="{Binding WasRegisteredMessage}"
                    Foreground="Cyan" />
 
-        <StackPanel x:Name="navPanel" Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Center">
-            <Button x:Name="gamesHistory" Content="Games History" Height="30" Width="100"
-                    Margin="0 0 20 15" BorderBrush="Black"
-                    Style="{StaticResource cyanButton}" Command="{Binding GamesHistoryCommand}" />
-        </StackPanel>
-
         <!-- Stack panel for right account panel -->
         <!-- Shows you best score and last games -->
         <StackPanel x:Name="rightAccountPanel" Grid.ColumnSpan="4"

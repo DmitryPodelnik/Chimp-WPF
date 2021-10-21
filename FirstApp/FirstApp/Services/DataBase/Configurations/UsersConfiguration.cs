@@ -20,6 +20,8 @@ namespace FirstApp.Configurations
         {
             SHA256Managed sha256 = new SHA256Managed();
 
+            builder.Property(u => u.IsOnline).HasDefaultValue(false);
+
             builder.HasData(
               new User[]
               {

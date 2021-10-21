@@ -82,19 +82,47 @@ namespace First_App.ViewModels
             set => _currentUserRateMessage = value;
         }
 
+        /// <summary>
+        ///     UserProfileViewModel constructor().
+        /// </summary>
+        /// <param name="username">Username</param>
         public UserProfileViewModel(string username)
+        {
+            InitializeUserProfile(username);
+        }
+
+        /// <summary>
+        ///     UserProfileViewModel constructor().
+        ///     Gets current user from the registry.
+        /// </summary>
+        public UserProfileViewModel()
+        {
+            InitializeUserProfile();
+        }
+
+        private void InitializeUserProfile(string username = null)
         {
             try
             {
+                User user;
                 // Gets current user login from registry and gets all user data from the database
-                var user = _database.GetUser(username);
+                if (username == null)
+                {
+                    user = _database.GetUser(SavingRegistryData.GetCurrentUser());
+                    // welcome message in the profile
+                    _currentUserMessage = SavingRegistryData.GetCurrentUser();
+                }
+                else
+                {
+                    user = _database.GetUser(username);
+                    // welcome message in the profile
+                    _currentUserMessage = username;
+                }
                 if (user is null)
                 {
                     MessageBox.Show("User is not found", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                // welcome message in the profile
-                _currentUserMessage = username;
 
                 if (user.Profile is not null)
                 {
@@ -109,7 +137,14 @@ namespace First_App.ViewModels
                     // user rate message
                     _currentUserRateMessage = $"Rate: {user.Profile.Rate}";
                     // last seen message
-                    _lastSeenMessage = CalculateLastSeenMessage(user);
+                    if (user.IsOnline == false)
+                    {
+                        _lastSeenMessage = CalculateLastSeenMessage(user);
+                    }
+                    else
+                    {
+                        _lastSeenMessage = "User is online";
+                    }
                 }
                 else
                 {
@@ -125,52 +160,11 @@ namespace First_App.ViewModels
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-        /// <summary>
-        ///     UserProfileViewModel constructor().
-        ///     Gets current user from the registry.
-        /// </summary>
-        public UserProfileViewModel()
-        {
-            try
+            catch (NullReferenceException ex)
             {
-                // Gets current user login from registry and gets all user data from the database
-                var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
-                if (user is null)
-                {
-                    MessageBox.Show("User is not found", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                // welcome message in the profile
-                _currentUserMessage = SavingRegistryData.GetCurrentUser();
-
-                if (user.Profile is not null)
-                {
-                    // max score message at the profile
-                    _currentUserMaxScoreMessage = $"Best score: {user.Profile.MaxScore}";
-                    // average score message at the profile
-                    _currentUserAverageScoreMessage = $"Average score: {Math.Round(user.Profile.AverageScore, 1)}";
-                    // game count message at the profile
-                    _currentUserGameCountMessage = $"Game count: {user.Profile.GameCount}";
-                    // register date message at the profile
-                    _wasRegisteredMessage = $"Registered: {user.Profile.RegisterDate}";
-                    // user rate message
-                    _currentUserRateMessage = $"Rate: {user.Profile.Rate}";
-                    // last seen message
-                    _lastSeenMessage = CalculateLastSeenMessage(user);
-                }
-                else
-                {
-                    // max score message in the profile
-                    _currentUserMaxScoreMessage = $"Best score: 0";
-                    // average score message in the profile
-                    _currentUserAverageScoreMessage = $"Average score: 0";
-                    // game count message in the profile
-                    _currentUserGameCountMessage = $"Game count: 0";
-                }
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            catch (ArgumentNullException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -181,7 +175,7 @@ namespace First_App.ViewModels
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        string CalculateLastSeenMessage(User user)
+        private string CalculateLastSeenMessage(User user)
         {
             string result = "Last seen ";
             try
@@ -207,6 +201,14 @@ namespace First_App.ViewModels
                 }
             }
             catch (InvalidCastException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }

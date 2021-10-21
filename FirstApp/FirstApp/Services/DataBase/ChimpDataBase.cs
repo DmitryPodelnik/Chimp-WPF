@@ -68,6 +68,14 @@ namespace First_App.Models.DataBase
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         /// <summary>
@@ -80,13 +88,17 @@ namespace First_App.Models.DataBase
         {
             try
             {
-                var result = _context.Users.FirstOrDefault(
+                var user = _context.Users.FirstOrDefault(
                      u => u.Username == login &&
                      u.Password == Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password))));
 
                 // if correct
-                if (result != null)
+                if (user != null)
                 {
+                    user.IsOnline = true;
+                    _context.Users.Update(user);
+                    _context.SaveChanges();
+
                     return true;
                 }
                 // if incorrect
@@ -108,6 +120,16 @@ namespace First_App.Models.DataBase
                 return false;
             }
             catch (EncoderFallbackException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
@@ -218,6 +240,16 @@ namespace First_App.Models.DataBase
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
         }
 
         /// <summary>
@@ -234,6 +266,16 @@ namespace First_App.Models.DataBase
                     .ToList();
             }
             catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;
@@ -256,6 +298,14 @@ namespace First_App.Models.DataBase
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (DbUpdateException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -288,6 +338,11 @@ namespace First_App.Models.DataBase
                 }
                 return false;
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -304,11 +359,17 @@ namespace First_App.Models.DataBase
                 if (user is not null)
                 {
                     user.Profile.LastSeen = DateTime.Now;
+                    user.IsOnline = false;
                     _context.Users.Update(user);
                     _context.SaveChanges();
 
                     return true;
                 }
+                return false;
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             catch (Exception ex)
@@ -334,6 +395,16 @@ namespace First_App.Models.DataBase
                 .ToList();
             }
             catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return null;

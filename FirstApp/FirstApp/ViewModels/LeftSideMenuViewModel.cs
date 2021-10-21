@@ -284,8 +284,11 @@ namespace First_App.ViewModels
                 // update current user data in the database: game count, max score and average score
                 _database.UpdateLastSeenTime();
                 SavingRegistryData registry = new();
-                // remove user data from registry
-                registry.RemoveUserData();
+                if (SavingRegistryData.GetCurrentUser() is not null)
+                {
+                    // remove user data from registry
+                    registry.RemoveUserData();
+                }
                 // reset current user in authenticator
                 Authenticator.Create().CurrentUser = null;
                 // show authorization panel

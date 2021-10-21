@@ -38,6 +38,9 @@ namespace First_App.Models.DataBase.Models
         [Compare("Password", ErrorMessage = "Passwords are not equal")]
         public string PasswordConfirmation { get; set; }
 
+        [Required]
+        public bool IsOnline { get; set; }
+
         public UserProfile Profile { get; set; }
 
         public List<Record> Records { get; set; } = new();
