@@ -143,10 +143,12 @@ namespace First_App.Models.RegistryData
             catch (NullReferenceException ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
             }
         }
 
@@ -195,10 +197,12 @@ namespace First_App.Models.RegistryData
             catch (NullReferenceException ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
             }
         }
     }
