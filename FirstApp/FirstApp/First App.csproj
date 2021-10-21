@@ -14,6 +14,11 @@
     <None Remove="Views\playLogo.png" />
     <None Remove="Views\profileIcon.png" />
     <None Remove="Views\ratingIcon.png" />
+    <None Remove="Views\Windows\chimpLogo.png" />
+    <None Remove="Views\Windows\cross.png" />
+    <None Remove="Views\Windows\cross1.png" />
+    <None Remove="Views\Windows\cross2.png" />
+    <None Remove="Views\Windows\maximize.png" />
     <None Remove="Views\Windows\profileIcon.png" />
   </ItemGroup>
 
@@ -47,6 +52,11 @@
     <Resource Include="Views\images\playLogo.png" />
     <Resource Include="Views\images\profileIcon.png" />
     <Resource Include="Views\images\ratingIcon.png" />
+    <Resource Include="Views\Windows\chimpLogo.png" />
+    <Resource Include="Views\Windows\cross.png" />
+    <Resource Include="Views\Windows\cross1.png" />
+    <Resource Include="Views\Windows\cross2.png" />
+    <Resource Include="Views\Windows\maximize.png" />
     <Resource Include="Views\Windows\profileIcon.png" />
   </ItemGroup>
 
