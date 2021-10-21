@@ -25,8 +25,14 @@ namespace First_App
     /// <summary>
     ///     Interaction logic for Chimp.xaml
     /// </summary>
+    ///
+
     public partial class Chimp : Window
     {
+        private static double _top;
+        private static double _left;
+        private static double _width;
+        private static double _height;
         public Chimp()
         {
             InitializeComponent();
@@ -34,6 +40,15 @@ namespace First_App
             ChimpViewModel vm = new();
             DataContext = vm;
             Closing += vm.OnWindowClosing;
+        }
+
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            _top = this.Top;
+            _left = this.Left;
+            _width = this.Width;
+            _height = this.Height;
         }
 
         private void minimizeButton_Click(object sender, RoutedEventArgs e)
@@ -45,17 +60,22 @@ namespace First_App
         {
             try
             {
-                if (this.WindowState != WindowState.Maximized)
+                if (this.Height != SystemParameters.WorkArea.Height)
                 {
-                    SystemCommands.MaximizeWindow(this);
+                    this.Left = SystemParameters.WorkArea.Left;
+                    this.Top = SystemParameters.WorkArea.Top;
+                    this.Width = SystemParameters.WorkArea.Width;
+                    this.Height = SystemParameters.WorkArea.Height;
                     minMaxIcon.Source = new BitmapImage(
                         new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
                     );
                 }
                 else
                 {
-
-                    this.WindowState = WindowState.Normal;
+                    this.Left = _left;
+                    this.Top = _top;
+                    this.Width = _width;
+                    this.Height = _height;
                     minMaxIcon.Source = new BitmapImage(
                         new Uri("pack://application:,,,/First App;component/Views/Windows/maximize.png")
                     );
