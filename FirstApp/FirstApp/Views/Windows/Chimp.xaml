@@ -33,7 +33,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <Grid Grid.ColumnSpan="5" Background="white">
+        <Grid Grid.ColumnSpan="5" Background="#FF0A2E5A">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition/>
@@ -45,18 +45,18 @@
             <Image Source="/Views/Windows/chimpLogo.png" Height="20" Width="20" HorizontalAlignment="Left" Margin="7 5 7 5" />
 
             <StackPanel Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="minimizeButton" Background="Transparent" Height="30" Width="47" BorderThickness="0">
+                <Button x:Name="minimizeButton" Background="Transparent" Height="30" Width="47" BorderThickness="0" Click="minimizeButton_Click">
                     <Button.Content>
-                        <Line X1="0" Y1="5" X2="10" Y2="5"  Stroke="Black" StrokeThickness="0.7" />
+                        <Line X1="0" Y1="5" X2="10" Y2="5"  Stroke="#FF399EF0" StrokeThickness="1" />
                     </Button.Content>
                 </Button>
-                <Button x:Name="maximizeButton" Background="Transparent"  Height="30" Width="47" BorderThickness="0"  >
+                <Button x:Name="minMaxButton" Background="Transparent"  Height="30" Width="47" BorderThickness="0" Click="maximizeButton_Click"  >
                     <Button.Content>
-                        <Image Source="/Views/Windows/maximize.png" Height="12" Width="13" />
+                        <Image x:Name="minMaxIcon" Source="/Views/Windows/maximize.png" Height="12" Width="13" />
                     </Button.Content>
                 </Button>
                 <Button x:Name="crossButton"  HorizontalContentAlignment="Center" VerticalAlignment="Center"
-                        Background="Transparent"  Height="30" Width="47" BorderThickness="0"  >
+                        Background="Transparent"  Height="30" Width="47" BorderThickness="0" Click="crossButton_Click"  >
                     <Button.Content>
                         <Image Source="/Views/Windows/cross1.png" Height="13" Width="13" />
                     </Button.Content>

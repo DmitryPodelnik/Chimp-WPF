@@ -35,5 +35,41 @@ namespace First_App
             Closing += vm.OnWindowClosing;
         }
 
+        private void minimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            SystemCommands.MinimizeWindow(this);
+        }
+
+        private void maximizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (this.WindowState != WindowState.Maximized)
+                {
+                    SystemCommands.MaximizeWindow(this);
+                    this.WindowState = WindowState.Maximized;
+                    minMaxIcon.Source = new BitmapImage(
+                        new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
+                    );
+                }
+                else
+                {
+
+                    this.WindowState = WindowState.Normal;
+                    minMaxIcon.Source = new BitmapImage(
+                        new Uri("pack://application:,,,/First App;component/Views/Windows/maximize.png")
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void crossButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
