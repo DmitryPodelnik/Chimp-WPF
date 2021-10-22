@@ -19,6 +19,9 @@ namespace First_App.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ScoreTableViewModel()
         {
             _numbersMessage = Counter.Score.ToString();

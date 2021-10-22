@@ -30,6 +30,9 @@ namespace First_App.ViewModels
             get => _records;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public UserGamesHistoryViewModel()
         {
             try

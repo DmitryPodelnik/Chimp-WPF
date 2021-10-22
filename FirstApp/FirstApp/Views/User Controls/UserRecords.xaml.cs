@@ -37,16 +37,29 @@ namespace First_App.Views
             dataGrid.Width = ((Chimp)Application.Current.MainWindow).contentControl.ActualWidth;
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             HightLightsDataGridTopRows();
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGrid_PreviewMouseMove(object sender, MouseEventArgs e)
         {
             HightLightsDataGridTopRows();
         }
 
+        /// <summary>
+        ///
+        /// </summary>
         private void HightLightsDataGridTopRows()
         {
             try
@@ -70,6 +83,11 @@ namespace First_App.Views
             }
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;

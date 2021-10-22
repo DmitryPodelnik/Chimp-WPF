@@ -100,6 +100,10 @@ namespace First_App.ViewModels
             InitializeUserProfile();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
         private void InitializeUserProfile(string username = null)
         {
             try

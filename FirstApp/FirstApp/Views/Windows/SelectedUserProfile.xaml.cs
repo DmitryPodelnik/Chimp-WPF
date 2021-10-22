@@ -20,15 +20,34 @@ namespace First_App.Views.Windows
     /// </summary>
     public partial class SelectedUserProfile : Window
     {
-        public SelectedUserProfile()
-        {
-
-        }
+        public SelectedUserProfile() {}
         public SelectedUserProfile(string username)
         {
             InitializeComponent();
 
             DataContext = new UserProfileViewModel(username);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            if (e.ButtonState == MouseButtonState.Pressed)
+                DragMove();
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void crossButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

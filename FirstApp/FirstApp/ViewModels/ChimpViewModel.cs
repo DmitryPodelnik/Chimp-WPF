@@ -38,6 +38,9 @@ namespace First_App.ViewModels
         private ChimpDataBase _database = new();
         public Authenticator Authenticator { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ChimpViewModel()
         {
             Navigator = Navigator.Create();
@@ -56,6 +59,11 @@ namespace First_App.ViewModels
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void OnWindowClosing(object sender, CancelEventArgs e)
         {
             // if game is started then

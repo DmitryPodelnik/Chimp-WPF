@@ -3,13 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="clr-namespace:First_App.ViewModels"
         mc:Ignorable="d"  Icon="/Views/Windows/profileIcon.png"
         Title="Selected User Profile" MinHeight="450" MinWidth="750" MaxHeight="350" MaxWidth="600"
-        Background="{StaticResource mainBackground}" ResizeMode="CanResize" WindowStartupLocation="CenterOwner" >
+        Background="{StaticResource mainBackground}" WindowStartupLocation="CenterOwner"
+        WindowStyle="None" Padding="0" ResizeMode="NoResize">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+
     <!-- Grid for account panel -->
     <Grid x:Name="accountPanel" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4">
         <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -22,22 +27,47 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+        <!-- Chrome Grid -->
+        <Grid x:Name="chromePanel" Grid.ColumnSpan="5" Background="#FF0A2E5A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="/Views/Windows/chimpLogo.png" Height="20" Width="20" HorizontalAlignment="Left" Margin="7 5 7 5"  />
+
+            <StackPanel Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right" Panel.ZIndex="99">
+                <Button x:Name="crossButton"  HorizontalContentAlignment="Center" VerticalAlignment="Center"
+                        Background="Transparent"  Height="30" Width="47" BorderThickness="0" Click="crossButton_Click"  >
+                    <Button.Content>
+                        <Image Source="/Views/Windows/cross1.png" Height="13" Width="13" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <Button Grid.ColumnSpan="5" Background="Transparent"
+                    Style="{StaticResource chromeButton}"  Panel.ZIndex="1" PreviewMouseLeftButtonDown="Button_MouseLeftButtonDown" />
+        </Grid>
+
         <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Center"
-                   VerticalAlignment="Center" Margin="25 20 0 0" Grid.Row="1" Grid.RowSpan="2"
+                   VerticalAlignment="Center" Margin="25 20 0 0" Grid.Row="2" Grid.RowSpan="2"
                    Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentUserMessage}"
                    Foreground="Cyan" FontWeight="DemiBold" />
         <TextBlock x:Name="lastSeenTextBlock" FontSize="15" HorizontalAlignment="Left"
-                   VerticalAlignment="Bottom" Margin="30 0 0 20" Grid.Row="3"
+                   VerticalAlignment="Bottom" Margin="30 0 0 20" Grid.Row="4"
                    Grid.ColumnSpan="2" Text="{Binding LastSeenMessage}"
                    Foreground="Cyan" />
         <TextBlock x:Name="wasRegisteredTextBlock" FontSize="15" HorizontalAlignment="Right"
-                   Margin="0 0 30 20" Grid.Row="3" VerticalAlignment="Bottom"
+                   Margin="0 0 30 20" Grid.Row="4" VerticalAlignment="Bottom"
                    Grid.Column="3" Text="{Binding WasRegisteredMessage}"
                    Foreground="Cyan" />
 
         <!-- Stack panel for right account panel -->
         <!-- Shows you best score and last games -->
-        <StackPanel x:Name="rightAccountPanel" Grid.ColumnSpan="4"
+        <StackPanel x:Name="rightAccountPanel" Grid.ColumnSpan="4"  Grid.Row="1"
                     Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
             <TextBlock x:Name="maxScoreText" FontSize="20px" Margin="0 20 50 0" HorizontalAlignment="Center"
                        Text="{Binding CurrentUserMaxScoreMessage}" Foreground="Cyan" />

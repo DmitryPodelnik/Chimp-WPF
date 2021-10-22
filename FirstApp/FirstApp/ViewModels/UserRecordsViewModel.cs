@@ -43,6 +43,9 @@ namespace First_App.ViewModels
             set => _lastSeenMessage = value;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public UserRecordsViewModel()
         {
             try

@@ -327,7 +327,10 @@ namespace First_App.Models.DataBase
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public bool UpdateLastSeenTime()
         {
             try

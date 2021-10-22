@@ -42,7 +42,11 @@ namespace First_App
             Closing += vm.OnWindowClosing;
         }
 
-
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             _top = this.Top;
@@ -53,23 +57,50 @@ namespace First_App
             this.MaxHeight = SystemParameters.WorkArea.Height;
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void minimizeButton_Click(object sender, RoutedEventArgs e)
         {
             SystemCommands.MinimizeWindow(this);
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void maximizeButton_Click(object sender, RoutedEventArgs e)
         {
             ResizeWindow();
         }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void crossButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             ResizeWindow();
         }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnContentRendered(EventArgs e)
         {
             base.OnContentRendered(e);
@@ -79,6 +110,11 @@ namespace First_App
             }
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (this.WindowState == WindowState.Maximized)
@@ -95,6 +131,9 @@ namespace First_App
             }
         }
 
+        /// <summary>
+        ///
+        /// </summary>
         private void ResizeWindow()
         {
             try
@@ -140,8 +179,23 @@ namespace First_App
             }
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            if (this.Height == SystemParameters.WorkArea.Height)
+            {
+                this.Left = _left;
+                this.Width = _width;
+                this.Height = _height;
+                this.ResizeMode = ResizeMode.CanResize;
+                minMaxIcon.Source = new BitmapImage(
+                    new Uri("pack://application:,,,/First App;component/Views/Windows/maximize.png")
+                );
+            }
             base.OnMouseLeftButtonDown(e);
             if (e.ButtonState == MouseButtonState.Pressed)
                 DragMove();
