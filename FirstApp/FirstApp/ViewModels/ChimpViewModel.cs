@@ -139,12 +139,6 @@ namespace First_App.ViewModels
         {
             // update current user data in the database: game count, max score and average score
             _database.UpdateLastSeenTime();
-            SavingRegistryData registry = new();
-            if (SavingRegistryData.GetCurrentUser() is not null)
-            {
-                // remove user data from registry
-                registry.RemoveUserData();
-            }
         }
 
         /// <summary>

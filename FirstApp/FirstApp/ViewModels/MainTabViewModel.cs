@@ -24,16 +24,6 @@ namespace First_App.ViewModels
         }
 
         private Navigator _nav = Navigator.Create();
-        // field to work with database
-        private ChimpDataBase _database = new();
-
-        // field that stores
-        private string _currentUserMessage { get; set; }
-        public string CurrentUserMessage
-        {
-            get => _currentUserMessage;
-            set => _currentUserMessage = value;
-        }
 
         /// <summary>
         ///     UserProfileViewModel constructor().
@@ -41,22 +31,7 @@ namespace First_App.ViewModels
         /// </summary>
         public MainTabViewModel()
         {
-            try
-            {
-                // Get current user login from registry and get all user data from the database
-                var user = _database.GetUser(SavingRegistryData.GetCurrentUser());
-                if (user is null)
-                {
-                    MessageBox.Show("User is not found", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                // welcome message in the profile
-                _currentUserMessage = SavingRegistryData.GetCurrentUser();
-            }
-            catch (ArgumentNullException ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+
         }
     }
 }

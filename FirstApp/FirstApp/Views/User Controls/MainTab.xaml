@@ -20,9 +20,6 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="accountNameTextBlock" FontSize="20" HorizontalAlignment="Left"
-                   VerticalAlignment="Top" Margin="30 20 0 0"
-                   Text="{Binding CurrentUserMessage}"
-                   Foreground="Cyan" FontWeight="DemiBold" />
+
     </Grid>
 </UserControl>

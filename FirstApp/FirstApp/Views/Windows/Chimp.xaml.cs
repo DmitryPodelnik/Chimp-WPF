@@ -88,7 +88,7 @@ namespace First_App
         }
 
         /// <summary>
-        ///     Event occurs after mouse double click on the chrome button.
+        ///     Event occurs after mouse left double click on the chrome button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -120,18 +120,18 @@ namespace First_App
         /// <param name="e"></param>
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (this.WindowState == WindowState.Maximized)
-            {
-                this.Left = SystemParameters.WorkArea.Left;
-                this.Top = SystemParameters.WorkArea.Top;
-                this.Width = SystemParameters.WorkArea.Width;
-                this.Height = SystemParameters.WorkArea.Height;
-                this.ResizeMode = ResizeMode.NoResize;
-                this.WindowState = WindowState.Normal;
-                minMaxIcon.Source = new BitmapImage(
-                   new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
-                );
-            }
+            //if (this.WindowState == WindowState.Maximized)
+            //    this.Left = SystemParameters.WorkArea.Left;
+            //    this.Top = SystemParameters.WorkArea.Top;
+            //    this.Width = SystemParameters.WorkArea.Width;
+            //    this.Height = SystemParameters.WorkArea.Height;
+            //    this.ResizeMode = ResizeMode.NoResize;
+            //    this.WindowState = WindowState.Normal;
+            //    minMaxIcon.Source = new BitmapImage(
+            //       new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
+            //    );
+            //}
+
         }
 
         /// <summary>
@@ -141,7 +141,19 @@ namespace First_App
         {
             try
             {
-                if (this.Height != SystemParameters.WorkArea.Height)
+                if (this.Height == SystemParameters.WorkArea.Height)
+                {
+                    this.WindowState = WindowState.Normal;
+                    this.Left = _left;
+                    this.Top = _top;
+                    this.Width = _width;
+                    this.Height = _height;
+                    this.ResizeMode = ResizeMode.CanResize;
+                    minMaxIcon.Source = new BitmapImage(
+                        new Uri("pack://application:,,,/First App;component/Views/Windows/maximize.png")
+                    );
+                }
+                else if (this.WindowState != WindowState.Maximized)
                 {
                     this.Left = SystemParameters.WorkArea.Left;
                     this.Top = SystemParameters.WorkArea.Top;
@@ -150,17 +162,6 @@ namespace First_App
                     this.ResizeMode = ResizeMode.NoResize;
                     minMaxIcon.Source = new BitmapImage(
                         new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
-                    );
-                }
-                else
-                {
-                    this.Left = _left;
-                    this.Top = _top;
-                    this.Width = _width;
-                    this.Height = _height;
-                    this.ResizeMode = ResizeMode.CanResize;
-                    minMaxIcon.Source = new BitmapImage(
-                        new Uri("pack://application:,,,/First App;component/Views/Windows/maximize.png")
                     );
                 }
             }
@@ -189,7 +190,7 @@ namespace First_App
         /// <param name="e"></param>
         private void Button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (this.Height == SystemParameters.WorkArea.Height)
+            if (this.WindowState == WindowState.Maximized)
             {
                 this.Left = _left;
                 this.Width = _width;
