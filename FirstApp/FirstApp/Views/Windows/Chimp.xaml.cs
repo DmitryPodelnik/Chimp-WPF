@@ -94,7 +94,10 @@ namespace First_App
         /// <param name="e"></param>
         private void Button_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            ResizeWindow();
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                ResizeWindow();
+            }
         }
 
         /// <summary>
@@ -120,7 +123,7 @@ namespace First_App
             if (this.WindowState == WindowState.Maximized)
             {
                 this.Left = SystemParameters.WorkArea.Left;
-                this.Top = SystemParameters.WorkArea.Top + 20;
+                this.Top = SystemParameters.WorkArea.Top;
                 this.Width = SystemParameters.WorkArea.Width;
                 this.Height = SystemParameters.WorkArea.Height;
                 this.ResizeMode = ResizeMode.NoResize;
