@@ -101,7 +101,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        /// 
+        ///     Gets current user from the registry and fill user profile data.
         /// </summary>
         /// <param name="username"></param>
         private void InitializeUserProfile(string username = null)

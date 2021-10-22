@@ -39,7 +39,8 @@ namespace First_App.ViewModels
         public Authenticator Authenticator { get; }
 
         /// <summary>
-        /// 
+        ///     ChimpViewModel constructor().
+        ///     Checks if user is logged in.
         /// </summary>
         public ChimpViewModel()
         {
@@ -60,7 +61,7 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        /// 
+        ///     Event occurs while chimp window is closing.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

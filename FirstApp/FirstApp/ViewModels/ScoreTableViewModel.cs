@@ -20,7 +20,8 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        /// 
+        ///     ScoreTableViewModel constructor().
+        ///     Shows finish user score and strikes after the game.
         /// </summary>
         public ScoreTableViewModel()
         {

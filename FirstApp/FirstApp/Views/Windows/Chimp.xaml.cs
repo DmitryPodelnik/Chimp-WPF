@@ -43,7 +43,7 @@ namespace First_App
         }
 
         /// <summary>
-        ///
+        ///     Event occurs when chimp window is loaded.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -58,7 +58,7 @@ namespace First_App
         }
 
         /// <summary>
-        ///
+        ///     Event occurs after clicking minimize button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -68,7 +68,7 @@ namespace First_App
         }
 
         /// <summary>
-        ///
+        ///     Event occurs after clicking maximize button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -78,7 +78,7 @@ namespace First_App
         }
 
         /// <summary>
-        ///
+        ///     Event occurs after clicking cross button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -88,7 +88,7 @@ namespace First_App
         }
 
         /// <summary>
-        ///
+        ///     Event occurs after mouse double click on the chrome button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -98,7 +98,7 @@ namespace First_App
         }
 
         /// <summary>
-        ///
+        ///     Event occurs after window content rendered.
         /// </summary>
         /// <param name="e"></param>
         protected override void OnContentRendered(EventArgs e)
@@ -111,7 +111,7 @@ namespace First_App
         }
 
         /// <summary>
-        ///
+        ///     Event occurs when window size was changed.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -132,7 +132,7 @@ namespace First_App
         }
 
         /// <summary>
-        ///
+        ///     Resizes chimp window.
         /// </summary>
         private void ResizeWindow()
         {
@@ -180,7 +180,7 @@ namespace First_App
         }
 
         /// <summary>
-        ///
+        ///     Event occurs after pressing mouse left button down.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

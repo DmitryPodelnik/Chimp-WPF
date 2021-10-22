@@ -26,7 +26,7 @@ namespace First_App.Views.User_Controls
         }
 
         /// <summary>
-        /// 
+        ///     Event occurs when DataGrid size was changed.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

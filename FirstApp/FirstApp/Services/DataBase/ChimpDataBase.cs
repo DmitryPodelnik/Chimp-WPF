@@ -328,7 +328,8 @@ namespace First_App.Models.DataBase
         }
 
         /// <summary>
-        /// 
+        ///     Update last seen of current user into database.
+        ///     Sets current user IsOnline value to false;
         /// </summary>
         /// <returns></returns>
         public bool UpdateLastSeenTime()

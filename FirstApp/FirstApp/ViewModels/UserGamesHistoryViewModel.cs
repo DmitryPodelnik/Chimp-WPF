@@ -31,7 +31,8 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        /// 
+        ///     UserGamesHistoryViewModel constructor().
+        ///     Get current user records from the database.
         /// </summary>
         public UserGamesHistoryViewModel()
         {

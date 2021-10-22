@@ -44,7 +44,8 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        /// 
+        ///     UserRecordsViewModel constructor().
+        ///     Get all records from the database.
         /// </summary>
         public UserRecordsViewModel()
         {

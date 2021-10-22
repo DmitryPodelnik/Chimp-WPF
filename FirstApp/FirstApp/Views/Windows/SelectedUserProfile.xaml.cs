@@ -29,7 +29,7 @@ namespace First_App.Views.Windows
         }
 
         /// <summary>
-        ///
+        ///     Event occurs after pressing mouse left button down.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -41,7 +41,7 @@ namespace First_App.Views.Windows
         }
 
         /// <summary>
-        ///
+        ///     Event occurs after clicking cross button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

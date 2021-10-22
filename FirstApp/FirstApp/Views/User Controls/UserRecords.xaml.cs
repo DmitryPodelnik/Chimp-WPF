@@ -31,6 +31,11 @@ namespace First_App.Views
 
         }
 
+        /// <summary>
+        ///     Event occurs when DataGrid size was changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             dataGrid.Height = ((Chimp)Application.Current.MainWindow).contentControl.ActualHeight;
@@ -38,7 +43,8 @@ namespace First_App.Views
         }
 
         /// <summary>
-        ///
+        ///     Event occurs when DataGrid is loaded.
+        ///     Hightlights first 3 rows in DataGrid.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -48,7 +54,8 @@ namespace First_App.Views
         }
 
         /// <summary>
-        ///
+        ///     Event occurs after mouse moving above DataGrid.
+        ///     Hightlights first 3 rows in DataGrid.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -58,7 +65,7 @@ namespace First_App.Views
         }
 
         /// <summary>
-        ///
+        ///     Hightlights first 3 rows in DataGrid.
         /// </summary>
         private void HightLightsDataGridTopRows()
         {
@@ -93,7 +100,8 @@ namespace First_App.Views
         }
 
         /// <summary>
-        ///
+        ///     Event occurs after click username button.
+        ///     Show modal window of selected user profile.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

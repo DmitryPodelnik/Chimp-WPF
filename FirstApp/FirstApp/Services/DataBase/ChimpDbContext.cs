@@ -46,10 +46,6 @@ namespace FirstApp.Models.DataBase
             optionsBuilder.LogTo(s => System.Diagnostics.Debug.WriteLine(s));
         }
 
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UsersConfiguration());
