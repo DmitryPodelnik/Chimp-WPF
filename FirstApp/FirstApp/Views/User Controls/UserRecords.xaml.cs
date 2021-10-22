@@ -64,14 +64,23 @@ namespace First_App.Views
         {
             try
             {
-                DataGridRow row1 = dataGrid.ItemContainerGenerator.ContainerFromIndex(0) as DataGridRow;
-                row1.Background = new SolidColorBrush(Colors.Gold);
+                if (dataGrid.Items.Count > 0)
+                {
+                    DataGridRow row1 = dataGrid.ItemContainerGenerator.ContainerFromIndex(0) as DataGridRow;
+                    row1.Background = new SolidColorBrush(Colors.Gold);
+                }
 
-                DataGridRow row2 = dataGrid.ItemContainerGenerator.ContainerFromIndex(1) as DataGridRow;
-                row2.Background = new SolidColorBrush(Colors.Silver);
+                if (dataGrid.Items.Count > 1)
+                {
+                    DataGridRow row2 = dataGrid.ItemContainerGenerator.ContainerFromIndex(1) as DataGridRow;
+                    row2.Background = new SolidColorBrush(Colors.Silver);
+                }
 
-                DataGridRow row3 = dataGrid.ItemContainerGenerator.ContainerFromIndex(2) as DataGridRow;
-                row3.Background = new SolidColorBrush(Colors.Coral);
+                if (dataGrid.Items.Count > 2)
+                {
+                    DataGridRow row3 = dataGrid.ItemContainerGenerator.ContainerFromIndex(2) as DataGridRow;
+                    row3.Background = new SolidColorBrush(Colors.Coral);
+                }
             }
             catch (NullReferenceException ex)
             {
