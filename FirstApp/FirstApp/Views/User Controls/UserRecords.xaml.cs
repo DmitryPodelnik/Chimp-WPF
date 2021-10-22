@@ -1,4 +1,5 @@
 ﻿using ChimpControlLibrary;
+using First_App.Models.DataBase;
 using First_App.ViewModels;
 using First_App.Views.Windows;
 using System;
@@ -59,10 +60,10 @@ namespace First_App.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dataGrid_PreviewMouseMove(object sender, MouseEventArgs e)
-        {
-            HightLightsDataGridTopRows();
-        }
+        //private void dataGrid_PreviewMouseMove(object sender, MouseEventArgs e)
+        //{
+        //    HightLightsDataGridTopRows();
+        //}
 
         /// <summary>
         ///     Hightlights first 3 rows in DataGrid.

@@ -119,7 +119,7 @@ namespace First_App.ViewModels
                 // cancel closing chimp window
                 e.Cancel = true;
 
-                if (Authenticator.IsLoggedIn)
+                if (Navigator.CurrentViewModel is PlayFieldViewModel)
                 {
                     // change to user profile tab
                     Navigator.CurrentViewModel = new UserProfileViewModel();
