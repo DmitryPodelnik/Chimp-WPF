@@ -34,6 +34,9 @@
                 <DataGrid.Columns>
 
                     <DataGridTemplateColumn Header="Username" SortMemberPath="Username" Width="*">
+                        <!--<DataGridTemplateColumn.Header>
+                            
+                        </DataGridTemplateColumn.Header>-->
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel VerticalAlignment="Center" >

@@ -109,8 +109,12 @@ namespace First_App.ViewModels
             {
                 // cancel closing chimp window
                 e.Cancel = true;
-                // change to user profile tab
-                Navigator.CurrentViewModel = new UserProfileViewModel();
+
+                if (Authenticator.IsLoggedIn)
+                {
+                    // change to user profile tab
+                    Navigator.CurrentViewModel = new UserProfileViewModel();
+                }
             }
             else
             {

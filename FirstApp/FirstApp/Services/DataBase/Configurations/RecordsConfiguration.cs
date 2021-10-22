@@ -13,20 +13,22 @@ namespace First_App.Services.DataBase.Configurations
     {
         public void Configure(EntityTypeBuilder<Record> builder)
         {
+            int id = 1;
+
             builder.HasData(
               new Record[]
               {
-                  new Record { Id = 1, Date = DateTime.Now.ToString(), Score = 7, UserId = 1 },
-                  new Record { Id = 2, Date = DateTime.Now.ToString(), Score = 15, UserId = 1 },
-                  new Record { Id = 3, Date = DateTime.Now.ToString(), Score = 5, UserId = 1 },
-                  new Record { Id = 4, Date = DateTime.Now.ToString(), Score = 4, UserId = 1 },
-                  new Record { Id = 5, Date = DateTime.Now.ToString(), Score = 22, UserId = 1 },
-                  new Record { Id = 6, Date = DateTime.Now.ToString(), Score = 13, UserId = 1 },
-                  new Record { Id = 7, Date = DateTime.Now.ToString(), Score = 18, UserId = 1 },
-                  new Record { Id = 8, Date = DateTime.Now.ToString(), Score = 22, UserId = 1 },
-                  new Record { Id = 9, Date = DateTime.Now.ToString(), Score = 13, UserId = 1 },
-                  new Record { Id = 10, Date = DateTime.Now.ToString(), Score = 22, UserId = 1 },
-                  new Record { Id = 11, Date = DateTime.Now.ToString(), Score = 13, UserId = 1 },
+                  new Record { Id = id++, Date = DateTime.Now.ToString(), Score = 7, UserId = 1 },
+                  new Record { Id = id++, Date = DateTime.Now.ToString(), Score = 15, UserId = 1 },
+                  new Record { Id = id++, Date = DateTime.Now.ToString(), Score = 5, UserId = 1 },
+                  new Record { Id = id++, Date = DateTime.Now.ToString(), Score = 4, UserId = 1 },
+                  new Record { Id = id++, Date = DateTime.Now.ToString(), Score = 22, UserId = 1 },
+                  new Record { Id = id++, Date = DateTime.Now.ToString(), Score = 13, UserId = 1 },
+                  new Record { Id = id++, Date = DateTime.Now.ToString(), Score = 18, UserId = 1 },
+                  new Record { Id = id++, Date = DateTime.Now.ToString(), Score = 22, UserId = 1 },
+                  new Record { Id = id++, Date = DateTime.Now.ToString(), Score = 13, UserId = 1 },
+                  new Record { Id = id++, Date = DateTime.Now.ToString(), Score = 22, UserId = 1 },
+                  new Record { Id = id++, Date = DateTime.Now.ToString(), Score = 13, UserId = 1 },
 
                   new Record { Id = 12, Date = DateTime.Now.ToString(), Score = 8, UserId = 2 },
                   new Record { Id = 13, Date = DateTime.Now.ToString(), Score = 12, UserId = 2 },
