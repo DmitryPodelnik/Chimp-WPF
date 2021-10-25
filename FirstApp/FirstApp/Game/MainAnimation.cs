@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 namespace First_App.Models.Game
 {
@@ -19,7 +20,7 @@ namespace First_App.Models.Game
         private CoordsGenerator _coordsGenerator = new();
 
 
-        // collection of play grid cube buttons
+        // collection of animation grid cube buttons
         private static ObservableCollection<Button> _animationGridCubeButtons { get; set; } = new();
         public static ObservableCollection<Button> AnimationGridCubeButtons
         {
@@ -33,7 +34,7 @@ namespace First_App.Models.Game
         }
 
         /// <summary>
-        ///     Game constructor().
+        ///     MainAnimation constructor().
         ///     Initializing cube buttons of number and coords.
         /// </summary>
         protected MainAnimation(ObservableCollection<Button> animationGrid)
@@ -53,10 +54,10 @@ namespace First_App.Models.Game
         }
 
         /// <summary>
-        ///     Create or singlton instance of game class.
+        ///     Create or singlton instance of animation class.
         /// </summary>
         /// <param name="playGrid">Cube buttons collection.</param>
-        /// <returns>Existing or not instance of game class.</returns>
+        /// <returns>Existing or not instance of animation class.</returns>
         public static MainAnimation Create(ObservableCollection<Button> animationGrid)
         {
             if (_instance == null)
@@ -80,8 +81,8 @@ namespace First_App.Models.Game
         }
 
         /// <summary>
-        ///     Start game after creating play field.
-        ///     Play field initialization of cube buttons.
+        ///     Start animation after creating animation field.
+        ///     Animation field initialization of cube buttons.
         /// </summary>
         public void StartAnimation()
         {
@@ -116,7 +117,8 @@ namespace First_App.Models.Game
                 // assign new font size
                 newButton.FontSize = 40.0;
                 // set new button x:Name
-                newButton.Name = $"playButton{i}";
+                newButton.Name = $"animationButton{i}";
+                newButton.Opacity = 0;
 
                 // get resource dictionary with styles
                 ResourceDictionary resourceDictionary = Application.Current.Resources.MergedDictionaries[0];
@@ -124,12 +126,18 @@ namespace First_App.Models.Game
                 // set cubeButton style to the button
                 newButton.Style = (Style)resourceDictionary["cubeButton"];
 
-                // set row on the play grid for button
+                // set row at the animation grid for button
                 Grid.SetRow(newButton, Convert.ToInt32(_cubes[i].Coords.Y));
-                // set column on the play grid for button
+                // set column at the animation grid for button
                 Grid.SetColumn(newButton, Convert.ToInt32(_cubes[i].Coords.X));
 
-                // add button to play grid button collection
+                DoubleAnimation buttonAnimation = new DoubleAnimation();
+                buttonAnimation.From = 0;
+                buttonAnimation.To = 100;
+                buttonAnimation.Duration = TimeSpan.FromSeconds(400);
+                newButton.BeginAnimation(Button.OpacityProperty, buttonAnimation);
+
+                // add button at the animation grid button collection
                 _animationGridCubeButtons.Add(newButton);
             }
         }

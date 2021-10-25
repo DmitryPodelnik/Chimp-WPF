@@ -12,7 +12,7 @@ namespace First_App.Models.Game
     /// </summary>
     public static class Counter
     {
-        private static short _animationCubesCount = 15;
+        private static short _animationCubesCount = 10;
         public static short AnimationCubesCount
         {
             get => _animationCubesCount;

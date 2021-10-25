@@ -39,7 +39,6 @@ namespace First_App.ViewModels
 
         /// <summary>
         ///     MainTabViewModel constructor().
-        ///     Get current user from the registry.
         /// </summary>
         public MainTabViewModel()
         {
