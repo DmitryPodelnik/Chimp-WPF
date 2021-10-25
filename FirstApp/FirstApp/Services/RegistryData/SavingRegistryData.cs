@@ -156,12 +156,16 @@ namespace First_App.Models.RegistryData
         ///     Get current user login from the registry.
         /// </summary>
         /// <returns>Login if exists or null.</returns>
-        public static string GetCurrentUser()
+        public static string GetCurrentUser(bool password = false)
         {
             try
             {
                 using RegistryKey currentUserKey = Registry.CurrentUser;
                 using RegistryKey authKey = currentUserKey.OpenSubKey("ChimpAuthData");
+                if (password)
+                {
+                    return authKey?.GetValue("login", null).ToString() + ";" + authKey?.GetValue("password", null).ToString();
+                }
                 return authKey?.GetValue("login", null).ToString();
             }
             catch (ArgumentNullException ex)

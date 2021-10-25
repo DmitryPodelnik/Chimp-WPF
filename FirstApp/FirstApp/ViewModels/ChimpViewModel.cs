@@ -50,6 +50,8 @@ namespace First_App.ViewModels
             SavingRegistryData registry = new();
             if (registry.IsExistsKey("ChimpAuthData"))
             {
+                string[] loginPassword = SavingRegistryData.GetCurrentUser(true).Split(";");
+                _database.IsAuthorized(loginPassword[0], loginPassword[1]);
                 // change to user profile tab
                 Navigator.CurrentViewModel = new UserProfileViewModel();
             }

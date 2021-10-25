@@ -366,7 +366,7 @@ namespace First_App.Models.DataBase
                 return _context.Records
                 .Include(r => r.User)
                 .ThenInclude(u => u.Profile)
-                .Where(u => u.User.Username == SavingRegistryData.GetCurrentUser())
+                .Where(u => u.User.Username == SavingRegistryData.GetCurrentUser(false))
                 .OrderByDescending(r => r.Date)
                 .ToList();
             }
