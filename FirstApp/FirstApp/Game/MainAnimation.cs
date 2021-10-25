@@ -118,7 +118,6 @@ namespace First_App.Models.Game
                 newButton.FontSize = 40.0;
                 // set new button x:Name
                 newButton.Name = $"animationButton{i}";
-                newButton.Opacity = 0;
 
                 // get resource dictionary with styles
                 ResourceDictionary resourceDictionary = Application.Current.Resources.MergedDictionaries[0];
@@ -133,8 +132,10 @@ namespace First_App.Models.Game
 
                 DoubleAnimation buttonAnimation = new DoubleAnimation();
                 buttonAnimation.From = 0;
-                buttonAnimation.To = 100;
-                buttonAnimation.Duration = TimeSpan.FromSeconds(400);
+                buttonAnimation.To = 1;
+                buttonAnimation.Duration = TimeSpan.FromSeconds(3);
+                buttonAnimation.AutoReverse = true;
+                buttonAnimation.RepeatBehavior = RepeatBehavior.Forever;
                 newButton.BeginAnimation(Button.OpacityProperty, buttonAnimation);
 
                 // add button at the animation grid button collection
