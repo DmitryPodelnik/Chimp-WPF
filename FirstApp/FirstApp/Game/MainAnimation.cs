@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
+using System.Windows.Threading;
 
 namespace First_App.Models.Game
 {
@@ -18,6 +19,8 @@ namespace First_App.Models.Game
         private NumberGenerator _numberGenerator = new();
         // generator of coords for cube buttons on the play field
         private CoordsGenerator _coordsGenerator = new();
+        private static short _currentCubeButton = 1;
+        private static bool isAnimationDecrease = false;
 
 
         // collection of animation grid cube buttons
@@ -118,6 +121,7 @@ namespace First_App.Models.Game
                 newButton.FontSize = 40.0;
                 // set new button x:Name
                 newButton.Name = $"animationButton{i}";
+                newButton.Opacity = 0;
 
                 // get resource dictionary with styles
                 ResourceDictionary resourceDictionary = Application.Current.Resources.MergedDictionaries[0];
@@ -130,16 +134,62 @@ namespace First_App.Models.Game
                 // set column at the animation grid for button
                 Grid.SetColumn(newButton, Convert.ToInt32(_cubes[i].Coords.X));
 
-                DoubleAnimation buttonAnimation = new DoubleAnimation();
-                buttonAnimation.From = 0;
-                buttonAnimation.To = 1;
-                buttonAnimation.Duration = TimeSpan.FromSeconds(3);
-                buttonAnimation.AutoReverse = true;
-                buttonAnimation.RepeatBehavior = RepeatBehavior.Forever;
-                newButton.BeginAnimation(Button.OpacityProperty, buttonAnimation);
-
                 // add button at the animation grid button collection
                 _animationGridCubeButtons.Add(newButton);
+            }
+            AddAnimation();
+        }
+        void ButtonAnimation_Completed(object sender, EventArgs e)
+        {
+            DoubleAnimation buttonAnimation = new DoubleAnimation();
+            buttonAnimation.Duration = TimeSpan.FromSeconds(1);
+            buttonAnimation.Completed += ButtonAnimation_Completed;
+            if (isAnimationDecrease == false)
+            {
+                buttonAnimation.From = 0;
+                buttonAnimation.To = 1;
+                _animationGridCubeButtons[_currentCubeButton].BeginAnimation(Button.OpacityProperty, buttonAnimation);
+                _currentCubeButton++;
+            }
+            else
+            {
+                buttonAnimation.From = 1;
+                buttonAnimation.To = 0;
+                _animationGridCubeButtons[_currentCubeButton].BeginAnimation(Button.OpacityProperty, buttonAnimation);
+                _currentCubeButton--;
+            }
+            if (_currentCubeButton == Counter.AnimationCubesCount)
+            {
+                isAnimationDecrease = true;
+                _currentCubeButton--;
+                AddAnimation();
+            }
+            if (_currentCubeButton == 0)
+            {
+                isAnimationDecrease = false;
+                AddAnimation();
+            }
+        }
+
+        /// <summary>
+        ///     Create cube buttons at animation field.
+        /// </summary>
+        private void AddAnimation()
+        {
+            DoubleAnimation buttonAnimation = new DoubleAnimation();
+            buttonAnimation.Duration = TimeSpan.FromSeconds(1);
+            buttonAnimation.Completed += ButtonAnimation_Completed;
+            if (isAnimationDecrease == false)
+            {
+                buttonAnimation.From = 0;
+                buttonAnimation.To = 1;;
+                _animationGridCubeButtons[0].BeginAnimation(Button.OpacityProperty, buttonAnimation);
+            }
+            else
+            {
+                buttonAnimation.From = 1;
+                buttonAnimation.To = 0;
+                _animationGridCubeButtons[8].BeginAnimation(Button.OpacityProperty, buttonAnimation);
             }
         }
     }
