@@ -27,14 +27,14 @@ namespace First_App.ViewModels
         }
 
         // field that stores instance of animation class
-        private MainAnimation _mainAnimation = new();
+        private MainAnimation _mainAnimation = MainAnimation.Create();
         private Navigator _nav = Navigator.Create();
 
-        private ObservableCollection<Button> _playGrid { get; set; } = new();
-        public ObservableCollection<Button> PlayGrid
+        private ObservableCollection<Button> _animationGrid { get; set; } = new();
+        public ObservableCollection<Button> AnimationGrid
         {
-            get => _playGrid;
-            set => _playGrid = value;
+            get => _animationGrid;
+            set => _animationGrid = value;
         }
 
         /// <summary>
@@ -43,7 +43,22 @@ namespace First_App.ViewModels
         /// </summary>
         public MainTabViewModel()
         {
+            // call MainAnimation constructor() and initialize animation cubes
+            InitializeAnimationField();
+            // Start animation after creating animation field.
+            // Animation field initialization of cube buttons.
+            _mainAnimation.StartAnimation();
+        }
 
+        /// <summary>
+        ///     Creates or gets singleton instance of Game class.
+        ///     Calls Game constructor() pass the playGrid to constructor
+        ///     and initializes game cubes.
+        /// </summary>
+        private void InitializeAnimationField()
+        {
+            // pass play grid link to Game
+            _mainAnimation = MainAnimation.Create(_animationGrid);
         }
     }
 }
