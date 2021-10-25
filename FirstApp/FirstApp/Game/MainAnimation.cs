@@ -167,6 +167,9 @@ namespace First_App.Models.Game
             if (_currentCubeButton == 0)
             {
                 isAnimationDecrease = false;
+                _cubes.Clear();
+                _animationGridCubeButtons.Clear();
+                StartAnimation();
                 AddAnimation();
             }
         }
