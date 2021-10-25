@@ -46,9 +46,18 @@ namespace First_App.Models.Game
         ///     starting from minGenerableNumber to Counter.Score.
         /// </summary>
         /// <param name="cubes">Collection of cube buttons.</param>
-        public void GenerateNumbersForCubes (ObservableCollection<Cube> cubes)
+        public void GenerateNumbersForCubes (ObservableCollection<Cube> cubes, short count = -1)
         {
-            for (; _minGenerableNumber <= Counter.Score; _minGenerableNumber++)
+            short amount;
+            if (count == -1)
+            {
+                amount = Counter.Score;
+            }
+            else
+            {
+                amount = count;
+            }
+            for (; _minGenerableNumber <= amount; _minGenerableNumber++)
             {
                 // add new cube to collection with minGenerableNumber number
                 cubes.Add(new Cube(_minGenerableNumber));

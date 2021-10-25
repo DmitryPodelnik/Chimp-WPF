@@ -22,13 +22,23 @@ namespace First_App.Models.Game
         ///     Generate unique coords for every cube button on the play grid.
         /// </summary>
         /// <param name="cubes">Collection of cube buttons on the play grid.</param>
-        public void GenerateCoordsForCubes(ObservableCollection<Cube> cubes)
+        public void GenerateCoordsForCubes(ObservableCollection<Cube> cubes, short count = -1)
         {
             try
             {
+                short amount;
+                if (count == -1)
+                {
+                    amount = Counter.Score;
+                }
+                else
+                {
+                    amount = count;
+                }
+
                 // field for checking if button with the same coords already exists
                 bool check;
-                for (int i = 0; i < Counter.Score; i++)
+                for (int i = 0; i < amount; i++)
                 {
                     // generate new coords while it is generating not unique coords
                     do

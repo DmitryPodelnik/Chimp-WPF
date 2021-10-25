@@ -12,6 +12,13 @@ namespace First_App.Models.Game
     /// </summary>
     public static class Counter
     {
+        private static short _animationCubesCount = 10;
+        public static short AnimationCubesCount
+        {
+            get => _animationCubesCount;
+            set => _animationCubesCount = value;
+        }
+
         // field that stores the max value of numbers
         private static short _score = 4;
         public static short Score
