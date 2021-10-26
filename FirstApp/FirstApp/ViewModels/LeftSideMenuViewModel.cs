@@ -6,6 +6,7 @@ using First_App.Models.Game;
 using First_App.Models.RegistryData;
 using First_App.Navigation;
 using First_App.Services.Authentication;
+using First_App.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -210,7 +211,6 @@ namespace First_App.ViewModels
 
                                 return;
                             }
-                            ExitGame();
                         }
                         return;
                     }
@@ -222,7 +222,6 @@ namespace First_App.ViewModels
 
                         return;
                     }
-                    ExitGame();
                 });
             }
         }
@@ -241,19 +240,6 @@ namespace First_App.ViewModels
             _database.AddRecord(newRecord);
             // update current user data in the database: game count, max score and average score
             _database.UpdateCurrentUserData();
-        }
-
-        /// <summary>
-        ///     Closes game if you are sure.
-        /// </summary>
-        private void ExitGame()
-        {
-            var res = MessageBox.Show("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (res == MessageBoxResult.Yes)
-            {
-                // close chimp window
-                ((Chimp)Application.Current.MainWindow).Close();
-            }
         }
 
         /// <summary>

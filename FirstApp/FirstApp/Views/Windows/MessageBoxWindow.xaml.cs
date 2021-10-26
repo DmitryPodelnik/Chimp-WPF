@@ -19,21 +19,28 @@ namespace First_App.Views.Windows
     /// </summary>
     public partial class MessageBoxWindow : Window
     {
-        public MessageBoxWindow()
+        protected MessageBoxWindow()
         {
             InitializeComponent();
-
+            this.Owner = Application.Current.MainWindow;
         }
 
-        public void ShowMessageBox(string message, string title, MessageBoxButton buttons, MessageBoxImage image)
+        // singleton instance of Authenticator
+        private static MessageBoxWindow _instance;
+        public static MessageBoxWindow Create()
         {
-            SetValues(message, title, buttons, image);
+            if (_instance == null)
+            {
+                _instance = new MessageBoxWindow();
+            }
+            return _instance;
         }
 
-        private void SetValues(string message, string title, MessageBoxButton buttons = MessageBoxButton.OK, MessageBoxImage image = MessageBoxImage.Error)
+        public void ShowMessageBox(string message, string title, MessageBoxButton buttons = MessageBoxButton.OK,
+                                                MessageBoxImage image = MessageBoxImage.Error)
         {
-            this.message.Text = message;
-            this.Title = title;
+            messageTextBlock.Text = message;
+            Title = title;
 
             switch (buttons)
             {
@@ -80,6 +87,18 @@ namespace First_App.Views.Windows
 
                     break;
             }
+
+            this.ShowDialog();
+        }
+
+        /// <summary>
+        ///     Event occurs after clicking cross button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void crossButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -18,9 +18,12 @@
     <None Remove="Views\Windows\cross.png" />
     <None Remove="Views\Windows\cross1.png" />
     <None Remove="Views\Windows\cross2.png" />
+    <None Remove="Views\Windows\error.png" />
+    <None Remove="Views\Windows\info.png" />
     <None Remove="Views\Windows\maximize.png" />
     <None Remove="Views\Windows\normal.png" />
     <None Remove="Views\Windows\profileIcon.png" />
+    <None Remove="Views\Windows\warning.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -61,9 +64,12 @@
     <Resource Include="Views\Windows\cross.png" />
     <Resource Include="Views\Windows\cross1.png" />
     <Resource Include="Views\Windows\cross2.png" />
+    <Resource Include="Views\Windows\error.png" />
+    <Resource Include="Views\Windows\info.png" />
     <Resource Include="Views\Windows\maximize.png" />
     <Resource Include="Views\Windows\normal.png" />
     <Resource Include="Views\Windows\profileIcon.png" />
+    <Resource Include="Views\Windows\warning.png" />
   </ItemGroup>
 
   <ItemGroup>

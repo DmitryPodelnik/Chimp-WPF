@@ -7,6 +7,7 @@ using First_App.Models.RegistryData;
 using First_App.Navigation;
 using First_App.Services.Authentication;
 using First_App.Views;
+using First_App.Views.Windows;
 using FirstApp.Models.DataBase;
 using System;
 using System.Collections.Generic;
@@ -115,6 +116,7 @@ namespace First_App.ViewModels
         /// </summary>
         private void ExitGame(CancelEventArgs e)
         {
+            //MessageBoxWindow.Create().ShowMessageBox("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             var res = MessageBox.Show("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (res == MessageBoxResult.No)
             {

@@ -3,14 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:First_App.Views.Windows"
+        xmlns:vm="clr-namespace:First_App.ViewModels"
         mc:Ignorable="d"
-        Title="MessageBox" MinHeight="100" MinWidth="300" MaxHeight="100" MaxWidth="300"
+        Title="{Binding Title}" MinHeight="130" MinWidth="400" MaxHeight="130" MaxWidth="400"
         Background="{StaticResource mainBackground}"
+        WindowStartupLocation="CenterOwner" WindowStyle="None" Padding="0" ResizeMode="CanResize"
         >
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+    <Window.DataContext>
+        <vm:MessageBoxViewModel />
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-
+            <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -23,23 +30,51 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Image x:Name="errorImage" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center"
-               Source="/Views/Windows/error.png" Height="25" Visibility="Hidden" />
-        <Image x:Name="infoImage" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center"
-               Source="/Views/Windows/info.png" Height="25" Visibility="Hidden" />
-        <Image x:Name="warningImage" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center"
-               Source="/Views/Windows/warning.png" Height="25" Visibility="Hidden" />
+        <!-- Chrome Grid -->
+        <Grid x:Name="chromePanel" Grid.ColumnSpan="5" Background="#FF0A2E5A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="message" Foreground="Cyan" Grid.Row="1" Grid.ColumnSpan="4" Margin="10" />
 
-        <Button x:Name="OKButton" Content="OK" Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"
-                Style="{StaticResource yellowButton}" Visibility="Hidden"
+            <StackPanel Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right" Panel.ZIndex="99">
+                <Button x:Name="crossButton"  HorizontalContentAlignment="Center" VerticalAlignment="Center"
+                        Background="Transparent"  Height="30" Width="47" BorderThickness="0" Click="crossButton_Click"  >
+                    <Button.Content>
+                        <Image Source="/Views/Windows/cross1.png" Height="13" Width="13" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <TextBlock x:Name="titleTextBlock" Text="{Binding Title}" />
+        </Grid>
+
+
+
+        <Image x:Name="errorImage" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center"
+               Source="/Views/Windows/error.png" Height="25" Visibility="Visible" VerticalAlignment="Center" />
+        <Image x:Name="infoImage" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center"
+               Source="/Views/Windows/info.png" Height="25" Visibility="Visible"
+               VerticalAlignment="Center" />
+        <Image x:Name="warningImage" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center"
+               Source="/Views/Windows/warning.png" Height="25" Visibility="Visible"
+               VerticalAlignment="Center" />
+
+        <TextBlock x:Name="messageTextBlock" Text="вфцвфвфывыфвыфвфывыфвыф" Foreground="Cyan" Grid.Row="2" Grid.RowSpan="2"
+                   Grid.ColumnSpan="4" Margin="10 0 10 15" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+        <Button x:Name="OKButton" Content="OK" Grid.Row="3" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"
+                Style="{StaticResource yellowButton}" Visibility="Hidden" Command="{Binding OKCommand}"
                 FontSize="9" Padding="0" Margin="5 0 5 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="55" />
-        <Button x:Name="yesButton" Content="Yes" Grid.Row="2" Grid.RowSpan="2" Grid.Column="1"
-                Style="{StaticResource yellowButton}"
+        <Button x:Name="yesButton" Content="Yes" Grid.Row="3" Grid.RowSpan="2" Grid.Column="1"
+                Style="{StaticResource yellowButton}" Command="{Binding YesCommand}"
                 FontSize="9" Padding="0" Margin="5 0 5 0" VerticalAlignment="Center" Visibility="Hidden" />
-        <Button x:Name="noButton" Content="No" Grid.Row="2" Grid.RowSpan="2" Grid.Column="2"
-                Style="{StaticResource cyanButton}"
+        <Button x:Name="noButton" Content="No" Grid.Row="3" Grid.RowSpan="2" Grid.Column="2"
+                Style="{StaticResource cyanButton}" Command="{Binding NoCommand}"
                 FontSize="9" Padding="0" Margin="5 0 5 0" VerticalAlignment="Center" Visibility="Hidden" />
 
     </Grid>
