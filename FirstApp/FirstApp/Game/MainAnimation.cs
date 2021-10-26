@@ -70,7 +70,6 @@ namespace First_App.Models.Game
             _cubes.Clear();
             _animationGridCubeButtons.Clear();
             NumberGenerator.MinGenerableNumber = 1;
-            _instance = null;
         }
 
         /// <summary>
@@ -185,10 +184,11 @@ namespace First_App.Models.Game
                 }
                 if (_currentCubeButton == 0)
                 {
-                    _isAnimationDecrease = false;
-                    _cubes.Clear();
-                    _animationGridCubeButtons.Clear();
-                    StartAnimation();
+                    // ResetAnimation();
+                    // _isAnimationDecrease = false;
+                    //_cubes.Clear();
+                    //_animationGridCubeButtons.Clear();
+                    // StartAnimation();
                 }
             }
             catch (ArgumentOutOfRangeException ignored)

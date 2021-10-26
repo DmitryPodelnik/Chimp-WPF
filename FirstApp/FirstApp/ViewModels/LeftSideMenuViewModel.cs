@@ -43,18 +43,18 @@ namespace First_App.ViewModels
                 return _returnToMainTabCommand ??=
                 new RelayCommand(obj =>
                 {
-                    if (MainAnimation.IsAnimationStarted)
+                    if (!MainAnimation.IsAnimationStarted)
                     {
-                        MainAnimation.ResetAnimation();
+
+                        // if game is started then
+                        if (Game.IsGameStarted)
+                        {
+                            SaveUserData();
+                            return;
+                        }
+                        // show start main tab
+                        ShowMainTab();
                     }
-                    // if game is started then
-                    if (Game.IsGameStarted)
-                    {
-                        SaveUserData();
-                        return;
-                    }
-                    // show start main tab
-                    ShowMainTab();
                 });
             }
         }
