@@ -120,17 +120,6 @@ namespace First_App
         /// <param name="e"></param>
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            //if (this.WindowState == WindowState.Maximized)
-            //    this.Left = SystemParameters.WorkArea.Left;
-            //    this.Top = SystemParameters.WorkArea.Top;
-            //    this.Width = SystemParameters.WorkArea.Width;
-            //    this.Height = SystemParameters.WorkArea.Height;
-            //    this.ResizeMode = ResizeMode.NoResize;
-            //    this.WindowState = WindowState.Normal;
-            //    minMaxIcon.Source = new BitmapImage(
-            //       new Uri("pack://application:,,,/First App;component/Views/Windows/normal.png")
-            //    );
-            //}
 
         }
 

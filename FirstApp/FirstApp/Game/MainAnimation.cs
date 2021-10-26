@@ -93,6 +93,8 @@ namespace First_App.Models.Game
         /// </summary>
         private void InitializeGameCubes()
         {
+            //_cubes.Clear();
+            //_animationGridCubeButtons.Clear();
             // initializing cube collection of numbers
             _numberGenerator.GenerateNumbersForCubes(_cubes, Counter.AnimationCubesCount);
             // initializing cube collection of coords on the play grid
@@ -173,6 +175,7 @@ namespace First_App.Models.Game
                 {
                     buttonAnimation.From = 1;
                     buttonAnimation.To = 0;
+
                     _animationGridCubeButtons[_currentCubeButton--].BeginAnimation(Button.OpacityProperty, buttonAnimation);
                 }
                 if (_currentCubeButton == Counter.AnimationCubesCount)
@@ -185,12 +188,12 @@ namespace First_App.Models.Game
                 if (_currentCubeButton == 0)
                 {
                     _isAnimationDecrease = false;
-                    _cubes.Clear();
-                    _animationGridCubeButtons.Clear();
-                    // generate numbers and coords for cube buttons and initialize them
-                    InitializeGameCubes();
-                    //  create cube buttons at animation field
-                    CreateCubeButtonsAtPlayField();
+                    //_cubes.Clear();
+                    //_animationGridCubeButtons.Clear();
+                    //// generate numbers and coords for cube buttons and initialize them
+                    //InitializeGameCubes();
+                    ////  create cube buttons at animation field
+                    //CreateCubeButtonsAtPlayField();
                 }
             }
             catch (ArgumentOutOfRangeException ignored)
