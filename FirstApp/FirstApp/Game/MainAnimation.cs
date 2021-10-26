@@ -112,6 +112,7 @@ namespace First_App.Models.Game
                 InitializeGameCubes();
                 //  create cube buttons at animation field
                 CreateCubeButtonsAtPlayField();
+                AddAnimation();
             }
             catch (FormatException ex)
             {
@@ -154,7 +155,6 @@ namespace First_App.Models.Game
                 // add button at the animation grid button collection
                 _animationGridCubeButtons.Add(newButton);
             }
-            AddAnimation();
         }
         void ButtonAnimation_Completed(object sender, EventArgs e)
         {
@@ -184,11 +184,13 @@ namespace First_App.Models.Game
                 }
                 if (_currentCubeButton == 0)
                 {
-                    // ResetAnimation();
-                    // _isAnimationDecrease = false;
-                    //_cubes.Clear();
-                    //_animationGridCubeButtons.Clear();
-                    // StartAnimation();
+                    _isAnimationDecrease = false;
+                    _cubes.Clear();
+                    _animationGridCubeButtons.Clear();
+                    // generate numbers and coords for cube buttons and initialize them
+                    InitializeGameCubes();
+                    //  create cube buttons at animation field
+                    CreateCubeButtonsAtPlayField();
                 }
             }
             catch (ArgumentOutOfRangeException ignored)
