@@ -2,6 +2,7 @@
 using First_App.Models.DataBase;
 using First_App.Models.DataBase.Models;
 using First_App.Navigation;
+using First_App.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,7 +43,7 @@ namespace First_App.ViewModels
             }
             catch (ArgumentNullException ex)
             {
-                MessageBox.Show(ex.Message, "Eror", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBoxWindow.Create().ShowMessageBox(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

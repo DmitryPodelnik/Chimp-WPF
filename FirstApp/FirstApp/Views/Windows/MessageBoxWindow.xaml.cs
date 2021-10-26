@@ -22,6 +22,7 @@ namespace First_App.Views.Windows
         protected MessageBoxWindow()
         {
             InitializeComponent();
+
             this.Owner = Application.Current.MainWindow;
         }
 
@@ -89,16 +90,6 @@ namespace First_App.Views.Windows
             }
 
             this.ShowDialog();
-        }
-
-        /// <summary>
-        ///     Event occurs after clicking cross button.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void crossButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

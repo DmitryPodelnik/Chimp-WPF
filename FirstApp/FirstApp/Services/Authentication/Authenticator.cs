@@ -3,6 +3,7 @@ using First_App.Models.RegistryData;
 using First_App.Navigation;
 using First_App.ViewModels;
 using First_App.Views;
+using First_App.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,7 +74,7 @@ namespace First_App.Services.Authentication
             // if login or password box is null or empty then error message
             if (String.IsNullOrEmpty(login) || String.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBoxWindow.Create().ShowMessageBox("Incorrect login or password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
@@ -90,7 +91,7 @@ namespace First_App.Services.Authentication
             }
             else // or show error message
             {
-                MessageBox.Show("Incorrect login or password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBoxWindow.Create().ShowMessageBox("Incorrect login or password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             // clear password box field

@@ -1,4 +1,5 @@
 ﻿using First_App.ViewModels;
+using First_App.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,15 @@ namespace First_App.Views
         /// <param name="e">Router event arguments.</param>
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (this.DataContext != null)
-            { ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password; }
+            try
+            {
+                if (this.DataContext != null)
+                { ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password; }
+            }
+            catch (Exception ex)
+            {
+                MessageBoxWindow.Create().ShowMessageBox(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

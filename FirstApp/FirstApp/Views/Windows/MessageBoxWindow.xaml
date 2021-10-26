@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="{Binding Title}" MinHeight="130" MinWidth="400" MaxHeight="130" MaxWidth="400"
         Background="{StaticResource mainBackground}"
-        WindowStartupLocation="CenterOwner" WindowStyle="None" Padding="0" ResizeMode="CanResize"
+        WindowStartupLocation="CenterOwner" WindowStyle="None" Padding="0" ResizeMode="NoResize"
         >
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"/>
@@ -40,31 +40,21 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-
-            <StackPanel Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right" Panel.ZIndex="99">
-                <Button x:Name="crossButton"  HorizontalContentAlignment="Center" VerticalAlignment="Center"
-                        Background="Transparent"  Height="30" Width="47" BorderThickness="0" Click="crossButton_Click"  >
-                    <Button.Content>
-                        <Image Source="/Views/Windows/cross1.png" Height="13" Width="13" />
-                    </Button.Content>
-                </Button>
-            </StackPanel>
-
             <TextBlock x:Name="titleTextBlock" Text="{Binding Title}" />
         </Grid>
 
 
 
         <Image x:Name="errorImage" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center"
-               Source="/Views/Windows/error.png" Height="25" Visibility="Visible" VerticalAlignment="Center" />
+               Source="/Views/Windows/error.png" Height="25" Visibility="Hidden" VerticalAlignment="Center" />
         <Image x:Name="infoImage" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center"
-               Source="/Views/Windows/info.png" Height="25" Visibility="Visible"
+               Source="/Views/Windows/info.png" Height="25" Visibility="Hidden"
                VerticalAlignment="Center" />
         <Image x:Name="warningImage" Grid.Row="1" Grid.RowSpan="3" HorizontalAlignment="Center"
-               Source="/Views/Windows/warning.png" Height="25" Visibility="Visible"
+               Source="/Views/Windows/warning.png" Height="25" Visibility="Hidden"
                VerticalAlignment="Center" />
 
-        <TextBlock x:Name="messageTextBlock" Text="вфцвфвфывыфвыфвфывыфвыф" Foreground="Cyan" Grid.Row="2" Grid.RowSpan="2"
+        <TextBlock x:Name="messageTextBlock" Foreground="Cyan" Grid.Row="2" Grid.RowSpan="2"
                    Grid.ColumnSpan="4" Margin="10 0 10 15" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
         <Button x:Name="OKButton" Content="OK" Grid.Row="3" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"
