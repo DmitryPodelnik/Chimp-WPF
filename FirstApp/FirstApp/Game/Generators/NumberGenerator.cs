@@ -34,7 +34,12 @@ namespace First_App.Models.Game
             }
         }
         // min number in cube buttons
-        private short _minGenerableNumber = 1;
+        private static short _minGenerableNumber = 1;
+        public static short MinGenerableNumber
+        {
+            get => _minGenerableNumber;
+            set => _minGenerableNumber = value;
+        }
 
         /// <summary>
         ///     NumberGenerator constructor().

@@ -50,9 +50,9 @@ namespace First_App.ViewModels
         }
 
         /// <summary>
-        ///     Creates or gets singleton instance of Game class.
-        ///     Calls Game constructor() pass the playGrid to constructor
-        ///     and initializes game cubes.
+        ///     Creates or gets singleton instance of MainAnimation class.
+        ///     Calls MainAnimation constructor() pass the animationGrid to constructor
+        ///     and initializes animation cubes.
         /// </summary>
         private void InitializeAnimationField()
         {

@@ -43,6 +43,10 @@ namespace First_App.ViewModels
                 return _returnToMainTabCommand ??=
                 new RelayCommand(obj =>
                 {
+                    if (MainAnimation.IsAnimationStarted)
+                    {
+                        MainAnimation.ResetAnimation();
+                    }
                     // if game is started then
                     if (Game.IsGameStarted)
                     {
@@ -75,6 +79,10 @@ namespace First_App.ViewModels
                 return _playCommand ??=
                 new RelayCommand(obj =>
                 {
+                    if (MainAnimation.IsAnimationStarted)
+                    {
+                        MainAnimation.ResetAnimation();
+                    }
                     // if game is started then
                     if (Game.IsGameStarted)
                     {
@@ -107,6 +115,10 @@ namespace First_App.ViewModels
                 return _showProfileCommand ??=
                 new RelayCommand(obj =>
                 {
+                    if (MainAnimation.IsAnimationStarted)
+                    {
+                        MainAnimation.ResetAnimation();
+                    }
                     // if game is started then
                     if (Game.IsGameStarted)
                     {
@@ -138,6 +150,10 @@ namespace First_App.ViewModels
                 return _showRecordsCommand ??=
                 new RelayCommand(obj =>
                 {
+                    if (MainAnimation.IsAnimationStarted)
+                    {
+                        MainAnimation.ResetAnimation();
+                    }
                     // if game is started then
                     if (Game.IsGameStarted)
                     {
@@ -173,6 +189,10 @@ namespace First_App.ViewModels
                 return _exitCommand ??=
                 new RelayCommand(obj =>
                 {
+                    if (MainAnimation.IsAnimationStarted)
+                    {
+                        MainAnimation.ResetAnimation();
+                    }
                     // if game is started then
                     if (Game.IsGameStarted)
                     {
@@ -260,7 +280,7 @@ namespace First_App.ViewModels
             }
             else
             {
-                _nav.CurrentViewModel = new UserProfileViewModel();
+                //_nav.CurrentViewModel = new UserProfileViewModel();
             }
         }
 

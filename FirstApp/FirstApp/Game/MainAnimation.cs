@@ -15,13 +15,13 @@ namespace First_App.Models.Game
     class MainAnimation
     {
         // cube buttons with number, which must be pressed
-        private ObservableCollection<Cube> _cubes = new();
+        private static ObservableCollection<Cube> _cubes = new();
         // generator of numbers at cube buttons
         private NumberGenerator _numberGenerator = new();
         // generator of coords for cube buttons on the play field
         private CoordsGenerator _coordsGenerator = new();
         private static short _currentCubeButton = 0;
-        private static bool isAnimationDecrease = false;
+        private static bool _isAnimationDecrease = false;
         // indicate if animation is started
         private static bool _isAnimationStarted = false;
         public static bool IsAnimationStarted
@@ -62,6 +62,17 @@ namespace First_App.Models.Game
             return _instance;
         }
 
+        public static void ResetAnimation()
+        {
+            _currentCubeButton = 0;
+            _isAnimationDecrease = false;
+            _isAnimationStarted = false;
+            _cubes.Clear();
+            _animationGridCubeButtons.Clear();
+            NumberGenerator.MinGenerableNumber = 1;
+            _instance = null;
+        }
+
         /// <summary>
         ///     Create or singlton instance of animation class.
         /// </summary>
@@ -97,6 +108,7 @@ namespace First_App.Models.Game
         {
             try
             {
+                _isAnimationStarted = true;
                 // generate numbers and coords for cube buttons and initialize them
                 InitializeGameCubes();
                 //  create cube buttons at animation field
@@ -126,7 +138,7 @@ namespace First_App.Models.Game
                 // assign new font size
                 newButton.FontSize = 40.0;
                 // set new button x:Name
-                newButton.Name = $"animationButton{i}";
+                newButton.Name = $"animationButton{i + 1}";
                 newButton.Opacity = 0;
 
                 // get resource dictionary with styles
@@ -147,34 +159,41 @@ namespace First_App.Models.Game
         }
         void ButtonAnimation_Completed(object sender, EventArgs e)
         {
-            DoubleAnimation buttonAnimation = new DoubleAnimation();
-            buttonAnimation.Duration = TimeSpan.FromSeconds(1);
-            buttonAnimation.Completed += ButtonAnimation_Completed;
-            if (isAnimationDecrease == false)
+            try
             {
-                buttonAnimation.From = 0;
-                buttonAnimation.To = 1;
-                _animationGridCubeButtons[_currentCubeButton++].BeginAnimation(Button.OpacityProperty, buttonAnimation);
-            }
-            else
-            {
-                buttonAnimation.From = 1;
-                buttonAnimation.To = 0;
-                _animationGridCubeButtons[_currentCubeButton--].BeginAnimation(Button.OpacityProperty, buttonAnimation);
-            }
-            if (_currentCubeButton == Counter.AnimationCubesCount)
-            {
-                isAnimationDecrease = true;
-                _currentCubeButton--;
+                DoubleAnimation buttonAnimation = new DoubleAnimation();
+                buttonAnimation.Duration = TimeSpan.FromSeconds(1);
+                buttonAnimation.Completed += ButtonAnimation_Completed;
+                if (_isAnimationDecrease == false)
+                {
+                    buttonAnimation.From = 0;
+                    buttonAnimation.To = 1;
+                    _animationGridCubeButtons[_currentCubeButton++].BeginAnimation(Button.OpacityProperty, buttonAnimation);
+                }
+                else
+                {
+                    buttonAnimation.From = 1;
+                    buttonAnimation.To = 0;
+                    _animationGridCubeButtons[_currentCubeButton--].BeginAnimation(Button.OpacityProperty, buttonAnimation);
+                }
+                if (_currentCubeButton == Counter.AnimationCubesCount)
+                {
+                    _isAnimationDecrease = true;
+                    _currentCubeButton--;
 
-                return;
+                    return;
+                }
+                if (_currentCubeButton == 0)
+                {
+                    _isAnimationDecrease = false;
+                    _cubes.Clear();
+                    _animationGridCubeButtons.Clear();
+                    StartAnimation();
+                }
             }
-            if (_currentCubeButton == 0)
+            catch (ArgumentOutOfRangeException ignored)
             {
-                isAnimationDecrease = false;
-                _cubes.Clear();
-                _animationGridCubeButtons.Clear();
-                StartAnimation();
+
             }
         }
 
@@ -186,7 +205,7 @@ namespace First_App.Models.Game
             DoubleAnimation buttonAnimation = new DoubleAnimation();
             buttonAnimation.Duration = TimeSpan.FromSeconds(1);
             buttonAnimation.Completed += ButtonAnimation_Completed;
-            if (isAnimationDecrease == false)
+            if (_isAnimationDecrease == false)
             {
                 buttonAnimation.From = 0;
                 buttonAnimation.To = 1;
