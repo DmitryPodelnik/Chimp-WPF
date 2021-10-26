@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,10 +20,15 @@ namespace First_App.Models.Game
         private NumberGenerator _numberGenerator = new();
         // generator of coords for cube buttons on the play field
         private CoordsGenerator _coordsGenerator = new();
-        private static short _currentCubeButton = 1;
+        private static short _currentCubeButton = 0;
         private static bool isAnimationDecrease = false;
-
-
+        // indicate if animation is started
+        private static bool _isAnimationStarted = false;
+        public static bool IsAnimationStarted
+        {
+            get => _isAnimationStarted;
+            set => _isAnimationStarted = value;
+        }
         // collection of animation grid cube buttons
         private static ObservableCollection<Button> _animationGridCubeButtons { get; set; } = new();
         public static ObservableCollection<Button> AnimationGridCubeButtons
@@ -148,21 +154,20 @@ namespace First_App.Models.Game
             {
                 buttonAnimation.From = 0;
                 buttonAnimation.To = 1;
-                _animationGridCubeButtons[_currentCubeButton].BeginAnimation(Button.OpacityProperty, buttonAnimation);
-                _currentCubeButton++;
+                _animationGridCubeButtons[_currentCubeButton++].BeginAnimation(Button.OpacityProperty, buttonAnimation);
             }
             else
             {
                 buttonAnimation.From = 1;
                 buttonAnimation.To = 0;
-                _animationGridCubeButtons[_currentCubeButton].BeginAnimation(Button.OpacityProperty, buttonAnimation);
-                _currentCubeButton--;
+                _animationGridCubeButtons[_currentCubeButton--].BeginAnimation(Button.OpacityProperty, buttonAnimation);
             }
             if (_currentCubeButton == Counter.AnimationCubesCount)
             {
                 isAnimationDecrease = true;
                 _currentCubeButton--;
-                AddAnimation();
+
+                return;
             }
             if (_currentCubeButton == 0)
             {
@@ -170,7 +175,6 @@ namespace First_App.Models.Game
                 _cubes.Clear();
                 _animationGridCubeButtons.Clear();
                 StartAnimation();
-                AddAnimation();
             }
         }
 
@@ -185,14 +189,14 @@ namespace First_App.Models.Game
             if (isAnimationDecrease == false)
             {
                 buttonAnimation.From = 0;
-                buttonAnimation.To = 1;;
-                _animationGridCubeButtons[0].BeginAnimation(Button.OpacityProperty, buttonAnimation);
+                buttonAnimation.To = 1;
+                _animationGridCubeButtons[_currentCubeButton++].BeginAnimation(Button.OpacityProperty, buttonAnimation);
             }
             else
             {
                 buttonAnimation.From = 1;
                 buttonAnimation.To = 0;
-                _animationGridCubeButtons[8].BeginAnimation(Button.OpacityProperty, buttonAnimation);
+                _animationGridCubeButtons[_currentCubeButton--].BeginAnimation(Button.OpacityProperty, buttonAnimation);
             }
         }
     }

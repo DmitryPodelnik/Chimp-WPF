@@ -46,16 +46,7 @@ namespace First_App.ViewModels
                     // if game is started then
                     if (Game.IsGameStarted)
                     {
-                        // are you sure to finish current game?
-                        if (IsSureToFinishGame())
-                        {
-                            // save current game record to database
-                            SaveNewRecord();
-                            // show start main tab
-                            ShowMainTab();
-                            // assign to Game.IsGameStarted - false
-                            Game.IsGameStarted = false;
-                        }
+                        SaveUserData();
                         return;
                     }
                     // show start main tab
@@ -87,16 +78,7 @@ namespace First_App.ViewModels
                     // if game is started then
                     if (Game.IsGameStarted)
                     {
-                        // are you sure to finish current game?
-                        if (IsSureToFinishGame())
-                        {
-                            // save current game record to database
-                            SaveNewRecord();
-                            // show start game tab
-                            StartPlay();
-                            // assign to Game.IsGameStarted - false
-                            Game.IsGameStarted = false;
-                        }
+                        SaveUserData();
                         return;
                     }
                     // show start game tab
@@ -128,16 +110,7 @@ namespace First_App.ViewModels
                     // if game is started then
                     if (Game.IsGameStarted)
                     {
-                        // are you sure to finish current game?
-                        if (IsSureToFinishGame())
-                        {
-                            // save current game record to database
-                            SaveNewRecord();
-                            // show user profile tab
-                            ShowProfile();
-                            // assign to Game.IsGameStarted - false
-                            Game.IsGameStarted = false;
-                        }
+                        SaveUserData();
                         return;
                     }
                     // show user profile tab
@@ -168,16 +141,7 @@ namespace First_App.ViewModels
                     // if game is started then
                     if (Game.IsGameStarted)
                     {
-                        // are you sure to finish current game?
-                        if (IsSureToFinishGame())
-                        {
-                            // save current game record to database
-                            SaveNewRecord();
-                            // show user records tab
-                            ShowRecords();
-                            // assign to Game.IsGameStarted - false
-                            Game.IsGameStarted = false;
-                        }
+                        SaveUserData();
                         return;
                     }
                     // show user records tab
@@ -317,6 +281,24 @@ namespace First_App.ViewModels
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <returns></returns>
+        private void SaveUserData()
+        {
+            // are you sure to finish current game?
+            if (IsSureToFinishGame())
+            {
+                // save current game record to database
+                SaveNewRecord();
+                // show user profile tab
+                ShowProfile();
+                // assign to Game.IsGameStarted - false
+                Game.IsGameStarted = false;
+            }
         }
     }
 }
