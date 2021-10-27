@@ -71,7 +71,7 @@ namespace First_App.Models.Game
             _isAnimationStarted = false;
             _cubes.Clear();
             _animationGridCubeButtons.Clear();
-            NumberGenerator.MinGenerableNumber = 1;
+            // NumberGenerator.MinGenerableNumber = 1;
             _wasReset = true;
         }
 

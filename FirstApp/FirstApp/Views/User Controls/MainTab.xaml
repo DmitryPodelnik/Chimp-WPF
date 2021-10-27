@@ -8,30 +8,31 @@
     <ItemsControl ItemsSource="{Binding AnimationGrid}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <Grid x:Name="animationGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="False" Margin="5px">
+                <Grid x:Name="animationGrid" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="4" ShowGridLines="False" Margin="5px"
+                      VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Grid.RowDefinitions>
                         <!-- 8 rows -->
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
+                        <RowDefinition Height="65px" />
+                        <RowDefinition Height="65px" />
+                        <RowDefinition Height="65px" />
+                        <RowDefinition Height="65px" />
+                        <RowDefinition Height="65px" />
+                        <RowDefinition Height="65px" />
+                        <RowDefinition Height="65px" />
+                        <RowDefinition Height="65px" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <!-- 10 columns -->
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="65px" />
+                        <ColumnDefinition Width="65px" />
+                        <ColumnDefinition Width="65px" />
+                        <ColumnDefinition Width="65px" />
+                        <ColumnDefinition Width="65px" />
+                        <ColumnDefinition Width="65px" />
+                        <ColumnDefinition Width="65px" />
+                        <ColumnDefinition Width="65px" />
+                        <ColumnDefinition Width="65px" />
+                        <ColumnDefinition Width="65px" />
                     </Grid.ColumnDefinitions>
                 </Grid>
             </ItemsPanelTemplate>
