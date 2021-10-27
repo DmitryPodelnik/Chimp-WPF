@@ -160,6 +160,20 @@ namespace First_App.Models.Game
             }
         }
 
+        void ButtonAnimationLast_Completed(object sender, EventArgs e)
+        {
+            _isAnimationDecrease = false;
+            _currentCubeButton++;
+
+            _cubes.Clear();
+            _animationGridCubeButtons.Clear();
+            //// generate numbers and coords for cube buttons and initialize them
+            InitializeGameCubes();
+            ////  create cube buttons at animation field
+            CreateCubeButtonsAtPlayField();
+            ButtonAnimation_Completed(this, null);
+        }
+
         /// <summary>
         ///
         /// </summary>
@@ -171,7 +185,14 @@ namespace First_App.Models.Game
             {
                 DoubleAnimation buttonAnimation = new DoubleAnimation();
                 buttonAnimation.Duration = TimeSpan.FromSeconds(1);
-                buttonAnimation.Completed += ButtonAnimation_Completed;
+                if (_currentCubeButton == 0 && _isAnimationDecrease == true)
+                {
+                    buttonAnimation.Completed += ButtonAnimationLast_Completed;
+                }
+                else
+                {
+                    buttonAnimation.Completed += ButtonAnimation_Completed;
+                }
                 if (_isAnimationDecrease == false)
                 {
                     buttonAnimation.From = 0;
@@ -182,7 +203,6 @@ namespace First_App.Models.Game
                 {
                     buttonAnimation.From = 1;
                     buttonAnimation.To = 0;
-
                     _animationGridCubeButtons[_currentCubeButton--].BeginAnimation(Button.OpacityProperty, buttonAnimation);
                 }
                 if (_currentCubeButton == Counter.AnimationCubesCount)
@@ -191,16 +211,6 @@ namespace First_App.Models.Game
                     _currentCubeButton--;
 
                     return;
-                }
-                if (_currentCubeButton == 0)
-                {
-                    _isAnimationDecrease = false;
-                    //_cubes.Clear();
-                    //_animationGridCubeButtons.Clear();
-                    //// generate numbers and coords for cube buttons and initialize them
-                    //InitializeGameCubes();
-                    ////  create cube buttons at animation field
-                    //CreateCubeButtonsAtPlayField();
                 }
             }
             catch (ArgumentOutOfRangeException ignored)
