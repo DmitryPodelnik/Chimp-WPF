@@ -46,7 +46,6 @@ namespace First_App.ViewModels
                 {
                     if (!MainAnimation.IsAnimationStarted)
                     {
-
                         // if game is started then
                         if (Game.IsGameStarted)
                         {

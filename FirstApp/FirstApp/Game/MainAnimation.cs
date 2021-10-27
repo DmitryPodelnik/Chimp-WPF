@@ -23,6 +23,7 @@ namespace First_App.Models.Game
         private CoordsGenerator _coordsGenerator = new();
         private static short _currentCubeButton = 0;
         private static bool _isAnimationDecrease = false;
+        private static bool _wasReset = false;
         // indicate if animation is started
         private static bool _isAnimationStarted = false;
         public static bool IsAnimationStarted
@@ -53,7 +54,7 @@ namespace First_App.Models.Game
         }
 
         // realizing singleton instance
-        private static MainAnimation _instance = null;
+        private static MainAnimation _instance;
         public static MainAnimation Create()
         {
             if (_instance == null)
@@ -71,6 +72,7 @@ namespace First_App.Models.Game
             _cubes.Clear();
             _animationGridCubeButtons.Clear();
             NumberGenerator.MinGenerableNumber = 1;
+            _wasReset = true;
         }
 
         /// <summary>
@@ -227,6 +229,11 @@ namespace First_App.Models.Game
             DoubleAnimation buttonAnimation = new DoubleAnimation();
             buttonAnimation.Duration = TimeSpan.FromSeconds(1);
             buttonAnimation.Completed += ButtonAnimation_Completed;
+            if (_wasReset && _currentCubeButton == 1)
+            {
+                --_currentCubeButton;
+                _wasReset = false;
+            }
             if (_isAnimationDecrease == false)
             {
                 buttonAnimation.From = 0;
