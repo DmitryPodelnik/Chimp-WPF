@@ -1,4 +1,5 @@
 ﻿using First_App.Models.Commands;
+using First_App.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,7 @@ namespace First_App.ViewModels
                 return _yesCommand ??=
                 new RelayCommand(obj =>
                 {
+                    MessageBoxWindow.Result = MessageBoxResult.Yes;
                     Application.Current.MainWindow.OwnedWindows[0].Close();
                 });
             }
@@ -47,6 +49,7 @@ namespace First_App.ViewModels
                 return _noCommand ??=
                 new RelayCommand(obj =>
                 {
+                    MessageBoxWindow.Result = MessageBoxResult.No;
                     Application.Current.MainWindow.OwnedWindows[0].Close();
                 });
             }
@@ -63,6 +66,7 @@ namespace First_App.ViewModels
                 return _OKCommand ??=
                 new RelayCommand(obj =>
                 {
+                    MessageBoxWindow.Result = MessageBoxResult.Yes;
                     Application.Current.MainWindow.OwnedWindows[0].Close();
                 });
             }

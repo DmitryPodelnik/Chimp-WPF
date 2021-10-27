@@ -247,7 +247,7 @@ namespace First_App.ViewModels
         /// </summary>
         private void ExitFromAccount()
         {
-            var res = MessageBox.Show("Are you sure to exit from the account?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            var res = MessageBoxWindow.Create().ShowMessageBox("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (res == MessageBoxResult.Yes)
             {
                 // update current user data in the database: game count, max score and average score
@@ -275,12 +275,8 @@ namespace First_App.ViewModels
         /// <returns>True if yes or false.</returns>
         private bool IsSureToFinishGame()
         {
-            MessageBoxResult res =
-                MessageBox.Show("Are you sure to finish the game and save current result?",
-                                "Warning",
-                                MessageBoxButton.YesNo,
-                                MessageBoxImage.Warning
-                );
+            var res = MessageBoxWindow.Create().ShowMessageBox("Are you sure to finish the game and save current result?", "Warning",
+                            MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (res == MessageBoxResult.Yes)
             {
                 return true;

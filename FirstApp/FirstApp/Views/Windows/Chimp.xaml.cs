@@ -192,7 +192,9 @@ namespace First_App
             }
             base.OnMouseLeftButtonDown(e);
             if (e.ButtonState == MouseButtonState.Pressed)
+            {
                 DragMove();
+            }
         }
     }
 }

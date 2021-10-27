@@ -116,8 +116,7 @@ namespace First_App.ViewModels
         /// </summary>
         private void ExitGame(CancelEventArgs e)
         {
-            //MessageBoxWindow.Create().ShowMessageBox("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            var res = MessageBox.Show("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            var res = MessageBoxWindow.Create().ShowMessageBox("Are you sure to exit the game?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (res == MessageBoxResult.No)
             {
                 // cancel closing chimp window
@@ -151,12 +150,8 @@ namespace First_App.ViewModels
         /// <returns>True if yes or false.</returns>
         private bool IsSureToFinishGame()
         {
-            MessageBoxResult res =
-                MessageBox.Show("Are you sure to finish the game and save current result?",
-                                "Warning",
-                                MessageBoxButton.YesNo,
-                                MessageBoxImage.Warning
-                );
+            var res = MessageBoxWindow.Create().ShowMessageBox("Are you sure to finish the game and save current result?", "Warning",
+                            MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (res == MessageBoxResult.Yes)
             {
                 return true;

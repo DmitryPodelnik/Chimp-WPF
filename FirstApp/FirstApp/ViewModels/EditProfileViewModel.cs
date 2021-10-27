@@ -2,6 +2,7 @@
 using First_App.Models.DataBase;
 using First_App.Models.RegistryData;
 using First_App.Navigation;
+using First_App.Views.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -61,7 +62,7 @@ namespace First_App.ViewModels
             // if ok then show success message and welcome message
             if (res == true)
             {
-                MessageBox.Show("You have been successfully changed the user data", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBoxWindow.Create().ShowMessageBox("You have been successfully changed the user data", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             // clear fields of new user data
             NewLogin = "";

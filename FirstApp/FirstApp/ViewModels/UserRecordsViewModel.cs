@@ -83,7 +83,6 @@ namespace First_App.ViewModels
                 return _showUserProfileCommand ??=
                 new RelayCommand(obj =>
                 {
-                    MessageBox.Show("Hello");
                     SelectedUserProfile userProfile = new();
                     userProfile.ShowDialog();
                 });

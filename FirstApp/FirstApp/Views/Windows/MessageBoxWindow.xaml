@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:First_App.ViewModels"
         mc:Ignorable="d"
         Title="{Binding Title}" MinHeight="130" MinWidth="400" MaxHeight="130" MaxWidth="400"
-        Background="{StaticResource mainBackground}"
+        Background="#FF0B4577"
         WindowStartupLocation="CenterOwner" WindowStyle="None" Padding="0" ResizeMode="NoResize"
         >
     <WindowChrome.WindowChrome>
@@ -31,7 +31,8 @@
         </Grid.ColumnDefinitions>
 
         <!-- Chrome Grid -->
-        <Grid x:Name="chromePanel" Grid.ColumnSpan="5" Background="#FF0A2E5A">
+        <Grid x:Name="chromePanel" Grid.ColumnSpan="5" Background="#FF0A2E5A"
+              PreviewMouseLeftButtonDown="Button_MouseLeftButtonDown" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition/>
